@@ -1,0 +1,19 @@
+# Render Blueprint for the backend (Render → New → Blueprint → this repo).
+# The shop and the admin panel are on Vercel and forward /api/* to this service (see their vercel.json).
+services:
+  - type: web
+    name: ihle-backend # gives https://ihle-backend.onrender.com if the name is free; otherwise update both vercel.json files
+    runtime: node
+    region: frankfurt # next to the Neon database (eu-central-1)
+    plan: starter # always on; the free plan sleeps after 15 minutes and wakes up slowly
+    rootDir: backend # only changes in backend/ trigger a new deploy
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production # secure cookies
+      - key: DATABASE_URL
+        sync: false # pasted in Render's dashboard: Neon → Connection string (pooled)
+      - key: SESSION_SECRET
+        generateValue: true # long random value created by Render; changing it logs everyone out

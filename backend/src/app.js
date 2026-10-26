@@ -5,11 +5,13 @@ import adminRoutes from './modules/admin/adminRoutes.js'
 import photoRoutes from './modules/photos/photoRoutes.js'
 import shopRoutes from './modules/shop/shopRoutes.js'
 
-// The Express app, shared by the local server (server.js) and Vercel (api/index.js)
+// The Express app, started by server.js (locally and on Render)
 const app = express()
 
 app.disable('x-powered-by')
-// Behind Vercel's proxy: use the real client address (login limiter) and the https flag (secure cookies)
+// Behind Render's proxy: trust exactly that one hop (https flag, client address for the login limiter).
+// Shop and admin reach the backend through Vercel's /api rewrite, so the address seen here is Vercel's;
+// the limiter keys include the customer number, so lockouts still work per account.
 app.set('trust proxy', 1)
 // JSON answers (e.g. the 3,800 customers for the admin panel) shrink to a fraction; photos are already compressed
 app.use(compression({ filter: (req, res) => !req.path.startsWith('/api/photos') && compression.filter(req, res) }))
