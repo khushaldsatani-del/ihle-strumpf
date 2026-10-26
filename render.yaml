@@ -2,7 +2,7 @@
 # The shop and the admin panel are on Vercel and forward /api/* to this service (see their vercel.json).
 services:
   - type: web
-    name: ihle-backend # gives https://ihle-backend.onrender.com if the name is free; otherwise update both vercel.json files
+    name: ihle-strumpf # the service at https://ihle-strumpf.onrender.com; both vercel.json files forward /api there
     runtime: node
     region: frankfurt # next to the Neon database (eu-central-1)
     plan: starter # always on; the free plan sleeps after 15 minutes and wakes up slowly
