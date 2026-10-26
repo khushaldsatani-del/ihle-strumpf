@@ -1,0 +1,30 @@
+{
+  "name": "ihle-webshop-backend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch --env-file=.env src/server.js",
+    "start": "node src/server.js",
+    "db:check": "node --env-file=.env src/scripts/checkDb.js",
+    "db:migrate": "node --env-file=.env src/scripts/migrate.js",
+    "import": "node --env-file=.env src/scripts/importFile.js",
+    "admin:create": "node --env-file=.env src/scripts/createAdmin.js",
+    "photos:upload": "node --env-file=.env src/scripts/uploadPhotos.js",
+    "customer:password": "node --env-file=.env src/scripts/setCustomerPassword.js",
+    "lint": "oxlint"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "compression": "^1.8.2",
+    "cookie-parser": "^1.4.7",
+    "express": "^5.1.0",
+    "fast-xml-parser": "^5.2.5",
+    "multer": "^2.0.2",
+    "pg": "^8.16.3",
+    "sharp": "^0.35.5"
+  },
+  "devDependencies": {
+    "oxlint": "^1.81.0"
+  }
+}

@@ -1,0 +1,706 @@
+{
+  "common": {
+    "loading": "Laden …",
+    "loadErrorTitle": "Er is iets misgegaan",
+    "loadErrorText": "De gegevens konden niet worden geladen. Probeer het opnieuw.",
+    "retry": "Opnieuw proberen"
+  },
+  "nav": {
+    "main": "Hoofdnavigatie",
+    "home": "Ihle – startpagina",
+    "skip": "Naar de inhoud",
+    "allProducts": "Alle producten",
+    "productCategories": "Productcategorieën",
+    "material": "Materiaal",
+    "services": "Diensten",
+    "about": "Over ons",
+    "search": "Zoeken",
+    "searchPlaceholder": "Product of artikelnummer zoeken",
+    "closeSearch": "Zoeken sluiten",
+    "language": "Taal",
+    "account": "Account",
+    "login": "Inloggen",
+    "myOrders": "Mijn bestellingen",
+    "addresses": "Adressen",
+    "settings": "Instellingen",
+    "logout": "Uitloggen",
+    "cart": "Winkelwagen",
+    "cartCount_one": "Winkelwagen, {{count}} artikel",
+    "cartCount_other": "Winkelwagen, {{count}} artikelen",
+    "openMenu": "Menu openen",
+    "closeMenu": "Menu sluiten",
+    "languageHint": "Kies je taal",
+    "confirm": "Bevestigen",
+    "close": "Sluiten",
+    "viewAll": "Alles bekijken",
+    "viewAllProducts": "Alle producten bekijken",
+    "megaEmpty": "De productgroepen voor deze categorie volgen binnenkort.",
+    "accountOf": "Account van {{name}}"
+  },
+  "categories": {
+    "all": "Alle producten",
+    "PROTHETIC": "Prothesen en orthesen",
+    "DIABETES": "Diabetes en probleemvoet",
+    "UNDERWEAR": "Ondergoed",
+    "ILO": "ilo®-sokken"
+  },
+  "groups": {
+    "101-US": "Onderbeenstompkous",
+    "102-US-PIN": "Onderbeenstompkous voor pinsystemen",
+    "103-OS": "Bovenbeenstompkous",
+    "104-OS-PIN": "Bovenbeenstompkous voor pinsystemen",
+    "105-ARM": "Kinder-/armstompkous",
+    "106-MASS": "Maatwerk",
+    "107-LAM": "Laminatieslang",
+    "108-GIPS": "Gipsbescherming",
+    "109-ORTH": "Orthesetextiel",
+    "201-KLAS": "Klassiek",
+    "202-KOMF": "Comfort",
+    "203-STUETZ": "Steunkous",
+    "204-HALLUX": "Hallux valgus",
+    "205-CHOPRT": "Chopart/Lisfranc"
+  },
+  "products": {
+    "sortBy": "Sorteren op:",
+    "count_one": "{{count}} product",
+    "count_other": "{{count}} producten",
+    "empty": "Voor deze selectie zijn er nog geen producten.",
+    "sort": {
+      "name": "Naam",
+      "articleNo": "Artikelnummer",
+      "price": "Prijs",
+      "size": "Maat"
+    },
+    "sortLoginHint": "na inloggen",
+    "articleNo": "Art.-nr. {{number}}",
+    "range": "{{from}}–{{to}} van {{total}}",
+    "show": "Tonen:",
+    "pages": {
+      "label": "Pagina's",
+      "previous": "Vorige pagina",
+      "next": "Volgende pagina",
+      "page": "Pagina {{page}}"
+    },
+    "view": {
+      "label": "Weergave",
+      "grid": "Rasterweergave",
+      "list": "Lijstweergave"
+    },
+    "loading": "Producten laden …",
+    "loadError": "De producten kunnen nu niet worden geladen. Probeer het later opnieuw."
+  },
+  "product": {
+    "breadcrumb": "Je bent hier",
+    "details": "Productdetails",
+    "related": "Meer producten",
+    "notFound": "Product niet gevonden",
+    "backToProducts": "Terug naar alle producten",
+    "images": "Productfoto's",
+    "image": "Foto {{number}}",
+    "imageSoon": "Foto volgt"
+  },
+  "order": {
+    "quantity": "Aantal",
+    "less": "Aantal verlagen",
+    "more": "Aantal verhogen",
+    "commission": "Commissie",
+    "commissionPlaceholder": "bijv. naam of opdracht",
+    "add": "In winkelwagen",
+    "added": "Toegevoegd",
+    "perUnit": "per {{unit}}, netto excl. btw",
+    "total": "Totaal"
+  },
+  "cart": {
+    "title": "Winkelwagen",
+    "count_one": "{{count}} artikel",
+    "count_other": "{{count}} artikelen",
+    "emptyTitle": "Je winkelwagen is leeg",
+    "emptyText": "Voeg producten toe aan de winkelwagen om een bestelling voor te bereiden.",
+    "toProducts": "Naar de producten",
+    "loginText": "Log in om je winkelwagen te zien.",
+    "remove": "{{name}} verwijderen",
+    "clear": "Winkelwagen legen",
+    "total": "Totaal",
+    "totalNote": "Nettoprijzen, excl. btw en verzending",
+    "order": "Bestellen"
+  },
+  "checkout": {
+    "title": "Afrekenen",
+    "progress": "Voortgang van je bestelling",
+    "continue": "Verder",
+    "change": "Wijzigen",
+    "backToCart": "Terug naar de winkelwagen",
+    "billing": "Factuuradres",
+    "delivery": "Afleveradres",
+    "shipping": "Verzendmethode",
+    "payment": "Betaalmethode",
+    "overview": "Besteloverzicht",
+    "sendHere": "Naar dit adres verzenden",
+    "sendElsewhere": "Naar een ander adres verzenden",
+    "sameAsBilling": "Gelijk aan het factuuradres",
+    "newAddress": "Nieuw adres invoeren",
+    "fields": {
+      "company": "Bedrijf",
+      "street": "Straat en huisnummer",
+      "zip": "Postcode",
+      "city": "Plaats",
+      "country": "Land"
+    },
+    "shippingNote": "De verzendkosten staan op de factuur.",
+    "placeOrder": "Bestelling met betalingsverplichting plaatsen",
+    "thanksTitle": "Bedankt voor je bestelling",
+    "thanksText_one": "Je bestelling met {{count}} artikel ter waarde van {{total}} (netto) is ontvangen.",
+    "thanksText_other": "Je bestelling met {{count}} artikelen ter waarde van {{total}} (netto) is ontvangen.",
+    "back": "Terug",
+    "savedAddress": "Opgeslagen afleveradres",
+    "glsText": "Pakketverzending met GLS.",
+    "invoice": "Factuur",
+    "invoiceText": "Je ontvangt de factuur bij de levering.",
+    "receipt": "Je referentienummer",
+    "orderNumber": "Je bestelnummer: {{number}}. De bestelling is naar Ihle verzonden.",
+    "sending": "Wordt verzonden …",
+    "paymentMethods": {
+      "purchaseorder": "Factuur",
+      "debit": "Automatische incasso",
+      "VORKASSE": "Vooruitbetaling"
+    },
+    "paymentTexts": {
+      "purchaseorder": "Je ontvangt de factuur bij de levering.",
+      "debit": "Het bedrag wordt via automatische incasso van je rekening afgeschreven.",
+      "VORKASSE": "Je ontvangt een factuur; de goederen worden verzonden zodra de betaling binnen is."
+    },
+    "errors": {
+      "invalidItems": "De winkelwagen bevat ongeldige regels.",
+      "unavailableItems": "Een artikel in je winkelwagen is niet meer beschikbaar. Controleer je winkelwagen.",
+      "invalidAddress": "Controleer het afleveradres.",
+      "notLoggedIn": "Je sessie is verlopen. Log opnieuw in.",
+      "offline": "Geen verbinding met de server. Probeer het opnieuw.",
+      "serverError": "De bestelling kan nu niet worden verzonden. Probeer het opnieuw."
+    },
+    "noSavedAddresses": "Voor je klantaccount zijn geen andere afleveradressen opgeslagen. Voer het adres hieronder in."
+  },
+  "filters": {
+    "title": "Filteren",
+    "resetAll": "Alles wissen",
+    "reset": "Wissen",
+    "close": "Filter sluiten",
+    "showResults_one": "{{count}} product tonen",
+    "showResults_other": "{{count}} producten tonen",
+    "active": "Actieve filters",
+    "remove": "{{name}} verwijderen",
+    "activeCount_one": "filter actief",
+    "activeCount_other": "filters actief",
+    "category": "Categorie",
+    "allCategories": "Alle categorieën",
+    "group": "Productgroep",
+    "color": "Kleur",
+    "size": "Maat",
+    "material": "Materiaal",
+    "unit": "Eenheid",
+    "materials": {
+      "cotton": "Katoen",
+      "polyamide": "Polyamide/nylon",
+      "elastane": "Elastaan",
+      "wool": "Wol",
+      "silver": "Zilverdraad",
+      "polyester": "Polyester",
+      "lyocell": "Lyocell"
+    },
+    "units": {
+      "PAAR": "Paar",
+      "STUECK": "Stuk",
+      "STÜCK": "Stuk",
+      "PACK": "Pak",
+      "10PACK": "Pak van 10",
+      "100PACK": "Pak van 100",
+      "1000PACK": "Pak van 1000",
+      "ROLLE": "Rol",
+      "KILO": "Kilo",
+      "KG": "kg"
+    }
+  },
+  "pages": {
+    "products": "Producten",
+    "material": "Materiaal",
+    "services": "Diensten",
+    "about": "Over ons",
+    "search": "Zoeken",
+    "searchFor": "Resultaten voor „{{query}}”",
+    "login": "Inloggen",
+    "cart": "Winkelwagen",
+    "notFound": "Pagina niet gevonden",
+    "backHome": "Terug naar de startpagina"
+  },
+  "login": {
+    "eyebrow": "Vakhandel",
+    "title": "Geregistreerde klanten",
+    "intro": "Log in met je klantnummer.",
+    "customerNumber": "Klantnummer",
+    "password": "Wachtwoord",
+    "showPassword": "Wachtwoord tonen",
+    "hidePassword": "Wachtwoord verbergen",
+    "passwordHint": "Vragen over het wachtwoord? Bel ons:",
+    "required": "Verplichte velden",
+    "error": "Klantnummer of wachtwoord is onjuist. Controleer je invoer.",
+    "loggedInAs": "Ingelogd als",
+    "toProducts": "Naar de producten"
+  },
+  "home": {
+    "hero": {
+      "titleLine1": "Elke stap.",
+      "titleLine2": "Perfecte pasvorm.",
+      "badge": "NAADLOOS GEBREID • MEDISCH TEXTIEL • ",
+      "cta": "Producten ontdekken"
+    },
+    "highlights": {
+      "title": "Highlights",
+      "previous": "Vorige producten",
+      "next": "Volgende producten",
+      "items": {
+        "40012_053": {
+          "name": "Klassieke ribsokken",
+          "description": "Fijne ribstructuur, met de hand gekettelde teen en boord zonder elastiek."
+        },
+        "40012_058": {
+          "name": "Verfijnde ribsokken",
+          "description": "Elegant ribbreisel, comfortabel, met een vrijwel onzichtbare handgekettelde afwerking."
+        },
+        "40013_001": {
+          "name": "Premium wollen sokken",
+          "description": "Zachte wol, strak silhouet en schacht zonder elastiek."
+        },
+        "40015_013": {
+          "name": "Luxe fijngebreide sokken",
+          "description": "Fijn, delicaat breisel met zilverdraad en een verzorgde afwerking."
+        },
+        "40012_004": {
+          "name": "Naturel ribsokken",
+          "description": "Ribschacht in warm beige, handgekettelde teen en boord zonder elastiek."
+        },
+        "40011_021": {
+          "name": "Zachte comfortsokken",
+          "description": "Fijn, glad breisel in naturelwit met een zachte boord zonder elastiek."
+        },
+        "40002_059": {
+          "name": "Klassieke zilversokken",
+          "description": "Klassiek grijs gemêleerd breisel met zilverdraad en een strakke afwerking."
+        },
+        "40002_053": {
+          "name": "Zilveren comfortsokken",
+          "description": "Blauw gemêleerd breisel met zilverdraad, zacht en glad op de huid."
+        }
+      }
+    },
+    "ranges": {
+      "title": "Ons assortiment",
+      "tabsLabel": "Productassortimenten",
+      "linesLabel": "Productlijnen",
+      "cta": "Producten bekijken",
+      "items": {
+        "DIABETES": {
+          "tagline": "Bescherming bij elke stap",
+          "blocks": [
+            {
+              "title": "Bescherming bij elke stap.",
+              "text": "Gewoon prettig: ihle®-diabetessokken maken je orthopedisch schoeisel compleet. Het medische breisel draagt als een tweede huid. Het zit perfect en laat toch veel bewegingsvrijheid en ruimte voor de tenen. De speciaal ontwikkelde boord en zorgvuldig gekozen materialen voorkomen drukplekken, ontstekingen en verwondingen."
+            },
+            {
+              "title": "Loopcomfort in kleur.",
+              "text": "Wat heb je aan een maatschoen als de sok plooit? ihle® moedigt patiënten en orthopedisch schoentechnici aan verder te denken dan de schoen. Daarom hebben ihle®-diabetessokken geen storende naden of knellende plekken."
+            }
+          ],
+          "lines": [
+            "Klassiek",
+            "Halfbadstof",
+            "Volbadstof",
+            "Compressiekousen",
+            "Extra wijd",
+            "Zilver",
+            "Kinderen"
+          ],
+          "listTitle": "Onze producten zijn verkrijgbaar",
+          "list": [
+            "in verschillende materialen",
+            "in een ruime kleurkeuze",
+            "in verschillende pasvormen (van smal tot lymfoedeem)",
+            "als sokken voor voorvoetamputaties (Lisfranc, Chopart, Pirogoff)"
+          ]
+        },
+        "UNDERWEAR": {
+          "tagline": "Beter lichaamsgevoel in het korset",
+          "blocks": [
+            {
+              "title": "Beter lichaamsgevoel. Meer acceptatie.",
+              "text": "Verzachtend en huidvriendelijk: ihle®-korsetshirts zijn ontwikkeld als wezenlijk onderdeel van de conservatieve scoliosebehandeling. Het medische textiel zit als gegoten, zonder storende plooien of schurende naden. Het ondersteunt de korsetbehandeling en ontlast de vaak zeer jonge patiënten."
+            },
+            {
+              "title": "Modern, functioneel ondergoed.",
+              "text": "Scoliose, korsetbehandeling en puberteit: vaak een moeilijke combinatie. Daarom hebben we onze producten afgestemd op de leefwereld van jongeren. Spaghettibandjes of blote schouders, korte of lange mouwen, boothals, V-hals of ronde hals: ihle®-korsetshirts zijn er in diverse modellen of op maat. De hoogwaardige vezelmix past zich aan het lichaam aan en beweegt mee."
+            }
+          ],
+          "lines": [],
+          "listTitle": "De ihle®-kwaliteitsbelofte",
+          "list": [
+            "duurzame materialen",
+            "extra elastisch",
+            "ademende vezels",
+            "wasbaar op 60 graden",
+            "geschikt voor de droger"
+          ]
+        },
+        "PROTHETIC": {
+          "tagline": "In beweging zonder drukplekken",
+          "blocks": [
+            {
+              "title": "In beweging zonder drukplekken.",
+              "text": "Na een amputatie of tijdens de revalidatie: met het voorschrift voor een prothese of orthese komt ook een behandeldoel. De patiënt moet weer kunnen staan of zo actief mogelijk zijn, zonder pijn. Voor deze hoogwaardige hulpmiddelen en stompaanpassingen maakt ihle® het beschermende textiel: medisch breisel voor gevoelige lichaamsdelen."
+            },
+            {
+              "title": "Op maat. Direct uit voorraad leverbaar.",
+              "text": "Welk hulpmiddel ook gepland is, ihle®-producten overtuigen in pasvorm, functie en kwaliteit. Ze verhogen het draagcomfort merkbaar. De acceptatie van de prothese of orthese stijgt en daarmee het gewenste behandeleffect. Daar zetten we ons voor in: huidvriendelijke materialen, hoogwaardige garens en veel textielkennis."
+            }
+          ],
+          "lines": [
+            "Onderbeenkousen",
+            "Onderbeenkousen voor pinsystemen",
+            "Bovenbeenkousen",
+            "Bovenbeenkousen voor pinsystemen",
+            "Kinder-/armkousen",
+            "Laminatieslang / tricotslang",
+            "Orthesetextiel"
+          ],
+          "listTitle": "",
+          "list": []
+        },
+        "ILO": {
+          "tagline": "Metgezel thuis en onderweg",
+          "blocks": [
+            {
+              "title": "Metgezel thuis en onderweg.",
+              "text": "Functionele sokken en kousen hebben zich op het werk en in de vrije tijd bewezen. Men waardeert de perfecte pasvorm, het prettige draaggevoel en het uitstekende voetklimaat. Vanuit de kennis van medisch textiel heeft ihle® sokken voor het dagelijks leven ontwikkeld die bijna alles aankunnen. Vergadering, bergwandeling of danscursus: niets knelt, niets zakt af, alleen comfort."
+            },
+            {
+              "title": "Weg met zweetvoeten.",
+              "text": "Vocht naar buiten, warmte naar binnen: angora, badstof en scheerwol zorgen voor comfort van kuit tot teen. Alle ilo®-producten voelen goed aan en passen perfect bij sneakers, nette schoenen, hardloopschoenen of bergschoenen. Duurzame, slimme materialen en een speciaal gebreide ribboord doorstaan zelfs veel wasbeurten. Beloofd!"
+            }
+          ],
+          "lines": [
+            "Klassiek",
+            "Comfort",
+            "Sport",
+            "Kussen en pyjama"
+          ],
+          "listTitle": "",
+          "list": []
+        }
+      }
+    },
+    "shapes": {
+      "title": "Sokvormen",
+      "banner": {
+        "titleLine1": "Sok en schoen –",
+        "titleLine2": "een perfect paar",
+        "text": "Warm in de winter, comfortabel en hygiënisch in de zomer: als de temperatuur stijgt, verandert ook de keuze van sokken. ihle® heeft zijn assortiment aangepast en maakt sokken in drie verschillende vormen."
+      },
+      "items": {
+        "short": {
+          "title": "Korte sokken",
+          "text": "Een veelzijdige sok voor alle seizoenen: de schacht geeft de sok zijn vorm en naam. Bij korte sokken komt die ongeveer 10 cm boven de enkel, tot halverwege de kuit. De bovenkant kan een eenvoudige rand zonder elastiek zijn of een ribboord, met of zonder elastiek."
+        },
+        "footlet": {
+          "title": "Enkelsokken",
+          "text": "De zomervariant van de sok bedekt vooral tenen en hiel. Het voetdeel eindigt net boven of onder de enkel. Voor mensen met diabetes raden we daarom de langere varianten van onze sokken aan."
+        },
+        "knee": {
+          "title": "Kniekousen",
+          "text": "Een klassieker voor de winter of bij hoge schoenen: de kous eindigt onder de knie. Een brede boord geeft goede steun zonder te knellen. Ook hier zijn er boorden met en zonder elastiek."
+        }
+      }
+    },
+    "colors": {
+      "title": "Kleuren",
+      "subtitleLine1": "Een palet van",
+      "subtitleLine2": "comfort en karakter",
+      "text": "Schoenen worden steeds kleurrijker. Van ingetogen natuurtinten tot expressieve kleuren: ihle® verbindt textielkennis met modern kleurontwerp.",
+      "cta": "Ontdek onze collecties",
+      "names": {
+        "black": "Zwart",
+        "marine": "Marineblauw",
+        "gray": "Grijs",
+        "anthracite": "Antraciet",
+        "graphite": "Grafiet",
+        "brown": "Bruin",
+        "white": "Wit",
+        "silver": "Zilver",
+        "beige": "Beige",
+        "nature": "Naturel",
+        "pearl": "Parel",
+        "beigeMottled": "Beige gemêleerd",
+        "denimBlueMelange": "Denimblauw gemêleerd",
+        "lightGreyMelange": "Lichtgrijs gemêleerd",
+        "darkGreyMelange": "Donkergrijs gemêleerd",
+        "yellow": "Geel",
+        "red": "Rood",
+        "green": "Groen",
+        "pink": "Roze",
+        "purple": "Paars",
+        "turquoise": "Turquoise",
+        "royalBlue": "Koningsblauw"
+      }
+    },
+    "dealers": {
+      "titleLine1": "Vind een",
+      "titleHighlight": "vakhandelaar",
+      "titleRest": "bij jou in de buurt",
+      "text": "Ben je particulier en wil je een ihle®-product kopen? Ons medisch textiel, onze sokken en ons ondergoed zijn uitsluitend verkrijgbaar bij de vakhandel. Neem direct contact op met je vakhandelaar of een orthopedische zaak bij jou in de buurt.",
+      "placeholder": "Postcode of plaats",
+      "button": "Vakhandelaar zoeken",
+      "notFound": "We hebben deze plaats niet gevonden. Controleer je invoer.",
+      "error": "Zoeken is nu niet beschikbaar. Probeer het later opnieuw.",
+      "mapLabel": "Kaart"
+    }
+  },
+  "material": {
+    "hero": {
+      "eyebrow": "Materiaal",
+      "titleLine1": "De materialen achter",
+      "titleLine2": "elke ihle®-sok.",
+      "text": "Zorgvuldig gekozen garens van katoen, wol en functionele vezels – voor comfort, duurzaamheid en betrouwbare prestaties.",
+      "cta": "Assortiment ontdekken",
+      "imageAlt": "Garenklossen in naturelwit, groen en roest naast een gebreide deken"
+    },
+    "intro": {
+      "eyebrow": "Onze materialen",
+      "titleLine1": "Natuurlijke vezels.",
+      "titleLine2": "Modern comfort.",
+      "text": "Bij ihle® combineren we zorgvuldig gekozen natuurlijke en functionele vezels met moderne breitechniek tot sokken en medisch textiel met blijvend comfort, een perfecte pasvorm en betrouwbare kwaliteit – voor elk seizoen en elke behoefte.",
+      "fibresLabel": "De vezels waarmee we werken",
+      "fibres": {
+        "cotton": "Katoen",
+        "wool": "Scheerwol",
+        "polyamide": "Polyamide",
+        "elastane": "Elastaan",
+        "silver": "Zilvervezel"
+      },
+      "features": {
+        "fibres": {
+          "title": "Zorgvuldig gekozen vezels",
+          "text": "Natuurlijke en functionele vezels, gekozen voor elk gebruik."
+        },
+        "quality": {
+          "title": "Betrouwbare kwaliteit",
+          "text": "Constante productie waarop vakhandelaren kunnen vertrouwen."
+        },
+        "comfort": {
+          "title": "Comfortabel in het dagelijks leven",
+          "text": "Zachte, naadloze stoffen die niet knellen of drukken."
+        },
+        "durable": {
+          "title": "Duurzaam en vormvast",
+          "text": "Gemaakt om lang hun vorm en draaggevoel te behouden."
+        }
+      }
+    },
+    "knit": {
+      "eyebrow": "Het breisel",
+      "titleLine1": "Het hangt allemaal",
+      "titleLine2": "af van de fijnheid.",
+      "text": "Voor draaggevoel en uiterlijk telt niet alleen het materiaal, maar ook de fijnheid. Die geeft aan hoeveel naalden per inch (2,54 cm) breien. Een fijnheid van 14 steken per inch is gangbaar en geeft de klassieke look. ihle® werkt met 6 tot 36 steken per inch – het resultaat is altijd een breisel dat precies bij de behoefte past.",
+      "gaugeLabel": "Fijnheid bij ihle: 6 tot 36 steken per inch. Klassiek 14, extra fijn 22.",
+      "gaugeUnit": "steken per inch",
+      "types": {
+        "smooth": {
+          "tag": "14 steken per inch",
+          "title": "Klassiek glad",
+          "text": "Dit gelijkmatige, middeldikke breisel is een echte allrounder: voor elk seizoen en elke gelegenheid, voor vrouwen en mannen. ihle® gebruikt het voor sokken en kousen voor dagelijks gebruik."
+        },
+        "fine": {
+          "tag": "22 steken per inch",
+          "title": "Klassiek extra fijn",
+          "text": "Zo noemt ihle® de verfijnde versie van zijn klassieke breisel. In Midden-Europa kiezen vooral vrouwen voor deze kwaliteit, in Zuid-Europa vaker mannen."
+        },
+        "plush": {
+          "tag": "Volledig gepolsterd",
+          "title": "Volbadstof",
+          "text": "Van teen tot boord: volledig gepolsterde sokken zorgen dankzij hun badstofbreisel voor aangename warmte, goede demping en goede luchtcirculatie – voor allerlei activiteiten."
+        },
+        "semi": {
+          "tag": "Gepolsterd aan teen, zool en hiel",
+          "title": "Halfbadstof",
+          "text": "Polstering waar het telt: soms is extra demping aan tenen, zool en hiel genoeg. Daarom zijn modellen in halfbadstof ideaal voor het tussenseizoen."
+        }
+      }
+    },
+    "next": {
+      "eyebrow": "Placeholder",
+      "title": "Er volgt nog een sectie",
+      "text": "Dit gedeelte is tijdelijk en wordt vervangen door het volgende deel van de materiaalpagina."
+    },
+    "cuffs": {
+      "eyebrow": "Boorden",
+      "titleLine1": "Perfecte pasvorm,",
+      "titleLine2": "zonder te knellen.",
+      "text": "Elastisch, soepel en comfortabel in het dagelijks leven – zo hoort een breisel te zitten. Daarom heeft ihle® verschillende boorden en afwerkingen ontwikkeld, van smal tot extra breed.",
+      "types": {
+        "loop": {
+          "title": "Omslagboord zonder elastiek",
+          "text": "Met dit speciale breisel speelt ihle® vooral in op de behoeften van diabetici. Ook wie knellend elastiek als storend ervaart, heeft er baat bij."
+        },
+        "ribLong": {
+          "title": "Ribboord zonder elastiek",
+          "text": "Deze boord is ongeveer 10 cm hoog en kan ook omgeslagen worden gedragen."
+        },
+        "ribShort": {
+          "title": "Ribboord met elastiek",
+          "text": "Hier is 4 cm elastiek ingebreid. Wie gezonde voeten heeft, waardeert deze extra steun vaak. Goed om te weten: deze boord is niet geschikt voor diabetici."
+        }
+      }
+    }
+  },
+  "footer": {
+    "newsletterTitle": "Blijf op de hoogte van nieuwe producten, materialen en innovaties",
+    "newsletterButton": "Aanmelden",
+    "about": "Diabetesschoenen, korsetten, orthesen of prothesen: ihle® is ervan overtuigd dat orthopedische zorg verder gaat dan het hulpmiddel zelf. Op die basis hebben we breisels ontwikkeld die betrouwbaar beschermen. Dit nauwkeurig passende textiel verhoogt niet alleen het draagcomfort, maar verbetert ook de levenskwaliteit en het behandelresultaat.",
+    "quickLinks": "Snelle links",
+    "resources": "Bronnen",
+    "materials": "Materialen",
+    "news": "Nieuws",
+    "catalog": "Catalogus",
+    "jobs": "Vacatures",
+    "newsletter": "Nieuwsbrief",
+    "phone": "Tel.",
+    "mail": "E-mail",
+    "address": "Adres",
+    "contact": "Contact",
+    "imprint": "Colofon",
+    "privacy": "Privacy",
+    "terms": "Algemene voorwaarden",
+    "hoursTitle": "Openingstijden fabriekswinkel:",
+    "hours": "Maandag t/m vrijdag: 8:00 tot 15:00 uur",
+    "addressArea": "Bedrijventerrein Heinzebank"
+  },
+  "addresses": {
+    "title": "Mijn adressen",
+    "billing": "Factuuradres",
+    "deliveries": "Afleveradressen",
+    "delivery": "Afleveradres {{number}}",
+    "deliveryCount_one": "{{count}} afleveradres",
+    "deliveryCount_other": "{{count}} afleveradressen",
+    "noDeliveries": "Voor je klantaccount zijn geen andere afleveradressen opgeslagen. Bestellingen worden naar je factuuradres geleverd; bij het afrekenen kun je ook een ander adres voor één bestelling opgeven.",
+    "changeNote": "Je adressen komen uit ons beheersysteem. Bel ons voor wijzigingen of nieuwe afleveradressen:"
+  },
+  "accountOrders": {
+    "order": "Bestelling {{number}}",
+    "lines_one": "{{count}} regel",
+    "lines_other": "{{count}} regels",
+    "count_one": "{{count}} bestelling",
+    "count_other": "{{count}} bestellingen",
+    "status": {
+      "new": "Ontvangen",
+      "exported": "In behandeling"
+    },
+    "reorder": "Opnieuw bestellen",
+    "nothingAvailable": "De artikelen van deze bestelling zijn momenteel niet beschikbaar in de shop.",
+    "someSkipped_one": "De overige regels staan in je winkelwagen; {{count}} artikel is momenteel niet beschikbaar.",
+    "someSkipped_other": "De overige regels staan in je winkelwagen; {{count}} artikelen zijn momenteel niet beschikbaar.",
+    "toCart": "Naar de winkelwagen",
+    "loading": "Bestellingen laden …",
+    "loadError": "Je bestellingen kunnen nu niet worden geladen. Probeer het later opnieuw.",
+    "emptyTitle": "Nog geen bestellingen",
+    "emptyText": "Zodra je in de shop bestelt, vind je de bestelling hier – met alle regels, commissies en prijzen.",
+    "found_one": "{{count}} van {{total}} bestellingen",
+    "found_other": "{{count}} van {{total}} bestellingen",
+    "search": "Zoeken",
+    "searchPlaceholder": "Bestelnr., artikel, commissie, referentie …",
+    "statusLabel": "Status",
+    "allStatuses": "Alle",
+    "period": "Periode",
+    "periods": {
+      "30": "Laatste 30 dagen",
+      "90": "Laatste 3 maanden",
+      "365": "Laatste 12 maanden",
+      "all": "Volledige periode"
+    },
+    "noMatchTitle": "Geen passende bestellingen",
+    "noMatchText": "Pas de zoekopdracht of de filters aan.",
+    "resetFilter": "Zoeken en filters wissen",
+    "showMore": "Meer tonen",
+    "shownOf": "{{shown}} van {{total}} bestellingen getoond",
+    "totalNet": "Totaal netto"
+  },
+  "settings": {
+    "title": "Instellingen",
+    "account": "Accountgegevens",
+    "company": "Bedrijf",
+    "username": "Gebruikersnaam (klantnummer)",
+    "email": "E-mail",
+    "noEmail": "Geen e-mailadres bekend",
+    "changeNote": "Je accountgegevens komen uit ons beheersysteem. Bel ons voor wijzigingen:",
+    "toAddresses": "Adressen bekijken",
+    "password": {
+      "title": "Wachtwoord wijzigen",
+      "intro": "Kies een nieuw wachtwoord voor je shoptoegang. Je blijft ingelogd.",
+      "current": "Huidig wachtwoord",
+      "new": "Nieuw wachtwoord",
+      "confirm": "Nieuw wachtwoord herhalen",
+      "rules": "Minstens {{count}} tekens.",
+      "save": "Wachtwoord opslaan",
+      "saving": "Wordt opgeslagen …",
+      "saved": "Je wachtwoord is gewijzigd. Gebruik voortaan het nieuwe wachtwoord om in te loggen.",
+      "errors": {
+        "wrongPassword": "Het huidige wachtwoord is onjuist.",
+        "passwordTooShort": "Het nieuwe wachtwoord moet minstens {{count}} tekens lang zijn.",
+        "mismatch": "De twee nieuwe wachtwoorden komen niet overeen.",
+        "samePassword": "Het nieuwe wachtwoord moet verschillen van het huidige.",
+        "tooManyAttempts": "Te veel mislukte pogingen. Probeer het over een paar minuten opnieuw.",
+        "offline": "Geen verbinding met de server. Probeer het opnieuw.",
+        "notLoggedIn": "Je sessie is verlopen. Log opnieuw in.",
+        "generic": "Het wachtwoord kan nu niet worden gewijzigd. Probeer het opnieuw."
+      }
+    },
+    "site": {
+      "title": "Website-instellingen",
+      "intro": "Geldt voor deze browser en wordt meteen toegepast.",
+      "view": "Productweergave",
+      "pageSize": "Producten per pagina"
+    },
+    "logout": {
+      "title": "Uitloggen",
+      "text": "Log uit op dit apparaat. De winkelwagen wordt geleegd."
+    }
+  },
+  "colors": {
+    "001": "Zwart",
+    "002": "Marineblauw",
+    "003": "Grijs",
+    "004": "Beige",
+    "005": "Antraciet",
+    "007": "Grafiet",
+    "008": "Bruin",
+    "011": "Wit",
+    "013": "Zilver",
+    "015": "Morielje",
+    "021": "Naturel",
+    "025": "Parel",
+    "027": "Kinine",
+    "038": "Geel",
+    "039": "Turquoise",
+    "040": "Rood",
+    "041": "Koningsblauw",
+    "042": "Groen",
+    "043": "Paars",
+    "044": "Roze",
+    "052": "Beige gemêleerd",
+    "053": "Denimblauw gemêleerd",
+    "058": "Donkergrijs gemêleerd",
+    "059": "Lichtgrijs gemêleerd",
+    "102": "Bosbes",
+    "103": "Steen",
+    "139": "Munt",
+    "140": "Kers",
+    "142": "Kiwi",
+    "143": "Lila",
+    "144": "Pitaya",
+    "145": "Bordeaux"
+  }
+}

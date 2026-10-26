@@ -1,0 +1,706 @@
+{
+  "common": {
+    "loading": "Cargando …",
+    "loadErrorTitle": "Algo no ha funcionado",
+    "loadErrorText": "No se han podido cargar los datos. Inténtalo de nuevo.",
+    "retry": "Reintentar"
+  },
+  "nav": {
+    "main": "Navegación principal",
+    "home": "Ihle – página de inicio",
+    "skip": "Ir al contenido",
+    "allProducts": "Todos los productos",
+    "productCategories": "Categorías de productos",
+    "material": "Material",
+    "services": "Servicios",
+    "about": "Sobre nosotros",
+    "search": "Buscar",
+    "searchPlaceholder": "Buscar producto o referencia",
+    "closeSearch": "Cerrar búsqueda",
+    "language": "Idioma",
+    "account": "Cuenta",
+    "login": "Iniciar sesión",
+    "myOrders": "Mis pedidos",
+    "addresses": "Direcciones",
+    "settings": "Ajustes",
+    "logout": "Cerrar sesión",
+    "cart": "Carrito",
+    "cartCount_one": "Carrito, {{count}} artículo",
+    "cartCount_other": "Carrito, {{count}} artículos",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "languageHint": "Elige tu idioma",
+    "confirm": "Confirmar",
+    "close": "Cerrar",
+    "viewAll": "Ver todo",
+    "viewAllProducts": "Ver todos los productos",
+    "megaEmpty": "Los grupos de productos de esta categoría estarán disponibles pronto.",
+    "accountOf": "Cuenta de {{name}}"
+  },
+  "categories": {
+    "all": "Todos los productos",
+    "PROTHETIC": "Prótesis y órtesis",
+    "DIABETES": "Diabetes y pie problemático",
+    "UNDERWEAR": "Ropa interior",
+    "ILO": "Calcetines ilo®"
+  },
+  "groups": {
+    "101-US": "Funda de muñón de pierna",
+    "102-US-PIN": "Funda de muñón de pierna para sistemas de pin",
+    "103-OS": "Funda de muñón de muslo",
+    "104-OS-PIN": "Funda de muñón de muslo para sistemas de pin",
+    "105-ARM": "Funda de muñón infantil/brazo",
+    "106-MASS": "A medida",
+    "107-LAM": "Tubo de laminación",
+    "108-GIPS": "Protección de yeso",
+    "109-ORTH": "Textiles para órtesis",
+    "201-KLAS": "Clásico",
+    "202-KOMF": "Confort",
+    "203-STUETZ": "Media de soporte",
+    "204-HALLUX": "Hallux valgus",
+    "205-CHOPRT": "Chopart/Lisfranc"
+  },
+  "products": {
+    "sortBy": "Ordenar por:",
+    "count_one": "{{count}} producto",
+    "count_other": "{{count}} productos",
+    "empty": "Todavía no hay productos para esta selección.",
+    "sort": {
+      "name": "Nombre",
+      "articleNo": "Referencia",
+      "price": "Precio",
+      "size": "Talla"
+    },
+    "sortLoginHint": "tras iniciar sesión",
+    "articleNo": "Ref. {{number}}",
+    "range": "{{from}}–{{to}} de {{total}}",
+    "show": "Mostrar:",
+    "pages": {
+      "label": "Páginas",
+      "previous": "Página anterior",
+      "next": "Página siguiente",
+      "page": "Página {{page}}"
+    },
+    "view": {
+      "label": "Vista",
+      "grid": "Vista de cuadrícula",
+      "list": "Vista de lista"
+    },
+    "loading": "Cargando productos …",
+    "loadError": "No se han podido cargar los productos en este momento. Inténtalo más tarde."
+  },
+  "product": {
+    "breadcrumb": "Estás aquí",
+    "details": "Detalles del producto",
+    "related": "Más productos",
+    "notFound": "Producto no encontrado",
+    "backToProducts": "Volver a todos los productos",
+    "images": "Fotos del producto",
+    "image": "Foto {{number}}",
+    "imageSoon": "Foto próximamente"
+  },
+  "order": {
+    "quantity": "Cantidad",
+    "less": "Reducir cantidad",
+    "more": "Aumentar cantidad",
+    "commission": "Comisión",
+    "commissionPlaceholder": "p. ej. nombre o pedido",
+    "add": "Añadir al carrito",
+    "added": "Añadido",
+    "perUnit": "por {{unit}}, neto más IVA",
+    "total": "Total"
+  },
+  "cart": {
+    "title": "Carrito",
+    "count_one": "{{count}} artículo",
+    "count_other": "{{count}} artículos",
+    "emptyTitle": "Tu carrito está vacío",
+    "emptyText": "Añade productos al carrito para preparar un pedido.",
+    "toProducts": "Ir a los productos",
+    "loginText": "Inicia sesión para ver tu carrito.",
+    "remove": "Eliminar {{name}}",
+    "clear": "Vaciar el carrito",
+    "total": "Total",
+    "totalNote": "Precios netos, más IVA y envío",
+    "order": "Hacer pedido"
+  },
+  "checkout": {
+    "title": "Caja",
+    "progress": "Progreso de tu pedido",
+    "continue": "Continuar",
+    "change": "Cambiar",
+    "backToCart": "Volver al carrito",
+    "billing": "Dirección de facturación",
+    "delivery": "Dirección de entrega",
+    "shipping": "Método de envío",
+    "payment": "Método de pago",
+    "overview": "Resumen del pedido",
+    "sendHere": "Enviar a esta dirección",
+    "sendElsewhere": "Enviar a otra dirección",
+    "sameAsBilling": "Igual que la dirección de facturación",
+    "newAddress": "Introducir una dirección nueva",
+    "fields": {
+      "company": "Empresa",
+      "street": "Calle y número",
+      "zip": "Código postal",
+      "city": "Ciudad",
+      "country": "País"
+    },
+    "shippingNote": "Los gastos de envío figuran en la factura.",
+    "placeOrder": "Realizar pedido con obligación de pago",
+    "thanksTitle": "Gracias por tu pedido",
+    "thanksText_one": "Se ha registrado tu pedido con {{count}} artículo por {{total}} (neto).",
+    "thanksText_other": "Se ha registrado tu pedido con {{count}} artículos por {{total}} (neto).",
+    "back": "Atrás",
+    "savedAddress": "Dirección de entrega guardada",
+    "glsText": "Envío de paquetes con GLS.",
+    "invoice": "Factura",
+    "invoiceText": "Recibes la factura junto con la entrega.",
+    "receipt": "Tu número de referencia",
+    "orderNumber": "Tu número de pedido: {{number}}. El pedido se ha enviado a Ihle.",
+    "sending": "Enviando …",
+    "paymentMethods": {
+      "purchaseorder": "Factura",
+      "debit": "Domiciliación bancaria",
+      "VORKASSE": "Pago por adelantado"
+    },
+    "paymentTexts": {
+      "purchaseorder": "Recibirás la factura junto con la entrega.",
+      "debit": "El importe se cargará en tu cuenta mediante domiciliación.",
+      "VORKASSE": "Recibirás una factura; la mercancía se envía en cuanto se reciba el pago."
+    },
+    "errors": {
+      "invalidItems": "El carrito contiene líneas no válidas.",
+      "unavailableItems": "Un artículo de tu carrito ya no está disponible. Revisa tu carrito.",
+      "invalidAddress": "Revisa la dirección de entrega.",
+      "notLoggedIn": "Tu sesión ha caducado. Vuelve a iniciar sesión.",
+      "offline": "Sin conexión con el servidor. Inténtalo de nuevo.",
+      "serverError": "No se ha podido enviar el pedido en este momento. Inténtalo de nuevo."
+    },
+    "noSavedAddresses": "No hay más direcciones de entrega guardadas para tu cuenta de cliente. Introduce la dirección a continuación."
+  },
+  "filters": {
+    "title": "Filtrar",
+    "resetAll": "Restablecer todo",
+    "reset": "Restablecer",
+    "close": "Cerrar filtro",
+    "showResults_one": "Mostrar {{count}} producto",
+    "showResults_other": "Mostrar {{count}} productos",
+    "active": "Filtros activos",
+    "remove": "Quitar {{name}}",
+    "activeCount_one": "filtro activo",
+    "activeCount_other": "filtros activos",
+    "category": "Categoría",
+    "allCategories": "Todas las categorías",
+    "group": "Grupo de productos",
+    "color": "Color",
+    "size": "Talla",
+    "material": "Material",
+    "unit": "Unidad",
+    "materials": {
+      "cotton": "Algodón",
+      "polyamide": "Poliamida/nailon",
+      "elastane": "Elastano",
+      "wool": "Lana",
+      "silver": "Hilo de plata",
+      "polyester": "Poliéster",
+      "lyocell": "Lyocell"
+    },
+    "units": {
+      "PAAR": "Par",
+      "STUECK": "Unidad",
+      "STÜCK": "Unidad",
+      "PACK": "Paquete",
+      "10PACK": "Paquete de 10",
+      "100PACK": "Paquete de 100",
+      "1000PACK": "Paquete de 1000",
+      "ROLLE": "Rollo",
+      "KILO": "Kilo",
+      "KG": "kg"
+    }
+  },
+  "pages": {
+    "products": "Productos",
+    "material": "Material",
+    "services": "Servicios",
+    "about": "Sobre nosotros",
+    "search": "Búsqueda",
+    "searchFor": "Resultados para «{{query}}»",
+    "login": "Iniciar sesión",
+    "cart": "Carrito",
+    "notFound": "Página no encontrada",
+    "backHome": "Volver a la página de inicio"
+  },
+  "login": {
+    "eyebrow": "Distribuidores especializados",
+    "title": "Clientes registrados",
+    "intro": "Inicia sesión con tu número de cliente.",
+    "customerNumber": "Número de cliente",
+    "password": "Contraseña",
+    "showPassword": "Mostrar contraseña",
+    "hidePassword": "Ocultar contraseña",
+    "passwordHint": "Si tienes preguntas sobre la contraseña, llámanos:",
+    "required": "Campos obligatorios",
+    "error": "El número de cliente o la contraseña no son correctos. Revisa los datos introducidos.",
+    "loggedInAs": "Has iniciado sesión como",
+    "toProducts": "Ir a los productos"
+  },
+  "home": {
+    "hero": {
+      "titleLine1": "Cada camino.",
+      "titleLine2": "Un ajuste perfecto.",
+      "badge": "PUNTO SIN COSTURAS • TEXTILES MÉDICOS • ",
+      "cta": "Descubrir productos"
+    },
+    "highlights": {
+      "title": "Highlights",
+      "previous": "Productos anteriores",
+      "next": "Productos siguientes",
+      "items": {
+        "40012_053": {
+          "name": "Calcetines de canalé clásicos",
+          "description": "Fina textura de canalé, puntera remallada a mano y puño sin elástico."
+        },
+        "40012_058": {
+          "name": "Calcetines de canalé refinados",
+          "description": "Elegante punto de canalé, cómodo, con un acabado remallado a mano casi invisible."
+        },
+        "40013_001": {
+          "name": "Calcetines de lana premium",
+          "description": "Lana suave, silueta limpia y caña sin elástico."
+        },
+        "40015_013": {
+          "name": "Calcetines de lujo de punto fino",
+          "description": "Punto fino y delicado con hilo plateado y un acabado cuidado."
+        },
+        "40012_004": {
+          "name": "Calcetines de canalé naturales",
+          "description": "Caña de canalé en beige cálido, puntera remallada a mano y puño sin elástico."
+        },
+        "40011_021": {
+          "name": "Calcetines confort suaves",
+          "description": "Punto fino y liso en blanco natural con un puño suave sin elástico."
+        },
+        "40002_059": {
+          "name": "Calcetines clásicos de plata",
+          "description": "Punto clásico gris jaspeado con hilo plateado y un acabado limpio."
+        },
+        "40002_053": {
+          "name": "Calcetines confort de plata",
+          "description": "Punto azul jaspeado con hilo plateado, suave y liso al tacto."
+        }
+      }
+    },
+    "ranges": {
+      "title": "Nuestras gamas",
+      "tabsLabel": "Gamas de productos",
+      "linesLabel": "Líneas de productos",
+      "cta": "Ver productos",
+      "items": {
+        "DIABETES": {
+          "tagline": "Protección a cada paso",
+          "blocks": [
+            {
+              "title": "Protección a cada paso.",
+              "text": "Sencillamente cómodos: los calcetines para diabéticos ihle® completan tu calzado ortopédico. El tejido de punto médico se lleva como una segunda piel. Se ajusta perfectamente y aun así deja mucha libertad de movimiento y espacio para los dedos. El puño especialmente diseñado y los materiales cuidadosamente seleccionados evitan puntos de presión, inflamaciones y lesiones."
+            },
+            {
+              "title": "Comodidad al caminar, en color.",
+              "text": "¿De qué sirve un zapato a medida si el calcetín hace arrugas? ihle® anima a pacientes y técnicos ortopédicos a pensar más allá del zapato. Por eso los calcetines para diabéticos ihle® no tienen ni costuras molestas ni zonas que aprieten."
+            }
+          ],
+          "lines": [
+            "Clásico",
+            "Medio rizo",
+            "Rizo completo",
+            "Medias de compresión",
+            "Extra anchos",
+            "Plata",
+            "Niños"
+          ],
+          "listTitle": "Nuestros productos están disponibles",
+          "list": [
+            "en distintos materiales",
+            "en una amplia selección de colores",
+            "en distintos ajustes (de estrecho a linfedema)",
+            "como calcetines para amputaciones del antepié (Lisfranc, Chopart, Pirogoff)"
+          ]
+        },
+        "UNDERWEAR": {
+          "tagline": "Mejor percepción corporal en el corsé",
+          "blocks": [
+            {
+              "title": "Mejor percepción corporal. Mayor aceptación.",
+              "text": "Calmantes y protectoras para la piel: las camisetas para corsé ihle® se desarrollaron como parte esencial del tratamiento conservador de la escoliosis. El tejido médico se ajusta como un guante, sin pliegues molestos ni costuras irritantes. Complementan el tratamiento con corsé y alivian a los pacientes, a menudo muy jóvenes."
+            },
+            {
+              "title": "Ropa interior moderna y funcional.",
+              "text": "Escoliosis, tratamiento con corsé y adolescencia: una combinación a menudo difícil. Por eso hemos adaptado nuestros productos al estilo de vida de los adolescentes. Tirantes finos u hombros descubiertos, manga corta o larga, cuello barco, de pico o redondo: las camisetas para corsé ihle® existen en varios modelos o a medida. La mezcla de fibras de alta calidad se adapta al cuerpo y acompaña cada movimiento."
+            }
+          ],
+          "lines": [],
+          "listTitle": "La promesa de calidad ihle®",
+          "list": [
+            "materiales resistentes",
+            "especialmente elásticos",
+            "fibras transpirables",
+            "lavables a 60 grados",
+            "aptos para secadora"
+          ]
+        },
+        "PROTHETIC": {
+          "tagline": "En movimiento sin puntos de presión",
+          "blocks": [
+            {
+              "title": "En movimiento sin puntos de presión.",
+              "text": "Tras una amputación o durante la rehabilitación: con la prescripción de una prótesis u órtesis llega también un objetivo terapéutico. El paciente debe poder volver a ponerse de pie o estar lo más activo posible, sin dolor. Para estas ayudas técnicas de calidad y adaptaciones del muñón, ihle® fabrica los textiles protectores: tejidos de punto médico para las zonas sensibles del cuerpo."
+            },
+            {
+              "title": "A medida. Disponible de inmediato en stock.",
+              "text": "Sea cual sea la ayuda ortopédica prevista, los productos ihle® convencen por su ajuste, función y calidad. Mejoran notablemente la comodidad. Aumenta la aceptación de la prótesis u órtesis y, con ella, el efecto terapéutico deseado. Para ello damos lo mejor: materiales respetuosos con la piel, hilos de calidad y una gran experiencia textil."
+            }
+          ],
+          "lines": [
+            "Fundas de pierna",
+            "Fundas de pierna para sistemas de pin",
+            "Fundas de muslo",
+            "Fundas de muslo para sistemas de pin",
+            "Fundas infantiles / de brazo",
+            "Tubo de laminación / tubo de punto",
+            "Textiles para órtesis"
+          ],
+          "listTitle": "",
+          "list": []
+        },
+        "ILO": {
+          "tagline": "Un compañero dentro y fuera de casa",
+          "blocks": [
+            {
+              "title": "Un compañero dentro y fuera de casa.",
+              "text": "Los calcetines y medias funcionales se han impuesto tanto en el trabajo como en el ocio. Se aprecia su ajuste impecable, su tacto agradable y el excelente clima del pie. A partir de la experiencia en textiles médicos, ihle® ha desarrollado calcetines para el día a día que lo aguantan casi todo. Reunión, excursión a la montaña o clase de baile: nada aprieta, nada se escurre, solo comodidad."
+            },
+            {
+              "title": "Adiós a los pies sudados.",
+              "text": "La humedad hacia fuera, el calor hacia dentro: angora, rizo y lana virgen garantizan comodidad de la pantorrilla a los dedos. Todos los productos ilo® sientan bien a los pies y quedan genial con zapatillas, zapatos de vestir, de correr o botas de montaña. Materiales duraderos e inteligentes y un puño de canalé tejido especialmente resisten incluso muchos lavados. ¡Palabra!"
+            }
+          ],
+          "lines": [
+            "Clásico",
+            "Confort",
+            "Deporte",
+            "Almohada y pijama"
+          ],
+          "listTitle": "",
+          "list": []
+        }
+      }
+    },
+    "shapes": {
+      "title": "Formas de calcetines",
+      "banner": {
+        "titleLine1": "Calcetín y zapato –",
+        "titleLine2": "una pareja perfecta",
+        "text": "Calor en invierno, comodidad e higiene en verano: cuando suben las temperaturas, también cambia la elección de calcetines. ihle® ha adaptado su gama y fabrica calcetines en tres formas distintas."
+      },
+      "items": {
+        "short": {
+          "title": "Calcetines cortos",
+          "text": "Un calcetín versátil para todas las estaciones: la caña da forma y nombre al calcetín. En los calcetines cortos llega unos 10 cm por encima del tobillo, hasta media pantorrilla. La parte superior puede ser un borde sencillo sin elástico o un puño de canalé, con o sin elástico."
+        },
+        "footlet": {
+          "title": "Calcetines tobilleros",
+          "text": "La versión de verano del calcetín cubre sobre todo los dedos y el talón. El pie termina justo por encima o por debajo del tobillo. Para personas con diabetes recomendamos por ello las versiones más largas de nuestros calcetines."
+        },
+        "knee": {
+          "title": "Calcetines hasta la rodilla",
+          "text": "Un clásico para el invierno o con zapatos altos: el calcetín termina por debajo de la rodilla. Un puño ancho da buena sujeción sin apretar. También hay puños con y sin elástico."
+        }
+      }
+    },
+    "colors": {
+      "title": "Colores",
+      "subtitleLine1": "Un abanico de",
+      "subtitleLine2": "comodidad y carácter",
+      "text": "Los zapatos son cada vez más coloridos. De discretos tonos naturales a colores expresivos, ihle® combina experiencia textil y diseño moderno del color.",
+      "cta": "Descubre nuestras colecciones",
+      "names": {
+        "black": "Negro",
+        "marine": "Azul marino",
+        "gray": "Gris",
+        "anthracite": "Antracita",
+        "graphite": "Grafito",
+        "brown": "Marrón",
+        "white": "Blanco",
+        "silver": "Plata",
+        "beige": "Beige",
+        "nature": "Natural",
+        "pearl": "Perla",
+        "beigeMottled": "Beige jaspeado",
+        "denimBlueMelange": "Azul vaquero jaspeado",
+        "lightGreyMelange": "Gris claro jaspeado",
+        "darkGreyMelange": "Gris oscuro jaspeado",
+        "yellow": "Amarillo",
+        "red": "Rojo",
+        "green": "Verde",
+        "pink": "Rosa",
+        "purple": "Morado",
+        "turquoise": "Turquesa",
+        "royalBlue": "Azul real"
+      }
+    },
+    "dealers": {
+      "titleLine1": "Encuentra un",
+      "titleHighlight": "distribuidor especializado",
+      "titleRest": "cerca de ti",
+      "text": "¿Eres un particular y quieres comprar un producto ihle®? Nuestros textiles médicos, calcetines y ropa interior están disponibles exclusivamente en distribuidores especializados. Dirígete directamente a tu distribuidor o a una ortopedia de tu zona.",
+      "placeholder": "Código postal o ciudad",
+      "button": "Buscar distribuidor",
+      "notFound": "No hemos encontrado este lugar. Revisa los datos introducidos.",
+      "error": "La búsqueda no está disponible en este momento. Inténtalo más tarde.",
+      "mapLabel": "Mapa"
+    }
+  },
+  "material": {
+    "hero": {
+      "eyebrow": "Material",
+      "titleLine1": "Los materiales detrás",
+      "titleLine2": "de cada calcetín ihle®.",
+      "text": "Hilos de algodón, lana y fibras funcionales cuidadosamente seleccionados – para comodidad, durabilidad y un rendimiento fiable.",
+      "cta": "Descubrir la gama",
+      "imageAlt": "Conos de hilo en blanco natural, verde y óxido junto a una manta de punto"
+    },
+    "intro": {
+      "eyebrow": "Nuestros materiales",
+      "titleLine1": "Fibras naturales.",
+      "titleLine2": "Comodidad moderna.",
+      "text": "En ihle® combinamos fibras naturales y funcionales cuidadosamente seleccionadas con una moderna técnica de tejido de punto para crear calcetines y textiles médicos que ofrecen comodidad duradera, un ajuste perfecto y una calidad fiable – para cada estación y cada necesidad.",
+      "fibresLabel": "Las fibras con las que trabajamos",
+      "fibres": {
+        "cotton": "Algodón",
+        "wool": "Lana virgen",
+        "polyamide": "Poliamida",
+        "elastane": "Elastano",
+        "silver": "Fibra de plata"
+      },
+      "features": {
+        "fibres": {
+          "title": "Fibras cuidadosamente seleccionadas",
+          "text": "Fibras naturales y funcionales, elegidas según cada uso."
+        },
+        "quality": {
+          "title": "Calidad fiable",
+          "text": "Una fabricación constante en la que los distribuidores pueden confiar."
+        },
+        "comfort": {
+          "title": "Cómodos en el día a día",
+          "text": "Tejidos suaves y sin costuras que no aprietan ni marcan."
+        },
+        "durable": {
+          "title": "Duraderos e indeformables",
+          "text": "Hechos para conservar mucho tiempo su forma y su tacto."
+        }
+      }
+    },
+    "knit": {
+      "eyebrow": "El tejido",
+      "titleLine1": "Todo depende",
+      "titleLine2": "de la galga.",
+      "text": "Para el tacto y el aspecto no solo cuenta el material, sino también la galga. Indica cuántas agujas tejen por pulgada (2,54 cm). Una galga de 14 puntos por pulgada es habitual y da el aspecto clásico. ihle® trabaja con 6 a 36 puntos por pulgada – el resultado es siempre un tejido que se ajusta exactamente a la necesidad.",
+      "gaugeLabel": "Galga en ihle: de 6 a 36 puntos por pulgada. Clásico 14, extrafino 22.",
+      "gaugeUnit": "puntos por pulgada",
+      "types": {
+        "smooth": {
+          "tag": "14 puntos por pulgada",
+          "title": "Clásico liso",
+          "text": "Este tejido uniforme de grosor medio es un auténtico todoterreno: para cada estación y ocasión, para mujeres y hombres. ihle® lo utiliza para calcetines y medias del día a día."
+        },
+        "fine": {
+          "tag": "22 puntos por pulgada",
+          "title": "Clásico extrafino",
+          "text": "Así llama ihle® a la versión refinada de su tejido clásico. En Europa central esta calidad la prefieren sobre todo las mujeres; en el sur de Europa, más a menudo los hombres."
+        },
+        "plush": {
+          "tag": "Acolchado completo",
+          "title": "Rizo completo",
+          "text": "De la puntera al puño: los calcetines totalmente acolchados dan un calor agradable, una buena amortiguación y una buena circulación del aire gracias a su tejido de rizo – para todo tipo de actividades."
+        },
+        "semi": {
+          "tag": "Acolchado en dedos, planta y talón",
+          "title": "Medio rizo",
+          "text": "Acolchado donde importa: a veces basta un acolchado extra en dedos, planta y talón. Por eso los modelos de medio rizo son ideales para las entretiempos."
+        }
+      }
+    },
+    "next": {
+      "eyebrow": "Marcador de posición",
+      "title": "Seguirá otra sección",
+      "text": "Esta zona es provisional y se sustituirá por la siguiente parte de la página de material."
+    },
+    "cuffs": {
+      "eyebrow": "Puños",
+      "titleLine1": "Un ajuste perfecto,",
+      "titleLine2": "sin apretar.",
+      "text": "Elástico, flexible y cómodo para el día a día – así debe ajustar un tejido de punto. Por eso ihle® ha desarrollado distintos puños y remates, de estrechos a extra anchos.",
+      "types": {
+        "loop": {
+          "title": "Puño vuelto sin elástico",
+          "text": "Con este tejido especial, ihle® atiende sobre todo las necesidades de los diabéticos. También se benefician quienes encuentran molesto un elástico que aprieta."
+        },
+        "ribLong": {
+          "title": "Puño de canalé sin elástico",
+          "text": "Este puño mide unos 10 cm y también se puede llevar doblado."
+        },
+        "ribShort": {
+          "title": "Puño de canalé con elástico",
+          "text": "Aquí van tejidos 4 cm de elástico. Quienes tienen los pies sanos suelen preferir esta sujeción extra. Conviene saberlo: este puño no es adecuado para diabéticos."
+        }
+      }
+    }
+  },
+  "footer": {
+    "newsletterTitle": "Mantente al día sobre nuevos productos, materiales e innovaciones",
+    "newsletterButton": "Suscribirse",
+    "about": "Calzado para diabéticos, corsés, órtesis o prótesis: ihle® está convencida de que la atención ortopédica va más allá de la propia ayuda técnica. Sobre esta base hemos desarrollado tejidos de punto que ofrecen una protección fiable. Estos textiles de ajuste preciso no solo aumentan la comodidad, sino que también mejoran la calidad de vida y los resultados del tratamiento.",
+    "quickLinks": "Enlaces rápidos",
+    "resources": "Recursos",
+    "materials": "Materiales",
+    "news": "Novedades",
+    "catalog": "Catálogo",
+    "jobs": "Empleo",
+    "newsletter": "Newsletter",
+    "phone": "Tel.",
+    "mail": "Correo",
+    "address": "Dirección",
+    "contact": "Contacto",
+    "imprint": "Aviso legal",
+    "privacy": "Privacidad",
+    "terms": "Condiciones generales",
+    "hoursTitle": "Horario de la tienda de fábrica:",
+    "hours": "De lunes a viernes: de 8:00 a 15:00",
+    "addressArea": "Polígono industrial Heinzebank"
+  },
+  "addresses": {
+    "title": "Mis direcciones",
+    "billing": "Dirección de facturación",
+    "deliveries": "Direcciones de entrega",
+    "delivery": "Dirección de entrega {{number}}",
+    "deliveryCount_one": "{{count}} dirección de entrega",
+    "deliveryCount_other": "{{count}} direcciones de entrega",
+    "noDeliveries": "No hay más direcciones de entrega guardadas para tu cuenta de cliente. Los pedidos se entregan en tu dirección de facturación; en la caja también puedes indicar otra dirección para un pedido.",
+    "changeNote": "Tus direcciones proceden de nuestro sistema de gestión. Para cambios o nuevas direcciones de entrega, llámanos:"
+  },
+  "accountOrders": {
+    "order": "Pedido {{number}}",
+    "lines_one": "{{count}} línea",
+    "lines_other": "{{count}} líneas",
+    "count_one": "{{count}} pedido",
+    "count_other": "{{count}} pedidos",
+    "status": {
+      "new": "Recibido",
+      "exported": "En tramitación"
+    },
+    "reorder": "Volver a pedir",
+    "nothingAvailable": "Los artículos de este pedido no están disponibles actualmente en la tienda.",
+    "someSkipped_one": "Las demás líneas están en tu carrito; {{count}} artículo no está disponible actualmente.",
+    "someSkipped_other": "Las demás líneas están en tu carrito; {{count}} artículos no están disponibles actualmente.",
+    "toCart": "Ir al carrito",
+    "loading": "Cargando pedidos …",
+    "loadError": "No se han podido cargar tus pedidos en este momento. Inténtalo más tarde.",
+    "emptyTitle": "Todavía no hay pedidos",
+    "emptyText": "En cuanto hagas un pedido en la tienda, lo encontrarás aquí – con todas las líneas, comisiones y precios.",
+    "found_one": "{{count}} de {{total}} pedidos",
+    "found_other": "{{count}} de {{total}} pedidos",
+    "search": "Buscar",
+    "searchPlaceholder": "N.º de pedido, artículo, comisión, referencia …",
+    "statusLabel": "Estado",
+    "allStatuses": "Todos",
+    "period": "Periodo",
+    "periods": {
+      "30": "Últimos 30 días",
+      "90": "Últimos 3 meses",
+      "365": "Últimos 12 meses",
+      "all": "Todo el periodo"
+    },
+    "noMatchTitle": "Ningún pedido coincide",
+    "noMatchText": "Cambia la búsqueda o los filtros.",
+    "resetFilter": "Restablecer búsqueda y filtros",
+    "showMore": "Mostrar más",
+    "shownOf": "{{shown}} de {{total}} pedidos mostrados",
+    "totalNet": "Total neto"
+  },
+  "settings": {
+    "title": "Ajustes",
+    "account": "Datos de la cuenta",
+    "company": "Empresa",
+    "username": "Usuario (número de cliente)",
+    "email": "Correo",
+    "noEmail": "No hay correo registrado",
+    "changeNote": "Los datos de tu cuenta proceden de nuestro sistema de gestión. Para cambiarlos, llámanos:",
+    "toAddresses": "Ver direcciones",
+    "password": {
+      "title": "Cambiar contraseña",
+      "intro": "Elige una nueva contraseña para tu acceso a la tienda. Seguirás con la sesión iniciada.",
+      "current": "Contraseña actual",
+      "new": "Nueva contraseña",
+      "confirm": "Repetir la nueva contraseña",
+      "rules": "Al menos {{count}} caracteres.",
+      "save": "Guardar contraseña",
+      "saving": "Guardando …",
+      "saved": "Tu contraseña se ha cambiado. A partir de ahora usa la nueva contraseña para iniciar sesión.",
+      "errors": {
+        "wrongPassword": "La contraseña actual no es correcta.",
+        "passwordTooShort": "La nueva contraseña debe tener al menos {{count}} caracteres.",
+        "mismatch": "Las dos contraseñas nuevas no coinciden.",
+        "samePassword": "La nueva contraseña debe ser distinta de la actual.",
+        "tooManyAttempts": "Demasiados intentos fallidos. Inténtalo de nuevo en unos minutos.",
+        "offline": "Sin conexión con el servidor. Inténtalo de nuevo.",
+        "notLoggedIn": "Tu sesión ha caducado. Vuelve a iniciar sesión.",
+        "generic": "No se ha podido cambiar la contraseña en este momento. Inténtalo de nuevo."
+      }
+    },
+    "site": {
+      "title": "Ajustes del sitio web",
+      "intro": "Se aplica a este navegador y surte efecto de inmediato.",
+      "view": "Vista de productos",
+      "pageSize": "Productos por página"
+    },
+    "logout": {
+      "title": "Cerrar sesión",
+      "text": "Cierra la sesión en este dispositivo. El carrito se vaciará."
+    }
+  },
+  "colors": {
+    "001": "Negro",
+    "002": "Azul marino",
+    "003": "Gris",
+    "004": "Beige",
+    "005": "Antracita",
+    "007": "Grafito",
+    "008": "Marrón",
+    "011": "Blanco",
+    "013": "Plata",
+    "015": "Colmenilla",
+    "021": "Natural",
+    "025": "Perla",
+    "027": "Quinina",
+    "038": "Amarillo",
+    "039": "Turquesa",
+    "040": "Rojo",
+    "041": "Azul real",
+    "042": "Verde",
+    "043": "Morado",
+    "044": "Rosa",
+    "052": "Beige jaspeado",
+    "053": "Azul vaquero jaspeado",
+    "058": "Gris oscuro jaspeado",
+    "059": "Gris claro jaspeado",
+    "102": "Arándano",
+    "103": "Piedra",
+    "139": "Menta",
+    "140": "Cereza",
+    "142": "Kiwi",
+    "143": "Lila",
+    "144": "Pitaya",
+    "145": "Burdeos"
+  }
+}

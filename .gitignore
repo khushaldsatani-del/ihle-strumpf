@@ -1,0 +1,25 @@
+# Dependencies and build output
+node_modules/
+dist/
+dist-ssr/
+*.log
+
+# Secrets: connection strings and keys stay on this computer and in the hosting settings
+.env
+.env.*
+!.env.example
+
+# Real NAV data (customers, prices) and product photos never go into the repo;
+# they are uploaded through the admin panel
+*.xml
+*.xml.gz
+*.xlsx
+*.jpg
+*.jpeg
+
+# Editor and OS files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db

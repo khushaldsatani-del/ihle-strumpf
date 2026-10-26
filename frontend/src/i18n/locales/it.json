@@ -1,0 +1,706 @@
+{
+  "common": {
+    "loading": "Caricamento …",
+    "loadErrorTitle": "Qualcosa non ha funzionato",
+    "loadErrorText": "Non è stato possibile caricare i dati. Riprova.",
+    "retry": "Riprova"
+  },
+  "nav": {
+    "main": "Navigazione principale",
+    "home": "Ihle – home page",
+    "skip": "Vai al contenuto",
+    "allProducts": "Tutti i prodotti",
+    "productCategories": "Categorie di prodotti",
+    "material": "Materiale",
+    "services": "Servizi",
+    "about": "Chi siamo",
+    "search": "Cerca",
+    "searchPlaceholder": "Cerca prodotto o codice articolo",
+    "closeSearch": "Chiudi ricerca",
+    "language": "Lingua",
+    "account": "Account",
+    "login": "Accedi",
+    "myOrders": "I miei ordini",
+    "addresses": "Indirizzi",
+    "settings": "Impostazioni",
+    "logout": "Esci",
+    "cart": "Carrello",
+    "cartCount_one": "Carrello, {{count}} articolo",
+    "cartCount_other": "Carrello, {{count}} articoli",
+    "openMenu": "Apri menu",
+    "closeMenu": "Chiudi menu",
+    "languageHint": "Scegli la tua lingua",
+    "confirm": "Conferma",
+    "close": "Chiudi",
+    "viewAll": "Vedi tutto",
+    "viewAllProducts": "Vedi tutti i prodotti",
+    "megaEmpty": "I gruppi di prodotti di questa categoria saranno presto disponibili.",
+    "accountOf": "Account di {{name}}"
+  },
+  "categories": {
+    "all": "Tutti i prodotti",
+    "PROTHETIC": "Protesi e ortesi",
+    "DIABETES": "Diabete e piede problematico",
+    "UNDERWEAR": "Intimo",
+    "ILO": "Calze ilo®"
+  },
+  "groups": {
+    "101-US": "Cuffia per moncone di gamba",
+    "102-US-PIN": "Cuffia per moncone di gamba per sistemi a perno",
+    "103-OS": "Cuffia per moncone di coscia",
+    "104-OS-PIN": "Cuffia per moncone di coscia per sistemi a perno",
+    "105-ARM": "Cuffia per moncone bambini/braccio",
+    "106-MASS": "Su misura",
+    "107-LAM": "Tubolare per laminazione",
+    "108-GIPS": "Protezione per gesso",
+    "109-ORTH": "Tessili per ortesi",
+    "201-KLAS": "Classico",
+    "202-KOMF": "Comfort",
+    "203-STUETZ": "Calza di sostegno",
+    "204-HALLUX": "Alluce valgo",
+    "205-CHOPRT": "Chopart/Lisfranc"
+  },
+  "products": {
+    "sortBy": "Ordina per:",
+    "count_one": "{{count}} prodotto",
+    "count_other": "{{count}} prodotti",
+    "empty": "Non ci sono ancora prodotti per questa selezione.",
+    "sort": {
+      "name": "Nome",
+      "articleNo": "Codice articolo",
+      "price": "Prezzo",
+      "size": "Taglia"
+    },
+    "sortLoginHint": "dopo l’accesso",
+    "articleNo": "Art. {{number}}",
+    "range": "{{from}}–{{to}} di {{total}}",
+    "show": "Mostra:",
+    "pages": {
+      "label": "Pagine",
+      "previous": "Pagina precedente",
+      "next": "Pagina successiva",
+      "page": "Pagina {{page}}"
+    },
+    "view": {
+      "label": "Vista",
+      "grid": "Vista a griglia",
+      "list": "Vista a elenco"
+    },
+    "loading": "Caricamento dei prodotti …",
+    "loadError": "Al momento non è stato possibile caricare i prodotti. Riprova più tardi."
+  },
+  "product": {
+    "breadcrumb": "Ti trovi qui",
+    "details": "Dettagli del prodotto",
+    "related": "Altri prodotti",
+    "notFound": "Prodotto non trovato",
+    "backToProducts": "Torna a tutti i prodotti",
+    "images": "Foto del prodotto",
+    "image": "Foto {{number}}",
+    "imageSoon": "Foto in arrivo"
+  },
+  "order": {
+    "quantity": "Quantità",
+    "less": "Riduci quantità",
+    "more": "Aumenta quantità",
+    "commission": "Commissione",
+    "commissionPlaceholder": "ad es. nome o ordine",
+    "add": "Aggiungi al carrello",
+    "added": "Aggiunto",
+    "perUnit": "per {{unit}}, netto più IVA",
+    "total": "Totale"
+  },
+  "cart": {
+    "title": "Carrello",
+    "count_one": "{{count}} articolo",
+    "count_other": "{{count}} articoli",
+    "emptyTitle": "Il carrello è vuoto",
+    "emptyText": "Aggiungi prodotti al carrello per preparare un ordine.",
+    "toProducts": "Vai ai prodotti",
+    "loginText": "Accedi per vedere il tuo carrello.",
+    "remove": "Rimuovi {{name}}",
+    "clear": "Svuota il carrello",
+    "total": "Totale",
+    "totalNote": "Prezzi netti, più IVA e spedizione",
+    "order": "Ordina"
+  },
+  "checkout": {
+    "title": "Cassa",
+    "progress": "Avanzamento dell’ordine",
+    "continue": "Continua",
+    "change": "Modifica",
+    "backToCart": "Torna al carrello",
+    "billing": "Indirizzo di fatturazione",
+    "delivery": "Indirizzo di consegna",
+    "shipping": "Metodo di spedizione",
+    "payment": "Metodo di pagamento",
+    "overview": "Riepilogo dell’ordine",
+    "sendHere": "Consegna a questo indirizzo",
+    "sendElsewhere": "Consegna a un altro indirizzo",
+    "sameAsBilling": "Uguale all’indirizzo di fatturazione",
+    "newAddress": "Inserisci un nuovo indirizzo",
+    "fields": {
+      "company": "Azienda",
+      "street": "Via e numero civico",
+      "zip": "CAP",
+      "city": "Città",
+      "country": "Paese"
+    },
+    "shippingNote": "I costi di spedizione sono indicati in fattura.",
+    "placeOrder": "Ordina con obbligo di pagamento",
+    "thanksTitle": "Grazie per il tuo ordine",
+    "thanksText_one": "Il tuo ordine con {{count}} articolo per {{total}} (netto) è stato registrato.",
+    "thanksText_other": "Il tuo ordine con {{count}} articoli per {{total}} (netto) è stato registrato.",
+    "back": "Indietro",
+    "savedAddress": "Indirizzo di consegna salvato",
+    "glsText": "Spedizione pacchi con GLS.",
+    "invoice": "Fattura",
+    "invoiceText": "Ricevi la fattura insieme alla merce.",
+    "receipt": "Il tuo numero di riferimento",
+    "orderNumber": "Il tuo numero d’ordine: {{number}}. L’ordine è stato trasmesso a Ihle.",
+    "sending": "Invio in corso …",
+    "paymentMethods": {
+      "purchaseorder": "Fattura",
+      "debit": "Addebito diretto",
+      "VORKASSE": "Pagamento anticipato"
+    },
+    "paymentTexts": {
+      "purchaseorder": "Riceverai la fattura insieme alla merce.",
+      "debit": "L’importo verrà addebitato sul tuo conto.",
+      "VORKASSE": "Riceverai una fattura; la merce viene spedita dopo il ricevimento del pagamento."
+    },
+    "errors": {
+      "invalidItems": "Il carrello contiene righe non valide.",
+      "unavailableItems": "Un articolo del carrello non è più disponibile. Controlla il carrello.",
+      "invalidAddress": "Controlla l’indirizzo di consegna.",
+      "notLoggedIn": "La sessione è scaduta. Accedi di nuovo.",
+      "offline": "Nessuna connessione al server. Riprova.",
+      "serverError": "Al momento non è stato possibile inviare l’ordine. Riprova."
+    },
+    "noSavedAddresses": "Per il tuo account cliente non sono salvati altri indirizzi di consegna. Inserisci l’indirizzo qui sotto."
+  },
+  "filters": {
+    "title": "Filtra",
+    "resetAll": "Azzera tutto",
+    "reset": "Azzera",
+    "close": "Chiudi filtro",
+    "showResults_one": "Mostra {{count}} prodotto",
+    "showResults_other": "Mostra {{count}} prodotti",
+    "active": "Filtri attivi",
+    "remove": "Rimuovi {{name}}",
+    "activeCount_one": "filtro attivo",
+    "activeCount_other": "filtri attivi",
+    "category": "Categoria",
+    "allCategories": "Tutte le categorie",
+    "group": "Gruppo di prodotti",
+    "color": "Colore",
+    "size": "Taglia",
+    "material": "Materiale",
+    "unit": "Unità",
+    "materials": {
+      "cotton": "Cotone",
+      "polyamide": "Poliammide/nylon",
+      "elastane": "Elastan",
+      "wool": "Lana",
+      "silver": "Filo d’argento",
+      "polyester": "Poliestere",
+      "lyocell": "Lyocell"
+    },
+    "units": {
+      "PAAR": "Paio",
+      "STUECK": "Pezzo",
+      "STÜCK": "Pezzo",
+      "PACK": "Confezione",
+      "10PACK": "Confezione da 10",
+      "100PACK": "Confezione da 100",
+      "1000PACK": "Confezione da 1000",
+      "ROLLE": "Rotolo",
+      "KILO": "Chilo",
+      "KG": "kg"
+    }
+  },
+  "pages": {
+    "products": "Prodotti",
+    "material": "Materiale",
+    "services": "Servizi",
+    "about": "Chi siamo",
+    "search": "Ricerca",
+    "searchFor": "Risultati per «{{query}}»",
+    "login": "Accedi",
+    "cart": "Carrello",
+    "notFound": "Pagina non trovata",
+    "backHome": "Torna alla home page"
+  },
+  "login": {
+    "eyebrow": "Rivenditori specializzati",
+    "title": "Clienti registrati",
+    "intro": "Accedi con il tuo numero cliente.",
+    "customerNumber": "Numero cliente",
+    "password": "Password",
+    "showPassword": "Mostra password",
+    "hidePassword": "Nascondi password",
+    "passwordHint": "Per domande sulla password contattaci telefonicamente:",
+    "required": "Campi obbligatori",
+    "error": "Numero cliente o password non corretti. Controlla i dati inseriti.",
+    "loggedInAs": "Hai effettuato l’accesso come",
+    "toProducts": "Vai ai prodotti"
+  },
+  "home": {
+    "hero": {
+      "titleLine1": "Ogni percorso.",
+      "titleLine2": "Una vestibilità perfetta.",
+      "badge": "MAGLIA SENZA CUCITURE • TESSILI MEDICALI • ",
+      "cta": "Scopri i prodotti"
+    },
+    "highlights": {
+      "title": "Highlights",
+      "previous": "Prodotti precedenti",
+      "next": "Prodotti successivi",
+      "items": {
+        "40012_053": {
+          "name": "Calze a coste classiche",
+          "description": "Fine struttura a coste, punta rimagliata a mano e bordo senza elastico."
+        },
+        "40012_058": {
+          "name": "Calze a coste raffinate",
+          "description": "Elegante maglia a coste, comoda, con una rifinitura rimagliata a mano quasi invisibile."
+        },
+        "40013_001": {
+          "name": "Calze in lana premium",
+          "description": "Lana morbida, linea pulita e gambale senza elastico."
+        },
+        "40015_013": {
+          "name": "Calze di lusso a maglia fine",
+          "description": "Maglia fine e delicata con filo argentato e una rifinitura curata."
+        },
+        "40012_004": {
+          "name": "Calze a coste naturali",
+          "description": "Gambale a coste in beige caldo, punta rimagliata a mano e bordo senza elastico."
+        },
+        "40011_021": {
+          "name": "Calze comfort morbide",
+          "description": "Maglia fine e liscia in bianco naturale con un bordo morbido senza elastico."
+        },
+        "40002_059": {
+          "name": "Calze classiche all’argento",
+          "description": "Maglia classica grigio melange con filo argentato e una rifinitura pulita."
+        },
+        "40002_053": {
+          "name": "Calze comfort all’argento",
+          "description": "Maglia blu melange con filo argentato, morbida e liscia al tatto."
+        }
+      }
+    },
+    "ranges": {
+      "title": "Le nostre linee",
+      "tabsLabel": "Linee di prodotti",
+      "linesLabel": "Linee",
+      "cta": "Vedi i prodotti",
+      "items": {
+        "DIABETES": {
+          "tagline": "Protezione a ogni passo",
+          "blocks": [
+            {
+              "title": "Protezione a ogni passo.",
+              "text": "Semplicemente comode ai piedi: le calze per diabetici ihle® completano le tue calzature ortopediche. Il tessuto a maglia medicale si indossa come una seconda pelle. Calza perfettamente, lasciando ampia libertà di movimento e spazio per le dita. Il bordo appositamente studiato e i materiali selezionati prevengono punti di pressione, infiammazioni e lesioni."
+            },
+            {
+              "title": "Comfort di camminata a colori.",
+              "text": "A cosa serve una scarpa su misura se la calza fa pieghe? ihle® invita pazienti e tecnici ortopedici a pensare oltre la scarpa. Per questo le calze per diabetici ihle® non hanno né cuciture fastidiose né punti che stringono."
+            }
+          ],
+          "lines": [
+            "Classico",
+            "Mezza spugna",
+            "Spugna integrale",
+            "Calze a compressione",
+            "Extra larghe",
+            "Argento",
+            "Bambini"
+          ],
+          "listTitle": "I nostri prodotti sono disponibili",
+          "list": [
+            "in diversi materiali",
+            "in un’ampia scelta di colori",
+            "in diverse vestibilità (da stretta a linfedema)",
+            "come calze per amputazioni dell’avampiede (Lisfranc, Chopart, Pirogoff)"
+          ]
+        },
+        "UNDERWEAR": {
+          "tagline": "Migliore percezione del corpo nel corsetto",
+          "blocks": [
+            {
+              "title": "Migliore percezione del corpo. Maggiore accettazione.",
+              "text": "Lenitive e protettive per la pelle: le magliette per corsetto ihle® sono state sviluppate come parte essenziale del trattamento conservativo della scoliosi. Il tessuto medicale calza come un guanto, senza pieghe fastidiose né cuciture irritanti. Completano il trattamento con corsetto e alleviano il disagio dei pazienti, spesso molto giovani."
+            },
+            {
+              "title": "Intimo alla moda e funzionale.",
+              "text": "Scoliosi, terapia con corsetto e crescita: una combinazione spesso difficile. Per questo abbiamo adattato i nostri prodotti allo stile di vita degli adolescenti. Spalline sottili o spalle scoperte, maniche corte o lunghe, scollo a barchetta, a V o girocollo: le magliette per corsetto ihle® sono disponibili in vari modelli o su misura. La pregiata miscela di fibre aderisce al corpo e segue ogni movimento."
+            }
+          ],
+          "lines": [],
+          "listTitle": "La promessa di qualità ihle®",
+          "list": [
+            "materiali resistenti",
+            "particolarmente elastici",
+            "fibre traspiranti",
+            "lavabili a 60 gradi",
+            "adatti all’asciugatrice"
+          ]
+        },
+        "PROTHETIC": {
+          "tagline": "In movimento senza punti di pressione",
+          "blocks": [
+            {
+              "title": "In movimento senza punti di pressione.",
+              "text": "Dopo un’amputazione o durante la riabilitazione: con la prescrizione di una protesi o di un’ortesi arriva anche un obiettivo terapeutico. Il paziente deve poter stare di nuovo in piedi o essere il più attivo possibile, senza dolore. Per questi ausili di qualità e per le protesizzazioni del moncone, ihle® produce i tessili protettivi: maglie medicali per le zone sensibili del corpo."
+            },
+            {
+              "title": "Su misura. Subito disponibili a magazzino.",
+              "text": "Qualunque sia l’ausilio ortopedico previsto, i prodotti ihle® convincono per vestibilità, funzione e qualità. Migliorano sensibilmente il comfort. Aumenta l’accettazione della protesi o dell’ortesi e con essa l’effetto terapeutico desiderato. Per questo diamo il massimo: materiali delicati sulla pelle, filati pregiati e una grande esperienza tessile."
+            }
+          ],
+          "lines": [
+            "Cuffie di gamba",
+            "Cuffie di gamba per sistemi a perno",
+            "Cuffie di coscia",
+            "Cuffie di coscia per sistemi a perno",
+            "Cuffie bambini / braccio",
+            "Tubolare per laminazione / jersey",
+            "Tessili per ortesi"
+          ],
+          "listTitle": "",
+          "list": []
+        },
+        "ILO": {
+          "tagline": "Un compagno dentro e fuori casa",
+          "blocks": [
+            {
+              "title": "Un compagno dentro e fuori casa.",
+              "text": "Calze e calzettoni funzionali si sono affermati sia al lavoro sia nel tempo libero. Se ne apprezzano la vestibilità perfetta, la sensazione piacevole e l’ottimo clima del piede. Partendo dall’esperienza nei tessili medicali, ihle® ha sviluppato calze per tutti i giorni che affrontano quasi tutto. Riunione, escursione in montagna o lezione di ballo: niente stringe, niente scivola, solo comfort."
+            },
+            {
+              "title": "Addio piedi sudati.",
+              "text": "Umidità verso l’esterno, calore all’interno: angora, spugna e lana vergine garantiscono comfort dal polpaccio alle dita. Tutti i prodotti ilo® fanno bene ai piedi e stanno benissimo con sneaker, scarpe eleganti, da corsa o da trekking. Materiali resistenti e intelligenti e un bordo a coste lavorato appositamente resistono anche a molti lavaggi. Parola nostra!"
+            }
+          ],
+          "lines": [
+            "Classico",
+            "Comfort",
+            "Sport",
+            "Cuscino & pigiama"
+          ],
+          "listTitle": "",
+          "list": []
+        }
+      }
+    },
+    "shapes": {
+      "title": "Forme delle calze",
+      "banner": {
+        "titleLine1": "Calza e scarpa –",
+        "titleLine2": "una coppia perfetta",
+        "text": "Calore d’inverno, comfort e igiene d’estate: quando salgono le temperature cambia anche la scelta delle calze. ihle® ha adattato la sua gamma e produce calze in tre forme diverse."
+      },
+      "items": {
+        "short": {
+          "title": "Calze corte",
+          "text": "Una calza versatile per ogni stagione: il gambale dà forma e nome alla calza. Nelle calze corte arriva circa 10 cm sopra la caviglia, fino a metà polpaccio. La parte alta può essere un semplice bordo senza elastico o un bordo a coste, con o senza elastico."
+        },
+        "footlet": {
+          "title": "Fantasmini",
+          "text": "La versione estiva della calza copre soprattutto dita e tallone. Il piede termina appena sopra o sotto la caviglia. Per le persone con diabete consigliamo quindi le versioni più lunghe delle nostre calze."
+        },
+        "knee": {
+          "title": "Gambaletti",
+          "text": "Un classico per l’inverno o con scarpe alte: la calza termina sotto il ginocchio. Un bordo ampio garantisce una buona tenuta senza stringere. Sono disponibili anche bordi con e senza elastico."
+        }
+      }
+    },
+    "colors": {
+      "title": "Colori",
+      "subtitleLine1": "Una gamma di",
+      "subtitleLine2": "comfort e carattere",
+      "text": "Le scarpe diventano sempre più colorate. Dalle tonalità naturali discrete ai colori espressivi, ihle® unisce competenza tessile e design moderno del colore.",
+      "cta": "Scopri le collezioni",
+      "names": {
+        "black": "Nero",
+        "marine": "Blu marino",
+        "gray": "Grigio",
+        "anthracite": "Antracite",
+        "graphite": "Grafite",
+        "brown": "Marrone",
+        "white": "Bianco",
+        "silver": "Argento",
+        "beige": "Beige",
+        "nature": "Naturale",
+        "pearl": "Perla",
+        "beigeMottled": "Beige melange",
+        "denimBlueMelange": "Blu jeans melange",
+        "lightGreyMelange": "Grigio chiaro melange",
+        "darkGreyMelange": "Grigio scuro melange",
+        "yellow": "Giallo",
+        "red": "Rosso",
+        "green": "Verde",
+        "pink": "Rosa",
+        "purple": "Viola",
+        "turquoise": "Turchese",
+        "royalBlue": "Blu reale"
+      }
+    },
+    "dealers": {
+      "titleLine1": "Trova un",
+      "titleHighlight": "rivenditore specializzato",
+      "titleRest": "vicino a te",
+      "text": "Sei un privato e vuoi acquistare un prodotto ihle®? I nostri tessili medicali, calze e intimo sono disponibili esclusivamente presso rivenditori specializzati. Rivolgiti direttamente al tuo rivenditore o a un negozio di articoli sanitari nella tua zona.",
+      "placeholder": "CAP o città",
+      "button": "Trova rivenditore",
+      "notFound": "Non abbiamo trovato questo luogo. Controlla i dati inseriti.",
+      "error": "La ricerca non è disponibile al momento. Riprova più tardi.",
+      "mapLabel": "Mappa"
+    }
+  },
+  "material": {
+    "hero": {
+      "eyebrow": "Materiale",
+      "titleLine1": "I materiali dietro",
+      "titleLine2": "ogni calza ihle®.",
+      "text": "Filati di cotone, lana e fibre funzionali accuratamente selezionati – per comfort, durata e prestazioni affidabili.",
+      "cta": "Scopri la gamma",
+      "imageAlt": "Rocche di filato bianco naturale, verde e ruggine accanto a una coperta lavorata a maglia"
+    },
+    "intro": {
+      "eyebrow": "I nostri materiali",
+      "titleLine1": "Fibre naturali.",
+      "titleLine2": "Comfort moderno.",
+      "text": "In ihle® uniamo fibre naturali e funzionali accuratamente selezionate a una moderna tecnica di maglieria per creare calze e tessili medicali che offrono comfort duraturo, vestibilità perfetta e qualità affidabile – per ogni stagione e ogni esigenza.",
+      "fibresLabel": "Le fibre che utilizziamo",
+      "fibres": {
+        "cotton": "Cotone",
+        "wool": "Lana vergine",
+        "polyamide": "Poliammide",
+        "elastane": "Elastan",
+        "silver": "Fibra d’argento"
+      },
+      "features": {
+        "fibres": {
+          "title": "Fibre accuratamente selezionate",
+          "text": "Fibre naturali e funzionali, scelte in base a ogni utilizzo."
+        },
+        "quality": {
+          "title": "Qualità affidabile",
+          "text": "Una lavorazione costante su cui i rivenditori possono contare."
+        },
+        "comfort": {
+          "title": "Comode ogni giorno",
+          "text": "Maglie morbide e senza cuciture che non stringono e non segnano."
+        },
+        "durable": {
+          "title": "Resistenti e indeformabili",
+          "text": "Fatte per mantenere a lungo forma e sensazione."
+        }
+      }
+    },
+    "knit": {
+      "eyebrow": "La maglia",
+      "titleLine1": "Tutto dipende",
+      "titleLine2": "dalla finezza.",
+      "text": "Per la sensazione e l’aspetto contano non solo il materiale, ma anche la finezza. Indica quanti aghi lavorano per pollice (2,54 cm). Una finezza di 14 maglie per pollice è comune e dà l’aspetto classico. ihle® lavora da 6 a 36 maglie per pollice – il risultato è sempre una maglia che corrisponde esattamente all’esigenza.",
+      "gaugeLabel": "Finezza in ihle: da 6 a 36 maglie per pollice. Classico 14, extra fine 22.",
+      "gaugeUnit": "maglie per pollice",
+      "types": {
+        "smooth": {
+          "tag": "14 maglie per pollice",
+          "title": "Classico liscio",
+          "text": "Questa maglia regolare di spessore medio è una vera tuttofare: per ogni stagione e occasione, per donna e uomo. ihle® la usa per calze e calzettoni di tutti i giorni."
+        },
+        "fine": {
+          "tag": "22 maglie per pollice",
+          "title": "Classico extra fine",
+          "text": "Così ihle® chiama la versione raffinata della sua maglia classica. In Europa centrale questa qualità è preferita soprattutto dalle donne, nel Sud Europa più spesso dagli uomini."
+        },
+        "plush": {
+          "tag": "Imbottita ovunque",
+          "title": "Spugna integrale",
+          "text": "Dalla punta al bordo: le calze completamente imbottite offrono un piacevole calore, un buon ammortizzamento e una buona circolazione dell’aria grazie alla maglia in spugna – per ogni tipo di attività."
+        },
+        "semi": {
+          "tag": "Imbottita su dita, pianta e tallone",
+          "title": "Mezza spugna",
+          "text": "Imbottitura dove serve: a volte basta un’imbottitura extra su dita, pianta e tallone. I modelli a mezza spugna sono quindi ideali per le mezze stagioni."
+        }
+      }
+    },
+    "next": {
+      "eyebrow": "Segnaposto",
+      "title": "Seguirà un’altra sezione",
+      "text": "Quest’area è provvisoria e verrà sostituita dalla parte successiva della pagina materiale."
+    },
+    "cuffs": {
+      "eyebrow": "Bordi",
+      "titleLine1": "Una vestibilità perfetta,",
+      "titleLine2": "senza stringere.",
+      "text": "Elastica, morbida e comoda ogni giorno – così deve calzare una maglia. Per questo ihle® ha sviluppato diversi bordi e finiture, da stretti a extra larghi.",
+      "types": {
+        "loop": {
+          "title": "Bordo risvoltato senza elastico",
+          "text": "Con questa maglia speciale ihle® risponde soprattutto alle esigenze dei diabetici. Ne trae vantaggio anche chi trova fastidioso un elastico che stringe."
+        },
+        "ribLong": {
+          "title": "Bordo a coste senza elastico",
+          "text": "Questo bordo è lungo circa 10 cm e si può portare anche risvoltato."
+        },
+        "ribShort": {
+          "title": "Bordo a coste con elastico",
+          "text": "Qui sono lavorati 4 cm di elastico. Chi ha piedi sani preferisce spesso questo sostegno in più. Da sapere: questo bordo non è adatto ai diabetici."
+        }
+      }
+    }
+  },
+  "footer": {
+    "newsletterTitle": "Resta aggiornato su nuovi prodotti, materiali e innovazioni",
+    "newsletterButton": "Iscriviti ora",
+    "about": "Calzature per diabetici, corsetti, ortesi o protesi: ihle® è convinta che l’assistenza ortopedica vada oltre l’ausilio stesso. Su questa base abbiamo sviluppato tessuti a maglia che offrono una protezione affidabile. Questi tessili dalla vestibilità precisa non aumentano solo il comfort, ma migliorano anche la qualità della vita e i risultati del trattamento.",
+    "quickLinks": "Link rapidi",
+    "resources": "Risorse",
+    "materials": "Materiali",
+    "news": "Notizie",
+    "catalog": "Catalogo",
+    "jobs": "Lavora con noi",
+    "newsletter": "Newsletter",
+    "phone": "Tel.",
+    "mail": "E-mail",
+    "address": "Indirizzo",
+    "contact": "Contatti",
+    "imprint": "Note legali",
+    "privacy": "Privacy",
+    "terms": "Condizioni generali",
+    "hoursTitle": "Orari dello spaccio aziendale:",
+    "hours": "Da lunedì a venerdì: dalle 8:00 alle 15:00",
+    "addressArea": "Zona industriale Heinzebank"
+  },
+  "addresses": {
+    "title": "I miei indirizzi",
+    "billing": "Indirizzo di fatturazione",
+    "deliveries": "Indirizzi di consegna",
+    "delivery": "Indirizzo di consegna {{number}}",
+    "deliveryCount_one": "{{count}} indirizzo di consegna",
+    "deliveryCount_other": "{{count}} indirizzi di consegna",
+    "noDeliveries": "Per il tuo account cliente non sono salvati altri indirizzi di consegna. Gli ordini vengono consegnati all’indirizzo di fatturazione; alla cassa puoi anche indicare un altro indirizzo per un singolo ordine.",
+    "changeNote": "I tuoi indirizzi provengono dal nostro sistema gestionale. Per modifiche o nuovi indirizzi di consegna chiamaci:"
+  },
+  "accountOrders": {
+    "order": "Ordine {{number}}",
+    "lines_one": "{{count}} riga",
+    "lines_other": "{{count}} righe",
+    "count_one": "{{count}} ordine",
+    "count_other": "{{count}} ordini",
+    "status": {
+      "new": "Ricevuto",
+      "exported": "In lavorazione"
+    },
+    "reorder": "Ordina di nuovo",
+    "nothingAvailable": "Gli articoli di questo ordine non sono attualmente disponibili nel negozio.",
+    "someSkipped_one": "Le altre righe sono nel carrello; {{count}} articolo non è attualmente disponibile.",
+    "someSkipped_other": "Le altre righe sono nel carrello; {{count}} articoli non sono attualmente disponibili.",
+    "toCart": "Vai al carrello",
+    "loading": "Caricamento degli ordini …",
+    "loadError": "Al momento non è stato possibile caricare i tuoi ordini. Riprova più tardi.",
+    "emptyTitle": "Ancora nessun ordine",
+    "emptyText": "Appena ordini nel negozio, trovi qui i tuoi ordini – con tutte le righe, commissioni e prezzi.",
+    "found_one": "{{count}} di {{total}} ordini",
+    "found_other": "{{count}} di {{total}} ordini",
+    "search": "Cerca",
+    "searchPlaceholder": "N. ordine, articolo, commissione, riferimento …",
+    "statusLabel": "Stato",
+    "allStatuses": "Tutti",
+    "period": "Periodo",
+    "periods": {
+      "30": "Ultimi 30 giorni",
+      "90": "Ultimi 3 mesi",
+      "365": "Ultimi 12 mesi",
+      "all": "Tutto il periodo"
+    },
+    "noMatchTitle": "Nessun ordine corrispondente",
+    "noMatchText": "Modifica la ricerca o i filtri.",
+    "resetFilter": "Azzera ricerca e filtri",
+    "showMore": "Mostra altri",
+    "shownOf": "{{shown}} di {{total}} ordini mostrati",
+    "totalNet": "Totale netto"
+  },
+  "settings": {
+    "title": "Impostazioni",
+    "account": "Dati dell’account",
+    "company": "Azienda",
+    "username": "Nome utente (numero cliente)",
+    "email": "E-mail",
+    "noEmail": "Nessuna e-mail registrata",
+    "changeNote": "I dati del tuo account provengono dal nostro sistema gestionale. Per modificarli chiamaci:",
+    "toAddresses": "Vedi indirizzi",
+    "password": {
+      "title": "Cambia password",
+      "intro": "Scegli una nuova password per il tuo accesso al negozio. Resterai connesso.",
+      "current": "Password attuale",
+      "new": "Nuova password",
+      "confirm": "Ripeti la nuova password",
+      "rules": "Almeno {{count}} caratteri.",
+      "save": "Salva password",
+      "saving": "Salvataggio …",
+      "saved": "La tua password è stata cambiata. D’ora in poi usa la nuova password per accedere.",
+      "errors": {
+        "wrongPassword": "La password attuale non è corretta.",
+        "passwordTooShort": "La nuova password deve contenere almeno {{count}} caratteri.",
+        "mismatch": "Le due nuove password non coincidono.",
+        "samePassword": "La nuova password deve essere diversa da quella attuale.",
+        "tooManyAttempts": "Troppi tentativi non riusciti. Riprova tra qualche minuto.",
+        "offline": "Nessuna connessione al server. Riprova.",
+        "notLoggedIn": "La tua sessione è scaduta. Accedi di nuovo.",
+        "generic": "Al momento non è stato possibile cambiare la password. Riprova."
+      }
+    },
+    "site": {
+      "title": "Impostazioni del sito",
+      "intro": "Vale per questo browser e si applica subito.",
+      "view": "Visualizzazione prodotti",
+      "pageSize": "Prodotti per pagina"
+    },
+    "logout": {
+      "title": "Esci",
+      "text": "Esci da questo dispositivo. Il carrello verrà svuotato."
+    }
+  },
+  "colors": {
+    "001": "Nero",
+    "002": "Blu marino",
+    "003": "Grigio",
+    "004": "Beige",
+    "005": "Antracite",
+    "007": "Grafite",
+    "008": "Marrone",
+    "011": "Bianco",
+    "013": "Argento",
+    "015": "Spugnola",
+    "021": "Naturale",
+    "025": "Perla",
+    "027": "Chinino",
+    "038": "Giallo",
+    "039": "Turchese",
+    "040": "Rosso",
+    "041": "Blu reale",
+    "042": "Verde",
+    "043": "Viola",
+    "044": "Rosa",
+    "052": "Beige melange",
+    "053": "Blu jeans melange",
+    "058": "Grigio scuro melange",
+    "059": "Grigio chiaro melange",
+    "102": "Mirtillo",
+    "103": "Pietra",
+    "139": "Menta",
+    "140": "Ciliegia",
+    "142": "Kiwi",
+    "143": "Lilla",
+    "144": "Pitaya",
+    "145": "Bordeaux"
+  }
+}

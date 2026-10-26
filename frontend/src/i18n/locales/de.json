@@ -1,0 +1,706 @@
+{
+  "common": {
+    "loading": "Wird geladen …",
+    "loadErrorTitle": "Das hat gerade nicht geklappt",
+    "loadErrorText": "Die Daten konnten nicht geladen werden. Bitte versuchen Sie es erneut.",
+    "retry": "Erneut versuchen"
+  },
+  "nav": {
+    "main": "Hauptnavigation",
+    "home": "Ihle – Startseite",
+    "skip": "Zum Inhalt springen",
+    "allProducts": "Alle Produkte",
+    "productCategories": "Produktkategorien",
+    "material": "Material",
+    "services": "Dienstleistungen",
+    "about": "Über uns",
+    "search": "Suche",
+    "searchPlaceholder": "Produkt oder Artikelnummer suchen",
+    "closeSearch": "Suche schließen",
+    "language": "Sprache",
+    "account": "Konto",
+    "login": "Anmelden",
+    "myOrders": "Meine Bestellungen",
+    "addresses": "Adressen",
+    "settings": "Einstellungen",
+    "logout": "Abmelden",
+    "cart": "Warenkorb",
+    "cartCount_one": "Warenkorb, {{count}} Artikel",
+    "cartCount_other": "Warenkorb, {{count}} Artikel",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen",
+    "languageHint": "Wählen Sie Ihre bevorzugte Sprache",
+    "confirm": "Bestätigen",
+    "close": "Schließen",
+    "viewAll": "Alle ansehen",
+    "viewAllProducts": "Alle Produkte ansehen",
+    "megaEmpty": "Für diese Kategorie folgen die Produktgruppen in Kürze.",
+    "accountOf": "Konto von {{name}}"
+  },
+  "categories": {
+    "all": "Alle Produkte",
+    "PROTHETIC": "Prothetik & Orthetik",
+    "DIABETES": "Diabetes & Problemfuß",
+    "UNDERWEAR": "Unterwäsche",
+    "ILO": "ilo®-Strümpfe"
+  },
+  "groups": {
+    "101-US": "Unterschenkel Stumpfstrumpf",
+    "102-US-PIN": "Unterschenkel für Pin-Systeme",
+    "103-OS": "Oberschenkel Stumpfstrumpf",
+    "104-OS-PIN": "Oberschenkel für Pin-Systeme",
+    "105-ARM": "Kinder/Arm Stumpfstrumpf",
+    "106-MASS": "Maßanfertigung",
+    "107-LAM": "Laminierschlauch",
+    "108-GIPS": "Gipsschutz",
+    "109-ORTH": "Orthesen Textil",
+    "201-KLAS": "Klassisch",
+    "202-KOMF": "Komfort",
+    "203-STUETZ": "Stützstrumpf",
+    "204-HALLUX": "Hallux Valgus",
+    "205-CHOPRT": "Chopart Lisfranc"
+  },
+  "products": {
+    "sortBy": "Sortieren nach:",
+    "count_one": "{{count}} Produkt",
+    "count_other": "{{count}} Produkte",
+    "empty": "Für diese Auswahl gibt es noch keine Produkte.",
+    "sort": {
+      "name": "Name",
+      "articleNo": "Artikelnummer",
+      "price": "Preis",
+      "size": "Größe"
+    },
+    "sortLoginHint": "nach Anmeldung",
+    "articleNo": "Art.-Nr. {{number}}",
+    "range": "{{from}}–{{to}} von {{total}}",
+    "show": "Anzeigen:",
+    "pages": {
+      "label": "Seiten",
+      "previous": "Vorherige Seite",
+      "next": "Nächste Seite",
+      "page": "Seite {{page}}"
+    },
+    "view": {
+      "label": "Ansicht",
+      "grid": "Rasteransicht",
+      "list": "Listenansicht"
+    },
+    "loading": "Produkte werden geladen …",
+    "loadError": "Die Produkte konnten gerade nicht geladen werden. Bitte versuchen Sie es später erneut."
+  },
+  "product": {
+    "breadcrumb": "Sie sind hier",
+    "details": "Produktdetails",
+    "related": "Weitere Produkte",
+    "notFound": "Produkt nicht gefunden",
+    "backToProducts": "Zurück zu allen Produkten",
+    "images": "Produktbilder",
+    "image": "Bild {{number}}",
+    "imageSoon": "Bild folgt"
+  },
+  "order": {
+    "quantity": "Menge",
+    "less": "Menge verringern",
+    "more": "Menge erhöhen",
+    "commission": "Kommission",
+    "commissionPlaceholder": "z. B. Name oder Auftrag",
+    "add": "In den Warenkorb",
+    "added": "Hinzugefügt",
+    "perUnit": "pro {{unit}}, netto zzgl. MwSt.",
+    "total": "Gesamt"
+  },
+  "cart": {
+    "title": "Warenkorb",
+    "count_one": "{{count}} Artikel",
+    "count_other": "{{count}} Artikel",
+    "emptyTitle": "Ihr Warenkorb ist leer",
+    "emptyText": "Legen Sie Produkte in den Warenkorb, um eine Bestellung vorzubereiten.",
+    "toProducts": "Zu den Produkten",
+    "loginText": "Bitte melden Sie sich an, um Ihren Warenkorb zu sehen.",
+    "remove": "{{name}} entfernen",
+    "clear": "Warenkorb leeren",
+    "total": "Summe",
+    "totalNote": "Nettopreise, zzgl. MwSt. und Versand",
+    "order": "Bestellen"
+  },
+  "checkout": {
+    "title": "Zur Kasse",
+    "progress": "Ihr Bestellfortschritt",
+    "continue": "Weiter",
+    "change": "Ändern",
+    "backToCart": "Zurück zum Warenkorb",
+    "billing": "Rechnungsadresse",
+    "delivery": "Lieferadresse",
+    "shipping": "Versandart",
+    "payment": "Zahlungsart",
+    "overview": "Bestellübersicht",
+    "sendHere": "An diese Adresse liefern",
+    "sendElsewhere": "An eine andere Adresse liefern",
+    "sameAsBilling": "Wie Rechnungsadresse",
+    "newAddress": "Neue Adresse eingeben",
+    "fields": {
+      "company": "Firma",
+      "street": "Straße und Hausnummer",
+      "zip": "PLZ",
+      "city": "Ort",
+      "country": "Land"
+    },
+    "shippingNote": "Die Versandkosten werden auf der Rechnung ausgewiesen.",
+    "placeOrder": "Zahlungspflichtig bestellen",
+    "thanksTitle": "Vielen Dank für Ihre Bestellung",
+    "thanksText_one": "Ihre Bestellung mit {{count}} Artikel über {{total}} (netto) wurde aufgenommen.",
+    "thanksText_other": "Ihre Bestellung mit {{count}} Artikeln über {{total}} (netto) wurde aufgenommen.",
+    "back": "Zurück",
+    "savedAddress": "Gespeicherte Lieferadresse",
+    "glsText": "Paketversand mit GLS.",
+    "invoice": "Rechnung",
+    "invoiceText": "Sie erhalten die Rechnung mit der Lieferung.",
+    "receipt": "Ihre Belegnummer",
+    "orderNumber": "Ihre Bestellnummer: {{number}}. Die Bestellung wurde an Ihle übermittelt.",
+    "sending": "Wird gesendet …",
+    "paymentMethods": {
+      "purchaseorder": "Rechnung",
+      "debit": "Bankeinzug",
+      "VORKASSE": "Vorkasse"
+    },
+    "paymentTexts": {
+      "purchaseorder": "Sie erhalten die Rechnung mit der Lieferung.",
+      "debit": "Der Betrag wird per Lastschrift von Ihrem Konto eingezogen.",
+      "VORKASSE": "Sie erhalten eine Rechnung; die Ware wird nach Zahlungseingang versandt."
+    },
+    "errors": {
+      "invalidItems": "Der Warenkorb enthält ungültige Positionen.",
+      "unavailableItems": "Ein Artikel im Warenkorb ist nicht mehr verfügbar. Bitte prüfen Sie den Warenkorb.",
+      "invalidAddress": "Bitte prüfen Sie die Lieferadresse.",
+      "notLoggedIn": "Ihre Anmeldung ist abgelaufen. Bitte melden Sie sich erneut an.",
+      "offline": "Keine Verbindung zum Server. Bitte versuchen Sie es erneut.",
+      "serverError": "Die Bestellung konnte gerade nicht gesendet werden. Bitte versuchen Sie es erneut."
+    },
+    "noSavedAddresses": "Für Ihr Kundenkonto sind keine weiteren Lieferadressen hinterlegt. Bitte geben Sie die Adresse unten ein."
+  },
+  "filters": {
+    "title": "Filter",
+    "resetAll": "Alle zurücksetzen",
+    "reset": "Zurücksetzen",
+    "close": "Filter schließen",
+    "showResults_one": "{{count}} Produkt anzeigen",
+    "showResults_other": "{{count}} Produkte anzeigen",
+    "active": "Aktive Filter",
+    "remove": "{{name}} entfernen",
+    "activeCount_one": "aktiver Filter",
+    "activeCount_other": "aktive Filter",
+    "category": "Kategorie",
+    "allCategories": "Alle Kategorien",
+    "group": "Produktgruppe",
+    "color": "Farbe",
+    "size": "Größe",
+    "material": "Material",
+    "unit": "Einheit",
+    "materials": {
+      "cotton": "Baumwolle",
+      "polyamide": "Polyamid/Nylon",
+      "elastane": "Elasthan",
+      "wool": "Wolle",
+      "silver": "Silberfaden",
+      "polyester": "Polyester",
+      "lyocell": "Lyocell"
+    },
+    "units": {
+      "PAAR": "Paar",
+      "STUECK": "Stück",
+      "STÜCK": "Stück",
+      "PACK": "Pack",
+      "10PACK": "10er-Pack",
+      "100PACK": "100er-Pack",
+      "1000PACK": "1000er-Pack",
+      "ROLLE": "Rolle",
+      "KILO": "Kilo",
+      "KG": "kg"
+    }
+  },
+  "pages": {
+    "products": "Produkte",
+    "material": "Material",
+    "services": "Dienstleistungen",
+    "about": "Über uns",
+    "search": "Suche",
+    "searchFor": "Ergebnisse für „{{query}}“",
+    "login": "Anmelden",
+    "cart": "Warenkorb",
+    "notFound": "Seite nicht gefunden",
+    "backHome": "Zurück zur Startseite"
+  },
+  "login": {
+    "eyebrow": "Fachhandel",
+    "title": "Registrierte Kunden",
+    "intro": "Bitte melden Sie sich mit Ihrer Kundennummer an.",
+    "customerNumber": "Kundennummer",
+    "password": "Passwort",
+    "showPassword": "Passwort anzeigen",
+    "hidePassword": "Passwort verbergen",
+    "passwordHint": "Bei Fragen zum Passwort kontaktieren Sie uns bitte telefonisch:",
+    "required": "Pflichtfelder",
+    "error": "Kundennummer oder Passwort ist nicht korrekt. Bitte prüfen Sie Ihre Eingabe.",
+    "loggedInAs": "Sie sind angemeldet als",
+    "toProducts": "Zu den Produkten"
+  },
+  "home": {
+    "hero": {
+      "titleLine1": "Jeder Weg.",
+      "titleLine2": "Eine perfekte Passform.",
+      "badge": "NAHTLOS GESTRICKT • MEDIZINISCHE STRICKWAREN • ",
+      "cta": "Sortiment entdecken"
+    },
+    "highlights": {
+      "title": "Highlights",
+      "previous": "Vorherige Produkte",
+      "next": "Nächste Produkte",
+      "items": {
+        "40012_053": {
+          "name": "Klassische Rippsocken",
+          "description": "Feine Rippstruktur mit glatter, handgekettelter Spitze und Bund ohne Gummi."
+        },
+        "40012_058": {
+          "name": "Edle Rippsocken",
+          "description": "Elegantes Rippgestrick mit bequemer Passform und nahtlos wirkendem, handgeketteltem Abschluss."
+        },
+        "40013_001": {
+          "name": "Premium-Wollsocken",
+          "description": "Weiche Wollqualität mit klarer Silhouette und Schaft ohne Gummi."
+        },
+        "40015_013": {
+          "name": "Feinstrick-Luxussocken",
+          "description": "Zartes Feingestrick mit versilbertem Garn und edlem Finish."
+        },
+        "40012_004": {
+          "name": "Natur-Rippsocken",
+          "description": "Gerippter Schaft in warmem Beige mit handgekettelter Spitze und Bund ohne Gummi."
+        },
+        "40011_021": {
+          "name": "Sanfte Komfortsocken",
+          "description": "Glattes Feingestrick in Naturweiß mit sanftem Bund ohne Gummi."
+        },
+        "40002_059": {
+          "name": "Klassische Silbersocken",
+          "description": "Klassisches Gestrick in Grau meliert mit versilbertem Garn und klarem Finish."
+        },
+        "40002_053": {
+          "name": "Silber-Komfortsocken",
+          "description": "Blau meliertes Gestrick mit versilbertem Garn und weichem, glattem Griff."
+        }
+      }
+    },
+    "ranges": {
+      "title": "Unsere Bereiche",
+      "tabsLabel": "Produktbereiche",
+      "linesLabel": "Produktlinien",
+      "cta": "Zu den Produkten",
+      "items": {
+        "DIABETES": {
+          "tagline": "Schutz bei jedem Schritt",
+          "blocks": [
+            {
+              "title": "Schutz bei jedem Schritt.",
+              "text": "Einfach angenehm am Fuß: ihle®-Diabetikersocken ergänzen die orthopädische Schuhversorgung. Das medizinische Gestrick fühlt sich an wie eine zweite Haut. Es sitzt perfekt und lässt trotzdem viel Bewegungsfreiheit und Platz für die Zehen. Der speziell entwickelte Bund und sorgfältig ausgewählte Materialien beugen Druckstellen, Entzündungen und Verletzungen vor."
+            },
+            {
+              "title": "Laufkomfort in Farbe.",
+              "text": "Was nützt der Maßschuh, wenn die Socke Falten wirft? ihle® ermutigt Patienten und Orthopädieschuhmacher, bei der Schuhversorgung über den Schuh hinauszudenken. Darum haben ihle®-Diabetikersocken weder eine störende Naht noch andere einschnürende Stellen."
+            }
+          ],
+          "lines": [
+            "Klassik",
+            "Halbplüsch",
+            "Vollplüsch",
+            "Kompressionsstrümpfe",
+            "Extra weit",
+            "Silber",
+            "Kinder"
+          ],
+          "listTitle": "Unsere Produkte gibt es",
+          "list": [
+            "in verschiedenen Materialien",
+            "in einer großen Auswahl an Farben",
+            "in verschiedenen Weiten (von schmal bis Lymphödem)",
+            "als Socken für Vorfußamputationen (Lisfranc, Chopart, Pirogoff)"
+          ]
+        },
+        "UNDERWEAR": {
+          "tagline": "Mehr Körpergefühl im Korsett",
+          "blocks": [
+            {
+              "title": "Besseres Körpergefühl. Höhere Akzeptanz beim Tragen.",
+              "text": "Wohltuend und schützend für die Haut: ihle®-Korsetthemden wurden als fester Bestandteil der konservativen Skoliose-Behandlung entwickelt. Das medizinische Gestrick sitzt wie angegossen, ohne lästige Falten oder störende Nähte. Es ergänzt die Korsettbehandlung und lindert die Beschwerden der oft sehr jungen Patienten."
+            },
+            {
+              "title": "Modische und funktionale Bodywear.",
+              "text": "Skoliose, Korsetttherapie und Erwachsenwerden: Diese Kombination ist oft schwer zu meistern. Deshalb haben wir unsere Produkte auf das Leben von Jugendlichen abgestimmt. Ob Spaghettiträger oder schulterfrei, kurz- oder langärmlig, U-Boot-, V- oder Rundhals: ihle®-Korsetthemden gibt es in vielen Varianten oder als Maßanfertigung. Die hochwertige Fasermischung passt sich dem Körper an und bewegt sich mit."
+            }
+          ],
+          "lines": [],
+          "listTitle": "Das ihle®-Qualitätsversprechen",
+          "list": [
+            "langlebige Materialien",
+            "besonders dehnbar",
+            "atmungsaktive Fasern",
+            "waschbar bei 60 Grad",
+            "trocknergeeignet"
+          ]
+        },
+        "PROTHETIC": {
+          "tagline": "In Bewegung ohne Druckstellen",
+          "blocks": [
+            {
+              "title": "In Bewegung bleiben, ohne Druckstellen.",
+              "text": "Ob nach einer Amputation oder in der Reha: Wird eine Prothese oder Orthese verordnet, ist damit ein Therapieziel verbunden. Der Patient soll wieder stehen oder so aktiv wie möglich sein, und zwar ohne Schmerzen. Für diese hochwertigen Hilfsmittel und Stumpfversorgungen fertigt ihle® die schützende Unterbekleidung: medizinische Gestricke für empfindliche Körperstellen."
+            },
+            {
+              "title": "Nach Maß gefertigt. Sofort ab Lager lieferbar.",
+              "text": "Ganz gleich, welche orthetische Versorgung infrage kommt: ihle®-Produkte überzeugen durch Passform, Funktion und Qualität. Sie verbessern den Tragekomfort spürbar. Die Akzeptanz von Prothese und Orthese steigt, ebenso der gewünschte Therapieeffekt. Dafür geben wir unser Bestes: hautfreundliche Materialien, hochwertige Garne und viel textiles Know-how."
+            }
+          ],
+          "lines": [
+            "Unterschenkelstrümpfe",
+            "Unterschenkel-Stumpfstrümpfe für Pin-Systeme",
+            "Oberschenkelstrümpfe",
+            "Oberschenkelstrümpfe für Pin-Systeme",
+            "Kinder- / Armstrümpfe",
+            "Laminierschlauch / Trikotschlauch",
+            "Orthetik-Textilien"
+          ],
+          "listTitle": "",
+          "list": []
+        },
+        "ILO": {
+          "tagline": "Begleiter für drinnen und draußen",
+          "blocks": [
+            {
+              "title": "Ein Begleiter für drinnen und draußen.",
+              "text": "Funktionssocken und -strümpfe haben sich im Beruf wie in der Freizeit etabliert. Geschätzt werden die tadellose Passform, das angenehme Tragegefühl und das gute Fußklima. ihle® hat aus dem Potenzial medizinischer Strickwaren Alltagssocken entwickelt, die so gut wie alles mitmachen. Ob Meeting, Bergtour oder Tanzkurs: kein Zwicken, kein Rutschen, nur purer Komfort."
+            },
+            {
+              "title": "Schluss mit schwitzigen Füßen.",
+              "text": "Feuchtigkeit nach außen, Wärme nach innen: Angora, Frottee und Schurwolle sorgen für Komfort von der Wade bis zum Zeh. Alle ilo®-Produkte sind eine Wohltat für die Füße und sehen in Sneakern, Business-, Lauf- oder Wanderschuhen gut aus. Langlebige, intelligente Materialien und ein speziell gestrickter Rippbund halten auch vielen Wäschen stand. Darauf geben wir Ihnen unser Wort!"
+            }
+          ],
+          "lines": [
+            "Klassik",
+            "Komfort",
+            "Sport",
+            "Kissen & Pyjamas"
+          ],
+          "listTitle": "",
+          "list": []
+        }
+      }
+    },
+    "shapes": {
+      "title": "Socken Formen",
+      "banner": {
+        "titleLine1": "Strumpf und Schuh –",
+        "titleLine2": "eine perfekte Kombination",
+        "text": "Wärme im Winter, Komfort und Hygiene im Sommer: Mit steigenden Temperaturen verändert sich auch unsere Wahl der Strümpfe. ihle® hat sein Produktsortiment entsprechend angepasst und fertigt Strümpfe in drei verschiedenen Ausführungen."
+      },
+      "items": {
+        "short": {
+          "title": "Kurze Strümpfe",
+          "text": "Ein vielseitiger Strumpf für alle Jahreszeiten: Der Schaft gibt dem Strumpf seine Form und seinen Namen. Bei kurzen Strümpfen reicht er etwa 10 cm über den Knöchel bis ungefähr zur Mitte der Wade. Der Abschluss kann als einfacher, nicht elastischer Rand oder als Rippabschluss ausgeführt sein – mit oder ohne Elastik."
+        },
+        "footlet": {
+          "title": "Füßlinge",
+          "text": "Die sommerliche Variante des Strumpfs bedeckt hauptsächlich Zehen und Ferse. Der Fußteil endet knapp über oder unterhalb des Knöchels. Daher empfehlen wir für Menschen mit Diabetes die längeren Varianten unserer Strümpfe."
+        },
+        "knee": {
+          "title": "Kniestrümpfe",
+          "text": "Ein Klassiker für den Winter oder zu hohen Schuhen: Der Strumpf endet unterhalb des Knies. Ein breiter Abschluss sorgt für guten Halt, ohne einzuschnüren. Auch elastische und nicht elastische Abschlüsse sind erhältlich."
+        }
+      }
+    },
+    "colors": {
+      "title": "Farben",
+      "subtitleLine1": "Ein Spektrum an",
+      "subtitleLine2": "Komfort und Charakter",
+      "text": "Schuhe werden immer farbenfroher. Von dezenten Naturtönen bis hin zu ausdrucksstarken Farben verbindet ihle® textile Kompetenz mit modernem Farbdesign.",
+      "cta": "Entdecken Sie unsere Kollektionen",
+      "names": {
+        "black": "Schwarz",
+        "marine": "Marine",
+        "gray": "Grau",
+        "anthracite": "Anthrazit",
+        "graphite": "Graphit",
+        "brown": "Braun",
+        "white": "Weiß",
+        "silver": "Silber",
+        "beige": "Beige",
+        "nature": "Natur",
+        "pearl": "Perle",
+        "beigeMottled": "Beige meliert",
+        "denimBlueMelange": "Jeansblau meliert",
+        "lightGreyMelange": "Hellgrau meliert",
+        "darkGreyMelange": "Dunkelgrau meliert",
+        "yellow": "Gelb",
+        "red": "Rot",
+        "green": "Grün",
+        "pink": "Rosa",
+        "purple": "Lila",
+        "turquoise": "Türkis",
+        "royalBlue": "Royalblau"
+      }
+    },
+    "dealers": {
+      "titleLine1": "Finden Sie einen",
+      "titleHighlight": "Fachhändler",
+      "titleRest": "in Ihrer Nähe",
+      "text": "Sind Sie Privatkunde und möchten ein ihle®-Produkt erwerben? Unsere medizinischen Gestricke, Strümpfe und Unterwäsche sind ausschließlich im Fachhandel erhältlich. Bitte wenden Sie sich direkt an Ihren Fachhändler oder ein Sanitätshaus vor Ort.",
+      "placeholder": "Postleitzahl oder Wohnort eingeben",
+      "button": "Händler finden",
+      "notFound": "Diesen Ort haben wir nicht gefunden. Bitte prüfen Sie die Eingabe.",
+      "error": "Die Suche ist gerade nicht erreichbar. Bitte versuchen Sie es später erneut.",
+      "mapLabel": "Karte"
+    }
+  },
+  "material": {
+    "hero": {
+      "eyebrow": "Material",
+      "titleLine1": "Die Materialien hinter",
+      "titleLine2": "jedem ihle®-Strumpf.",
+      "text": "Sorgfältig ausgewählte Garne aus Baumwolle, Wolle und Funktionsfasern – für Tragekomfort, Haltbarkeit und zuverlässige Funktion.",
+      "cta": "Sortiment entdecken",
+      "imageAlt": "Garnkonen in Naturweiß, Grün und Rostrot neben einer Strickdecke"
+    },
+    "intro": {
+      "eyebrow": "Unsere Materialien",
+      "titleLine1": "Natürliche Fasern.",
+      "titleLine2": "Moderner Komfort.",
+      "text": "Bei ihle® verbinden wir sorgfältig ausgewählte Natur- und Funktionsfasern mit moderner Stricktechnik. So entstehen Strümpfe und medizinische Gestricke mit dauerhaftem Komfort, perfekter Passform und verlässlicher Qualität – für jede Jahreszeit und jeden Bedarf.",
+      "fibresLabel": "Fasern, mit denen wir arbeiten",
+      "fibres": {
+        "cotton": "Baumwolle",
+        "wool": "Schurwolle",
+        "polyamide": "Polyamid",
+        "elastane": "Elasthan",
+        "silver": "Silberfaser"
+      },
+      "features": {
+        "fibres": {
+          "title": "Sorgfältig ausgewählte Fasern",
+          "text": "Natur- und Funktionsfasern, passend zum jeweiligen Einsatz gewählt."
+        },
+        "quality": {
+          "title": "Zuverlässige Qualität",
+          "text": "Gleichbleibende Verarbeitung, auf die sich der Fachhandel verlassen kann."
+        },
+        "comfort": {
+          "title": "Angenehm im täglichen Tragen",
+          "text": "Weiche, nahtlose Gestricke, die nicht drücken oder einschneiden."
+        },
+        "durable": {
+          "title": "Langlebig und formstabil",
+          "text": "Dafür gemacht, Passform und Griff lange zu behalten."
+        }
+      }
+    },
+    "knit": {
+      "eyebrow": "Gestrick",
+      "titleLine1": "Auf die Feinheit",
+      "titleLine2": "kommt es an.",
+      "text": "Für Griff und Optik ist nicht nur das Material entscheidend, sondern auch die Feinheit. Sie gibt an, wie viele Nadeln pro Zoll (2,54 cm) stricken. Üblich ist eine Feinheit von 14 Maschen pro Zoll, sie ergibt das klassische Maschenbild. ihle® arbeitet mit 6 bis 36 Maschen pro Zoll – so entsteht immer ein Gestrick, das genau zur Anforderung passt.",
+      "gaugeLabel": "Feinheit bei ihle: 6 bis 36 Maschen pro Zoll. Klassisch sind 14, extra fein 22.",
+      "gaugeUnit": "Maschen pro Zoll",
+      "types": {
+        "smooth": {
+          "tag": "14 Maschen pro Zoll",
+          "title": "Klassisch glatt",
+          "text": "Dieses gleichmäßige Gestrick in mittlerer Stärke ist ein echter Allrounder: für jede Jahreszeit, jeden Anlass, für Damen und Herren. ihle® fertigt daraus Socken und Strümpfe für jeden Tag."
+        },
+        "fine": {
+          "tag": "22 Maschen pro Zoll",
+          "title": "Klassisch extra fein",
+          "text": "So nennt ihle® die verfeinerte Variante des klassischen Gestricks. In Mitteleuropa wird diese Qualität meist von Damen bevorzugt, in Südeuropa häufiger von Herren."
+        },
+        "plush": {
+          "tag": "Rundum gepolstert",
+          "title": "Vollplüsch",
+          "text": "Von der Spitze bis zum Bund: Vollständig gepolsterte Strümpfe sorgen dank Frotteegestrick für angenehme Wärme, wirksame Polsterung und gute Luftzirkulation – bei ganz unterschiedlichen Aktivitäten."
+        },
+        "semi": {
+          "tag": "Gepolstert an Zehen, Sohle und Ferse",
+          "title": "Halbplüsch",
+          "text": "Polster dort, wo es zählt: Manchmal genügt zusätzliche Polsterung an Zehen, Sohle und Ferse. Halbplüsch-Modelle sind deshalb ideale Begleiter für die Übergangszeit."
+        }
+      }
+    },
+    "next": {
+      "eyebrow": "Platzhalter",
+      "title": "Weiterer Abschnitt folgt",
+      "text": "Dieser Bereich ist vorläufig und wird durch den nächsten Inhalt der Materialseite ersetzt."
+    },
+    "cuffs": {
+      "eyebrow": "Bündchen",
+      "titleLine1": "Perfekter Sitz,",
+      "titleLine2": "ohne Einschneiden.",
+      "text": "Dehnbar, anschmiegsam und alltagstauglich – so soll ein Gestrick sitzen. ihle® hat dafür verschiedene Bündchen und Abschlüsse entwickelt, von schmal bis extra weit.",
+      "types": {
+        "loop": {
+          "title": "Umhängerand ohne Gummi",
+          "text": "Mit diesem speziellen Gestrick kommt ihle® vor allem den Bedürfnissen von Diabetikern nach. Auch wer einschnürende Gummis als störend empfindet, profitiert von diesem Abschluss."
+        },
+        "ribLong": {
+          "title": "Ripprand ohne Gummi",
+          "text": "Dieser Rand ist etwa 10 cm lang und kann auch umgeschlagen getragen werden."
+        },
+        "ribShort": {
+          "title": "Ripprand mit Gummi",
+          "text": "Hier sind 4 cm Gummi eingestrickt. Kunden mit gesunden Füßen schätzen meist den zusätzlichen Halt. Gut zu wissen: Dieser Rand ist für Diabetiker nicht geeignet."
+        }
+      }
+    }
+  },
+  "footer": {
+    "newsletterTitle": "Bleiben Sie informiert über neue Produkte, Materialien und Innovationen",
+    "newsletterButton": "Jetzt anmelden",
+    "about": "Ob Diabetikerschuhe, Korsetts, Orthesen oder Prothesen: ihle® ist davon überzeugt, dass orthopädische Versorgung über das Hilfsmittel selbst hinausgeht. Auf dieser Grundlage wurden Gestricke entwickelt, die zuverlässigen Schutz bieten. Solche passgenauen Textilien steigern nicht nur den Tragekomfort, sondern verbessern auch die Lebensqualität und die Behandlungsergebnisse.",
+    "quickLinks": "Quick Links",
+    "resources": "Resources",
+    "materials": "Materialien",
+    "news": "Aktuelles",
+    "catalog": "Katalog",
+    "jobs": "Stellenangebote",
+    "newsletter": "Newsletter",
+    "phone": "Tel",
+    "mail": "Mail",
+    "address": "Adresse",
+    "contact": "Kontakt",
+    "imprint": "Impressum",
+    "privacy": "Datenschutz",
+    "terms": "Geschäftsbedingungen",
+    "hoursTitle": "Öffnungszeiten des Werksverkaufs:",
+    "hours": "Montag bis Freitag: 8:00 bis 15:00 Uhr",
+    "addressArea": "Gewerbegebiet Heinzebank"
+  },
+  "addresses": {
+    "title": "Meine Adressen",
+    "billing": "Rechnungsadresse",
+    "deliveries": "Lieferadressen",
+    "delivery": "Lieferadresse {{number}}",
+    "deliveryCount_one": "{{count}} Lieferadresse",
+    "deliveryCount_other": "{{count}} Lieferadressen",
+    "noDeliveries": "Für Ihr Kundenkonto sind keine weiteren Lieferadressen hinterlegt. Bestellungen werden an Ihre Rechnungsadresse geliefert; an der Kasse können Sie für eine Bestellung auch eine andere Adresse angeben.",
+    "changeNote": "Ihre Adressen werden aus unserem Warenwirtschaftssystem übernommen. Für Änderungen oder neue Lieferadressen rufen Sie uns bitte an:"
+  },
+  "accountOrders": {
+    "order": "Bestellung {{number}}",
+    "lines_one": "{{count}} Position",
+    "lines_other": "{{count}} Positionen",
+    "count_one": "{{count}} Bestellung",
+    "count_other": "{{count}} Bestellungen",
+    "status": {
+      "new": "Eingegangen",
+      "exported": "In Bearbeitung"
+    },
+    "reorder": "Erneut bestellen",
+    "nothingAvailable": "Die Artikel dieser Bestellung sind derzeit nicht im Shop verfügbar.",
+    "someSkipped_one": "Die übrigen Positionen liegen im Warenkorb; {{count}} Artikel ist derzeit nicht verfügbar.",
+    "someSkipped_other": "Die übrigen Positionen liegen im Warenkorb; {{count}} Artikel sind derzeit nicht verfügbar.",
+    "toCart": "Zum Warenkorb",
+    "loading": "Bestellungen werden geladen …",
+    "loadError": "Ihre Bestellungen konnten gerade nicht geladen werden. Bitte versuchen Sie es später erneut.",
+    "emptyTitle": "Noch keine Bestellungen",
+    "emptyText": "Sobald Sie im Shop bestellen, finden Sie Ihre Bestellungen hier – mit allen Positionen, Kommissionen und Preisen.",
+    "found_one": "{{count}} von {{total}} Bestellungen",
+    "found_other": "{{count}} von {{total}} Bestellungen",
+    "search": "Suchen",
+    "searchPlaceholder": "Bestellnr., Artikel, Kommission, Belegnummer …",
+    "statusLabel": "Status",
+    "allStatuses": "Alle",
+    "period": "Zeitraum",
+    "periods": {
+      "30": "Letzte 30 Tage",
+      "90": "Letzte 3 Monate",
+      "365": "Letzte 12 Monate",
+      "all": "Gesamter Zeitraum"
+    },
+    "noMatchTitle": "Keine passende Bestellung",
+    "noMatchText": "Ändern Sie die Suche oder die Filter.",
+    "resetFilter": "Suche und Filter zurücksetzen",
+    "showMore": "Mehr anzeigen",
+    "shownOf": "{{shown}} von {{total}} Bestellungen angezeigt",
+    "totalNet": "Summe netto"
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "account": "Kontodaten",
+    "company": "Firma",
+    "username": "Benutzername (Kundennummer)",
+    "email": "E-Mail",
+    "noEmail": "Keine E-Mail hinterlegt",
+    "changeNote": "Ihre Kontodaten stammen aus unserem Warenwirtschaftssystem. Für Änderungen rufen Sie uns bitte an:",
+    "toAddresses": "Adressen ansehen",
+    "password": {
+      "title": "Passwort ändern",
+      "intro": "Wählen Sie ein neues Passwort für Ihren Shop-Zugang. Sie bleiben dabei angemeldet.",
+      "current": "Aktuelles Passwort",
+      "new": "Neues Passwort",
+      "confirm": "Neues Passwort wiederholen",
+      "rules": "Mindestens {{count}} Zeichen.",
+      "save": "Passwort speichern",
+      "saving": "Wird gespeichert …",
+      "saved": "Ihr Passwort wurde geändert. Verwenden Sie ab jetzt das neue Passwort zum Anmelden.",
+      "errors": {
+        "wrongPassword": "Das aktuelle Passwort ist nicht korrekt.",
+        "passwordTooShort": "Das neue Passwort muss mindestens {{count}} Zeichen lang sein.",
+        "mismatch": "Die beiden neuen Passwörter stimmen nicht überein.",
+        "samePassword": "Das neue Passwort muss sich vom aktuellen unterscheiden.",
+        "tooManyAttempts": "Zu viele Fehlversuche. Bitte versuchen Sie es in einigen Minuten erneut.",
+        "offline": "Keine Verbindung zum Server. Bitte versuchen Sie es erneut.",
+        "notLoggedIn": "Ihre Sitzung ist abgelaufen. Bitte melden Sie sich erneut an.",
+        "generic": "Das Passwort konnte gerade nicht geändert werden. Bitte versuchen Sie es erneut."
+      }
+    },
+    "site": {
+      "title": "Website-Einstellungen",
+      "intro": "Gilt für diesen Browser und wird sofort übernommen.",
+      "view": "Produktansicht",
+      "pageSize": "Produkte pro Seite"
+    },
+    "logout": {
+      "title": "Abmelden",
+      "text": "Melden Sie sich auf diesem Gerät ab. Der Warenkorb wird dabei geleert."
+    }
+  },
+  "colors": {
+    "102": "Blaubeere",
+    "103": "Stein",
+    "139": "Mint",
+    "140": "Kirsche",
+    "142": "Kiwi",
+    "143": "Flieder",
+    "144": "Pitaya",
+    "145": "Bordeaux",
+    "001": "Schwarz",
+    "002": "Marine",
+    "003": "Grau",
+    "004": "Beige",
+    "005": "Anthrazit",
+    "007": "Graphit",
+    "008": "Braun",
+    "011": "Weiß",
+    "013": "Silber",
+    "015": "Morchel",
+    "021": "Natur",
+    "025": "Perle",
+    "027": "Chinin",
+    "038": "Gelb",
+    "039": "Türkis",
+    "040": "Rot",
+    "041": "Königsblau",
+    "042": "Grün",
+    "043": "Lila",
+    "044": "Rosa",
+    "052": "Beige meliert",
+    "053": "Jeansblau meliert",
+    "058": "Dunkelgrau meliert",
+    "059": "Hellgrau meliert"
+  }
+}

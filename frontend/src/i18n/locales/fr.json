@@ -1,0 +1,706 @@
+{
+  "common": {
+    "loading": "Chargement …",
+    "loadErrorTitle": "Cela n’a pas fonctionné",
+    "loadErrorText": "Les données n’ont pas pu être chargées. Veuillez réessayer.",
+    "retry": "Réessayer"
+  },
+  "nav": {
+    "main": "Navigation principale",
+    "home": "Ihle – page d’accueil",
+    "skip": "Aller au contenu",
+    "allProducts": "Tous les produits",
+    "productCategories": "Catégories de produits",
+    "material": "Matériau",
+    "services": "Services",
+    "about": "À propos",
+    "search": "Recherche",
+    "searchPlaceholder": "Rechercher un produit ou une référence",
+    "closeSearch": "Fermer la recherche",
+    "language": "Langue",
+    "account": "Compte",
+    "login": "Se connecter",
+    "myOrders": "Mes commandes",
+    "addresses": "Adresses",
+    "settings": "Paramètres",
+    "logout": "Se déconnecter",
+    "cart": "Panier",
+    "cartCount_one": "Panier, {{count}} article",
+    "cartCount_other": "Panier, {{count}} articles",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "languageHint": "Choisissez votre langue",
+    "confirm": "Confirmer",
+    "close": "Fermer",
+    "viewAll": "Tout voir",
+    "viewAllProducts": "Voir tous les produits",
+    "megaEmpty": "Les groupes de produits de cette catégorie seront bientôt disponibles.",
+    "accountOf": "Compte de {{name}}"
+  },
+  "categories": {
+    "all": "Tous les produits",
+    "PROTHETIC": "Prothèses et orthèses",
+    "DIABETES": "Diabète et pieds sensibles",
+    "UNDERWEAR": "Sous-vêtements",
+    "ILO": "Chaussettes ilo®"
+  },
+  "groups": {
+    "101-US": "Manchon de moignon tibial",
+    "102-US-PIN": "Manchon de moignon tibial pour systèmes à goupille",
+    "103-OS": "Manchon de moignon fémoral",
+    "104-OS-PIN": "Manchon de moignon fémoral pour systèmes à goupille",
+    "105-ARM": "Manchon de moignon enfant/bras",
+    "106-MASS": "Sur mesure",
+    "107-LAM": "Tube de stratification",
+    "108-GIPS": "Protection de plâtre",
+    "109-ORTH": "Textiles pour orthèses",
+    "201-KLAS": "Classique",
+    "202-KOMF": "Confort",
+    "203-STUETZ": "Bas de soutien",
+    "204-HALLUX": "Hallux valgus",
+    "205-CHOPRT": "Chopart/Lisfranc"
+  },
+  "products": {
+    "sortBy": "Trier par :",
+    "count_one": "{{count}} produit",
+    "count_other": "{{count}} produits",
+    "empty": "Aucun produit ne correspond encore à cette sélection.",
+    "sort": {
+      "name": "Nom",
+      "articleNo": "Référence",
+      "price": "Prix",
+      "size": "Taille"
+    },
+    "sortLoginHint": "après connexion",
+    "articleNo": "Réf. {{number}}",
+    "range": "{{from}}–{{to}} sur {{total}}",
+    "show": "Afficher :",
+    "pages": {
+      "label": "Pages",
+      "previous": "Page précédente",
+      "next": "Page suivante",
+      "page": "Page {{page}}"
+    },
+    "view": {
+      "label": "Affichage",
+      "grid": "Vue en grille",
+      "list": "Vue en liste"
+    },
+    "loading": "Chargement des produits …",
+    "loadError": "Les produits n’ont pas pu être chargés pour le moment. Veuillez réessayer plus tard."
+  },
+  "product": {
+    "breadcrumb": "Vous êtes ici",
+    "details": "Détails du produit",
+    "related": "Autres produits",
+    "notFound": "Produit introuvable",
+    "backToProducts": "Retour à tous les produits",
+    "images": "Photos du produit",
+    "image": "Photo {{number}}",
+    "imageSoon": "Photo bientôt disponible"
+  },
+  "order": {
+    "quantity": "Quantité",
+    "less": "Diminuer la quantité",
+    "more": "Augmenter la quantité",
+    "commission": "Commission",
+    "commissionPlaceholder": "p. ex. nom ou commande",
+    "add": "Ajouter au panier",
+    "added": "Ajouté",
+    "perUnit": "par {{unit}}, net hors TVA",
+    "total": "Total"
+  },
+  "cart": {
+    "title": "Panier",
+    "count_one": "{{count}} article",
+    "count_other": "{{count}} articles",
+    "emptyTitle": "Votre panier est vide",
+    "emptyText": "Ajoutez des produits au panier pour préparer une commande.",
+    "toProducts": "Voir les produits",
+    "loginText": "Veuillez vous connecter pour voir votre panier.",
+    "remove": "Retirer {{name}}",
+    "clear": "Vider le panier",
+    "total": "Total",
+    "totalNote": "Prix nets, hors TVA et frais de port",
+    "order": "Commander"
+  },
+  "checkout": {
+    "title": "Caisse",
+    "progress": "Avancement de votre commande",
+    "continue": "Continuer",
+    "change": "Modifier",
+    "backToCart": "Retour au panier",
+    "billing": "Adresse de facturation",
+    "delivery": "Adresse de livraison",
+    "shipping": "Mode d’expédition",
+    "payment": "Mode de paiement",
+    "overview": "Récapitulatif de la commande",
+    "sendHere": "Livrer à cette adresse",
+    "sendElsewhere": "Livrer à une autre adresse",
+    "sameAsBilling": "Identique à l’adresse de facturation",
+    "newAddress": "Saisir une nouvelle adresse",
+    "fields": {
+      "company": "Société",
+      "street": "Rue et numéro",
+      "zip": "Code postal",
+      "city": "Ville",
+      "country": "Pays"
+    },
+    "shippingNote": "Les frais de port figurent sur la facture.",
+    "placeOrder": "Commander avec obligation de paiement",
+    "thanksTitle": "Merci pour votre commande",
+    "thanksText_one": "Votre commande de {{count}} article pour {{total}} (net) a été enregistrée.",
+    "thanksText_other": "Votre commande de {{count}} articles pour {{total}} (net) a été enregistrée.",
+    "back": "Retour",
+    "savedAddress": "Adresse de livraison enregistrée",
+    "glsText": "Envoi de colis avec GLS.",
+    "invoice": "Facture",
+    "invoiceText": "Vous recevez la facture avec la livraison.",
+    "receipt": "Votre numéro de référence",
+    "orderNumber": "Votre numéro de commande : {{number}}. La commande a été transmise à Ihle.",
+    "sending": "Envoi en cours …",
+    "paymentMethods": {
+      "purchaseorder": "Facture",
+      "debit": "Prélèvement",
+      "VORKASSE": "Paiement anticipé"
+    },
+    "paymentTexts": {
+      "purchaseorder": "Vous recevrez la facture avec la livraison.",
+      "debit": "Le montant sera prélevé sur votre compte.",
+      "VORKASSE": "Vous recevrez une facture ; la marchandise est expédiée dès réception du paiement."
+    },
+    "errors": {
+      "invalidItems": "Le panier contient des lignes non valides.",
+      "unavailableItems": "Un article de votre panier n’est plus disponible. Veuillez vérifier votre panier.",
+      "invalidAddress": "Veuillez vérifier l’adresse de livraison.",
+      "notLoggedIn": "Votre session a expiré. Veuillez vous reconnecter.",
+      "offline": "Pas de connexion au serveur. Veuillez réessayer.",
+      "serverError": "La commande n’a pas pu être envoyée pour le moment. Veuillez réessayer."
+    },
+    "noSavedAddresses": "Aucune autre adresse de livraison n’est enregistrée pour votre compte client. Veuillez saisir l’adresse ci-dessous."
+  },
+  "filters": {
+    "title": "Filtrer",
+    "resetAll": "Tout réinitialiser",
+    "reset": "Réinitialiser",
+    "close": "Fermer le filtre",
+    "showResults_one": "Afficher {{count}} produit",
+    "showResults_other": "Afficher {{count}} produits",
+    "active": "Filtres actifs",
+    "remove": "Retirer {{name}}",
+    "activeCount_one": "filtre actif",
+    "activeCount_other": "filtres actifs",
+    "category": "Catégorie",
+    "allCategories": "Toutes les catégories",
+    "group": "Groupe de produits",
+    "color": "Couleur",
+    "size": "Taille",
+    "material": "Matériau",
+    "unit": "Unité",
+    "materials": {
+      "cotton": "Coton",
+      "polyamide": "Polyamide/nylon",
+      "elastane": "Élasthanne",
+      "wool": "Laine",
+      "silver": "Fil d’argent",
+      "polyester": "Polyester",
+      "lyocell": "Lyocell"
+    },
+    "units": {
+      "PAAR": "Paire",
+      "STUECK": "Pièce",
+      "STÜCK": "Pièce",
+      "PACK": "Lot",
+      "10PACK": "Lot de 10",
+      "100PACK": "Lot de 100",
+      "1000PACK": "Lot de 1000",
+      "ROLLE": "Rouleau",
+      "KILO": "Kilo",
+      "KG": "kg"
+    }
+  },
+  "pages": {
+    "products": "Produits",
+    "material": "Matériau",
+    "services": "Services",
+    "about": "À propos",
+    "search": "Recherche",
+    "searchFor": "Résultats pour « {{query}} »",
+    "login": "Se connecter",
+    "cart": "Panier",
+    "notFound": "Page introuvable",
+    "backHome": "Retour à la page d’accueil"
+  },
+  "login": {
+    "eyebrow": "Revendeurs spécialisés",
+    "title": "Clients enregistrés",
+    "intro": "Veuillez vous connecter avec votre numéro client.",
+    "customerNumber": "Numéro client",
+    "password": "Mot de passe",
+    "showPassword": "Afficher le mot de passe",
+    "hidePassword": "Masquer le mot de passe",
+    "passwordHint": "Pour toute question concernant le mot de passe, contactez-nous par téléphone :",
+    "required": "Champs obligatoires",
+    "error": "Le numéro client ou le mot de passe est incorrect. Veuillez vérifier votre saisie.",
+    "loggedInAs": "Vous êtes connecté en tant que",
+    "toProducts": "Voir les produits"
+  },
+  "home": {
+    "hero": {
+      "titleLine1": "Chaque chemin.",
+      "titleLine2": "Un ajustement parfait.",
+      "badge": "TRICOT SANS COUTURE • TEXTILES MÉDICAUX • ",
+      "cta": "Découvrir les produits"
+    },
+    "highlights": {
+      "title": "Highlights",
+      "previous": "Produits précédents",
+      "next": "Produits suivants",
+      "items": {
+        "40012_053": {
+          "name": "Chaussettes côtelées classiques",
+          "description": "Fine texture côtelée, pointe remaillée à la main et bord sans élastique."
+        },
+        "40012_058": {
+          "name": "Chaussettes côtelées raffinées",
+          "description": "Maille côtelée élégante, confortable, avec une finition remaillée à la main presque invisible."
+        },
+        "40013_001": {
+          "name": "Chaussettes en laine premium",
+          "description": "Laine douce, silhouette épurée et tige sans élastique."
+        },
+        "40015_013": {
+          "name": "Chaussettes de luxe en maille fine",
+          "description": "Maille fine et délicate avec fil argenté et une finition soignée."
+        },
+        "40012_004": {
+          "name": "Chaussettes côtelées naturelles",
+          "description": "Tige côtelée beige chaud, pointe remaillée à la main et bord sans élastique."
+        },
+        "40011_021": {
+          "name": "Chaussettes confort douces",
+          "description": "Maille fine et lisse en blanc naturel avec un bord doux sans élastique."
+        },
+        "40002_059": {
+          "name": "Chaussettes classiques argent",
+          "description": "Maille classique gris chiné avec fil argenté et une finition nette."
+        },
+        "40002_053": {
+          "name": "Chaussettes confort argent",
+          "description": "Maille bleu chiné avec fil argenté, douce et lisse au toucher."
+        }
+      }
+    },
+    "ranges": {
+      "title": "Nos gammes",
+      "tabsLabel": "Gammes de produits",
+      "linesLabel": "Lignes de produits",
+      "cta": "Voir les produits",
+      "items": {
+        "DIABETES": {
+          "tagline": "Une protection à chaque pas",
+          "blocks": [
+            {
+              "title": "Une protection à chaque pas.",
+              "text": "Tout simplement confortables : les chaussettes pour diabétiques ihle® complètent vos chaussures orthopédiques. Le tricot médical se porte comme une seconde peau. Il s’ajuste parfaitement tout en laissant une grande liberté de mouvement et de place aux orteils. Le bord spécialement conçu et des matériaux soigneusement choisis évitent les points de pression, les inflammations et les blessures."
+            },
+            {
+              "title": "Le confort de marche en couleur.",
+              "text": "À quoi bon une chaussure sur mesure si la chaussette fait des plis ? ihle® encourage patients et podo-orthésistes à penser au-delà de la chaussure. C’est pourquoi les chaussettes pour diabétiques ihle® n’ont ni couture gênante ni zone qui serre."
+            }
+          ],
+          "lines": [
+            "Classique",
+            "Mi-éponge",
+            "Éponge intégrale",
+            "Bas de compression",
+            "Extra-larges",
+            "Argent",
+            "Enfants"
+          ],
+          "listTitle": "Nos produits sont disponibles",
+          "list": [
+            "en différentes matières",
+            "dans un large choix de couleurs",
+            "en différentes formes (d’étroite à lymphœdème)",
+            "en chaussettes pour amputations de l’avant-pied (Lisfranc, Chopart, Pirogoff)"
+          ]
+        },
+        "UNDERWEAR": {
+          "tagline": "Une meilleure perception du corps dans le corset",
+          "blocks": [
+            {
+              "title": "Meilleure perception du corps. Meilleure acceptation du port.",
+              "text": "Apaisants et protecteurs pour la peau : les maillots de corset ihle® ont été développés comme élément essentiel du traitement conservateur de la scoliose. Le tricot médical s’ajuste comme un gant, sans plis gênants ni coutures irritantes. Il complète le traitement par corset et soulage les patients, souvent très jeunes."
+            },
+            {
+              "title": "Des sous-vêtements tendance et fonctionnels.",
+              "text": "Scoliose, corset et adolescence : un mélange souvent difficile. C’est pourquoi nous avons adapté nos produits au mode de vie des adolescents. Bretelles spaghetti ou épaules dénudées, manches courtes ou longues, col bateau, col en V ou col rond : les maillots de corset ihle® existent en plusieurs modèles ou sur mesure. Le mélange de fibres de haute qualité épouse le corps et suit chaque mouvement."
+            }
+          ],
+          "lines": [],
+          "listTitle": "La promesse qualité ihle®",
+          "list": [
+            "matières durables",
+            "particulièrement extensibles",
+            "fibres respirantes",
+            "lavables à 60 degrés",
+            "compatibles sèche-linge"
+          ]
+        },
+        "PROTHETIC": {
+          "tagline": "Rester en mouvement sans points de pression",
+          "blocks": [
+            {
+              "title": "Rester en mouvement sans points de pression.",
+              "text": "Après une amputation ou pendant la rééducation : la prescription d’une prothèse ou d’une orthèse s’accompagne d’un objectif thérapeutique. Le patient doit pouvoir se tenir debout à nouveau ou être le plus actif possible, sans douleur. Pour ces aides techniques de qualité et ces appareillages de moignon, ihle® fabrique les textiles de protection : des tricots médicaux pour les zones sensibles du corps."
+            },
+            {
+              "title": "Sur mesure. Disponible immédiatement en stock.",
+              "text": "Quel que soit l’appareillage orthopédique envisagé, les produits ihle® convainquent par leur ajustement, leur fonction et leur qualité. Ils améliorent nettement le confort de port. L’acceptation de la prothèse ou de l’orthèse augmente, tout comme l’effet thérapeutique recherché. Nous y mettons tout notre savoir-faire : matières douces pour la peau, fils de qualité et une grande expertise textile."
+            }
+          ],
+          "lines": [
+            "Manchons tibiaux",
+            "Manchons tibiaux pour systèmes à goupille",
+            "Manchons fémoraux",
+            "Manchons fémoraux pour systèmes à goupille",
+            "Manchons enfant / bras",
+            "Tube de stratification / tube jersey",
+            "Textiles pour orthèses"
+          ],
+          "listTitle": "",
+          "list": []
+        },
+        "ILO": {
+          "tagline": "Un compagnon dedans comme dehors",
+          "blocks": [
+            {
+              "title": "Un compagnon dedans comme dehors.",
+              "text": "Les chaussettes et bas fonctionnels se sont imposés au travail comme pendant les loisirs. On apprécie leur ajustement parfait, leur confort et l’excellent climat du pied. À partir du savoir-faire des textiles médicaux, ihle® a développé des chaussettes du quotidien qui suivent partout. Réunion, randonnée en montagne ou cours de danse : rien ne serre, rien ne glisse, seulement du confort."
+            },
+            {
+              "title": "Adieu les pieds moites.",
+              "text": "L’humidité vers l’extérieur, la chaleur à l’intérieur : angora, éponge et laine vierge assurent le confort du mollet aux orteils. Tous les produits ilo® font du bien aux pieds et vont aussi bien avec des baskets, des chaussures de ville, de course ou de randonnée. Des matières durables et intelligentes et un bord côtelé spécialement tricoté résistent à de nombreux lavages. Promis !"
+            }
+          ],
+          "lines": [
+            "Classique",
+            "Confort",
+            "Sport",
+            "Oreiller & pyjama"
+          ],
+          "listTitle": "",
+          "list": []
+        }
+      }
+    },
+    "shapes": {
+      "title": "Formes de chaussettes",
+      "banner": {
+        "titleLine1": "Chaussette et chaussure –",
+        "titleLine2": "le duo parfait",
+        "text": "Chaleur en hiver, confort et hygiène en été : quand la température monte, le choix des chaussettes change aussi. ihle® a adapté sa gamme et fabrique des chaussettes en trois formes différentes."
+      },
+      "items": {
+        "short": {
+          "title": "Chaussettes courtes",
+          "text": "Une chaussette polyvalente pour toutes les saisons : la tige donne sa forme et son nom à la chaussette. Sur les chaussettes courtes, elle monte d’environ 10 cm au-dessus de la cheville, jusqu’au milieu du mollet. Le haut peut être un simple bord sans élastique ou un bord côtelé, avec ou sans élastique."
+        },
+        "footlet": {
+          "title": "Socquettes",
+          "text": "La version d’été de la chaussette couvre surtout les orteils et le talon. Le pied s’arrête juste au-dessus ou en dessous de la cheville. Pour les personnes diabétiques, nous recommandons donc les versions plus longues de nos chaussettes."
+        },
+        "knee": {
+          "title": "Mi-bas",
+          "text": "Un classique pour l’hiver ou avec des chaussures montantes : la chaussette s’arrête sous le genou. Un bord large assure un bon maintien sans serrer. Des bords avec et sans élastique sont aussi disponibles."
+        }
+      }
+    },
+    "colors": {
+      "title": "Couleurs",
+      "subtitleLine1": "Un éventail de",
+      "subtitleLine2": "confort et de caractère",
+      "text": "Les chaussures sont de plus en plus colorées. Des tons naturels discrets aux couleurs expressives, ihle® allie savoir-faire textile et design moderne des couleurs.",
+      "cta": "Découvrir nos collections",
+      "names": {
+        "black": "Noir",
+        "marine": "Marine",
+        "gray": "Gris",
+        "anthracite": "Anthracite",
+        "graphite": "Graphite",
+        "brown": "Marron",
+        "white": "Blanc",
+        "silver": "Argent",
+        "beige": "Beige",
+        "nature": "Naturel",
+        "pearl": "Perle",
+        "beigeMottled": "Beige chiné",
+        "denimBlueMelange": "Bleu jean chiné",
+        "lightGreyMelange": "Gris clair chiné",
+        "darkGreyMelange": "Gris foncé chiné",
+        "yellow": "Jaune",
+        "red": "Rouge",
+        "green": "Vert",
+        "pink": "Rose",
+        "purple": "Violet",
+        "turquoise": "Turquoise",
+        "royalBlue": "Bleu roi"
+      }
+    },
+    "dealers": {
+      "titleLine1": "Trouvez un",
+      "titleHighlight": "revendeur spécialisé",
+      "titleRest": "près de chez vous",
+      "text": "Vous êtes un particulier et souhaitez acheter un produit ihle® ? Nos textiles médicaux, chaussettes et sous-vêtements sont disponibles exclusivement chez des revendeurs spécialisés. Adressez-vous directement à votre revendeur ou à un magasin de matériel médical près de chez vous.",
+      "placeholder": "Code postal ou ville",
+      "button": "Trouver un revendeur",
+      "notFound": "Nous n’avons pas trouvé ce lieu. Veuillez vérifier votre saisie.",
+      "error": "La recherche n’est pas disponible pour le moment. Veuillez réessayer plus tard.",
+      "mapLabel": "Carte"
+    }
+  },
+  "material": {
+    "hero": {
+      "eyebrow": "Matériau",
+      "titleLine1": "Les matières derrière",
+      "titleLine2": "chaque chaussette ihle®.",
+      "text": "Des fils de coton, de laine et de fibres fonctionnelles soigneusement choisis – pour le confort, la durabilité et des performances fiables.",
+      "cta": "Découvrir la gamme",
+      "imageAlt": "Bobines de fil blanc naturel, vert et rouille à côté d’une couverture tricotée"
+    },
+    "intro": {
+      "eyebrow": "Nos matières",
+      "titleLine1": "Fibres naturelles.",
+      "titleLine2": "Confort moderne.",
+      "text": "Chez ihle®, nous associons des fibres naturelles et fonctionnelles soigneusement choisies à une technique de tricotage moderne pour créer des chaussettes et des textiles médicaux offrant un confort durable, un ajustement parfait et une qualité fiable – pour chaque saison et chaque besoin.",
+      "fibresLabel": "Les fibres que nous utilisons",
+      "fibres": {
+        "cotton": "Coton",
+        "wool": "Laine vierge",
+        "polyamide": "Polyamide",
+        "elastane": "Élasthanne",
+        "silver": "Fibre d’argent"
+      },
+      "features": {
+        "fibres": {
+          "title": "Des fibres soigneusement choisies",
+          "text": "Fibres naturelles et fonctionnelles, choisies selon chaque usage."
+        },
+        "quality": {
+          "title": "Une qualité fiable",
+          "text": "Une fabrication constante sur laquelle les revendeurs peuvent compter."
+        },
+        "comfort": {
+          "title": "Confortables au quotidien",
+          "text": "Des tricots doux et sans couture qui ne serrent pas et ne marquent pas."
+        },
+        "durable": {
+          "title": "Durables et indéformables",
+          "text": "Conçus pour garder longtemps leur forme et leur toucher."
+        }
+      }
+    },
+    "knit": {
+      "eyebrow": "Le tricot",
+      "titleLine1": "Tout est",
+      "titleLine2": "dans la jauge.",
+      "text": "Ce qui détermine le toucher et l’aspect, ce n’est pas seulement la matière, mais aussi la jauge. Elle indique combien d’aiguilles tricotent par pouce (2,54 cm). Une jauge de 14 mailles par pouce est courante et donne l’aspect classique. ihle® travaille de 6 à 36 mailles par pouce – le résultat est toujours un tricot adapté exactement au besoin.",
+      "gaugeLabel": "Jauge chez ihle : de 6 à 36 mailles par pouce. Classique : 14, extra-fin : 22.",
+      "gaugeUnit": "mailles par pouce",
+      "types": {
+        "smooth": {
+          "tag": "14 mailles par pouce",
+          "title": "Classique lisse",
+          "text": "Ce tricot régulier d’épaisseur moyenne est un vrai polyvalent : pour toutes les saisons et toutes les occasions, pour femmes et hommes. ihle® l’utilise pour ses chaussettes et bas du quotidien."
+        },
+        "fine": {
+          "tag": "22 mailles par pouce",
+          "title": "Classique extra-fin",
+          "text": "C’est ainsi que ihle® appelle la version raffinée de son tricot classique. En Europe centrale, cette qualité est surtout appréciée des femmes, en Europe du Sud plus souvent des hommes."
+        },
+        "plush": {
+          "tag": "Rembourré partout",
+          "title": "Éponge intégrale",
+          "text": "De la pointe au bord : les chaussettes entièrement rembourrées apportent une chaleur agréable, un bon amorti et une bonne circulation de l’air grâce à leur maille éponge – pour toutes sortes d’activités."
+        },
+        "semi": {
+          "tag": "Rembourré aux orteils, à la semelle et au talon",
+          "title": "Mi-éponge",
+          "text": "Du rembourrage là où il compte : parfois, un rembourrage aux orteils, à la semelle et au talon suffit. Les modèles mi-éponge sont donc parfaits pour les demi-saisons."
+        }
+      }
+    },
+    "next": {
+      "eyebrow": "Espace réservé",
+      "title": "Une autre section suivra",
+      "text": "Cette zone est provisoire et sera remplacée par la partie suivante de la page matériau."
+    },
+    "cuffs": {
+      "eyebrow": "Bords",
+      "titleLine1": "Un ajustement parfait,",
+      "titleLine2": "sans serrer.",
+      "text": "Extensible, souple et agréable au quotidien – c’est ainsi qu’un tricot doit tenir. ihle® a donc développé différents bords et finitions, de l’étroit à l’extra-large.",
+      "types": {
+        "loop": {
+          "title": "Bord retourné sans élastique",
+          "text": "Avec ce tricot spécial, ihle® répond avant tout aux besoins des diabétiques. Toute personne gênée par un élastique qui serre profite aussi de ce bord."
+        },
+        "ribLong": {
+          "title": "Bord côtelé sans élastique",
+          "text": "Ce bord mesure environ 10 cm et peut aussi se porter retourné."
+        },
+        "ribShort": {
+          "title": "Bord côtelé avec élastique",
+          "text": "Ici, 4 cm d’élastique sont tricotés. Les personnes aux pieds sains préfèrent souvent ce maintien supplémentaire. À savoir : ce bord ne convient pas aux diabétiques."
+        }
+      }
+    }
+  },
+  "footer": {
+    "newsletterTitle": "Restez informé des nouveaux produits, matériaux et innovations",
+    "newsletterButton": "S’inscrire",
+    "about": "Chaussures pour diabétiques, corsets, orthèses ou prothèses : ihle® est convaincu que l’appareillage orthopédique va au-delà de l’aide technique elle-même. Sur cette base, nous avons développé des tricots qui offrent une protection fiable. Ces textiles parfaitement ajustés n’augmentent pas seulement le confort de port, ils améliorent aussi la qualité de vie et les résultats du traitement.",
+    "quickLinks": "Liens rapides",
+    "resources": "Ressources",
+    "materials": "Matériaux",
+    "news": "Actualités",
+    "catalog": "Catalogue",
+    "jobs": "Emplois",
+    "newsletter": "Newsletter",
+    "phone": "Tél.",
+    "mail": "E-mail",
+    "address": "Adresse",
+    "contact": "Contact",
+    "imprint": "Mentions légales",
+    "privacy": "Confidentialité",
+    "terms": "Conditions générales",
+    "hoursTitle": "Horaires du magasin d’usine :",
+    "hours": "Du lundi au vendredi : de 8 h à 15 h",
+    "addressArea": "Zone industrielle Heinzebank"
+  },
+  "addresses": {
+    "title": "Mes adresses",
+    "billing": "Adresse de facturation",
+    "deliveries": "Adresses de livraison",
+    "delivery": "Adresse de livraison {{number}}",
+    "deliveryCount_one": "{{count}} adresse de livraison",
+    "deliveryCount_other": "{{count}} adresses de livraison",
+    "noDeliveries": "Aucune autre adresse de livraison n’est enregistrée pour votre compte client. Les commandes sont livrées à votre adresse de facturation ; à la caisse, vous pouvez aussi indiquer une autre adresse pour une commande.",
+    "changeNote": "Vos adresses proviennent de notre système de gestion. Pour toute modification ou nouvelle adresse de livraison, appelez-nous :"
+  },
+  "accountOrders": {
+    "order": "Commande {{number}}",
+    "lines_one": "{{count}} ligne",
+    "lines_other": "{{count}} lignes",
+    "count_one": "{{count}} commande",
+    "count_other": "{{count}} commandes",
+    "status": {
+      "new": "Reçue",
+      "exported": "En cours de traitement"
+    },
+    "reorder": "Commander à nouveau",
+    "nothingAvailable": "Les articles de cette commande ne sont actuellement pas disponibles dans la boutique.",
+    "someSkipped_one": "Les autres lignes sont dans votre panier ; {{count}} article n’est actuellement pas disponible.",
+    "someSkipped_other": "Les autres lignes sont dans votre panier ; {{count}} articles ne sont actuellement pas disponibles.",
+    "toCart": "Voir le panier",
+    "loading": "Chargement des commandes …",
+    "loadError": "Vos commandes n’ont pas pu être chargées pour le moment. Veuillez réessayer plus tard.",
+    "emptyTitle": "Aucune commande pour le moment",
+    "emptyText": "Dès que vous commandez dans la boutique, vos commandes apparaissent ici – avec toutes les lignes, commissions et prix.",
+    "found_one": "{{count}} commande sur {{total}}",
+    "found_other": "{{count}} commandes sur {{total}}",
+    "search": "Rechercher",
+    "searchPlaceholder": "N° de commande, article, commission, référence …",
+    "statusLabel": "Statut",
+    "allStatuses": "Tous",
+    "period": "Période",
+    "periods": {
+      "30": "30 derniers jours",
+      "90": "3 derniers mois",
+      "365": "12 derniers mois",
+      "all": "Toute la période"
+    },
+    "noMatchTitle": "Aucune commande correspondante",
+    "noMatchText": "Modifiez la recherche ou les filtres.",
+    "resetFilter": "Réinitialiser la recherche et les filtres",
+    "showMore": "Afficher plus",
+    "shownOf": "{{shown}} commandes affichées sur {{total}}",
+    "totalNet": "Total net"
+  },
+  "settings": {
+    "title": "Paramètres",
+    "account": "Données du compte",
+    "company": "Société",
+    "username": "Identifiant (numéro client)",
+    "email": "E-mail",
+    "noEmail": "Aucun e-mail enregistré",
+    "changeNote": "Les données de votre compte proviennent de notre système de gestion. Pour les modifier, appelez-nous :",
+    "toAddresses": "Voir les adresses",
+    "password": {
+      "title": "Modifier le mot de passe",
+      "intro": "Choisissez un nouveau mot de passe pour votre accès à la boutique. Vous restez connecté.",
+      "current": "Mot de passe actuel",
+      "new": "Nouveau mot de passe",
+      "confirm": "Répéter le nouveau mot de passe",
+      "rules": "Au moins {{count}} caractères.",
+      "save": "Enregistrer le mot de passe",
+      "saving": "Enregistrement …",
+      "saved": "Votre mot de passe a été modifié. Utilisez désormais le nouveau mot de passe pour vous connecter.",
+      "errors": {
+        "wrongPassword": "Le mot de passe actuel est incorrect.",
+        "passwordTooShort": "Le nouveau mot de passe doit contenir au moins {{count}} caractères.",
+        "mismatch": "Les deux nouveaux mots de passe ne correspondent pas.",
+        "samePassword": "Le nouveau mot de passe doit être différent de l’actuel.",
+        "tooManyAttempts": "Trop de tentatives échouées. Réessayez dans quelques minutes.",
+        "offline": "Pas de connexion au serveur. Veuillez réessayer.",
+        "notLoggedIn": "Votre session a expiré. Veuillez vous reconnecter.",
+        "generic": "Le mot de passe n’a pas pu être modifié pour le moment. Veuillez réessayer."
+      }
+    },
+    "site": {
+      "title": "Paramètres du site",
+      "intro": "S’applique à ce navigateur et prend effet immédiatement.",
+      "view": "Affichage des produits",
+      "pageSize": "Produits par page"
+    },
+    "logout": {
+      "title": "Se déconnecter",
+      "text": "Déconnectez-vous sur cet appareil. Le panier sera vidé."
+    }
+  },
+  "colors": {
+    "001": "Noir",
+    "002": "Marine",
+    "003": "Gris",
+    "004": "Beige",
+    "005": "Anthracite",
+    "007": "Graphite",
+    "008": "Marron",
+    "011": "Blanc",
+    "013": "Argent",
+    "015": "Morille",
+    "021": "Naturel",
+    "025": "Perle",
+    "027": "Quinine",
+    "038": "Jaune",
+    "039": "Turquoise",
+    "040": "Rouge",
+    "041": "Bleu roi",
+    "042": "Vert",
+    "043": "Violet",
+    "044": "Rose",
+    "052": "Beige chiné",
+    "053": "Bleu jean chiné",
+    "058": "Gris foncé chiné",
+    "059": "Gris clair chiné",
+    "102": "Myrtille",
+    "103": "Pierre",
+    "139": "Menthe",
+    "140": "Cerise",
+    "142": "Kiwi",
+    "143": "Lilas",
+    "144": "Pitaya",
+    "145": "Bordeaux"
+  }
+}

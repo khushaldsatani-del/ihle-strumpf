@@ -1,0 +1,8 @@
+node_modules
+dist
+*.log
+
+# Secrets: the real connection string and keys live only on this computer and in Vercel's settings
+.env
+.env.*
+!.env.example

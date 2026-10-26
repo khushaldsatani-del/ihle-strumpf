@@ -1,0 +1,706 @@
+{
+  "common": {
+    "loading": "Loading …",
+    "loadErrorTitle": "That didn’t work just now",
+    "loadErrorText": "The data could not be loaded. Please try again.",
+    "retry": "Try again"
+  },
+  "nav": {
+    "main": "Main navigation",
+    "home": "Ihle – home page",
+    "skip": "Skip to content",
+    "allProducts": "All products",
+    "productCategories": "Product categories",
+    "material": "Material",
+    "services": "Services",
+    "about": "About us",
+    "search": "Search",
+    "searchPlaceholder": "Search product or article number",
+    "closeSearch": "Close search",
+    "language": "Language",
+    "account": "Account",
+    "login": "Log in",
+    "myOrders": "My orders",
+    "addresses": "Addresses",
+    "settings": "Settings",
+    "logout": "Log out",
+    "cart": "Cart",
+    "cartCount_one": "Cart, {{count}} item",
+    "cartCount_other": "Cart, {{count}} items",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "languageHint": "Choose your preferred language",
+    "confirm": "Confirm",
+    "close": "Close",
+    "viewAll": "View all",
+    "viewAllProducts": "View all products",
+    "megaEmpty": "Product groups for this category will follow soon.",
+    "accountOf": "Account of {{name}}"
+  },
+  "categories": {
+    "all": "All products",
+    "PROTHETIC": "Prosthetics & Orthotics",
+    "DIABETES": "Diabetes & Problem Feet",
+    "UNDERWEAR": "Underwear",
+    "ILO": "ilo® Socks"
+  },
+  "groups": {
+    "101-US": "Lower-leg stump sock",
+    "102-US-PIN": "Lower-leg stump sock for pin systems",
+    "103-OS": "Thigh stump sock",
+    "104-OS-PIN": "Thigh stump sock for pin systems",
+    "105-ARM": "Children/arm stump sock",
+    "106-MASS": "Made to measure",
+    "107-LAM": "Laminating tube",
+    "108-GIPS": "Cast protection",
+    "109-ORTH": "Orthotic textiles",
+    "201-KLAS": "Classic",
+    "202-KOMF": "Comfort",
+    "203-STUETZ": "Support stocking",
+    "204-HALLUX": "Hallux valgus",
+    "205-CHOPRT": "Chopart/Lisfranc"
+  },
+  "products": {
+    "sortBy": "Sort by:",
+    "count_one": "{{count}} product",
+    "count_other": "{{count}} products",
+    "empty": "There are no products for this selection yet.",
+    "sort": {
+      "name": "Name",
+      "articleNo": "Article number",
+      "price": "Price",
+      "size": "Size"
+    },
+    "sortLoginHint": "after login",
+    "articleNo": "Art. no. {{number}}",
+    "range": "{{from}}–{{to}} of {{total}}",
+    "show": "Show:",
+    "pages": {
+      "label": "Pages",
+      "previous": "Previous page",
+      "next": "Next page",
+      "page": "Page {{page}}"
+    },
+    "view": {
+      "label": "View",
+      "grid": "Grid view",
+      "list": "List view"
+    },
+    "loading": "Loading products …",
+    "loadError": "The products could not be loaded right now. Please try again later."
+  },
+  "product": {
+    "breadcrumb": "You are here",
+    "details": "Product details",
+    "related": "More products",
+    "notFound": "Product not found",
+    "backToProducts": "Back to all products",
+    "images": "Product pictures",
+    "image": "Picture {{number}}",
+    "imageSoon": "Picture coming soon"
+  },
+  "order": {
+    "quantity": "Quantity",
+    "less": "Decrease quantity",
+    "more": "Increase quantity",
+    "commission": "Commission",
+    "commissionPlaceholder": "e.g. name or order",
+    "add": "Add to cart",
+    "added": "Added",
+    "perUnit": "per {{unit}}, net plus VAT",
+    "total": "Total"
+  },
+  "cart": {
+    "title": "Cart",
+    "count_one": "{{count}} item",
+    "count_other": "{{count}} items",
+    "emptyTitle": "Your cart is empty",
+    "emptyText": "Add products to the cart to prepare an order.",
+    "toProducts": "Go to the products",
+    "loginText": "Please log in to see your cart.",
+    "remove": "Remove {{name}}",
+    "clear": "Empty the cart",
+    "total": "Total",
+    "totalNote": "Net prices, plus VAT and shipping",
+    "order": "Order"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "progress": "Your order progress",
+    "continue": "Continue",
+    "change": "Change",
+    "backToCart": "Back to the cart",
+    "billing": "Billing address",
+    "delivery": "Delivery address",
+    "shipping": "Shipping method",
+    "payment": "Payment method",
+    "overview": "Order overview",
+    "sendHere": "Send to this address",
+    "sendElsewhere": "Send to a different address",
+    "sameAsBilling": "Same as billing address",
+    "newAddress": "Enter a new address",
+    "fields": {
+      "company": "Company",
+      "street": "Street and number",
+      "zip": "Postcode",
+      "city": "Town",
+      "country": "Country"
+    },
+    "shippingNote": "Shipping costs are shown on the invoice.",
+    "placeOrder": "Place binding order",
+    "thanksTitle": "Thank you for your order",
+    "thanksText_one": "Your order with {{count}} item for {{total}} (net) has been recorded.",
+    "thanksText_other": "Your order with {{count}} items for {{total}} (net) has been recorded.",
+    "back": "Back",
+    "savedAddress": "Saved delivery address",
+    "glsText": "Parcel delivery with GLS.",
+    "invoice": "Invoice",
+    "invoiceText": "You receive the invoice with the delivery.",
+    "receipt": "Your receipt number",
+    "orderNumber": "Your order number: {{number}}. The order has been sent to Ihle.",
+    "sending": "Sending …",
+    "paymentMethods": {
+      "purchaseorder": "Invoice",
+      "debit": "Direct debit",
+      "VORKASSE": "Prepayment"
+    },
+    "paymentTexts": {
+      "purchaseorder": "You will receive the invoice with the delivery.",
+      "debit": "The amount will be collected from your account by direct debit.",
+      "VORKASSE": "You will receive an invoice; the goods are shipped once payment has arrived."
+    },
+    "errors": {
+      "invalidItems": "The cart contains invalid lines.",
+      "unavailableItems": "An item in your cart is no longer available. Please check your cart.",
+      "invalidAddress": "Please check the delivery address.",
+      "notLoggedIn": "Your login has expired. Please log in again.",
+      "offline": "No connection to the server. Please try again.",
+      "serverError": "The order could not be sent right now. Please try again."
+    },
+    "noSavedAddresses": "No further delivery addresses are stored for your customer account. Please enter the address below."
+  },
+  "filters": {
+    "title": "Filter",
+    "resetAll": "Reset all",
+    "reset": "Reset",
+    "close": "Close filter",
+    "showResults_one": "Show {{count}} product",
+    "showResults_other": "Show {{count}} products",
+    "active": "Active filters",
+    "remove": "Remove {{name}}",
+    "activeCount_one": "active filter",
+    "activeCount_other": "active filters",
+    "category": "Category",
+    "allCategories": "All categories",
+    "group": "Product group",
+    "color": "Colour",
+    "size": "Size",
+    "material": "Material",
+    "unit": "Unit",
+    "materials": {
+      "cotton": "Cotton",
+      "polyamide": "Polyamide/nylon",
+      "elastane": "Elastane",
+      "wool": "Wool",
+      "silver": "Silver thread",
+      "polyester": "Polyester",
+      "lyocell": "Lyocell"
+    },
+    "units": {
+      "PAAR": "Pair",
+      "STUECK": "Piece",
+      "STÜCK": "Piece",
+      "PACK": "Pack",
+      "10PACK": "Pack of 10",
+      "100PACK": "Pack of 100",
+      "1000PACK": "Pack of 1000",
+      "ROLLE": "Roll",
+      "KILO": "Kilo",
+      "KG": "kg"
+    }
+  },
+  "pages": {
+    "products": "Products",
+    "material": "Material",
+    "services": "Services",
+    "about": "About us",
+    "search": "Search",
+    "searchFor": "Results for “{{query}}”",
+    "login": "Log in",
+    "cart": "Cart",
+    "notFound": "Page not found",
+    "backHome": "Back to the home page"
+  },
+  "login": {
+    "eyebrow": "Specialist retailers",
+    "title": "Registered customers",
+    "intro": "Please log in with your customer number.",
+    "customerNumber": "Customer number",
+    "password": "Password",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "passwordHint": "Please contact us by phone if you have any questions regarding the password:",
+    "required": "Required fields",
+    "error": "The customer number or password is not correct. Please check what you entered.",
+    "loggedInAs": "You are logged in as",
+    "toProducts": "Go to the products"
+  },
+  "home": {
+    "hero": {
+      "titleLine1": "Every path.",
+      "titleLine2": "One perfect fit.",
+      "badge": "SEAMLESS KNIT • MEDICAL KNITWEAR • ",
+      "cta": "Explore products"
+    },
+    "highlights": {
+      "title": "Highlights",
+      "previous": "Previous products",
+      "next": "Next products",
+      "items": {
+        "40012_053": {
+          "name": "Classic Ribbed Socks",
+          "description": "Fine ribbed texture with a smooth, hand-linked toe and an elastic-free cuff."
+        },
+        "40012_058": {
+          "name": "Refined Ribbed Socks",
+          "description": "Elegant ribbed knit with a comfortable fit and a seamless-looking hand-linked finish."
+        },
+        "40013_001": {
+          "name": "Premium Wool Socks",
+          "description": "Soft wool construction with a clean silhouette and an elastic-free upper."
+        },
+        "40015_013": {
+          "name": "Fine-Knit Luxury Socks",
+          "description": "Delicate fine-knit construction featuring silver-plated thread and a refined finish."
+        },
+        "40012_004": {
+          "name": "Natural Ribbed Socks",
+          "description": "Ribbed leg in a warm beige with a hand-linked toe and an elastic-free cuff."
+        },
+        "40011_021": {
+          "name": "Soft Comfort Socks",
+          "description": "Smooth fine knit in natural white with a gentle, elastic-free cuff."
+        },
+        "40002_059": {
+          "name": "Silver Classic Socks",
+          "description": "Classic knit in grey marl with silver-plated thread and a clean finish."
+        },
+        "40002_053": {
+          "name": "Silver Comfort Socks",
+          "description": "Blue marl knit with silver-plated thread and a soft, smooth feel."
+        }
+      }
+    },
+    "ranges": {
+      "title": "Our ranges",
+      "tabsLabel": "Product ranges",
+      "linesLabel": "Product lines",
+      "cta": "View products",
+      "items": {
+        "DIABETES": {
+          "tagline": "Protection at every turn",
+          "blocks": [
+            {
+              "title": "Protection at every turn.",
+              "text": "Simply comfortable on your feet: ihle® diabetic socks complete your orthopaedic footwear. The medical-grade knit fabric feels like a second skin. It fits perfectly, yet offers ample freedom of movement and toe room. The specially designed cuff and carefully selected materials prevent pressure points, inflammation and injuries."
+            },
+            {
+              "title": "Running comfort in colour.",
+              "text": "What good is a custom-made shoe if the sock wrinkles? ihle® encourages patients and orthopaedic shoemakers to think beyond the shoe itself when it comes to orthopaedic footwear. That is why ihle® diabetic socks have neither an irritating seam nor any other constricting areas."
+            }
+          ],
+          "lines": [
+            "Classical",
+            "Half-plush",
+            "Full plush",
+            "Compression stockings",
+            "Extra-wide",
+            "Silver",
+            "Children"
+          ],
+          "listTitle": "Our products are available",
+          "list": [
+            "in various materials",
+            "in a wide selection of colours",
+            "in different fits (from narrow to lymphoedema)",
+            "as socks for forefoot amputations (Lisfranc, Chopart, Pirogoff)"
+          ]
+        },
+        "UNDERWEAR": {
+          "tagline": "Better body awareness in the brace",
+          "blocks": [
+            {
+              "title": "Improved body awareness. Greater acceptance of wearing the garment.",
+              "text": "Soothing and protective for the skin: ihle® corset shirts were developed as an essential part of conservative scoliosis treatment. The medical-grade knit fabric fits like a glove, without bothersome creases or irritating seams. They complement corset treatment and reduce the suffering of the often very young patients."
+            },
+            {
+              "title": "Fashionable and functional bodywear.",
+              "text": "Scoliosis, brace therapy and growing up: this combination is often difficult to manage. With this in mind, we have tailored our products to the lifestyle of teenagers. Whether spaghetti straps or off-the-shoulder, short- or long-sleeved, boat neck, V-neck or crew neck: ihle® brace shirts are available in various styles or as custom-made pieces. The high-quality fibre blend conforms to the body and moves with you."
+            }
+          ],
+          "lines": [],
+          "listTitle": "The ihle® quality promise",
+          "list": [
+            "durable materials",
+            "particularly stretchy",
+            "breathable fibres",
+            "washable at 60 degrees",
+            "suitable for tumble drying"
+          ]
+        },
+        "PROTHETIC": {
+          "tagline": "Stay in motion without pressure points",
+          "blocks": [
+            {
+              "title": "Stay in motion without pressure points.",
+              "text": "Whether after amputation or during rehabilitation: when a prosthesis or orthosis is prescribed, a treatment goal comes with it. The patient should be able to stand again or be as active as possible, without pain. For these high-quality assistive devices and stump fittings, ihle® manufactures the protective undergarments: medical knits for sensitive areas of the body."
+            },
+            {
+              "title": "Made to measure. Available immediately from stock.",
+              "text": "No matter what type of orthotic device is being considered, ihle® products impress with their fit, function and quality. They noticeably improve wearing comfort. Acceptance of the prosthesis or orthosis increases, as does the desired treatment effect. We give our best to achieve this: skin-friendly materials, high-quality yarns and a wealth of textile expertise."
+            }
+          ],
+          "lines": [
+            "Lower leg stockings",
+            "Lower leg stump stockings for pin systems",
+            "Thigh-high stockings",
+            "Thigh-high stockings for pin systems",
+            "Children's / arm stockings",
+            "Laminating tube / jersey tube",
+            "Orthotic textiles"
+          ],
+          "listTitle": "",
+          "list": []
+        },
+        "ILO": {
+          "tagline": "A companion for indoors and outdoors",
+          "blocks": [
+            {
+              "title": "A companion for indoors and outdoors.",
+              "text": "Functional socks and stockings have become established in both business and leisure. People appreciate the impeccable fit, the comfortable feel and the excellent foot climate. ihle® has developed everyday socks from the potential of medical knitwear that can handle virtually anything. Whether a meeting, a mountain hike or a dance class: no pinching or slipping, just pure comfort."
+            },
+            {
+              "title": "Goodbye sweaty feet.",
+              "text": "Moisture outwards, warmth inwards: angora, terry cloth and virgin wool guarantee comfort from calf to toe. All ilo® products are a treat for your feet and look great in sneakers, dress shoes, running shoes or hiking boots. Durable, intelligent materials and a specially knitted ribbed cuff withstand even many washes. You have our word on it!"
+            }
+          ],
+          "lines": [
+            "Classical",
+            "Comfort",
+            "Sport",
+            "Pillow & pyjamas"
+          ],
+          "listTitle": "",
+          "list": []
+        }
+      }
+    },
+    "shapes": {
+      "title": "Sock Shapes",
+      "banner": {
+        "titleLine1": "Sock and shoe –",
+        "titleLine2": "a perfect combination",
+        "text": "Warmth in winter, comfort and hygiene in summer: as temperatures rise, our choice of socks changes too. ihle® has adapted its product range accordingly and makes socks in three different styles."
+      },
+      "items": {
+        "short": {
+          "title": "Short socks",
+          "text": "A versatile sock for every season: the leg gives the sock its shape and its name. On short socks it reaches about 10 cm above the ankle, roughly to the middle of the calf. The top can be a simple, non-elastic edge or a ribbed cuff – with or without elastic."
+        },
+        "footlet": {
+          "title": "Footlets",
+          "text": "The summer version of the sock mainly covers the toes and heel. The foot part ends just above or below the ankle. For people with diabetes we therefore recommend the longer versions of our socks."
+        },
+        "knee": {
+          "title": "Knee-high socks",
+          "text": "A classic for winter or with high shoes: the sock ends below the knee. A wide top gives a secure hold without constricting. Elastic and non-elastic tops are also available."
+        }
+      }
+    },
+    "colors": {
+      "title": "Colours",
+      "subtitleLine1": "A spectrum of",
+      "subtitleLine2": "comfort and character",
+      "text": "Shoes are becoming more and more colourful. From subtle natural tones to expressive colours, ihle® combines textile expertise with modern colour design.",
+      "cta": "Discover our collections",
+      "names": {
+        "black": "Black",
+        "marine": "Navy",
+        "gray": "Gray",
+        "anthracite": "Anthracite",
+        "graphite": "Graphite",
+        "brown": "Brown",
+        "white": "White",
+        "silver": "Silver",
+        "beige": "Beige",
+        "nature": "Nature",
+        "pearl": "Pearl",
+        "beigeMottled": "Beige Mottled",
+        "denimBlueMelange": "Denim Blue Melange",
+        "lightGreyMelange": "Light Grey Melange",
+        "darkGreyMelange": "Dark Grey Melange",
+        "yellow": "Yellow",
+        "red": "Red",
+        "green": "Green",
+        "pink": "Pink",
+        "purple": "Purple",
+        "turquoise": "Turquoise",
+        "royalBlue": "Royal Blue"
+      }
+    },
+    "dealers": {
+      "titleLine1": "Find a",
+      "titleHighlight": "specialist retailer",
+      "titleRest": "near you",
+      "text": "Are you a private customer and would like to buy an ihle® product? Our medical knitwear, socks and underwear are available exclusively from specialist retailers. Please contact your specialist retailer or a local medical supply store directly.",
+      "placeholder": "Enter postcode or town",
+      "button": "Find retailer",
+      "notFound": "We could not find this place. Please check what you entered.",
+      "error": "The search is not available right now. Please try again later.",
+      "mapLabel": "Map"
+    }
+  },
+  "material": {
+    "hero": {
+      "eyebrow": "Material",
+      "titleLine1": "The materials behind",
+      "titleLine2": "every ihle® sock.",
+      "text": "Carefully selected yarns of cotton, wool and functional fibres – for wearing comfort, durability and reliable performance.",
+      "cta": "Explore the range",
+      "imageAlt": "Yarn cones in natural white, green and rust next to a knitted blanket"
+    },
+    "intro": {
+      "eyebrow": "Our materials",
+      "titleLine1": "Natural fibres.",
+      "titleLine2": "Modern comfort.",
+      "text": "At ihle®, we combine carefully selected natural and functional fibres with modern knitting technology to create socks and medical knitwear that offer lasting comfort, a perfect fit and dependable quality – for every season and every need.",
+      "fibresLabel": "Fibres we work with",
+      "fibres": {
+        "cotton": "Cotton",
+        "wool": "New wool",
+        "polyamide": "Polyamide",
+        "elastane": "Elastane",
+        "silver": "Silver fibre"
+      },
+      "features": {
+        "fibres": {
+          "title": "Carefully selected fibres",
+          "text": "Natural and functional fibres, chosen to suit each use."
+        },
+        "quality": {
+          "title": "Dependable quality",
+          "text": "Consistent workmanship that specialist retailers can rely on."
+        },
+        "comfort": {
+          "title": "Comfortable for everyday wear",
+          "text": "Soft, seamless knits that do not press or dig in."
+        },
+        "durable": {
+          "title": "Durable and dimensionally stable",
+          "text": "Made to keep their fit and feel for a long time."
+        }
+      }
+    },
+    "knit": {
+      "eyebrow": "The knit",
+      "titleLine1": "It comes down",
+      "titleLine2": "to the gauge.",
+      "text": "Crucial for both feel and appearance is not only the material used, but also the gauge. It states how many needles knit per inch (2.54 cm). A gauge of 14 stitches per inch is common and gives the classic stitch pattern. ihle® works with 6 to 36 stitches per inch – the result is always a knit that matches the requirement exactly.",
+      "gaugeLabel": "Gauge at ihle: 6 to 36 stitches per inch. Classic is 14, extra fine is 22.",
+      "gaugeUnit": "stitches per inch",
+      "types": {
+        "smooth": {
+          "tag": "14 stitches per inch",
+          "title": "Classic smooth",
+          "text": "This evenly knit fabric in medium thickness is a true all-rounder: for every season, every occasion, for women and men. ihle® uses it to make everyday socks and stockings."
+        },
+        "fine": {
+          "tag": "22 stitches per inch",
+          "title": "Classic extra fine",
+          "text": "This is what ihle® calls the refined version of its classic knit. In Central Europe this quality is mostly preferred by women, in Southern Europe more often by men."
+        },
+        "plush": {
+          "tag": "Padded all over",
+          "title": "Full plush",
+          "text": "From toe to cuff: fully padded socks give pleasant warmth, effective cushioning and good air circulation thanks to their terry knit – for all kinds of activities."
+        },
+        "semi": {
+          "tag": "Padded at toes, sole and heel",
+          "title": "Semi-plush",
+          "text": "Padding where it counts: sometimes extra padding at the toes, sole and heel is enough. Semi-plush models are therefore ideal companions for the seasons in between."
+        }
+      }
+    },
+    "next": {
+      "eyebrow": "Placeholder",
+      "title": "Another section follows",
+      "text": "This area is temporary and will be replaced by the next part of the material page."
+    },
+    "cuffs": {
+      "eyebrow": "Cuffs",
+      "titleLine1": "A perfect fit,",
+      "titleLine2": "without digging in.",
+      "text": "Stretchy, supple and suitable for everyday wear – that is how knitwear should fit. ihle® has therefore developed various cuff and hem styles, from narrow to extra wide.",
+      "types": {
+        "loop": {
+          "title": "Loop cuff without elastic",
+          "text": "With this special knit, ihle® primarily meets the needs of diabetics. Anyone who finds constricting elastic bothersome also benefits from this cuff."
+        },
+        "ribLong": {
+          "title": "Ribbed cuff without elastic",
+          "text": "This cuff is about 10 cm long and can also be worn folded over."
+        },
+        "ribShort": {
+          "title": "Ribbed cuff with elastic",
+          "text": "Here, 4 cm of elastic is knitted in. Customers with healthy feet usually prefer the added support. Good to know: this cuff is not suitable for diabetics."
+        }
+      }
+    }
+  },
+  "footer": {
+    "newsletterTitle": "Stay informed about new products, materials and innovations",
+    "newsletterButton": "Sign up now",
+    "about": "Whether diabetic shoes, corsets, orthoses or prostheses: ihle® is convinced that orthopaedic care goes beyond the aid itself. On this basis we developed knitted fabrics that offer reliable protection. Such precisely fitting textiles not only increase wearing comfort, they also improve quality of life and treatment results.",
+    "quickLinks": "Quick Links",
+    "resources": "Resources",
+    "materials": "Materials",
+    "news": "News",
+    "catalog": "Catalogue",
+    "jobs": "Jobs",
+    "newsletter": "Newsletter",
+    "phone": "Tel",
+    "mail": "Mail",
+    "address": "Address",
+    "contact": "Contact",
+    "imprint": "Legal notice",
+    "privacy": "Privacy",
+    "terms": "Terms and conditions",
+    "hoursTitle": "Factory outlet opening hours:",
+    "hours": "Monday to Friday: 8:00 am to 3:00 pm",
+    "addressArea": "Heinzebank industrial park"
+  },
+  "addresses": {
+    "title": "My addresses",
+    "billing": "Billing address",
+    "deliveries": "Delivery addresses",
+    "delivery": "Delivery address {{number}}",
+    "deliveryCount_one": "{{count}} delivery address",
+    "deliveryCount_other": "{{count}} delivery addresses",
+    "noDeliveries": "No further delivery addresses are stored for your customer account. Orders are delivered to your billing address; at checkout you can also enter a different address for one order.",
+    "changeNote": "Your addresses are taken from our merchandise management system. For changes or new delivery addresses, please call us:"
+  },
+  "accountOrders": {
+    "order": "Order {{number}}",
+    "lines_one": "{{count}} line",
+    "lines_other": "{{count}} lines",
+    "count_one": "{{count}} order",
+    "count_other": "{{count}} orders",
+    "status": {
+      "new": "Received",
+      "exported": "Being processed"
+    },
+    "reorder": "Order again",
+    "nothingAvailable": "The items of this order are currently not available in the shop.",
+    "someSkipped_one": "The other lines are in your cart; {{count}} item is currently not available.",
+    "someSkipped_other": "The other lines are in your cart; {{count}} items are currently not available.",
+    "toCart": "Go to cart",
+    "loading": "Loading orders …",
+    "loadError": "Your orders could not be loaded right now. Please try again later.",
+    "emptyTitle": "No orders yet",
+    "emptyText": "As soon as you order in the shop, you will find your orders here – with all lines, Kommissionen and prices.",
+    "found_one": "{{count}} of {{total}} orders",
+    "found_other": "{{count}} of {{total}} orders",
+    "search": "Search",
+    "searchPlaceholder": "Order no., article, Kommission, receipt no. …",
+    "statusLabel": "Status",
+    "allStatuses": "All",
+    "period": "Period",
+    "periods": {
+      "30": "Last 30 days",
+      "90": "Last 3 months",
+      "365": "Last 12 months",
+      "all": "All time"
+    },
+    "noMatchTitle": "No matching order",
+    "noMatchText": "Change the search or the filters.",
+    "resetFilter": "Reset search and filters",
+    "showMore": "Show more",
+    "shownOf": "{{shown}} of {{total}} orders shown",
+    "totalNet": "Total net"
+  },
+  "settings": {
+    "title": "Settings",
+    "account": "Account details",
+    "company": "Company",
+    "username": "Username (customer number)",
+    "email": "Email",
+    "noEmail": "No email on file",
+    "changeNote": "Your account details come from our ERP system. To change them, please call us:",
+    "toAddresses": "View addresses",
+    "password": {
+      "title": "Change password",
+      "intro": "Choose a new password for your shop access. You stay logged in.",
+      "current": "Current password",
+      "new": "New password",
+      "confirm": "Repeat new password",
+      "rules": "At least {{count}} characters.",
+      "save": "Save password",
+      "saving": "Saving …",
+      "saved": "Your password has been changed. Use the new password from now on to log in.",
+      "errors": {
+        "wrongPassword": "The current password is not correct.",
+        "passwordTooShort": "The new password must be at least {{count}} characters long.",
+        "mismatch": "The two new passwords do not match.",
+        "samePassword": "The new password must be different from the current one.",
+        "tooManyAttempts": "Too many failed attempts. Please try again in a few minutes.",
+        "offline": "No connection to the server. Please try again.",
+        "notLoggedIn": "Your session has expired. Please log in again.",
+        "generic": "The password could not be changed right now. Please try again."
+      }
+    },
+    "site": {
+      "title": "Website settings",
+      "intro": "Applies to this browser and takes effect immediately.",
+      "view": "Product view",
+      "pageSize": "Products per page"
+    },
+    "logout": {
+      "title": "Log out",
+      "text": "Log out on this device. Your cart will be emptied."
+    }
+  },
+  "colors": {
+    "102": "Blueberry",
+    "103": "Stone",
+    "139": "Mint",
+    "140": "Cherry",
+    "142": "Kiwi",
+    "143": "Lilac",
+    "144": "Pitaya",
+    "145": "Bordeaux",
+    "001": "Black",
+    "002": "Navy",
+    "003": "Grey",
+    "004": "Beige",
+    "005": "Anthracite",
+    "007": "Graphite",
+    "008": "Brown",
+    "011": "White",
+    "013": "Silver",
+    "015": "Morel",
+    "021": "Natural",
+    "025": "Pearl",
+    "027": "Quinine",
+    "038": "Yellow",
+    "039": "Turquoise",
+    "040": "Red",
+    "041": "Royal blue",
+    "042": "Green",
+    "043": "Purple",
+    "044": "Pink",
+    "052": "Beige marl",
+    "053": "Denim blue marl",
+    "058": "Dark grey marl",
+    "059": "Light grey marl"
+  }
+}
