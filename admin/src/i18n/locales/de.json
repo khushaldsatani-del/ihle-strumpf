@@ -142,7 +142,7 @@
   },
   "products": {
     "title": "Produkte",
-    "subtitle": "{{count}} Artikel · {{visible}} im Shop · {{waiting}} warten auf Fotos",
+    "subtitle": "{{count}} Artikel · {{visible}} mit Fotos · {{waiting}} mit Beispielbild",
     "importButton": "Produkte importieren",
     "search": "Artikelnr., Name, SKU …",
     "category": "Kategorie",
@@ -151,7 +151,7 @@
     "allStates": "Alle Status",
     "state": {
       "visible": "Im Shop",
-      "waiting": "Wartet auf Fotos",
+      "waiting": "Beispielbild",
       "blocked": "Gesperrt"
     },
     "product": "Artikel",
@@ -185,7 +185,10 @@
     "picturesCount": "{{uploaded}} von {{total}} Fotos hochgeladen",
     "picturesMissing_one": "{{count}} Foto fehlt – Dateinamen anzeigen",
     "picturesMissing_other": "{{count}} Fotos fehlen – Dateinamen anzeigen",
-    "waitingNote": "Für diesen Artikel ist noch kein Foto hochgeladen. Er erscheint im Shop, sobald eines seiner Fotos unter „Import → Fotos hochladen“ hochgeladen ist."
+    "waitingNote": "Für diesen Artikel ist noch kein Foto hochgeladen, der Shop zeigt ihn deshalb mit einem schematischen Beispielbild. Seine eigenen Fotos ersetzen es, sobald sie unter „Import → Fotos hochladen“ hochgeladen sind.",
+    "photoColors": "Fotos nach Farbe",
+    "translations": "Übersetzungen aus NAV",
+    "noTranslations": "Noch keine Übersetzungen aus NAV"
   },
   "units": {
     "PAAR": "Paar",
@@ -260,7 +263,7 @@
     "noHistoryText": "Hier erscheint jeder bestätigte Import mit seinem Ergebnis.",
     "checking": "Datei wird geprüft …",
     "backendNote": "Bestätigte Importe werden in der Datenbank gespeichert und erscheinen sofort im Shop.",
-    "photoSummary": "{{visible}} Artikel haben Fotos und erscheinen im Shop · {{waiting}} warten auf Fotos und bleiben bis dahin unsichtbar.",
+    "photoSummary": "{{visible}} Artikel haben Fotos · {{waiting}} erscheinen im Shop mit einem Beispielbild, bis ihre Fotos hochgeladen sind.",
     "photos": "Fotos",
     "photosFound_one": "{{count}} Foto",
     "photosFound_other": "{{count}} Fotos",

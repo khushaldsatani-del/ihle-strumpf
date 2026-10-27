@@ -16,6 +16,7 @@ import useFilters from '../hooks/useFilters.js'
 import useMediaQuery from '../hooks/useMediaQuery.js'
 import usePrices, { lowestPrice } from '../hooks/usePrices.js'
 import { filterProducts } from '../utils/filterProducts.js'
+import { productName } from '../utils/productText.js'
 import { PAGE_SIZES, readStoredPageSize, readStoredView, storePageSize, storeView } from '../utils/preferences.js'
 
 const SORTS = ['articleNo', 'name', 'price', 'size']
@@ -85,7 +86,8 @@ export default function Products() {
   const text = (a, b) => a.localeCompare(b, i18n.resolvedLanguage, { numeric: true })
   const smallestSize = (product) => Math.min(...product.sizes.map((size) => parseFloat(size) || Infinity))
   const compare = {
-    name: (a, b) => text(a.name, b.name),
+    // by the name shown, i.e. the translated one when NAV has it
+    name: (a, b) => text(productName(a, i18n.resolvedLanguage), productName(b, i18n.resolvedLanguage)),
     articleNo: (a, b) => text(a.articleNo, b.articleNo),
     size: (a, b) => smallestSize(a) - smallestSize(b),
     // only possible for logged-in customers; guests have no price data

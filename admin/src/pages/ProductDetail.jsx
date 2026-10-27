@@ -21,12 +21,26 @@ function Info({ label, children }) {
   )
 }
 
+// "en" → "Englisch" / "English", in the admin panel's language
+function useLanguageName() {
+  const { i18n } = useTranslation()
+  return (code) => {
+    try {
+      return new Intl.DisplayNames([i18n.resolvedLanguage], { type: 'language' }).of(code) || code
+    } catch {
+      return code
+    }
+  }
+}
+
 export default function ProductDetail() {
   const { t } = useTranslation()
+  const languageName = useLanguageName()
   const { id } = useParams()
   const { products, orders, customersByNumber } = useData()
   const product = products.find((entry) => articleId(entry.articleNo) === id)
   const [picture, setPicture] = useState(0)
+  const [photoColor, setPhotoColor] = useState(null)
   const back = { to: '/products', label: t('products.title') }
 
   // Which customers ordered this article, and how many pieces
@@ -57,7 +71,16 @@ export default function ProductDetail() {
   }
 
   const gallery = product.photos || []
-  const current = gallery[Math.min(picture, gallery.length - 1)]
+  // Articles can have dozens of photos (40 000: 86). Loading all thumbnails at once made the page slow, so the
+  // photos are grouped by colour (NAV names them <article>_<colour>_<nn>) and only the chosen colour is loaded.
+  const photoColors = [...new Set(gallery.map((photo) => photo.name.split('_')[1]))]
+  const activeColor = photoColors.includes(photoColor) ? photoColor : photoColors[0]
+  const shownPhotos = photoColors.length > 1 ? gallery.filter((photo) => photo.name.split('_')[1] === activeColor) : gallery
+  const current = shownPhotos[Math.min(picture, shownPhotos.length - 1)]
+  const colorOf = (code) => {
+    const variant = product.variants.find((entry) => entry.color === code)
+    return variant ? colorName(variant) : code
+  }
   const missing = product.pictures.filter((file) => !photoFor(product, file))
   const state = productState(product)
 
@@ -76,9 +99,31 @@ export default function ProductDetail() {
               <div className="rounded-xl border border-line p-2">
                 <ProductThumb key={current?.name} photo={current} large size="aspect-square w-full" alt={product.name} />
               </div>
-              {gallery.length > 1 && (
+              {photoColors.length > 1 && (
+                <div role="group" aria-label={t('products.photoColors')} className="mt-2 flex flex-wrap gap-1.5">
+                  {photoColors.map((code) => (
+                    <button
+                      key={code}
+                      type="button"
+                      aria-pressed={code === activeColor}
+                      onClick={() => {
+                        setPhotoColor(code)
+                        setPicture(0)
+                      }}
+                      className={`flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs transition-colors ${
+                        code === activeColor ? 'border-brand bg-cream font-semibold text-heading' : 'border-line text-muted hover:border-line-strong'
+                      }`}
+                    >
+                      <ColorDot code={code} size={10} />
+                      {colorOf(code)}
+                      <span className="text-muted">({gallery.filter((photo) => photo.name.split('_')[1] === code).length})</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+              {shownPhotos.length > 1 && (
                 <div className="mt-2 flex max-h-56 flex-wrap gap-1.5 overflow-y-auto">
-                  {gallery.map((photo, index) => (
+                  {shownPhotos.map((photo, index) => (
                     <button
                       key={photo.name}
                       type="button"
@@ -105,6 +150,26 @@ export default function ProductDetail() {
               </Info>
               <Info label={t('products.unit')}>{t(`units.${product.unit}`, { defaultValue: product.unit })}</Info>
               <Info label={t('products.material')}>{product.material}</Info>
+              <div className="sm:col-span-2">
+                <dt className="text-xs text-muted">{t('products.translations')}</dt>
+                <dd className="mt-0.5">
+                  {Object.keys(product.translations || {}).length ? (
+                    <ul className="grid gap-1">
+                      {Object.entries(product.translations).map(([language, text]) => (
+                        <li key={language} className="flex gap-2">
+                          <span className="w-20 shrink-0 text-xs text-muted">{languageName(language)}</span>
+                          <span className="min-w-0 font-medium text-heading">
+                            {text.name}
+                            {text.description && <span className="font-normal text-muted"> · {text.description}</span>}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <span className="text-muted">{t('products.noTranslations')}</span>
+                  )}
+                </dd>
+              </div>
               <Info label={t('products.updated')}>
                 {formatDate(product.updatedAt)} · {t(`common.source.${product.source || 'demo'}`)}
               </Info>

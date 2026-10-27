@@ -97,7 +97,8 @@
     "backToProducts": "Back to all products",
     "images": "Product pictures",
     "image": "Picture {{number}}",
-    "imageSoon": "Picture coming soon"
+    "imageSoon": "Picture coming soon",
+    "sampleImage": "Sample image"
   },
   "order": {
     "quantity": "Quantity",
@@ -668,6 +669,20 @@
       "title": "Log out",
       "text": "Log out on this device. Your cart will be emptied."
     }
+  },
+  "search": {
+    "noResults": "No matching articles found",
+    "hint": "Search by article name or number – the full number (e.g. 40 000 001 12) opens the article directly in that colour and size."
+  },
+  "quickOrder": {
+    "title": "Quick order",
+    "intro": "Know the article number? Enter the full number with colour and size, e.g. 40 000 001 12.",
+    "number": "Article number",
+    "add": "Add",
+    "added_one": "{{count}} × {{number}} ({{name}}) is in the cart.",
+    "added_other": "{{count}} × {{number}} ({{name}}) are in the cart.",
+    "incomplete": "Please enter the full number with colour and size, e.g. 40 000 001 12.",
+    "notFound": "There is no article with the number “{{number}}” in the shop."
   },
   "colors": {
     "102": "Blueberry",

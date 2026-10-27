@@ -142,7 +142,7 @@
   },
   "products": {
     "title": "Products",
-    "subtitle": "{{count}} articles · {{visible}} in the shop · {{waiting}} waiting for photos",
+    "subtitle": "{{count}} articles · {{visible}} with photos · {{waiting}} with a sample image",
     "importButton": "Import products",
     "search": "Article no., name, SKU …",
     "category": "Category",
@@ -151,7 +151,7 @@
     "allStates": "All statuses",
     "state": {
       "visible": "In shop",
-      "waiting": "Waiting for photos",
+      "waiting": "Sample image",
       "blocked": "Blocked"
     },
     "product": "Article",
@@ -185,7 +185,10 @@
     "picturesCount": "{{uploaded}} of {{total}} photos uploaded",
     "picturesMissing_one": "{{count}} photo missing – show file names",
     "picturesMissing_other": "{{count}} photos missing – show file names",
-    "waitingNote": "No photo has been uploaded for this article yet. It appears in the shop as soon as one of its photos is uploaded under \"Import → Upload photos\"."
+    "waitingNote": "No photo has been uploaded for this article yet, so the shop shows it with a schematic sample image. Its own photos replace it as soon as they are uploaded under \"Import → Upload photos\".",
+    "photoColors": "Photos by colour",
+    "translations": "Translations from NAV",
+    "noTranslations": "No translations from NAV yet"
   },
   "units": {
     "PAAR": "Pair",
@@ -260,7 +263,7 @@
     "noHistoryText": "Every confirmed import appears here with its result.",
     "checking": "Checking file …",
     "backendNote": "Confirmed imports are saved in the database and appear in the shop right away.",
-    "photoSummary": "{{visible}} articles have photos and appear in the shop · {{waiting}} are waiting for photos and stay hidden until then.",
+    "photoSummary": "{{visible}} articles have photos · {{waiting}} are shown in the shop with a sample image until their photos are uploaded.",
     "photos": "Photos",
     "photosFound_one": "{{count}} photo",
     "photosFound_other": "{{count}} photos",

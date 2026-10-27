@@ -8,6 +8,8 @@ services:
     plan: starter # always on; the free plan sleeps after 15 minutes and wakes up slowly
     rootDir: backend # only changes in backend/ trigger a new deploy
     buildCommand: npm ci
+    # applies new files from database/migrations before the new version starts (only adds, never removes)
+    preDeployCommand: npm run db:migrate
     startCommand: npm start
     healthCheckPath: /api/health
     envVars:
@@ -15,5 +17,7 @@ services:
         value: production # secure cookies
       - key: DATABASE_URL
         sync: false # pasted in Render's dashboard: Neon → Connection string (pooled)
+      - key: DB_POOL_MAX
+        value: "10" # database connections of this server; keep below the Neon plan's limit
       - key: SESSION_SECRET
         generateValue: true # long random value created by Render; changing it logs everyone out

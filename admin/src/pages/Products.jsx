@@ -12,6 +12,7 @@ import usePaged from '../hooks/usePaged.js'
 import { formatMoney } from '../utils/format.js'
 import { categoryName, colorName, groupName } from '../utils/names.js'
 import { priceRange, productState } from '../utils/products.js'
+import { matchesSearch } from '../utils/search.js'
 import { articleId } from '../utils/sku.js'
 
 export default function Products() {
@@ -35,16 +36,10 @@ export default function Products() {
   }, [orders])
 
   const filtered = useMemo(() => {
-    const needle = query.trim().toLowerCase()
     return products
       .filter((product) => category === 'all' || product.category === category)
       .filter((product) => state === 'all' || productState(product) === state)
-      .filter((product) => {
-        if (!needle) return true
-        return [product.articleNo, product.name, product.description, ...product.variants.map((variant) => variant.sku)].some(
-          (value) => value?.toLowerCase().includes(needle),
-        )
-      })
+      .filter((product) => matchesSearch([product.articleNo, product.name, product.description, ...product.variants.map((variant) => variant.sku)], query))
       .sort((a, b) => a.articleNo.localeCompare(b.articleNo))
   }, [products, query, category, state])
 
@@ -116,11 +111,7 @@ export default function Products() {
                           <div className="flex items-center gap-3">
                             <ProductThumb photo={product.photos?.[0]} />
                             <div className="min-w-0">
-                              <Link
-                                to={`/products/${id}`}
-                                onClick={(event) => event.stopPropagation()}
-                                className="block truncate font-medium text-heading"
-                              >
+                              <Link to={`/products/${id}`} onClick={(event) => event.stopPropagation()} className="block truncate font-medium text-heading">
                                 {product.name}
                               </Link>
                               <span className="font-mono text-xs text-muted">{product.articleNo}</span>

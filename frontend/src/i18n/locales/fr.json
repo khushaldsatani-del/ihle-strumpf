@@ -97,7 +97,8 @@
     "backToProducts": "Retour à tous les produits",
     "images": "Photos du produit",
     "image": "Photo {{number}}",
-    "imageSoon": "Photo bientôt disponible"
+    "imageSoon": "Photo bientôt disponible",
+    "sampleImage": "Image d’exemple"
   },
   "order": {
     "quantity": "Quantité",
@@ -668,6 +669,20 @@
       "title": "Se déconnecter",
       "text": "Déconnectez-vous sur cet appareil. Le panier sera vidé."
     }
+  },
+  "search": {
+    "noResults": "Aucun article correspondant",
+    "hint": "Recherchez par nom ou par référence – la référence complète (p. ex. 40 000 001 12) ouvre directement l’article dans cette couleur et cette taille."
+  },
+  "quickOrder": {
+    "title": "Commande rapide",
+    "intro": "Vous connaissez la référence ? Saisissez la référence complète avec couleur et taille, p. ex. 40 000 001 12.",
+    "number": "Référence",
+    "add": "Ajouter",
+    "added_one": "{{count}} × {{number}} ({{name}}) est dans le panier.",
+    "added_other": "{{count}} × {{number}} ({{name}}) sont dans le panier.",
+    "incomplete": "Veuillez saisir la référence complète avec couleur et taille, p. ex. 40 000 001 12.",
+    "notFound": "Aucun article de la boutique ne correspond à la référence « {{number}} »."
   },
   "colors": {
     "001": "Noir",

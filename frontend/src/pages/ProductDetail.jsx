@@ -1,15 +1,17 @@
 import { useState } from 'react'
 import { Check, ChevronRight } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useSearchParams } from 'react-router-dom'
 import { LoadError, ProductDetailSkeleton } from '../components/common/Loading.jsx'
 import Magnifier from '../components/products/Magnifier.jsx'
 import OrderForm from '../components/products/OrderForm.jsx'
 import ProductCard from '../components/products/ProductCard.jsx'
-import { photosOf, useCatalog } from '../context/CatalogContext.jsx'
+import ProductImage from '../components/products/ProductImage.jsx'
+import { photosOf, useCatalog, variantOf } from '../context/CatalogContext.jsx'
 import { categoryPath, findCategory } from '../data/categories.js'
 import { colorHex, colorLabel, sizeLabel } from '../data/filters.js'
 import { photoUrl } from '../utils/api.js'
+import { useProductText } from '../utils/productText.js'
 
 // Light colours get a dark checkmark
 const isLight = (hex) => {
@@ -24,12 +26,17 @@ const isLight = (hex) => {
  */
 export default function ProductDetail() {
   const { t } = useTranslation()
+  const text = useProductText()
   const { id } = useParams()
+  const [searchParams] = useSearchParams()
   const { status, byId, products, reload } = useCatalog()
   const product = byId.get(id)
-  // Chosen picture, colour and size: remembered per product (reset when another product is opened)
+  // Chosen picture, colour and size: remembered per product (reset when another product is opened).
+  // A search by full article number opens the page with ?sku=… (colour and size) or ?color=… already chosen.
   const [choice, setChoice] = useState({})
-  const selected = choice.id === id ? choice : { id }
+  const fromUrl = product?.variants.find((variant) => variant.sku === searchParams.get('sku'))
+  const selected =
+    choice.id === id ? choice : { id, color: fromUrl?.color ?? searchParams.get('color') ?? undefined, size: fromUrl?.size }
   const choose = (key, value) => setChoice({ ...selected, id, [key]: value, ...(key === 'color' ? { image: 0 } : {}) })
 
   if (!product) {
@@ -59,10 +66,14 @@ export default function ProductDetail() {
   const size = sizes.includes(selected.size) ? selected.size : sizes[0]
   const colorName = colorLabel(product.colors.find(({ code }) => code === color)?.navName, color)
   const gallery = photosOf(product, color)
+  // The full number of the chosen colour and size ("40 000 001 12"), as customers know it
+  const variant = variantOf(product, color, size)
+  const name = text.name(product)
+  const description = text.description(product)
   const shown = Math.min(selected.image ?? 0, gallery.length - 1)
 
   const details = [
-    [t('products.sort.articleNo'), product.articleNo],
+    [t('products.sort.articleNo'), variant.sku],
     [t('filters.category'), category && t(category.nameKey)],
     [t('filters.group'), group && t(group.nameKey)],
     [t('filters.material'), product.material],
@@ -95,7 +106,7 @@ export default function ProductDetail() {
           )}
           <li className="flex items-center gap-1.5 font-semibold text-heading" aria-current="page">
             <ChevronRight size={14} aria-hidden="true" />
-            {product.name}
+            {name}
           </li>
         </ol>
       </nav>
@@ -103,8 +114,15 @@ export default function ProductDetail() {
       <div className="mt-6 grid gap-8 lg:mt-8 lg:grid-cols-2 lg:gap-16">
         {/* Photos of the chosen colour: the large view with the magnifier, and the thumbnails */}
         <div className="lg:sticky lg:top-[calc(var(--nav-height)+1rem)] lg:self-start">
-          {/* key: a fresh magnifier for every picture */}
-          <Magnifier key={gallery[shown].name} src={photoUrl(gallery[shown], 'large')} alt={`${product.name}, ${colorName}`} />
+          {gallery.length ? (
+            // key: a fresh magnifier for every picture
+            <Magnifier key={gallery[shown].name} src={photoUrl(gallery[shown], 'large')} alt={`${name}, ${colorName}`} />
+          ) : (
+            // No photo uploaded yet: the category's schematic sample picture, marked as such (nothing to zoom into)
+            <div className="product-stage relative">
+              <ProductImage product={product} label width="750" height="900" className="size-full object-contain p-[18%]" />
+            </div>
+          )}
 
           {gallery.length > 1 && (
             <div role="group" aria-label={t('product.images')} className="mt-3 flex flex-wrap gap-3 sm:mt-4">
@@ -126,9 +144,11 @@ export default function ProductDetail() {
 
         {/* Information */}
         <div className="min-w-0 lg:py-4">
-          <p className="text-sm font-medium tracking-wide text-body">{t('products.articleNo', { number: product.articleNo })}</p>
-          <h1 className="mt-2 text-3xl font-bold tracking-tight text-heading sm:text-4xl lg:text-5xl">{product.name}</h1>
-          {product.description && <p className="mt-4 max-w-xl text-lg leading-relaxed text-body">{product.description}</p>}
+          <p className="text-sm font-medium tracking-wide text-body" aria-live="polite">
+            {t('products.articleNo', { number: variant.sku })}
+          </p>
+          <h1 className="mt-2 text-3xl font-bold tracking-tight text-heading sm:text-4xl lg:text-5xl">{name}</h1>
+          {description && <p className="mt-4 max-w-xl text-lg leading-relaxed text-body">{description}</p>}
 
           {/* Colours */}
           <fieldset className="mt-8">

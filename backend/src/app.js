@@ -31,6 +31,9 @@ app.use((error, req, res, next) => {
   if (error.code === 'LIMIT_FILE_SIZE') return res.status(413).json({ error: 'tooLarge' })
   if (error.code === 'LIMIT_FILE_COUNT') return res.status(413).json({ error: 'tooManyFiles' })
   if (error.code === 'ERR_BUFFER_TOO_LARGE' || error.code === 'Z_DATA_ERROR') return res.status(400).json({ error: 'invalidXml' })
+  // Request errors from express.json (body over 1 MB, broken JSON): the client's fault, so 4xx, not a server error
+  if (error.type === 'entity.too.large') return res.status(413).json({ error: 'tooLarge' })
+  if (error.expose && error.status >= 400 && error.status < 500) return res.status(error.status).json({ error: 'badRequest' })
   console.error(error)
   res.status(500).json({ error: 'serverError' })
 })

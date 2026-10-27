@@ -97,7 +97,8 @@
     "backToProducts": "Terug naar alle producten",
     "images": "Productfoto's",
     "image": "Foto {{number}}",
-    "imageSoon": "Foto volgt"
+    "imageSoon": "Foto volgt",
+    "sampleImage": "Voorbeeldafbeelding"
   },
   "order": {
     "quantity": "Aantal",
@@ -668,6 +669,20 @@
       "title": "Uitloggen",
       "text": "Log uit op dit apparaat. De winkelwagen wordt geleegd."
     }
+  },
+  "search": {
+    "noResults": "Geen passende artikelen gevonden",
+    "hint": "Zoek op artikelnaam of -nummer – het volledige nummer (bijv. 40 000 001 12) opent het artikel direct in die kleur en maat."
+  },
+  "quickOrder": {
+    "title": "Snelbestelling",
+    "intro": "Ken je het artikelnummer? Voer het volledige nummer met kleur en maat in, bijv. 40 000 001 12.",
+    "number": "Artikelnummer",
+    "add": "Toevoegen",
+    "added_one": "{{count}} × {{number}} ({{name}}) ligt in de winkelwagen.",
+    "added_other": "{{count}} × {{number}} ({{name}}) liggen in de winkelwagen.",
+    "incomplete": "Voer het volledige nummer met kleur en maat in, bijv. 40 000 001 12.",
+    "notFound": "Er is geen artikel met het nummer „{{number}}” in de shop."
   },
   "colors": {
     "001": "Zwart",

@@ -8,7 +8,7 @@ const router = Router()
 router.get('/:size/:file', async (req, res) => {
   const { size } = req.params
   if (size !== 'thumb' && size !== 'large') return res.status(404).end()
-  const photo = await loadPhoto(req.params.file, size)
+  const photo = await loadPhoto(req.params.file, size, req.query.v)
   // a missing photo may be uploaded soon, so "not found" is only cached briefly
   if (!photo) return res.set('Cache-Control', 'public, max-age=60').status(404).end()
   // Browsers and CDNs (Vercel's edge in front of the shop) keep a versioned photo for a year; without ?v= for an hour.

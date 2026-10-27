@@ -27,6 +27,18 @@ const failures = new Map()
 const WINDOW_MS = 15 * 60 * 1000
 const MAX_FAILURES = 8
 
+// Every failed login with a new customer number adds an entry; without a limit, a flood of made-up numbers
+// would fill the memory. Entries are kept oldest first (a renewed one moves to the end), so removing from the
+// front drops expired entries and, above the limit, the oldest ones, without scanning the whole map.
+const MAX_ENTRIES = 10_000
+function prune() {
+  const now = Date.now()
+  for (const [key, entry] of failures) {
+    if (failures.size <= MAX_ENTRIES && now - entry.first <= WINDOW_MS) break
+    failures.delete(key)
+  }
+}
+
 export const loginLimiter = {
   blocked(key) {
     const entry = failures.get(key)
@@ -35,8 +47,11 @@ export const loginLimiter = {
   },
   fail(key) {
     const entry = failures.get(key)
-    if (!entry || Date.now() - entry.first > WINDOW_MS) failures.set(key, { first: Date.now(), count: 1 })
-    else entry.count += 1
+    if (!entry || Date.now() - entry.first > WINDOW_MS) {
+      failures.delete(key)
+      failures.set(key, { first: Date.now(), count: 1 })
+      prune()
+    } else entry.count += 1
   },
   reset(key) {
     failures.delete(key)

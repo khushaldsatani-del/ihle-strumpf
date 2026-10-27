@@ -97,7 +97,8 @@
     "backToProducts": "Zurück zu allen Produkten",
     "images": "Produktbilder",
     "image": "Bild {{number}}",
-    "imageSoon": "Bild folgt"
+    "imageSoon": "Bild folgt",
+    "sampleImage": "Beispielbild"
   },
   "order": {
     "quantity": "Menge",
@@ -668,6 +669,20 @@
       "title": "Abmelden",
       "text": "Melden Sie sich auf diesem Gerät ab. Der Warenkorb wird dabei geleert."
     }
+  },
+  "search": {
+    "noResults": "Keine passenden Artikel gefunden",
+    "hint": "Suchen Sie nach Artikelname oder Artikelnummer – die vollständige Nummer (z. B. 40 000 001 12) öffnet den Artikel direkt in Farbe und Größe."
+  },
+  "quickOrder": {
+    "title": "Schnellbestellung",
+    "intro": "Sie kennen die Artikelnummer? Geben Sie die vollständige Nummer mit Farbe und Größe ein, z. B. 40 000 001 12.",
+    "number": "Artikelnummer",
+    "add": "Hinzufügen",
+    "added_one": "{{count}} × {{number}} ({{name}}) liegt im Warenkorb.",
+    "added_other": "{{count}} × {{number}} ({{name}}) liegen im Warenkorb.",
+    "incomplete": "Bitte geben Sie die vollständige Nummer mit Farbe und Größe ein, z. B. 40 000 001 12.",
+    "notFound": "Zur Nummer „{{number}}“ gibt es keinen Artikel im Shop."
   },
   "colors": {
     "102": "Blaubeere",

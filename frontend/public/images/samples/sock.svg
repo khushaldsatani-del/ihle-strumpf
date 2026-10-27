@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none" stroke="#8a6a55" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+  <!-- schematic sock: cuff, leg, heel, foot, toe -->
+  <path d="M168 52h92v34h-92z" fill="#f3ece4"/>
+  <path d="M168 86h92v120c0 18 6 30 22 44l54 46c22 19 12 58-22 58h-96c-40 0-64-30-64-62 0-26 14-42 14-66z" fill="#fbf8f4"/>
+  <path d="M168 66h92M168 76h92" stroke-width="3" opacity=".5"/>
+  <path d="M154 300c18 6 36 2 46-14" stroke-width="4" opacity=".55"/>
+  <path d="M286 360c10-14 10-34 0-46" stroke-width="4" opacity=".55"/>
+</svg>

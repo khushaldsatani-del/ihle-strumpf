@@ -1,4 +1,3 @@
-import bcrypt from 'bcryptjs'
 import { Router } from 'express'
 import multer from 'multer'
 import { gunzipSync } from 'node:zlib'
@@ -7,6 +6,8 @@ import { applyImport, previewImport } from '../../integrations/nav/import/applyI
 import { buildOrderXml } from '../../integrations/nav/export/orderXml.js'
 import { loginLimiter, requireAdmin } from '../../middleware/auth.js'
 import { savePhoto } from '../photos/photoService.js'
+import { clearShopCache } from '../shop/shopRoutes.js'
+import { checkPassword } from '../../utils/passwords.js'
 import { ADMIN_COOKIE, cookieOptions, createToken } from '../../utils/session.js'
 
 // Admin API (phase 1, Ihle's brief): log in, check imported articles, customers and orders,
@@ -26,7 +27,8 @@ router.post('/login', async (req, res) => {
   if (loginLimiter.blocked(key)) return res.status(429).json({ error: 'tooManyAttempts' })
 
   const { rows } = await query('SELECT username, name, password_hash FROM admin_users WHERE username = $1', [username])
-  const ok = rows[0] && (await bcrypt.compare(password, rows[0].password_hash))
+  // always a full password check, also for unknown names (same response time either way)
+  const ok = await checkPassword(password, rows[0]?.password_hash)
   if (!ok) {
     loginLimiter.fail(key)
     return res.status(401).json({ error: 'wrongCredentials' })
@@ -86,6 +88,8 @@ router.get('/data', async (req, res) => {
       material: row.material,
       unit: row.unit,
       pictures: row.pictures,
+      // names and short texts from NAV's <Translations> (empty before migration 003 or with NAV's older export)
+      translations: row.translations || {},
       photos: row.photos,
       variants: row.variants.map((variant) => ({ ...variant, price: Number(variant.price), price2: Number(variant.price2) })),
       blocked: row.blocked,
@@ -157,6 +161,7 @@ router.post('/import/confirm', upload.single('file'), async (req, res) => {
   if (!xml) return res.status(400).json({ error: 'noFile' })
   const result = await applyImport(xml, { fileName: uploadName(req), admin: req.admin.username })
   if (result.error) return res.status(400).json({ error: result.error })
+  clearShopCache()
   res.json({ run: result.run })
 })
 
@@ -166,6 +171,7 @@ router.post('/photos', photoUpload.array('files', 20), async (req, res) => {
   if (!files.length) return res.status(400).json({ error: 'noFile' })
   const results = []
   for (const file of files) results.push(await savePhoto(file.originalname, file.buffer))
+  clearShopCache()
   res.json({ results })
 })
 

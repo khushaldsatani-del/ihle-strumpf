@@ -97,7 +97,8 @@
     "backToProducts": "Torna a tutti i prodotti",
     "images": "Foto del prodotto",
     "image": "Foto {{number}}",
-    "imageSoon": "Foto in arrivo"
+    "imageSoon": "Foto in arrivo",
+    "sampleImage": "Immagine di esempio"
   },
   "order": {
     "quantity": "Quantità",
@@ -668,6 +669,20 @@
       "title": "Esci",
       "text": "Esci da questo dispositivo. Il carrello verrà svuotato."
     }
+  },
+  "search": {
+    "noResults": "Nessun articolo corrispondente",
+    "hint": "Cerca per nome o numero articolo – il numero completo (ad es. 40 000 001 12) apre direttamente l’articolo in quel colore e taglia."
+  },
+  "quickOrder": {
+    "title": "Ordine rapido",
+    "intro": "Conosci il numero articolo? Inserisci il numero completo con colore e taglia, ad es. 40 000 001 12.",
+    "number": "Numero articolo",
+    "add": "Aggiungi",
+    "added_one": "{{count}} × {{number}} ({{name}}) è nel carrello.",
+    "added_other": "{{count}} × {{number}} ({{name}}) sono nel carrello.",
+    "incomplete": "Inserisci il numero completo con colore e taglia, ad es. 40 000 001 12.",
+    "notFound": "Nel negozio non c’è nessun articolo con il numero «{{number}}»."
   },
   "colors": {
     "001": "Nero",

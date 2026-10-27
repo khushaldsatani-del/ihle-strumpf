@@ -11,11 +11,14 @@ pg.types.setTypeParser(pg.types.builtins.NUMERIC, (value) => Number.parseFloat(v
 // which also avoids pg's warning about how it will read sslmode in its next major version
 const url = new URL(process.env.DATABASE_URL)
 url.searchParams.delete('sslmode')
+// A database on this computer (the local test database) has no TLS; everything else must use it
+const isLocal = ['localhost', '127.0.0.1', '::1', '[::1]'].includes(url.hostname)
 
 export const pool = new pg.Pool({
   connectionString: url.toString(),
-  max: 5,
-  ssl: { rejectUnauthorized: true },
+  // Connections per server process; raise together with the database plan (see docs on scaling)
+  max: Number(process.env.DB_POOL_MAX) || 5,
+  ssl: isLocal ? false : { rejectUnauthorized: true },
 })
 
 export const query = (text, params) => pool.query(text, params)

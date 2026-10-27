@@ -5,13 +5,15 @@ import { useTranslation } from 'react-i18next'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { LoadError, OrderListSkeleton, PageLoader } from '../../components/common/Loading.jsx'
 import RollText from '../../components/common/RollText.jsx'
+import ProductImage from '../../components/products/ProductImage.jsx'
 import SortDropdown from '../../components/products/SortDropdown.jsx'
 import { useAuth } from '../../context/AuthContext.jsx'
 import { useCart } from '../../context/CartContext.jsx'
-import { photosOf, useCatalog } from '../../context/CatalogContext.jsx'
+import { useCatalog } from '../../context/CatalogContext.jsx'
 import { colorLabel, sizeLabel } from '../../data/filters.js'
-import { api, photoUrl } from '../../utils/api.js'
+import { api } from '../../utils/api.js'
 import formatPrice from '../../utils/formatPrice.js'
+import { useProductText } from '../../utils/productText.js'
 
 // new = received by the shop, exported = collected by Ihle's ERP (NAV) for processing
 const STATUS_STYLE = {
@@ -39,17 +41,18 @@ const searchText = (order) =>
 function OrderLine({ item, money, showTotal }) {
   const { t } = useTranslation()
   const { byId } = useCatalog()
+  const text = useProductText()
   // The photo and link only exist while the article is in the shop; older lines still show their text
   const product = byId.get(item.productId)
-  const photo = product && photosOf(product, item.color)[0]
-  const name = item.name || item.sku
+  // the article's name in the active language while it is in the shop; otherwise the name saved with the order
+  const name = (product && text.name(product)) || item.name || item.sku
 
   // Three columns: product · quantity × unit price · line total, so the amounts line up from line to line
   return (
     <li className="grid grid-cols-[3rem_minmax(0,1fr)_auto] items-start gap-x-4 gap-y-1 py-4 sm:grid-cols-[3rem_minmax(0,1fr)_8rem_6rem]">
       <span className="row-span-2 grid size-12 place-items-center overflow-hidden rounded-lg border border-slate-200 bg-white text-body/40 sm:row-span-1">
-        {photo ? (
-          <img src={photoUrl(photo)} alt="" loading="lazy" className="size-full object-contain p-1" />
+        {product ? (
+          <ProductImage product={product} color={item.color} loading="lazy" className="size-full object-contain p-1" />
         ) : (
           <ImageOff size={16} strokeWidth={1.5} aria-hidden="true" />
         )}

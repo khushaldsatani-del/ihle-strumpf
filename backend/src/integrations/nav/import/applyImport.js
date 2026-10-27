@@ -12,7 +12,8 @@ const variantKey = (variant) =>
 
 async function loadProducts(articleNos) {
   const { rows } = await query(
-    `SELECT p.article_no, p.name, p.description, p.category, p.product_group, p.blocked,
+    `SELECT p.article_no, p.name, p.description, p.category, p.product_group, p.material, p.unit, p.pictures,
+            coalesce(to_jsonb(p) -> 'translations', '{}'::jsonb) AS translations, p.blocked,
             coalesce(json_agg(json_build_object('sku', v.sku, 'color', v.color, 'size', v.size, 'price', v.price,
               'price2', v.price2, 'blocked', v.blocked, 'colorName', v.color_name)) FILTER (WHERE v.sku IS NOT NULL), '[]') AS variants
        FROM products p LEFT JOIN variants v ON v.article_no = p.article_no
@@ -23,12 +24,24 @@ async function loadProducts(articleNos) {
   return new Map(rows.map((row) => [row.article_no, row]))
 }
 
+// Same translations, whatever the key order: { en: {…}, fr: {…} } compared language by language
+const sameTranslations = (a = {}, b = {}) => {
+  const keys = new Set([...Object.keys(a), ...Object.keys(b)])
+  return [...keys].every((key) => a[key]?.name === b[key]?.name && (a[key]?.description || '') === (b[key]?.description || ''))
+}
+
 function productChanged(current, next) {
   if (
     current.name !== next.name ||
     current.description !== next.description ||
     current.category !== next.category ||
-    current.product_group !== next.productGroup
+    current.product_group !== next.productGroup ||
+    current.material !== next.material ||
+    current.unit !== next.unit ||
+    // pictures are only ever added, so a new name in the file is a change
+    next.pictures.some((file) => !current.pictures.includes(file)) ||
+    // a file without <Translations> (NAV's older export) changes nothing about them
+    (Object.keys(next.translations || {}).length > 0 && !sameTranslations(current.translations, next.translations))
   )
     return true
   const stored = new Map(current.variants.map((variant) => [variant.sku, variantKey({ ...variant, price: Number(variant.price), price2: Number(variant.price2) })]))
@@ -82,7 +95,20 @@ export async function previewImport(xml) {
   return { type: parsed.type, rowCount: parsed.rowCount, errors: parsed.errors, diff }
 }
 
+// Whether migration 003 (products.translations) has run; until then imports save everything except translations
+let translationsColumn = null
+async function hasTranslationsColumn(client) {
+  if (translationsColumn === null) {
+    const { rows } = await client.query(
+      `SELECT 1 FROM information_schema.columns WHERE table_name = 'products' AND column_name = 'translations'`,
+    )
+    translationsColumn = rows.length > 0
+  }
+  return translationsColumn
+}
+
 async function saveProducts(client, records) {
+  const withTranslations = await hasTranslationsColumn(client)
   const products = records.map((record) => ({
     article_no: record.articleNo,
     name: record.name,
@@ -92,6 +118,7 @@ async function saveProducts(client, records) {
     material: record.material,
     unit: record.unit,
     pictures: record.pictures,
+    translations: record.translations || {},
   }))
   await client.query(
     `INSERT INTO products (article_no, name, description, category, product_group, material, unit, pictures, source, updated_at)
@@ -106,6 +133,15 @@ async function saveProducts(client, records) {
        source = 'import', updated_at = now()`,
     [JSON.stringify(products)],
   )
+  if (withTranslations) {
+    // a file without <Translations> (NAV's older export) keeps the translations already stored
+    await client.query(
+      `UPDATE products p SET translations = r.translations
+         FROM jsonb_to_recordset($1::jsonb) AS r(article_no text, translations jsonb)
+        WHERE p.article_no = r.article_no AND r.translations <> '{}'::jsonb`,
+      [JSON.stringify(products.map(({ article_no, translations }) => ({ article_no, translations })))],
+    )
+  }
 
   const variants = records.flatMap((record) => record.variants.map((variant) => ({ ...variant, article_no: record.articleNo })))
   await client.query(

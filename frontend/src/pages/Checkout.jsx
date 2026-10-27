@@ -5,15 +5,17 @@ import { useTranslation } from 'react-i18next'
 import { Link, Navigate } from 'react-router-dom'
 import { PageLoader } from '../components/common/Loading.jsx'
 import RollText from '../components/common/RollText.jsx'
+import ProductImage from '../components/products/ProductImage.jsx'
 import SortDropdown from '../components/products/SortDropdown.jsx'
 import { useAuth } from '../context/AuthContext.jsx'
 import { useCart } from '../context/CartContext.jsx'
-import { photosOf, useCatalog } from '../context/CatalogContext.jsx'
+import { useCatalog } from '../context/CatalogContext.jsx'
 import { colorLabel, sizeLabel } from '../data/filters.js'
 import usePrices from '../hooks/usePrices.js'
-import { api, photoUrl } from '../utils/api.js'
+import { api } from '../utils/api.js'
 import countryName from '../utils/countryName.js'
 import formatPrice from '../utils/formatPrice.js'
+import { useProductText } from '../utils/productText.js'
 
 const EMPTY_ADDRESS = { company: '', street: '', zip: '', city: '', country: '' }
 
@@ -104,6 +106,7 @@ export default function Checkout() {
   const { items, clear } = useCart()
   const { bySku } = useCatalog()
   const priceData = usePrices()
+  const text = useProductText()
   const [sending, setSending] = useState(false)
   const [orderError, setOrderError] = useState(null)
   const [step, setStep] = useState(0) // open step: 0 billing, 1 delivery, 2 shipping, 3 payment, 4 overview
@@ -343,12 +346,12 @@ export default function Checkout() {
                 return (
                   <li key={item.key} className="flex items-center gap-4 border-b border-slate-200 py-3">
                     <span className="size-14 shrink-0 overflow-hidden rounded-xl bg-[#f5f4f1]">
-                      <img src={photoUrl(photosOf(product, variant.color)[0])} alt="" className="size-full object-contain p-[10%]" />
+                      <ProductImage product={product} color={variant.color} className="size-full object-contain p-[10%]" />
                     </span>
                     <span className="min-w-0 flex-1 text-sm text-body">
-                      <span className="block font-semibold text-heading">{product.name}</span>
+                      <span className="block font-semibold text-heading">{text.name(product)}</span>
                       <span className="block">
-                        {t('products.articleNo', { number: product.articleNo })} · {colorLabel(variant.colorName, variant.color)} ·{' '}
+                        {t('products.articleNo', { number: variant.sku })} · {colorLabel(variant.colorName, variant.color)} ·{' '}
                         {sizeLabel(variant.size)}
                       </span>
                       {item.commission && (

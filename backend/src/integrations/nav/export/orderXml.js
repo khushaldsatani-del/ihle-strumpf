@@ -1,5 +1,5 @@
 // Builds the order file NAV imports ("Import Bestellungen"), element for element like the samples
-// (e.g. 1300003946.xml). Mirrors admin/src/utils/orderXml.js.
+// (e.g. 1300003946.xml). The admin panel downloads it from GET /api/admin/orders/:orderNo/xml.
 
 const round2 = (value) => Math.round(value * 100) / 100
 
@@ -13,14 +13,28 @@ export function orderTotals(items, shippingCost = 0) {
   return { lineSum, discount, shipping: shippingCost, totalNet: round2(lineSum - discount) }
 }
 
-// NAV writes non-ASCII characters as &#xE4; etc., so we do the same
-const escapeXml = (value) =>
-  String(value ?? '')
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/[\u0080-￿]/g, (char) => `&#x${char.charCodeAt(0).toString(16).toUpperCase()};`)
+// Characters XML 1.0 doesn't allow at all (control characters other than tab and line breaks, U+FFFE/U+FFFF);
+// they can only come from pasted customer input and are dropped, otherwise NAV couldn't read the file
+// oxlint-disable-next-line no-control-regex -- matching control characters is the point here
+const FORBIDDEN = /[\u0000-\u0008\u000B\u000C\u000E-\u001F\uFFFE\uFFFF]/u
+
+// NAV writes non-ASCII characters as &#xE4; etc., so we do the same. Characters are read by code point, so an
+// emoji becomes one valid reference (&#x1F600;) instead of two invalid half-references.
+const escapeXml = (value) => {
+  let out = ''
+  for (const char of String(value ?? '')) {
+    const code = char.codePointAt(0)
+    // lone surrogate halves (from text cut in the middle of an emoji) are not characters either
+    if (FORBIDDEN.test(char) || (code >= 0xd800 && code <= 0xdfff)) continue
+    if (char === '&') out += '&amp;'
+    else if (char === '<') out += '&lt;'
+    else if (char === '>') out += '&gt;'
+    else if (char === '"') out += '&quot;'
+    else if (code >= 0x80) out += `&#x${code.toString(16).toUpperCase()};`
+    else out += char
+  }
+  return out
+}
 
 // Empty values are written as <tag/>, like NAV does
 const tag = (name, value, indent) => {

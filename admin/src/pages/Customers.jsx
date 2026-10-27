@@ -9,6 +9,7 @@ import usePaged from '../hooks/usePaged.js'
 import { formatDate, formatMoney } from '../utils/format.js'
 import { customerName } from '../utils/names.js'
 import { orderTotals } from '../utils/orders.js'
+import { matchesSearch } from '../utils/search.js'
 
 export default function Customers() {
   const { t } = useTranslation()
@@ -32,15 +33,10 @@ export default function Customers() {
   }, [orders])
 
   const filtered = useMemo(() => {
-    const needle = query.trim().toLowerCase()
     return customers
       .filter((customer) => priceGroup === 'all' || customer.priceGroup === priceGroup)
       .filter((customer) => payment === 'all' || (customer.paymentCode || customer.paymentMethod) === payment)
-      .filter((customer) => {
-        if (!needle) return true
-        const haystack = [customer.number, customerName(customer), customer.email, customer.billing.city, customer.billing.postcode]
-        return haystack.some((value) => value?.toLowerCase().includes(needle))
-      })
+      .filter((customer) => matchesSearch([customer.number, customerName(customer), customer.email, customer.billing.city, customer.billing.postcode], query))
       .sort((a, b) => a.number.localeCompare(b.number))
   }, [customers, query, priceGroup, payment])
 

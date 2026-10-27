@@ -8,6 +8,7 @@ import usePaged from '../hooks/usePaged.js'
 import { formatDateTime, formatMoney } from '../utils/format.js'
 import { customerName } from '../utils/names.js'
 import { orderTotals } from '../utils/orders.js'
+import { matchesSearch } from '../utils/search.js'
 
 const PERIODS = { all: Infinity, 7: 7, 30: 30, 90: 90 }
 
@@ -31,23 +32,23 @@ export default function Orders() {
   const [now] = useState(() => Date.now())
 
   const filtered = useMemo(() => {
-    const needle = query.trim().toLowerCase()
     const since = now - PERIODS[period] * 86400000
     return orders.filter((order) => {
       if (status !== 'all' && order.status !== status) return false
       if (new Date(order.date).getTime() < since) return false
-      if (!needle) return true
       const customer = customersByNumber.get(order.customerNumber)
       // Search by order number, customer, receipt number, SKU, product name or Kommission
-      const haystack = [
-        order.orderNo,
-        order.customerNumber,
-        order.receiptNo,
-        customerName(customer),
-        customer?.billing.city,
-        ...order.items.flatMap((item) => [item.sku, item.commission, variantsBySku.get(item.sku)?.product.name]),
-      ]
-      return haystack.some((value) => value?.toLowerCase().includes(needle))
+      return matchesSearch(
+        [
+          order.orderNo,
+          order.customerNumber,
+          order.receiptNo,
+          customerName(customer),
+          customer?.billing.city,
+          ...order.items.flatMap((item) => [item.sku, item.commission, variantsBySku.get(item.sku)?.product.name]),
+        ],
+        query,
+      )
     })
   }, [now, orders, status, period, query, customersByNumber, variantsBySku])
 

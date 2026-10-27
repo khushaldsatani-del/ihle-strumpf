@@ -1,7 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import { categoryByNav, groupByNav } from '../data/categories.js'
 import { fibresOf } from '../data/filters.js'
-import { api } from '../utils/api.js'
+import { api, photoUrl } from '../utils/api.js'
 
 const CatalogContext = createContext({ status: 'loading', products: [], bySku: new Map(), byId: new Map(), reload: () => {} })
 
@@ -32,7 +32,8 @@ function toProduct(raw) {
 }
 
 /**
- * The shop's catalogue: every article that is visible in the shop (imported, not blocked, with a photo).
+ * The shop's catalogue: every article that is visible in the shop (imported, not blocked, sellable);
+ * articles without an uploaded photo yet show a sample picture.
  * Loaded once per visit; filters, sorting and paging happen in the browser (a few hundred articles at most).
  * status: loading → ready | error. reload() tries again after an error (the visitor's "retry" button).
  */
@@ -46,7 +47,7 @@ export function CatalogProvider({ children }) {
     let active = true
     let timer = 0
     const load = (retry) =>
-      api('/shop/products').then(
+      api('/shop/products?photos=optional').then(
         (data) => active && setState({ status: 'ready', products: data.products.map(toProduct) }),
         () => {
           if (!active) return
@@ -88,9 +89,22 @@ export const variantOf = (product, color, size) =>
   product.variants.find((variant) => variant.color === color) ||
   product.variants[0]
 
-// Photos of one colour (NAV names them <article>_<colour>_<nn>), or all photos when that colour has none
+// Photos of one colour (NAV names them <article>_<colour>_<nn>), or all photos when that colour has none.
+// Empty when the article has no uploaded photo yet.
 // oxlint-disable-next-line react/only-export-components
 export const photosOf = (product, color) => {
   const own = product.photos.filter((photo) => photo.name.split('_')[1] === color)
   return own.length ? own : product.photos
+}
+
+// Schematic sample picture per category, for articles without a photo (Ihle's wish: never an empty tile)
+const SAMPLES = { PROTHETIC: 'stump', UNDERWEAR: 'shirt' }
+// oxlint-disable-next-line react/only-export-components
+export const sampleImage = (product) => `/images/samples/${SAMPLES[product.category] || 'sock'}.svg`
+
+// The picture to show for an article (optionally of one colour): its first photo, or the sample picture
+// oxlint-disable-next-line react/only-export-components
+export const imageOf = (product, color, size = 'thumb') => {
+  const photo = (color ? photosOf(product, color) : product.photos)[0]
+  return photo ? photoUrl(photo, size) : sampleImage(product)
 }

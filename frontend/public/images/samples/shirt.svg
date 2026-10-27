@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none" stroke="#8a6a55" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+  <!-- schematic body shirt: neckline, short sleeves, straight body -->
+  <path d="M156 60c10 22 26 32 44 32s34-10 44-32l60 26 34 74-46 20-16-34v194H120V146l-16 34-46-20 34-74z" fill="#fbf8f4"/>
+  <path d="M156 60c10 22 26 32 44 32s34-10 44-32" fill="#f3ece4"/>
+  <path d="M120 330h160" stroke-width="3" opacity=".5"/>
+</svg>

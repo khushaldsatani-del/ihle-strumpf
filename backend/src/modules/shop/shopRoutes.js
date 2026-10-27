@@ -2,6 +2,7 @@ import bcrypt from 'bcryptjs'
 import { Router } from 'express'
 import { query, transaction } from '../../config/db.js'
 import { loginLimiter, requireCustomer } from '../../middleware/auth.js'
+import { checkPassword } from '../../utils/passwords.js'
 import { CUSTOMER_COOKIE, cookieOptions, createToken } from '../../utils/session.js'
 
 // Shop API. The catalogue is public and never contains prices; prices, the customer's addresses and
@@ -19,6 +20,8 @@ const BLOCKED_CATEGORIES = ['BUSINESS S']
 // (not blocked, price above 0 – price 0 marks NAV-internal entries)
 const VISIBLE_PRODUCTS = `
   SELECT p.article_no, p.name, p.description, p.category, p.product_group, p.material, p.unit,
+         -- via to_jsonb: also works on a database where migration 003 hasn't run yet (then no translations)
+         to_jsonb(p) -> 'translations' AS translations,
          (SELECT json_agg(json_build_object('name', ph.name, 'v', floor(extract(epoch FROM ph.uploaded_at))::bigint) ORDER BY pic.n)
             FROM unnest(p.pictures) WITH ORDINALITY AS pic(file, n)
             JOIN photos ph ON ph.name = lower(regexp_replace(pic.file, '\\.(jpe?g|png|webp|tiff?)$', '', 'i'))) AS photos,
@@ -36,15 +39,42 @@ const toProduct = (row) => ({
   group: row.product_group,
   material: row.material,
   unit: row.unit,
+  // names and short texts in other languages from NAV, e.g. { en: { name, description } }; German is name/description
+  translations: row.translations || {},
   photos: row.photos,
   variants: row.variants,
 })
 
+// Catalogue and prices only change with an import or a photo upload, but every visitor asks for them.
+// The answers are kept in memory for half a minute and cleared at once by an import or upload on this server
+// (clearShopCache, called by the admin routes), so a load of visitors costs one database read per 30 s.
+const CACHE_TTL_MS = 30_000
+const shopCache = new Map() // 'products:all' | 'products:photos' | 'prices:price' | 'prices:price2' → { at, body }
+export const clearShopCache = () => shopCache.clear()
+
+async function cached(key, load) {
+  const hit = shopCache.get(key)
+  if (hit && Date.now() - hit.at < CACHE_TTL_MS) return hit.body
+  const body = JSON.stringify(await load())
+  shopCache.set(key, { at: Date.now(), body })
+  return body
+}
+
+// ?photos=optional: also articles without an uploaded photo (the shop shows a sample picture for them, as Ihle asked).
+// Without it the answer is as before, so a shop version that can't show sample pictures keeps working.
 router.get('/products', async (req, res) => {
-  const { rows } = await query(VISIBLE_PRODUCTS, [BLOCKED_CATEGORIES])
-  // Short public caching: new imports and photos show up within a minute
-  res.set('Cache-Control', 'public, max-age=60')
-  res.json({ products: rows.filter((row) => row.photos && row.variants).map(toProduct) })
+  const withoutPhotos = req.query.photos === 'optional'
+  const body = await cached(withoutPhotos ? 'products:all' : 'products:photos', async () => {
+    const { rows } = await query(VISIBLE_PRODUCTS, [BLOCKED_CATEGORIES])
+    return {
+      products: rows
+        .filter((row) => row.variants && (withoutPhotos || row.photos))
+        .map((row) => toProduct({ ...row, photos: row.photos || [] })),
+    }
+  })
+  // Short public caching (browsers and Vercel's edge): new imports and photos show up within a minute
+  res.set('Cache-Control', 'public, max-age=60, s-maxage=60')
+  res.type('json').send(body)
 })
 
 // ---------- customer login ----------
@@ -86,7 +116,8 @@ router.post('/login', async (req, res) => {
 
   const customer = number && (await loadCustomer(number))
   // Same answer for an unknown number, no shop access yet, or a wrong password
-  const ok = customer?.password_hash && (await bcrypt.compare(password, customer.password_hash))
+  // always a full password check, also for unknown numbers (same response time either way)
+  const ok = await checkPassword(password, customer?.password_hash)
   if (!ok) {
     loginLimiter.fail(key)
     return res.status(401).json({ error: 'wrongCredentials' })
@@ -134,9 +165,13 @@ router.get('/prices', requireCustomer, async (req, res) => {
   const customer = await loadCustomer(req.customer.number)
   if (!customer) return res.status(401).json({ error: 'notLoggedIn' })
   const column = priceColumn(customer.price_group)
-  const { rows } = await query(`SELECT sku, ${column} AS price FROM variants WHERE NOT blocked AND price > 0`)
+  // the same list for everyone in a price group, so it's cached per column (Price / Price2)
+  const body = await cached(`prices:${column}`, async () => {
+    const { rows } = await query(`SELECT sku, ${column} AS price FROM variants WHERE NOT blocked AND price > 0`)
+    return { currency: 'EUR', prices: Object.fromEntries(rows.map((row) => [row.sku, Number(row.price)])) }
+  })
   res.set('Cache-Control', 'private, no-store')
-  res.json({ currency: 'EUR', prices: Object.fromEntries(rows.map((row) => [row.sku, Number(row.price)])) })
+  res.type('json').send(body)
 })
 
 // ---------- order history ----------
@@ -145,18 +180,18 @@ router.get('/prices', requireCustomer, async (req, res) => {
 // Names come from the database (not the shop catalogue), so lines of articles without a photo still show.
 router.get('/orders', requireCustomer, async (req, res) => {
   const { rows } = await query(
+    // the newest 200 orders first (index on customer_number), then only their lines: stays fast for customers
+    // with years of orders, instead of assembling every order before keeping 200
     `SELECT o.order_no, o.created_at, o.receipt_no, o.billing, o.shipping_address, o.status,
-            json_agg(json_build_object('sku', i.sku, 'amount', i.amount, 'unitPrice', i.unit_price, 'commission', i.commission,
-              'productId', replace(v.article_no, ' ', ''), 'name', p.name, 'colorName', v.color_name, 'color', v.color, 'size', v.size)
-              ORDER BY i.line_no) AS items
-       FROM orders o
-       JOIN order_items i ON i.order_no = o.order_no
-       LEFT JOIN variants v ON v.sku = i.sku
-       LEFT JOIN products p ON p.article_no = v.article_no
-      WHERE o.customer_number = $1
-      GROUP BY o.order_no
-      ORDER BY o.created_at DESC
-      LIMIT 200`,
+            (SELECT json_agg(json_build_object('sku', i.sku, 'amount', i.amount, 'unitPrice', i.unit_price, 'commission', i.commission,
+                      'productId', replace(v.article_no, ' ', ''), 'name', p.name, 'colorName', v.color_name, 'color', v.color, 'size', v.size)
+                      ORDER BY i.line_no)
+               FROM order_items i
+               LEFT JOIN variants v ON v.sku = i.sku
+               LEFT JOIN products p ON p.article_no = v.article_no
+              WHERE i.order_no = o.order_no) AS items
+       FROM (SELECT * FROM orders WHERE customer_number = $1 ORDER BY created_at DESC LIMIT 200) o
+      ORDER BY o.created_at DESC`,
     [req.customer.number],
   )
   res.set('Cache-Control', 'private, no-store')

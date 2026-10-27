@@ -1,4 +1,4 @@
-import { XMLParser } from 'fast-xml-parser'
+import { XMLParser, XMLValidator } from 'fast-xml-parser'
 
 // Reads NAV's two export files: nav_ShopItems.xml (products) and nav_ShopCustomers.xml (customers).
 // The type is recognised by the root element. The format is fixed by Ihle's NAV export.
@@ -9,9 +9,15 @@ import { XMLParser } from 'fast-xml-parser'
 //   Größe: 35-38                            ← readable size ("11-12cm", "6cm"; the Size attribute is often empty)
 //   Farbe: schwarz                          ← colour name (NAV sends only the code in the attributes)
 //   (PAAR)                                  ← unit
+//
+// Since October 2026 each item may also carry <Translations>: per NAV language code (DEU, ENU, FRA, ESP, …)
+// a <Description> (name, often with the colour: "ABS Sock Frottee, black") and a <Description2> (short text).
+// German stays as read from <Name>: NAV cuts the German Description off at 30 characters.
 
 // Elements that can repeat are always arrays, even when a file has only one
-const ARRAYS = new Set(['ShopItem', 'Picture', 'ItemTextLine', 'SubItem', 'Attribute', 'Customer', 'PaymentCode', 'BillingAddress', 'ShippingAddress'])
+const ARRAYS = new Set([
+  'ShopItem', 'Picture', 'ItemTextLine', 'SubItem', 'Attribute', 'Translation', 'Customer', 'PaymentCode', 'BillingAddress', 'ShippingAddress',
+])
 
 const parser = new XMLParser({
   ignoreAttributes: false,
@@ -67,6 +73,31 @@ function mostCommon(values) {
   return [...counts.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] || ''
 }
 
+// NAV language codes → the shop's language codes. German is not taken from here (see above).
+const NAV_LANGUAGES = { ENU: 'en', ENG: 'en', FRA: 'fr', ESP: 'es', ITA: 'it', NLD: 'nl', SVE: 'sv', RUS: 'ru', DAN: 'da', NOR: 'no', PLK: 'pl', CSY: 'cs' }
+export const shopLanguage = (navCode) => {
+  const code = text(navCode).toUpperCase()
+  if (!code || code === 'DEU') return null
+  return NAV_LANGUAGES[code] || code.toLowerCase()
+}
+
+// An article's name in one language from its SKUs' descriptions: the comma parts all of them share
+// ("ABS Sock Frottee, black" + "ABS Sock Frottee, beige" → "ABS Sock Frottee"); if they share none, the most common one
+function commonName(values) {
+  const names = values.filter(Boolean)
+  return commonDescription(names) || mostCommon(names)
+}
+
+// { en: { name, description }, fr: { … } } for one article; languages without a name are left out
+function articleTranslations(byLanguage) {
+  const result = {}
+  for (const [language, { names, descriptions }] of byLanguage) {
+    const name = commonName(names)
+    if (name) result[language] = { name, description: commonDescription(descriptions) }
+  }
+  return result
+}
+
 function parseItems(items) {
   const errors = []
   const articles = new Map()
@@ -95,12 +126,20 @@ function parseItems(items) {
         unit: attribute('UnitOfMeasure') || name.unit,
         pictures: [],
         variants: [],
+        languages: new Map(),
       })
     }
 
     const article = articles.get(parsed.article)
     article.titles.push(name.title)
     article.seconds.push(name.second)
+    for (const translation of item.Translations?.Translation || []) {
+      const language = shopLanguage(translation.languageCode)
+      if (!language) continue
+      if (!article.languages.has(language)) article.languages.set(language, { names: [], descriptions: [] })
+      article.languages.get(language).names.push(text(translation.Description))
+      article.languages.get(language).descriptions.push(text(translation.Description2))
+    }
     for (const picture of item.Pictures?.Picture || []) {
       const file = text(picture)
       if (file && !article.pictures.includes(file)) article.pictures.push(file)
@@ -117,10 +156,11 @@ function parseItems(items) {
     })
   })
 
-  const records = [...articles.values()].map(({ titles, seconds, ...article }) => ({
+  const records = [...articles.values()].map(({ titles, seconds, languages, ...article }) => ({
     ...article,
     name: mostCommon(titles),
     description: commonDescription(seconds),
+    translations: articleTranslations(languages),
   }))
   return { records, errors, rowCount: items.length }
 }
@@ -168,6 +208,9 @@ function parseCustomers(customers) {
 }
 
 export function parseNavXml(xml) {
+  // The parser is lenient and would read a cut-off file (e.g. an interrupted upload) as far as it goes,
+  // so the file is checked to be complete, well-formed XML first (about 0.3 s for NAV's full export)
+  if (typeof xml !== 'string' || XMLValidator.validate(xml) !== true) return { type: null, error: 'invalidXml' }
   let doc
   try {
     doc = parser.parse(xml)

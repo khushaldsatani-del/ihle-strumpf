@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none" stroke="#8a6a55" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+  <!-- schematic stump stocking: open top, tapering tube, rounded closed end -->
+  <path d="M138 50h124v30H138z" fill="#f3ece4"/>
+  <path d="M138 80h124l-10 210c-2 40-26 62-52 62s-50-22-52-62z" fill="#fbf8f4"/>
+  <path d="M138 64h124" stroke-width="3" opacity=".5"/>
+  <path d="M160 120l-4 150M240 120l4 150" stroke-width="3" opacity=".35"/>
+</svg>

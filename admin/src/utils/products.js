@@ -2,7 +2,7 @@ import { findCategory } from '../data/categories.js'
 
 // An article's state in the shop:
 //   blocked → blocked in NAV (every SKU, or the whole category)
-//   waiting → imported, but none of its NAV pictures is uploaded yet, so the shop doesn't show it
+//   waiting → imported, but none of its NAV pictures is uploaded yet: the shop shows a schematic sample image
 //   visible → shown in the shop
 export function productState(product) {
   if (product.blocked || findCategory(product.category)?.blocked) return 'blocked'
