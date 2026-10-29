@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { Link, Navigate } from 'react-router-dom'
 import { PageLoader } from '../components/common/Loading.jsx'
 import RollText from '../components/common/RollText.jsx'
+import OrderTotals from '../components/order/OrderTotals.jsx'
 import ProductImage from '../components/products/ProductImage.jsx'
 import SortDropdown from '../components/products/SortDropdown.jsx'
 import { useAuth } from '../context/AuthContext.jsx'
@@ -14,10 +15,13 @@ import { colorLabel, sizeLabel } from '../data/filters.js'
 import usePrices from '../hooks/usePrices.js'
 import { api } from '../utils/api.js'
 import countryName from '../utils/countryName.js'
+import { showNumber } from '../utils/articleNumber.js'
 import formatPrice from '../utils/formatPrice.js'
+import { orderTotals } from '../utils/orderTotals.js'
 import { useProductText } from '../utils/productText.js'
 
-const EMPTY_ADDRESS = { company: '', street: '', zip: '', city: '', country: '' }
+// Longest delivery note; the backend cuts at the same length
+const NOTE_MAX = 250
 
 const addressLines = (address) => [address.company, address.street, `${address.zip} ${address.city}`, countryName(address.country)]
 
@@ -31,6 +35,21 @@ function Address({ address }) {
         </span>
       ))}
     </address>
+  )
+}
+
+// "Anmerkung zur Lieferung": free text for the delivery (contact person, delivery hours …), optional
+function DeliveryNote({ value, onChange }) {
+  const { t } = useTranslation()
+  const hintId = useId()
+  return (
+    <label className="order-field mt-5 max-w-[34rem]">
+      <span>{t('checkout.deliveryNote')}</span>
+      <textarea rows={3} maxLength={NOTE_MAX} value={value} aria-describedby={hintId} onChange={(event) => onChange(event.target.value)} />
+      <span id={hintId} className="text-xs font-normal text-body">
+        {t('checkout.deliveryNoteHint', { max: NOTE_MAX, left: NOTE_MAX - value.length })}
+      </span>
+    </label>
   )
 }
 
@@ -113,8 +132,7 @@ export default function Checkout() {
   const [reached, setReached] = useState(0) // furthest step opened so far
   const [sendTo, setSendTo] = useState('billing') // 'billing' | 'other'
   const [deliveryId, setDeliveryId] = useState(null) // id of a saved address ('' = none chosen)
-  const [wantsNewAddress, setUseNewAddress] = useState(false)
-  const [newAddress, setNewAddress] = useState(EMPTY_ADDRESS)
+  const [note, setNote] = useState('') // "Anmerkung zur Lieferung"
   const [receipt, setReceipt] = useState('') // the customer's own receipt / order number (optional)
   const [placed, setPlaced] = useState(null) // summary of the order after "place order"
 
@@ -142,17 +160,23 @@ export default function Checkout() {
   const money = (amount) => (priceData ? formatPrice(amount, priceData.currency, i18n.resolvedLanguage) : '…')
   // SKUs no longer in the shop are left out, like in the cart
   const lines = items.map((item) => ({ item, ...bySku.get(item.sku) })).filter(({ product }) => product)
-  const total = lines.reduce((sum, { item }) => sum + (priceData?.prices[item.sku] ?? 0) * item.quantity, 0)
+  const totals = orderTotals(
+    lines.map(({ item, variant }) => ({ amount: item.quantity, unitPrice: priceData?.prices[item.sku] ?? 0, vatRate: variant.vatRate })),
+  )
 
+  // Deliveries go to the billing address or one of the customer's delivery addresses from NAV; new addresses
+  // can't be typed in (Ihle's wish), so without saved ones there is nothing else to choose
   const savedAddresses = user.shippingAddresses
-  // Without saved delivery addresses, "deliver elsewhere" can only mean typing in a new one
-  const useNewAddress = wantsNewAddress || savedAddresses.length === 0
+  const deliverElsewhere = sendTo === 'other' && savedAddresses.length > 0
   const chosenDeliveryId = deliveryId ?? savedAddresses[0]?.id ?? ''
   const savedAddress = savedAddresses.find(({ id }) => id === chosenDeliveryId)
-  const deliveryAddress = sendTo === 'billing' ? user.billingAddress : useNewAddress ? newAddress : savedAddress
+  const deliveryAddress = deliverElsewhere ? savedAddress : user.billingAddress
   const oneLine = (address) => (address ? addressLines(address).join(', ') : '–')
   // The customer's shipping agent and payment method from NAV (GLS / invoice for nearly everyone)
   const shippingLabel = user.shippingAgent
+  // Invoices are sent as e-invoices by email (Ihle's wish); the address will come from NAV's customer data,
+  // until then it is the customer's email in the shop
+  const eInvoice = !['debit', 'VORKASSE'].includes(user.payment)
   const paymentName = t(`checkout.paymentMethods.${user.payment}`, { defaultValue: t('checkout.invoice') })
   const paymentLabel = receipt.trim() ? `${paymentName} · ${t('checkout.receipt')}: ${receipt.trim()}` : paymentName
 
@@ -163,18 +187,14 @@ export default function Checkout() {
     setReached((current) => Math.max(current, index))
   }
   // "Send to this address" skips the delivery step
-  const afterBilling = () => open(sendTo === 'billing' ? 2 : 1)
+  const afterBilling = () => open(deliverElsewhere ? 1 : 2)
   const next = (event) => {
     event.preventDefault()
     open(step + 1)
   }
 
-  const delivery =
-    sendTo === 'billing'
-      ? { type: 'billing' }
-      : useNewAddress
-        ? { type: 'new', address: newAddress }
-        : { type: 'saved', id: chosenDeliveryId }
+  const delivery = deliverElsewhere ? { type: 'saved', id: chosenDeliveryId } : { type: 'billing' }
+  const deliverySummary = deliverElsewhere ? oneLine(deliveryAddress) : t('checkout.sameAsBilling')
 
   const placeOrder = async () => {
     setSending(true)
@@ -186,9 +206,10 @@ export default function Checkout() {
           items: lines.map(({ item }) => ({ sku: item.sku, quantity: item.quantity, commission: item.commission })),
           delivery,
           receiptNo: receipt.trim(),
+          deliveryNote: note.trim(),
         },
       })
-      setPlaced({ orderNo: result.orderNo, count: lines.length, total: money(total) })
+      setPlaced({ orderNo: result.orderNo, count: lines.length, total: money(totals.gross) })
       clear()
       window.scrollTo(0, 0)
     } catch (error) {
@@ -211,7 +232,6 @@ export default function Checkout() {
       )}
     </div>
   )
-  const setField = (field) => (event) => setNewAddress({ ...newAddress, [field]: event.target.value })
 
   return (
     <div className="mx-auto max-w-6xl px-4 pb-20 pt-10 sm:px-8 lg:pt-14">
@@ -230,80 +250,51 @@ export default function Checkout() {
               <div className="text-sm text-body">
                 <Address address={user.billingAddress} />
               </div>
-              <fieldset className="mt-5 flex flex-col gap-2">
-                <legend className="sr-only">{t('checkout.delivery')}</legend>
-                <Choice name={`${formId}-send`} value="billing" checked={sendTo === 'billing'} onChange={setSendTo}>
-                  {t('checkout.sendHere')}
-                </Choice>
-                <Choice name={`${formId}-send`} value="other" checked={sendTo === 'other'} onChange={setSendTo}>
-                  {t('checkout.sendElsewhere')}
-                </Choice>
-              </fieldset>
+              {/* "Elsewhere" means one of the customer's delivery addresses from NAV, so it needs at least one */}
+              {savedAddresses.length > 0 && (
+                <fieldset className="mt-5 flex flex-col gap-2">
+                  <legend className="sr-only">{t('checkout.delivery')}</legend>
+                  <Choice name={`${formId}-send`} value="billing" checked={!deliverElsewhere} onChange={setSendTo}>
+                    {t('checkout.sendHere')}
+                  </Choice>
+                  <Choice name={`${formId}-send`} value="other" checked={deliverElsewhere} onChange={setSendTo}>
+                    {t('checkout.sendElsewhere')}
+                  </Choice>
+                </fieldset>
+              )}
+              {/* Delivered here: the delivery step is skipped, so the note is written in this step */}
+              {!deliverElsewhere && <DeliveryNote value={note} onChange={setNote} />}
               {actions()}
             </form>
           </Step>
 
-          {/* 2 Delivery address: a dropdown with the saved addresses, or a new address */}
+          {/* 2 Delivery address: one of the customer's delivery addresses from NAV, and the delivery note */}
           <Step
             number={2}
             title={t('checkout.delivery')}
             state={state(1)}
-            summary={sendTo === 'billing' ? t('checkout.sameAsBilling') : oneLine(deliveryAddress)}
+            summary={deliverySummary}
             onEdit={() => {
               setSendTo('other')
               setStep(1)
             }}
           >
             <form onSubmit={next}>
-              {/* The customer's delivery addresses from NAV: company on the first line, street and city below */}
-              {savedAddresses.length > 0 ? (
-                <div className="max-w-[34rem]">
-                  <SortDropdown
-                    field
-                    label={t('checkout.savedAddress')}
-                    value={chosenDeliveryId}
-                    disabled={useNewAddress}
-                    options={savedAddresses.map((address) => ({
-                      value: address.id,
-                      label: address.company,
-                      description: `${address.street}, ${address.zip} ${address.city}`,
-                    }))}
-                    onChange={setDeliveryId}
-                  />
-                </div>
-              ) : (
-                <p className="max-w-[34rem] rounded-xl bg-[#faf8f4] px-4 py-3 text-sm text-body">{t('checkout.noSavedAddresses')}</p>
-              )}
-
-              <label className="choice mt-4">
-                <input
-                  type="checkbox"
-                  checked={useNewAddress}
-                  disabled={savedAddresses.length === 0}
-                  onChange={(event) => setUseNewAddress(event.target.checked)}
+              {/* Company on the first line, street and city below */}
+              <div className="max-w-[34rem]">
+                <SortDropdown
+                  field
+                  label={t('checkout.savedAddress')}
+                  value={chosenDeliveryId}
+                  options={savedAddresses.map((address) => ({
+                    value: address.id,
+                    label: address.company,
+                    description: `${address.street}, ${address.zip} ${address.city}`,
+                  }))}
+                  onChange={setDeliveryId}
                 />
-                <span className="min-w-0 flex-1">{t('checkout.newAddress')}</span>
-              </label>
-
-              {useNewAddress && (
-                <div className="mt-4 grid max-w-[34rem] gap-3 sm:grid-cols-2">
-                  {[
-                    ['company', 'sm:col-span-2', 'organization'],
-                    ['street', 'sm:col-span-2', 'street-address'],
-                    ['zip', '', 'postal-code'],
-                    ['city', '', 'address-level2'],
-                    ['country', 'sm:col-span-2', 'country-name'],
-                  ].map(([field, span, autoComplete]) => (
-                    <label key={field} className={`order-field ${span}`}>
-                      <span>
-                        {t(`checkout.fields.${field}`)} <span className="text-[#b3382a]">*</span>
-                      </span>
-                      <input type="text" required autoComplete={autoComplete} value={newAddress[field]} onChange={setField(field)} />
-                    </label>
-                  ))}
-                  <p className="text-xs text-body sm:col-span-2">* {t('login.required')}</p>
-                </div>
-              )}
+              </div>
+              <DeliveryNote value={note} onChange={setNote} />
               {actions(0)}
             </form>
           </Step>
@@ -319,7 +310,7 @@ export default function Checkout() {
                 </span>
               </label>
               <p className="mt-3 text-xs text-body">{t('checkout.shippingNote')}</p>
-              {actions(sendTo === 'billing' ? 0 : 1)}
+              {actions(deliverElsewhere ? 1 : 0)}
             </form>
           </Step>
 
@@ -328,7 +319,15 @@ export default function Checkout() {
             <form onSubmit={next}>
               <p className="font-semibold text-heading">{paymentName}</p>
               <p className="mt-1 text-sm text-body">
-                {t(`checkout.paymentTexts.${user.payment}`, { defaultValue: t('checkout.invoiceText') })}
+                {!eInvoice ? (
+                  t(`checkout.paymentTexts.${user.payment}`)
+                ) : user.email ? (
+                  <>
+                    {t('checkout.eInvoice')} <strong className="break-all font-semibold text-heading">{user.email}</strong>
+                  </>
+                ) : (
+                  t('checkout.eInvoiceNoEmail')
+                )}
               </p>
               <label className="order-field mt-4 max-w-[22rem]">
                 <span>{t('checkout.receipt')}</span>
@@ -351,7 +350,7 @@ export default function Checkout() {
                     <span className="min-w-0 flex-1 text-sm text-body">
                       <span className="block font-semibold text-heading">{text.name(product)}</span>
                       <span className="block">
-                        {t('products.articleNo', { number: variant.sku })} · {colorLabel(variant.colorName, variant.color)} ·{' '}
+                        {t('products.articleNo', { number: showNumber(variant.sku) })} · {colorLabel(variant.colorName, variant.color)} ·{' '}
                         {sizeLabel(variant.size)}
                       </span>
                       {item.commission && (
@@ -392,18 +391,22 @@ export default function Checkout() {
                 <dt className="font-bold text-heading">{t('checkout.payment')}</dt>
                 <dd className="mt-1">{paymentLabel}</dd>
               </div>
+              {note.trim() && (
+                <div className="sm:col-span-2">
+                  <dt className="font-bold text-heading">{t('checkout.deliveryNote')}</dt>
+                  <dd className="mt-1 whitespace-pre-line break-words">{note.trim()}</dd>
+                </div>
+              )}
             </dl>
 
-            <div className="mt-6 flex flex-wrap items-end justify-between gap-4 border-t border-slate-200 pt-5">
-              <p className="text-sm text-body">
-                <span className="block text-lg font-bold text-heading">
-                  {t('cart.total')}: {money(total)}
-                </span>
-                {t('cart.totalNote')}
-              </p>
-              <button type="button" className="auth-btn" onClick={placeOrder} disabled={sending || lines.length === 0}>
-                <RollText>{t(sending ? 'checkout.sending' : 'checkout.placeOrder')}</RollText>
-              </button>
+            {/* Totals as on the invoice, then the order button under them */}
+            <div className="mt-6 border-t border-slate-200 pt-5">
+              <OrderTotals totals={totals} money={money} className="ml-auto max-w-sm" />
+              <div className="mt-5 flex justify-end">
+                <button type="button" className="auth-btn" onClick={placeOrder} disabled={sending || lines.length === 0}>
+                  <RollText>{t(sending ? 'checkout.sending' : 'checkout.placeOrder')}</RollText>
+                </button>
+              </div>
             </div>
             {orderError && (
               <p className="mt-4 rounded-xl bg-[#fbeceb] px-4 py-3 text-sm text-[#b3382a]" role="alert">
@@ -419,26 +422,47 @@ export default function Checkout() {
           <dl className="mt-4 flex flex-col gap-4 text-sm">
             {[
               [0, t('checkout.billing'), oneLine(user.billingAddress)],
-              [1, t('checkout.delivery'), sendTo === 'billing' ? t('checkout.sameAsBilling') : oneLine(deliveryAddress)],
+              [1, t('checkout.delivery'), deliverySummary],
               [2, t('checkout.shipping'), shippingLabel],
               [3, t('checkout.payment'), paymentLabel],
+              // the last step has no summary line: it is the overview itself, highlighted while it is open
+              [4, t('checkout.overview'), null],
             ].map(([index, label, value]) => {
               const done = index < step && index <= reached
+              const current = index === 4 && step === 4
               return (
-                <div key={label} className={done ? '' : 'opacity-45'}>
+                <div key={label} className={done || current ? '' : 'opacity-45'}>
                   <dt className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.1em] text-heading">
                     {done && <Check size={14} strokeWidth={3} aria-hidden="true" className="text-[#2f6b45]" />}
                     {label}
                   </dt>
-                  {done && <dd className="mt-1 text-body">{value}</dd>}
+                  {done && value && <dd className="mt-1 text-body">{value}</dd>}
                 </div>
               )
             })}
           </dl>
-          <p className="mt-5 flex items-baseline justify-between border-t border-slate-200 pt-4 text-sm text-body">
-            <span>{t('cart.count', { count: lines.length })}</span>
-            <strong className="text-base text-heading">{money(total)}</strong>
-          </p>
+          {/* The same amounts as the totals in the overview, so the two never show different prices:
+              the steps to the final amount in small print, the final amount itself prominent */}
+          <div className="mt-5 border-t border-slate-200 pt-4 text-sm text-body">
+            <dl className="mb-2 grid gap-0.5 text-xs tabular-nums">
+              {[
+                [t('totals.goods'), totals.goods],
+                [t('totals.discount'), totals.discount],
+                [t('totals.net'), totals.net],
+                ...totals.vat.map(({ rate, amount }) => [t('totals.vat', { rate }), amount]),
+              ].map(([label, amount]) => (
+                <div key={label} className="flex items-baseline justify-between gap-4">
+                  <dt>{label}</dt>
+                  <dd>{money(amount)}</dd>
+                </div>
+              ))}
+            </dl>
+            <p className="flex items-baseline justify-between gap-4 border-t border-slate-200 pt-2">
+              <span>{t('totals.gross')}</span>
+              <strong className="text-base text-heading tabular-nums">{money(totals.gross)}</strong>
+            </p>
+            <p className="mt-0.5 text-xs">{t('cart.count', { count: lines.length })}</p>
+          </div>
           <Link to="/cart" className="mt-3 inline-block text-sm font-semibold text-body underline underline-offset-4 hover:text-heading">
             {t('checkout.backToCart')}
           </Link>

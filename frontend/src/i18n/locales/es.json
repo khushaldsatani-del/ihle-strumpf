@@ -139,24 +139,15 @@
     "sendHere": "Enviar a esta dirección",
     "sendElsewhere": "Enviar a otra dirección",
     "sameAsBilling": "Igual que la dirección de facturación",
-    "newAddress": "Introducir una dirección nueva",
-    "fields": {
-      "company": "Empresa",
-      "street": "Calle y número",
-      "zip": "Código postal",
-      "city": "Ciudad",
-      "country": "País"
-    },
     "shippingNote": "Los gastos de envío figuran en la factura.",
     "placeOrder": "Realizar pedido con obligación de pago",
     "thanksTitle": "Gracias por tu pedido",
-    "thanksText_one": "Se ha registrado tu pedido con {{count}} artículo por {{total}} (neto).",
-    "thanksText_other": "Se ha registrado tu pedido con {{count}} artículos por {{total}} (neto).",
+    "thanksText_one": "Se ha registrado tu pedido con {{count}} artículo por {{total}} (IVA incluido).",
+    "thanksText_other": "Se ha registrado tu pedido con {{count}} artículos por {{total}} (IVA incluido).",
     "back": "Atrás",
     "savedAddress": "Dirección de entrega guardada",
     "glsText": "Envío de paquetes con GLS.",
     "invoice": "Factura",
-    "invoiceText": "Recibes la factura junto con la entrega.",
     "receipt": "Tu número de referencia",
     "orderNumber": "Tu número de pedido: {{number}}. El pedido se ha enviado a Ihle.",
     "sending": "Enviando …",
@@ -166,7 +157,6 @@
       "VORKASSE": "Pago por adelantado"
     },
     "paymentTexts": {
-      "purchaseorder": "Recibirás la factura junto con la entrega.",
       "debit": "El importe se cargará en tu cuenta mediante domiciliación.",
       "VORKASSE": "Recibirás una factura; la mercancía se envía en cuanto se reciba el pago."
     },
@@ -178,7 +168,17 @@
       "offline": "Sin conexión con el servidor. Inténtalo de nuevo.",
       "serverError": "No se ha podido enviar el pedido en este momento. Inténtalo de nuevo."
     },
-    "noSavedAddresses": "No hay más direcciones de entrega guardadas para tu cuenta de cliente. Introduce la dirección a continuación."
+    "deliveryNote": "Nota para la entrega",
+    "deliveryNoteHint": "Opcional, p. ej. persona de contacto u horario de entrega. Quedan {{left}} de {{max}} caracteres.",
+    "eInvoice": "Recibirás la factura electrónica en la siguiente dirección de correo:",
+    "eInvoiceNoEmail": "Recibirás la factura electrónica por correo electrónico."
+  },
+  "totals": {
+    "goods": "Valor de la mercancía",
+    "discount": "Descuento online",
+    "net": "Total sin IVA",
+    "vat": "IVA legal ({{rate}} %)",
+    "gross": "Total con IVA"
   },
   "filters": {
     "title": "Filtrar",
@@ -626,8 +626,7 @@
     "noMatchText": "Cambia la búsqueda o los filtros.",
     "resetFilter": "Restablecer búsqueda y filtros",
     "showMore": "Mostrar más",
-    "shownOf": "{{shown}} de {{total}} pedidos mostrados",
-    "totalNet": "Total neto"
+    "shownOf": "{{shown}} de {{total}} pedidos mostrados"
   },
   "settings": {
     "title": "Ajustes",
@@ -672,16 +671,16 @@
   },
   "search": {
     "noResults": "No se han encontrado artículos",
-    "hint": "Busca por nombre o referencia – la referencia completa (p. ej. 40 000 001 12) abre el artículo directamente en ese color y talla."
+    "hint": "Busca por nombre o referencia – la referencia completa (p. ej. 40\u2007000\u2007001\u200712) abre el artículo directamente en ese color y talla."
   },
   "quickOrder": {
     "title": "Pedido rápido",
-    "intro": "¿Conoces la referencia? Introduce la referencia completa con color y talla, p. ej. 40 000 001 12.",
+    "intro": "¿Conoces la referencia? Introduce la referencia completa con color y talla, p. ej. 40\u2007000\u2007001\u200712.",
     "number": "Referencia",
     "add": "Añadir",
     "added_one": "{{count}} × {{number}} ({{name}}) está en el carrito.",
     "added_other": "{{count}} × {{number}} ({{name}}) están en el carrito.",
-    "incomplete": "Introduce la referencia completa con color y talla, p. ej. 40 000 001 12.",
+    "incomplete": "Introduce la referencia completa con color y talla, p. ej. 40\u2007000\u2007001\u200712.",
     "notFound": "No hay ningún artículo en la tienda con la referencia «{{number}}»."
   },
   "colors": {

@@ -139,24 +139,15 @@
     "sendHere": "An diese Adresse liefern",
     "sendElsewhere": "An eine andere Adresse liefern",
     "sameAsBilling": "Wie Rechnungsadresse",
-    "newAddress": "Neue Adresse eingeben",
-    "fields": {
-      "company": "Firma",
-      "street": "Straße und Hausnummer",
-      "zip": "PLZ",
-      "city": "Ort",
-      "country": "Land"
-    },
     "shippingNote": "Die Versandkosten werden auf der Rechnung ausgewiesen.",
     "placeOrder": "Zahlungspflichtig bestellen",
     "thanksTitle": "Vielen Dank für Ihre Bestellung",
-    "thanksText_one": "Ihre Bestellung mit {{count}} Artikel über {{total}} (netto) wurde aufgenommen.",
-    "thanksText_other": "Ihre Bestellung mit {{count}} Artikeln über {{total}} (netto) wurde aufgenommen.",
+    "thanksText_one": "Ihre Bestellung mit {{count}} Artikel über {{total}} (inkl. MwSt.) wurde aufgenommen.",
+    "thanksText_other": "Ihre Bestellung mit {{count}} Artikeln über {{total}} (inkl. MwSt.) wurde aufgenommen.",
     "back": "Zurück",
     "savedAddress": "Gespeicherte Lieferadresse",
     "glsText": "Paketversand mit GLS.",
     "invoice": "Rechnung",
-    "invoiceText": "Sie erhalten die Rechnung mit der Lieferung.",
     "receipt": "Ihre Belegnummer",
     "orderNumber": "Ihre Bestellnummer: {{number}}. Die Bestellung wurde an Ihle übermittelt.",
     "sending": "Wird gesendet …",
@@ -166,7 +157,6 @@
       "VORKASSE": "Vorkasse"
     },
     "paymentTexts": {
-      "purchaseorder": "Sie erhalten die Rechnung mit der Lieferung.",
       "debit": "Der Betrag wird per Lastschrift von Ihrem Konto eingezogen.",
       "VORKASSE": "Sie erhalten eine Rechnung; die Ware wird nach Zahlungseingang versandt."
     },
@@ -178,7 +168,17 @@
       "offline": "Keine Verbindung zum Server. Bitte versuchen Sie es erneut.",
       "serverError": "Die Bestellung konnte gerade nicht gesendet werden. Bitte versuchen Sie es erneut."
     },
-    "noSavedAddresses": "Für Ihr Kundenkonto sind keine weiteren Lieferadressen hinterlegt. Bitte geben Sie die Adresse unten ein."
+    "deliveryNote": "Anmerkung zur Lieferung",
+    "deliveryNoteHint": "Optional, z. B. Ansprechpartner oder Anlieferzeiten. Noch {{left}} von {{max}} Zeichen.",
+    "eInvoice": "Sie erhalten die E-Rechnung an folgende Mail-Adresse:",
+    "eInvoiceNoEmail": "Sie erhalten die Rechnung als E-Rechnung per E-Mail."
+  },
+  "totals": {
+    "goods": "Warenwert",
+    "discount": "Online-Rabatt",
+    "net": "Gesamtsumme zzgl. Steuern",
+    "vat": "gesetzliche MwSt. ({{rate}} %)",
+    "gross": "Gesamtsumme inkl. Steuern"
   },
   "filters": {
     "title": "Filter",
@@ -626,8 +626,7 @@
     "noMatchText": "Ändern Sie die Suche oder die Filter.",
     "resetFilter": "Suche und Filter zurücksetzen",
     "showMore": "Mehr anzeigen",
-    "shownOf": "{{shown}} von {{total}} Bestellungen angezeigt",
-    "totalNet": "Summe netto"
+    "shownOf": "{{shown}} von {{total}} Bestellungen angezeigt"
   },
   "settings": {
     "title": "Einstellungen",
@@ -672,16 +671,16 @@
   },
   "search": {
     "noResults": "Keine passenden Artikel gefunden",
-    "hint": "Suchen Sie nach Artikelname oder Artikelnummer – die vollständige Nummer (z. B. 40 000 001 12) öffnet den Artikel direkt in Farbe und Größe."
+    "hint": "Suchen Sie nach Artikelname oder Artikelnummer – die vollständige Nummer (z. B. 40\u2007000\u2007001\u200712) öffnet den Artikel direkt in Farbe und Größe."
   },
   "quickOrder": {
     "title": "Schnellbestellung",
-    "intro": "Sie kennen die Artikelnummer? Geben Sie die vollständige Nummer mit Farbe und Größe ein, z. B. 40 000 001 12.",
+    "intro": "Sie kennen die Artikelnummer? Geben Sie die vollständige Nummer mit Farbe und Größe ein, z. B. 40\u2007000\u2007001\u200712.",
     "number": "Artikelnummer",
     "add": "Hinzufügen",
     "added_one": "{{count}} × {{number}} ({{name}}) liegt im Warenkorb.",
     "added_other": "{{count}} × {{number}} ({{name}}) liegen im Warenkorb.",
-    "incomplete": "Bitte geben Sie die vollständige Nummer mit Farbe und Größe ein, z. B. 40 000 001 12.",
+    "incomplete": "Bitte geben Sie die vollständige Nummer mit Farbe und Größe ein, z. B. 40\u2007000\u2007001\u200712.",
     "notFound": "Zur Nummer „{{number}}“ gibt es keinen Artikel im Shop."
   },
   "colors": {

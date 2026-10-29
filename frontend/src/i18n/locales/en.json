@@ -139,24 +139,15 @@
     "sendHere": "Send to this address",
     "sendElsewhere": "Send to a different address",
     "sameAsBilling": "Same as billing address",
-    "newAddress": "Enter a new address",
-    "fields": {
-      "company": "Company",
-      "street": "Street and number",
-      "zip": "Postcode",
-      "city": "Town",
-      "country": "Country"
-    },
     "shippingNote": "Shipping costs are shown on the invoice.",
     "placeOrder": "Place binding order",
     "thanksTitle": "Thank you for your order",
-    "thanksText_one": "Your order with {{count}} item for {{total}} (net) has been recorded.",
-    "thanksText_other": "Your order with {{count}} items for {{total}} (net) has been recorded.",
+    "thanksText_one": "Your order with {{count}} item for {{total}} (incl. VAT) has been recorded.",
+    "thanksText_other": "Your order with {{count}} items for {{total}} (incl. VAT) has been recorded.",
     "back": "Back",
     "savedAddress": "Saved delivery address",
     "glsText": "Parcel delivery with GLS.",
     "invoice": "Invoice",
-    "invoiceText": "You receive the invoice with the delivery.",
     "receipt": "Your receipt number",
     "orderNumber": "Your order number: {{number}}. The order has been sent to Ihle.",
     "sending": "Sending …",
@@ -166,7 +157,6 @@
       "VORKASSE": "Prepayment"
     },
     "paymentTexts": {
-      "purchaseorder": "You will receive the invoice with the delivery.",
       "debit": "The amount will be collected from your account by direct debit.",
       "VORKASSE": "You will receive an invoice; the goods are shipped once payment has arrived."
     },
@@ -178,7 +168,17 @@
       "offline": "No connection to the server. Please try again.",
       "serverError": "The order could not be sent right now. Please try again."
     },
-    "noSavedAddresses": "No further delivery addresses are stored for your customer account. Please enter the address below."
+    "deliveryNote": "Delivery note",
+    "deliveryNoteHint": "Optional, e.g. contact person or delivery times. {{left}} of {{max}} characters left.",
+    "eInvoice": "You will receive the e-invoice at this email address:",
+    "eInvoiceNoEmail": "You will receive the invoice as an e-invoice by email."
+  },
+  "totals": {
+    "goods": "Goods value",
+    "discount": "Online discount",
+    "net": "Total excl. VAT",
+    "vat": "VAT ({{rate}} %)",
+    "gross": "Total incl. VAT"
   },
   "filters": {
     "title": "Filter",
@@ -626,8 +626,7 @@
     "noMatchText": "Change the search or the filters.",
     "resetFilter": "Reset search and filters",
     "showMore": "Show more",
-    "shownOf": "{{shown}} of {{total}} orders shown",
-    "totalNet": "Total net"
+    "shownOf": "{{shown}} of {{total}} orders shown"
   },
   "settings": {
     "title": "Settings",
@@ -672,16 +671,16 @@
   },
   "search": {
     "noResults": "No matching articles found",
-    "hint": "Search by article name or number – the full number (e.g. 40 000 001 12) opens the article directly in that colour and size."
+    "hint": "Search by article name or number – the full number (e.g. 40\u2007000\u2007001\u200712) opens the article directly in that colour and size."
   },
   "quickOrder": {
     "title": "Quick order",
-    "intro": "Know the article number? Enter the full number with colour and size, e.g. 40 000 001 12.",
+    "intro": "Know the article number? Enter the full number with colour and size, e.g. 40\u2007000\u2007001\u200712.",
     "number": "Article number",
     "add": "Add",
     "added_one": "{{count}} × {{number}} ({{name}}) is in the cart.",
     "added_other": "{{count}} × {{number}} ({{name}}) are in the cart.",
-    "incomplete": "Please enter the full number with colour and size, e.g. 40 000 001 12.",
+    "incomplete": "Please enter the full number with colour and size, e.g. 40\u2007000\u2007001\u200712.",
     "notFound": "There is no article with the number “{{number}}” in the shop."
   },
   "colors": {

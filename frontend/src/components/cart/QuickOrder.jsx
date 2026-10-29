@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import QuantityInput from '../products/QuantityInput.jsx'
 import { useCart } from '../../context/CartContext.jsx'
 import { useCatalog } from '../../context/CatalogContext.jsx'
-import { findByNumber, findSku } from '../../utils/articleNumber.js'
+import { findByNumber, findSku, showNumber } from '../../utils/articleNumber.js'
 import { useProductText } from '../../utils/productText.js'
 
 /**
@@ -37,7 +37,10 @@ export default function QuickOrder() {
     }
 
     add({ sku: found.variant.sku, productId: found.product.id, commission, quantity })
-    setMessage({ ok: true, text: t('quickOrder.added', { count: quantity, number: found.variant.sku, name: text.name(found.product) }) })
+    setMessage({
+      ok: true,
+      text: t('quickOrder.added', { count: quantity, number: showNumber(found.variant.sku), name: text.name(found.product) }),
+    })
     setNumber('')
     setQuantity(1)
     setCommission('')
@@ -62,7 +65,7 @@ export default function QuickOrder() {
             autoComplete="off"
             spellCheck="false"
             value={number}
-            placeholder="40 000 001 12"
+            placeholder={showNumber('40 000 001 12')}
             aria-describedby={message ? `${id}-message` : undefined}
             onChange={(event) => {
               setNumber(event.target.value)

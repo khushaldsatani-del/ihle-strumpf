@@ -9,6 +9,7 @@ import { savePhoto } from '../photos/photoService.js'
 import { clearShopCache } from '../shop/shopRoutes.js'
 import { checkPassword } from '../../utils/passwords.js'
 import { ADMIN_COOKIE, cookieOptions, createToken } from '../../utils/session.js'
+import { STANDARD_VAT_RATE } from '../../utils/vat.js'
 
 // Admin API (phase 1, Ihle's brief): log in, check imported articles, customers and orders,
 // upload NAV files, download order XML. Every route except login needs an admin session.
@@ -70,7 +71,7 @@ router.get('/data', async (req, res) => {
     query('SELECT * FROM customers ORDER BY number'),
     query(
       `SELECT o.*, json_agg(json_build_object('sku', i.sku, 'amount', i.amount, 'unitPrice', i.unit_price,
-              'commission', i.commission) ORDER BY i.line_no) AS items
+              'commission', i.commission, 'vatRate', i.vat_rate) ORDER BY i.line_no) AS items
          FROM orders o JOIN order_items i ON i.order_no = o.order_no
         GROUP BY o.order_no ORDER BY o.created_at DESC`,
     ),
@@ -119,8 +120,15 @@ router.get('/data', async (req, res) => {
       receiptNo: row.receipt_no,
       billing: row.billing,
       shippingAddress: row.shipping_address,
+      // the customer's "Anmerkung zur Lieferung"; empty when none (and before migration 004)
+      deliveryNote: row.delivery_note || '',
       shippingCost: Number(row.shipping_cost),
-      items: row.items.map((item) => ({ ...item, unitPrice: Number(item.unitPrice) })),
+      // orders from before migration 004 have no rate stored; NAV's only rate then was 19 %
+      items: row.items.map((item) => ({
+        ...item,
+        unitPrice: Number(item.unitPrice),
+        vatRate: item.vatRate == null ? STANDARD_VAT_RATE : Number(item.vatRate),
+      })),
       status: row.status,
     })),
     imports: imports.rows.map((row) => ({

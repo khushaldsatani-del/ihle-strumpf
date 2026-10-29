@@ -4,6 +4,7 @@ import { query, transaction } from '../../config/db.js'
 import { loginLimiter, requireCustomer } from '../../middleware/auth.js'
 import { checkPassword } from '../../utils/passwords.js'
 import { CUSTOMER_COOKIE, cookieOptions, createToken } from '../../utils/session.js'
+import { STANDARD_VAT_RATE, vatRate } from '../../utils/vat.js'
 
 // Shop API. The catalogue is public and never contains prices; prices, the customer's addresses and
 // ordering need a customer login (Ihle's rule: prices are never sent to guests).
@@ -25,7 +26,8 @@ const VISIBLE_PRODUCTS = `
          (SELECT json_agg(json_build_object('name', ph.name, 'v', floor(extract(epoch FROM ph.uploaded_at))::bigint) ORDER BY pic.n)
             FROM unnest(p.pictures) WITH ORDINALITY AS pic(file, n)
             JOIN photos ph ON ph.name = lower(regexp_replace(pic.file, '\\.(jpe?g|png|webp|tiff?)$', '', 'i'))) AS photos,
-         (SELECT json_agg(json_build_object('sku', v.sku, 'color', v.color, 'colorName', v.color_name, 'size', v.size) ORDER BY v.sku)
+         (SELECT json_agg(json_build_object('sku', v.sku, 'color', v.color, 'colorName', v.color_name, 'size', v.size, 'vat', v.vat)
+                          ORDER BY v.sku)
             FROM variants v WHERE v.article_no = p.article_no AND NOT v.blocked AND v.price > 0) AS variants
     FROM products p
    WHERE NOT p.blocked AND NOT (p.category = ANY($1))`
@@ -42,7 +44,8 @@ const toProduct = (row) => ({
   // names and short texts in other languages from NAV, e.g. { en: { name, description } }; German is name/description
   translations: row.translations || {},
   photos: row.photos,
-  variants: row.variants,
+  // the VAT rate in percent instead of NAV's code, for the totals at checkout
+  variants: row.variants?.map(({ vat, ...variant }) => ({ ...variant, vatRate: vatRate(vat) })) ?? null,
 })
 
 // Catalogue and prices only change with an import or a photo upload, but every visitor asks for them.
@@ -182,8 +185,9 @@ router.get('/orders', requireCustomer, async (req, res) => {
   const { rows } = await query(
     // the newest 200 orders first (index on customer_number), then only their lines: stays fast for customers
     // with years of orders, instead of assembling every order before keeping 200
-    `SELECT o.order_no, o.created_at, o.receipt_no, o.billing, o.shipping_address, o.status,
+    `SELECT o.order_no, o.created_at, o.receipt_no, o.billing, o.shipping_address, o.status, o.delivery_note,
             (SELECT json_agg(json_build_object('sku', i.sku, 'amount', i.amount, 'unitPrice', i.unit_price, 'commission', i.commission,
+                      'vatRate', i.vat_rate,
                       'productId', replace(v.article_no, ' ', ''), 'name', p.name, 'colorName', v.color_name, 'color', v.color, 'size', v.size)
                       ORDER BY i.line_no)
                FROM order_items i
@@ -197,13 +201,19 @@ router.get('/orders', requireCustomer, async (req, res) => {
   res.set('Cache-Control', 'private, no-store')
   res.json({
     orders: rows.map((row) => {
-      const items = row.items.map((item) => ({ ...item, unitPrice: Number(item.unitPrice) }))
+      // vatRate is missing on orders from before migration 004; those had NAV's only rate, 19 %
+      const items = row.items.map((item) => ({
+        ...item,
+        unitPrice: Number(item.unitPrice),
+        vatRate: item.vatRate == null ? STANDARD_VAT_RATE : Number(item.vatRate),
+      }))
       return {
         orderNo: row.order_no,
         date: row.created_at,
         receiptNo: row.receipt_no,
         // NULL shipping address = delivered to the billing address
         delivery: shopAddress(row.shipping_address || row.billing, row.shipping_address ? 'delivery' : 'billing'),
+        deliveryNote: row.delivery_note,
         status: row.status,
         items,
         total: Math.round(items.reduce((sum, item) => sum + item.amount * item.unitPrice, 0) * 100) / 100,
@@ -216,21 +226,13 @@ router.get('/orders', requireCustomer, async (req, res) => {
 
 const clean = (value, max) => String(value ?? '').trim().slice(0, max)
 
-// A new delivery address typed in at checkout, in NAV's address shape
-function newAddress(input) {
-  const address = {
-    company: clean(input?.company, 100),
-    street: clean(input?.street, 100),
-    postcode: clean(input?.zip, 20),
-    city: clean(input?.city, 60),
-    country: clean(input?.country, 40),
-  }
-  if (!address.company || !address.street || !address.postcode || !address.city || !address.country) return null
-  return { ...address, firstName: address.company, lastName: '', phone: '' }
-}
+// Longest "Anmerkung zur Lieferung" (delivery note) a customer can write
+export const DELIVERY_NOTE_MAX = 250
 
-// Body: { items: [{ sku, quantity, commission }], delivery: { type: 'billing' | 'saved' | 'new', id, address }, receiptNo }
+// Body: { items: [{ sku, quantity, commission }], delivery: { type: 'billing' | 'saved', id }, receiptNo, deliveryNote }
 // Prices are taken from the database for the customer's price group, never from the browser.
+// Deliveries go only to the billing address or one of the customer's delivery addresses from NAV (Ihle's wish:
+// no addresses typed in at checkout); a note for the delivery goes into deliveryNote instead.
 router.post('/orders', requireCustomer, async (req, res) => {
   const customer = await loadCustomer(req.customer.number)
   if (!customer?.password_hash) return res.status(401).json({ error: 'notLoggedIn' })
@@ -245,11 +247,12 @@ router.post('/orders', requireCustomer, async (req, res) => {
 
   const column = priceColumn(customer.price_group)
   const { rows: prices } = await query(
-    `SELECT v.sku, v.${column} AS price FROM variants v JOIN products p ON p.article_no = v.article_no
+    `SELECT v.sku, v.${column} AS price, v.vat FROM variants v JOIN products p ON p.article_no = v.article_no
       WHERE v.sku = ANY($1) AND NOT v.blocked AND v.price > 0 AND NOT p.blocked`,
     [lines.map((line) => line.sku)],
   )
   const priceBySku = new Map(prices.map((row) => [row.sku, Number(row.price)]))
+  const vatBySku = new Map(prices.map((row) => [row.sku, vatRate(row.vat)]))
   if (lines.some((line) => !priceBySku.has(line.sku))) return res.status(400).json({ error: 'unavailableItems' })
 
   const delivery = req.body?.delivery || {}
@@ -257,24 +260,37 @@ router.post('/orders', requireCustomer, async (req, res) => {
   if (delivery.type === 'saved') {
     shippingAddress = customer.shipping_addresses[Number.parseInt(delivery.id, 10)] || null
     if (!shippingAddress) return res.status(400).json({ error: 'invalidAddress' })
-  } else if (delivery.type === 'new') {
-    shippingAddress = newAddress(delivery.address)
-    if (!shippingAddress) return res.status(400).json({ error: 'invalidAddress' })
+  } else if (delivery.type !== undefined && delivery.type !== 'billing') {
+    return res.status(400).json({ error: 'invalidAddress' })
   }
 
   const order = await transaction(async (client) => {
     const { rows } = await client.query("SELECT nextval('order_no_seq')::text AS order_no")
     const orderNo = rows[0].order_no
     await client.query(
-      `INSERT INTO orders (order_no, customer_number, receipt_no, billing, shipping_address, payment_code)
-       VALUES ($1, $2, $3, $4, $5, $6)`,
-      [orderNo, customer.number, clean(req.body?.receiptNo, 35), customer.billing, shippingAddress, customer.payment_code],
+      `INSERT INTO orders (order_no, customer_number, receipt_no, billing, shipping_address, payment_code, delivery_note)
+       VALUES ($1, $2, $3, $4, $5, $6, $7)`,
+      [
+        orderNo,
+        customer.number,
+        clean(req.body?.receiptNo, 35),
+        customer.billing,
+        shippingAddress,
+        customer.payment_code,
+        // only text counts; anything else a client might send (a list, an object) is no note
+        typeof req.body?.deliveryNote === 'string' ? clean(req.body.deliveryNote, DELIVERY_NOTE_MAX) : '',
+      ],
     )
     await client.query(
-      `INSERT INTO order_items (order_no, line_no, sku, amount, unit_price, commission)
-       SELECT $1, r.line_no, r.sku, r.amount, r.unit_price, r.commission
-         FROM jsonb_to_recordset($2::jsonb) AS r(line_no integer, sku text, amount integer, unit_price numeric, commission text)`,
-      [orderNo, JSON.stringify(lines.map((line, index) => ({ ...line, line_no: index + 1, unit_price: priceBySku.get(line.sku) })))],
+      `INSERT INTO order_items (order_no, line_no, sku, amount, unit_price, commission, vat_rate)
+       SELECT $1, r.line_no, r.sku, r.amount, r.unit_price, r.commission, r.vat_rate
+         FROM jsonb_to_recordset($2::jsonb) AS r(line_no integer, sku text, amount integer, unit_price numeric, commission text, vat_rate numeric)`,
+      [
+        orderNo,
+        JSON.stringify(
+          lines.map((line, index) => ({ ...line, line_no: index + 1, unit_price: priceBySku.get(line.sku), vat_rate: vatBySku.get(line.sku) })),
+        ),
+      ],
     )
     return { orderNo }
   })

@@ -11,6 +11,7 @@ import { useCart } from '../context/CartContext.jsx'
 import { useCatalog } from '../context/CatalogContext.jsx'
 import { colorLabel, sizeLabel } from '../data/filters.js'
 import usePrices from '../hooks/usePrices.js'
+import { showNumber } from '../utils/articleNumber.js'
 import formatPrice from '../utils/formatPrice.js'
 import { useProductText } from '../utils/productText.js'
 
@@ -91,7 +92,9 @@ export default function Cart() {
                   </Link>
 
                   <div className="min-w-0 flex-1">
-                    <p className="text-xs font-medium tracking-wide text-body/70">{t('products.articleNo', { number: variant.sku })}</p>
+                    <p className="text-xs font-medium tracking-wide text-body/70">
+                      {t('products.articleNo', { number: showNumber(variant.sku) })}
+                    </p>
                     <h2 className="mt-0.5 text-base font-bold text-heading sm:text-lg">
                       <Link to={`/products/${product.id}`} className="product-link">
                         {name}

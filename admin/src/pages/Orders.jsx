@@ -1,3 +1,4 @@
+import { MessageSquareText } from 'lucide-react'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
@@ -43,6 +44,7 @@ export default function Orders() {
           order.orderNo,
           order.customerNumber,
           order.receiptNo,
+          order.deliveryNote,
           customerName(customer),
           customer?.billing.city,
           ...order.items.flatMap((item) => [item.sku, item.commission, variantsBySku.get(item.sku)?.product.name]),
@@ -102,6 +104,17 @@ export default function Orders() {
                           <Link to={`/orders/${order.orderNo}`} onClick={(event) => event.stopPropagation()}>
                             {order.orderNo}
                           </Link>
+                          {/* the customer wrote an "Anmerkung zur Lieferung"; the order page shows it */}
+                          {order.deliveryNote && (
+                            <MessageSquareText
+                              size={14}
+                              className="ml-1.5 inline align-[-2px] text-warn"
+                              role="img"
+                              aria-label={t('orders.hasDeliveryNote')}
+                            >
+                              <title>{t('orders.hasDeliveryNote')}</title>
+                            </MessageSquareText>
+                          )}
                         </td>
                         <td className="whitespace-nowrap text-muted">{formatDateTime(order.date)}</td>
                         <td className="max-w-64">

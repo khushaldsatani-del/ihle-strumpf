@@ -139,24 +139,15 @@
     "sendHere": "Naar dit adres verzenden",
     "sendElsewhere": "Naar een ander adres verzenden",
     "sameAsBilling": "Gelijk aan het factuuradres",
-    "newAddress": "Nieuw adres invoeren",
-    "fields": {
-      "company": "Bedrijf",
-      "street": "Straat en huisnummer",
-      "zip": "Postcode",
-      "city": "Plaats",
-      "country": "Land"
-    },
     "shippingNote": "De verzendkosten staan op de factuur.",
     "placeOrder": "Bestelling met betalingsverplichting plaatsen",
     "thanksTitle": "Bedankt voor je bestelling",
-    "thanksText_one": "Je bestelling met {{count}} artikel ter waarde van {{total}} (netto) is ontvangen.",
-    "thanksText_other": "Je bestelling met {{count}} artikelen ter waarde van {{total}} (netto) is ontvangen.",
+    "thanksText_one": "Je bestelling met {{count}} artikel ter waarde van {{total}} (incl. btw) is ontvangen.",
+    "thanksText_other": "Je bestelling met {{count}} artikelen ter waarde van {{total}} (incl. btw) is ontvangen.",
     "back": "Terug",
     "savedAddress": "Opgeslagen afleveradres",
     "glsText": "Pakketverzending met GLS.",
     "invoice": "Factuur",
-    "invoiceText": "Je ontvangt de factuur bij de levering.",
     "receipt": "Je referentienummer",
     "orderNumber": "Je bestelnummer: {{number}}. De bestelling is naar Ihle verzonden.",
     "sending": "Wordt verzonden …",
@@ -166,7 +157,6 @@
       "VORKASSE": "Vooruitbetaling"
     },
     "paymentTexts": {
-      "purchaseorder": "Je ontvangt de factuur bij de levering.",
       "debit": "Het bedrag wordt via automatische incasso van je rekening afgeschreven.",
       "VORKASSE": "Je ontvangt een factuur; de goederen worden verzonden zodra de betaling binnen is."
     },
@@ -178,7 +168,17 @@
       "offline": "Geen verbinding met de server. Probeer het opnieuw.",
       "serverError": "De bestelling kan nu niet worden verzonden. Probeer het opnieuw."
     },
-    "noSavedAddresses": "Voor je klantaccount zijn geen andere afleveradressen opgeslagen. Voer het adres hieronder in."
+    "deliveryNote": "Opmerking bij de levering",
+    "deliveryNoteHint": "Optioneel, bijv. contactpersoon of levertijden. Nog {{left}} van {{max}} tekens.",
+    "eInvoice": "Je ontvangt de e-factuur op het volgende e-mailadres:",
+    "eInvoiceNoEmail": "Je ontvangt de factuur als e-factuur per e-mail."
+  },
+  "totals": {
+    "goods": "Goederenwaarde",
+    "discount": "Onlinekorting",
+    "net": "Totaal excl. btw",
+    "vat": "Wettelijke btw ({{rate}} %)",
+    "gross": "Totaal incl. btw"
   },
   "filters": {
     "title": "Filteren",
@@ -626,8 +626,7 @@
     "noMatchText": "Pas de zoekopdracht of de filters aan.",
     "resetFilter": "Zoeken en filters wissen",
     "showMore": "Meer tonen",
-    "shownOf": "{{shown}} van {{total}} bestellingen getoond",
-    "totalNet": "Totaal netto"
+    "shownOf": "{{shown}} van {{total}} bestellingen getoond"
   },
   "settings": {
     "title": "Instellingen",
@@ -672,16 +671,16 @@
   },
   "search": {
     "noResults": "Geen passende artikelen gevonden",
-    "hint": "Zoek op artikelnaam of -nummer – het volledige nummer (bijv. 40 000 001 12) opent het artikel direct in die kleur en maat."
+    "hint": "Zoek op artikelnaam of -nummer – het volledige nummer (bijv. 40\u2007000\u2007001\u200712) opent het artikel direct in die kleur en maat."
   },
   "quickOrder": {
     "title": "Snelbestelling",
-    "intro": "Ken je het artikelnummer? Voer het volledige nummer met kleur en maat in, bijv. 40 000 001 12.",
+    "intro": "Ken je het artikelnummer? Voer het volledige nummer met kleur en maat in, bijv. 40\u2007000\u2007001\u200712.",
     "number": "Artikelnummer",
     "add": "Toevoegen",
     "added_one": "{{count}} × {{number}} ({{name}}) ligt in de winkelwagen.",
     "added_other": "{{count}} × {{number}} ({{name}}) liggen in de winkelwagen.",
-    "incomplete": "Voer het volledige nummer met kleur en maat in, bijv. 40 000 001 12.",
+    "incomplete": "Voer het volledige nummer met kleur en maat in, bijv. 40\u2007000\u2007001\u200712.",
     "notFound": "Er is geen artikel met het nummer „{{number}}” in de shop."
   },
   "colors": {

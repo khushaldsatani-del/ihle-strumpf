@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { LoadError, OrderListSkeleton, PageLoader } from '../../components/common/Loading.jsx'
 import RollText from '../../components/common/RollText.jsx'
+import OrderTotals from '../../components/order/OrderTotals.jsx'
 import ProductImage from '../../components/products/ProductImage.jsx'
 import SortDropdown from '../../components/products/SortDropdown.jsx'
 import { useAuth } from '../../context/AuthContext.jsx'
@@ -12,7 +13,9 @@ import { useCart } from '../../context/CartContext.jsx'
 import { useCatalog } from '../../context/CatalogContext.jsx'
 import { colorLabel, sizeLabel } from '../../data/filters.js'
 import { api } from '../../utils/api.js'
+import { showNumber } from '../../utils/articleNumber.js'
 import formatPrice from '../../utils/formatPrice.js'
+import { orderTotals } from '../../utils/orderTotals.js'
 import { useProductText } from '../../utils/productText.js'
 
 // new = received by the shop, exported = collected by Ihle's ERP (NAV) for processing
@@ -72,7 +75,7 @@ function OrderLine({ item, money, showTotal }) {
             {colorLabel(item.colorName, item.color)} · {sizeLabel(item.size)}
           </span>
         )}
-        <span className="block whitespace-nowrap text-xs text-body/70 tabular-nums">{item.sku}</span>
+        <span className="block whitespace-nowrap text-xs text-body/70 tabular-nums">{showNumber(item.sku)}</span>
         {item.commission && (
           // The Kommission is often a patient name, so it wraps rather than being cut off
           <span className="mt-1.5 inline-block max-w-full rounded-md bg-[#f5f1ec] px-2 py-0.5 text-xs leading-relaxed text-body">
@@ -98,6 +101,7 @@ function OrderCard({ order, open, onToggle, onReorder, money, date }) {
   const { t } = useTranslation()
   const panelId = `order-${order.orderNo}`
   const address = order.delivery
+  const totals = orderTotals(order.items)
 
   return (
     <li className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
@@ -120,7 +124,7 @@ function OrderCard({ order, open, onToggle, onReorder, money, date }) {
         </span>
         {/* The total belongs to the closed row; once open, the summary below shows it */}
         <span className={`ml-auto text-base font-bold text-heading tabular-nums transition-opacity sm:ml-0 ${open ? 'invisible opacity-0' : ''}`} aria-hidden={open}>
-          {money(order.total)}
+          {money(totals.gross)}
         </span>
         <ChevronDown size={20} strokeWidth={1.75} aria-hidden="true" className={`shrink-0 text-body transition-transform ${open ? 'rotate-180' : ''}`} />
       </button>
@@ -142,33 +146,40 @@ function OrderCard({ order, open, onToggle, onReorder, money, date }) {
                 ))}
               </ul>
 
-              {/* Delivery address, receipt number and total in one quiet panel, each with a small label */}
-              <dl className="mt-2 grid gap-5 rounded-xl bg-[#faf8f4] p-4 text-sm text-body sm:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)_auto] sm:p-5">
-                <div className="min-w-0">
-                  <Label>{t('checkout.delivery')}</Label>
-                  <dd className="mt-1.5 leading-relaxed">
-                    <span className="block font-medium text-heading">{address.company}</span>
-                    {address.street}, {address.zip} {address.city}
-                  </dd>
+              {/* Delivery address, delivery note and receipt number on the left, the totals as on the invoice on the right */}
+              <div className="mt-2 grid gap-5 rounded-xl bg-[#faf8f4] p-4 text-sm text-body sm:p-5 md:grid-cols-[minmax(0,1fr)_minmax(0,21rem)] md:gap-8">
+                <div className="grid content-start gap-5">
+                <dl className="grid gap-5 sm:grid-cols-2">
+                  <div className="min-w-0">
+                    <Label>{t('checkout.delivery')}</Label>
+                    <dd className="mt-1.5 leading-relaxed">
+                      <span className="block font-medium text-heading">{address.company}</span>
+                      {address.street}, {address.zip} {address.city}
+                    </dd>
+                  </div>
+                  <div className="min-w-0">
+                    <Label>{t('checkout.receipt')}</Label>
+                    <dd className="mt-1.5 break-words text-heading">{order.receiptNo || '–'}</dd>
+                  </div>
+                  {order.deliveryNote && (
+                    <div className="min-w-0 sm:col-span-2">
+                      <Label>{t('checkout.deliveryNote')}</Label>
+                      <dd className="mt-1.5 whitespace-pre-line break-words text-heading">{order.deliveryNote}</dd>
+                    </div>
+                  )}
+                </dl>
+                {/* A quiet secondary action: the order itself is the content here */}
+                <button
+                  type="button"
+                  className="inline-flex w-fit items-center gap-1.5 text-[0.8125rem] font-semibold text-heading underline decoration-slate-900/25 underline-offset-4 transition-colors hover:decoration-slate-900"
+                  onClick={() => onReorder(order)}
+                >
+                  <RotateCcw size={13} strokeWidth={2} aria-hidden="true" />
+                  {t('accountOrders.reorder')}
+                </button>
                 </div>
-                <div className="min-w-0">
-                  <Label>{t('checkout.receipt')}</Label>
-                  <dd className="mt-1.5 break-words text-heading">{order.receiptNo || '–'}</dd>
-                </div>
-                <div className="flex flex-col gap-2 sm:items-end sm:text-right">
-                  <Label>{t('accountOrders.totalNet')}</Label>
-                  <dd className="text-xl font-bold text-heading tabular-nums">{money(order.total)}</dd>
-                  {/* A quiet secondary action: the order itself is the content here */}
-                  <button
-                    type="button"
-                    className="inline-flex w-fit items-center gap-1.5 text-[0.8125rem] font-semibold text-heading underline decoration-slate-900/25 underline-offset-4 transition-colors hover:decoration-slate-900"
-                    onClick={() => onReorder(order)}
-                  >
-                    <RotateCcw size={13} strokeWidth={2} aria-hidden="true" />
-                    {t('accountOrders.reorder')}
-                  </button>
-                </div>
-              </dl>
+                <OrderTotals totals={totals} money={money} />
+              </div>
             </div>
           </motion.div>
         )}

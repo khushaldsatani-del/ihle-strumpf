@@ -1930,6 +1930,7 @@ body {
 
   .order-field > input,
   .order-field > select,
+  .order-field > textarea,
   .qty {
     height: 2.5rem;
     border: 1px solid rgb(15 23 42 / 0.2);
@@ -1953,8 +1954,24 @@ body {
     cursor: pointer;
   }
 
+  /* Free text (the checkout's delivery note): same frame as the inputs, a few lines high, grows downwards only */
+  .order-field > textarea {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    min-height: 6rem;
+    padding: 0.7rem 0.8rem;
+    line-height: 1.5;
+    resize: vertical;
+  }
+
+  .order-field > textarea:hover {
+    border-color: rgb(15 23 42 / 0.35);
+  }
+
   .order-field > input:focus-visible,
   .order-field > select:focus-visible,
+  .order-field > textarea:focus-visible,
   .qty:focus-within {
     outline: none;
     border-color: #3b1f12;

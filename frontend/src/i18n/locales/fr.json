@@ -139,24 +139,15 @@
     "sendHere": "Livrer à cette adresse",
     "sendElsewhere": "Livrer à une autre adresse",
     "sameAsBilling": "Identique à l’adresse de facturation",
-    "newAddress": "Saisir une nouvelle adresse",
-    "fields": {
-      "company": "Société",
-      "street": "Rue et numéro",
-      "zip": "Code postal",
-      "city": "Ville",
-      "country": "Pays"
-    },
     "shippingNote": "Les frais de port figurent sur la facture.",
     "placeOrder": "Commander avec obligation de paiement",
     "thanksTitle": "Merci pour votre commande",
-    "thanksText_one": "Votre commande de {{count}} article pour {{total}} (net) a été enregistrée.",
-    "thanksText_other": "Votre commande de {{count}} articles pour {{total}} (net) a été enregistrée.",
+    "thanksText_one": "Votre commande de {{count}} article pour {{total}} (TTC) a été enregistrée.",
+    "thanksText_other": "Votre commande de {{count}} articles pour {{total}} (TTC) a été enregistrée.",
     "back": "Retour",
     "savedAddress": "Adresse de livraison enregistrée",
     "glsText": "Envoi de colis avec GLS.",
     "invoice": "Facture",
-    "invoiceText": "Vous recevez la facture avec la livraison.",
     "receipt": "Votre numéro de référence",
     "orderNumber": "Votre numéro de commande : {{number}}. La commande a été transmise à Ihle.",
     "sending": "Envoi en cours …",
@@ -166,7 +157,6 @@
       "VORKASSE": "Paiement anticipé"
     },
     "paymentTexts": {
-      "purchaseorder": "Vous recevrez la facture avec la livraison.",
       "debit": "Le montant sera prélevé sur votre compte.",
       "VORKASSE": "Vous recevrez une facture ; la marchandise est expédiée dès réception du paiement."
     },
@@ -178,7 +168,17 @@
       "offline": "Pas de connexion au serveur. Veuillez réessayer.",
       "serverError": "La commande n’a pas pu être envoyée pour le moment. Veuillez réessayer."
     },
-    "noSavedAddresses": "Aucune autre adresse de livraison n’est enregistrée pour votre compte client. Veuillez saisir l’adresse ci-dessous."
+    "deliveryNote": "Remarque pour la livraison",
+    "deliveryNoteHint": "Facultatif, p. ex. interlocuteur ou horaires de livraison. Encore {{left}} caractères sur {{max}}.",
+    "eInvoice": "Vous recevrez la facture électronique à l’adresse e-mail suivante :",
+    "eInvoiceNoEmail": "Vous recevrez la facture électronique par e-mail."
+  },
+  "totals": {
+    "goods": "Valeur des marchandises",
+    "discount": "Remise en ligne",
+    "net": "Total hors taxes",
+    "vat": "TVA légale ({{rate}} %)",
+    "gross": "Total TTC"
   },
   "filters": {
     "title": "Filtrer",
@@ -626,8 +626,7 @@
     "noMatchText": "Modifiez la recherche ou les filtres.",
     "resetFilter": "Réinitialiser la recherche et les filtres",
     "showMore": "Afficher plus",
-    "shownOf": "{{shown}} commandes affichées sur {{total}}",
-    "totalNet": "Total net"
+    "shownOf": "{{shown}} commandes affichées sur {{total}}"
   },
   "settings": {
     "title": "Paramètres",
@@ -672,16 +671,16 @@
   },
   "search": {
     "noResults": "Aucun article correspondant",
-    "hint": "Recherchez par nom ou par référence – la référence complète (p. ex. 40 000 001 12) ouvre directement l’article dans cette couleur et cette taille."
+    "hint": "Recherchez par nom ou par référence – la référence complète (p. ex. 40\u2007000\u2007001\u200712) ouvre directement l’article dans cette couleur et cette taille."
   },
   "quickOrder": {
     "title": "Commande rapide",
-    "intro": "Vous connaissez la référence ? Saisissez la référence complète avec couleur et taille, p. ex. 40 000 001 12.",
+    "intro": "Vous connaissez la référence ? Saisissez la référence complète avec couleur et taille, p. ex. 40\u2007000\u2007001\u200712.",
     "number": "Référence",
     "add": "Ajouter",
     "added_one": "{{count}} × {{number}} ({{name}}) est dans le panier.",
     "added_other": "{{count}} × {{number}} ({{name}}) sont dans le panier.",
-    "incomplete": "Veuillez saisir la référence complète avec couleur et taille, p. ex. 40 000 001 12.",
+    "incomplete": "Veuillez saisir la référence complète avec couleur et taille, p. ex. 40\u2007000\u2007001\u200712.",
     "notFound": "Aucun article de la boutique ne correspond à la référence « {{number}} »."
   },
   "colors": {

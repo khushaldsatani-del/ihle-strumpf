@@ -4,6 +4,11 @@
 // "40 000 001 12" → "4000000112"; anything that is not a digit is ignored
 export const digitsOf = (value) => String(value ?? '').replace(/\D/g, '')
 
+// For display: the groups separated by a figure space (as wide as a digit) instead of a normal space. The shop's font
+// draws "1" so narrow that "001 12" looked like "00112" (Ihle's feedback). Searching and copying still work: every
+// comparison above uses only the digits.
+export const showNumber = (value) => String(value ?? '').replace(/ /g, ' ')
+
 // True when the input looks like (the start of) an article number rather than a word: digits and separators only
 export const looksLikeNumber = (value) => /^[\d\s./-]+$/.test(String(value ?? '').trim()) && digitsOf(value).length >= 2
 

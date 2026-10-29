@@ -122,7 +122,9 @@ describe('orders', () => {
       cookie,
       body: {
         items: [{ sku: '40 000 001 12', quantity: 1, commission: 'Frau 😀 <b>Müller</b>\u0001' }],
-        delivery: { type: 'new', address: { company: 'ZZTEST & Söhne <GmbH>', street: 'Weg 1', zip: '01234', city: 'Ort', country: 'DE' } },
+        delivery: { type: 'billing' },
+        receiptNo: 'ZZTEST & Söhne <GmbH>',
+        deliveryNote: 'Bitte <b>hinten</b> abgeben & klingeln 😀\u0001',
       },
     })
     assert.equal(order.status, 201)
@@ -131,6 +133,55 @@ describe('orders', () => {
     assert.equal(XMLValidator.validate(xml.data), true, 'NAV must be able to read the file')
     assert.match(xml.data, /&#x1F600;/)
     assert.doesNotMatch(xml.data, /<b>/)
+  })
+
+  it('no longer accepts addresses typed in at checkout, only the billing or a saved delivery address', async () => {
+    const cookie = await customerLogin()
+    const post = (delivery) => call('/api/shop/orders', { method: 'POST', cookie, body: { items: [{ sku: '40 000 001 12', quantity: 1 }], delivery } })
+    const typed = await post({ type: 'new', address: { company: 'ZZTEST', street: 'Weg 1', zip: '01234', city: 'Ort', country: 'DE' } })
+    assert.equal(typed.status, 400)
+    assert.equal(typed.data.error, 'invalidAddress')
+    assert.equal((await post({ type: 'saved', id: '999' })).status, 400)
+    assert.equal((await post({ type: 'anything' })).status, 400)
+  })
+
+  it('keeps the delivery note (trimmed, at most 250 characters) and shows it to the customer and the admin', async () => {
+    const cookie = await customerLogin()
+    const note = `  ZZTEST Anlieferung Rampe 2, Herr Müller\nab 8 Uhr ${'x'.repeat(400)}`
+    const order = await call('/api/shop/orders', {
+      method: 'POST',
+      cookie,
+      body: { items: [{ sku: '40 000 001 12', quantity: 2 }], delivery: { type: 'billing' }, deliveryNote: note },
+    })
+    assert.equal(order.status, 201)
+    const expected = note.trim().slice(0, 250)
+
+    const mine = (await call('/api/shop/orders', { cookie })).data.orders.find((entry) => entry.orderNo === order.data.orderNo)
+    assert.equal(mine.deliveryNote, expected)
+    assert.ok(mine.items.every((item) => item.vatRate === 19), 'each line carries the VAT rate it was ordered with')
+
+    const admin = (await call('/api/admin/data', { cookie: await adminLogin() })).data.orders.find((entry) => entry.orderNo === order.data.orderNo)
+    assert.equal(admin.deliveryNote, expected)
+    assert.equal(admin.items[0].vatRate, 19)
+
+    const plain = await call('/api/shop/orders', { method: 'POST', cookie, body: { items: [{ sku: '40 000 001 12', quantity: 1 }] } })
+    const withoutNote = (await call('/api/shop/orders', { cookie })).data.orders.find((entry) => entry.orderNo === plain.data.orderNo)
+    assert.equal(withoutNote.deliveryNote, '', 'no note is an empty text, not null')
+
+    const odd = await call('/api/shop/orders', {
+      method: 'POST',
+      cookie,
+      body: { items: [{ sku: '40 000 001 12', quantity: 1 }], deliveryNote: { evil: true } },
+    })
+    assert.equal(odd.status, 201)
+    const oddOrder = (await call('/api/shop/orders', { cookie })).data.orders.find((entry) => entry.orderNo === odd.data.orderNo)
+    assert.equal(oddOrder.deliveryNote, '', 'a note that is not text is ignored')
+  })
+
+  it('gives the shop the VAT rate per article (not NAV’s code) for the checkout totals', async () => {
+    const { data } = await call('/api/shop/products?photos=optional')
+    const variants = data.products.flatMap((product) => product.variants)
+    assert.ok(variants.every((variant) => typeof variant.vatRate === 'number' && !('vat' in variant)))
   })
 })
 

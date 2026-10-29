@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import OrderForm from './OrderForm.jsx'
 import ProductImage from './ProductImage.jsx'
+import { showNumber } from '../../utils/articleNumber.js'
 import { useProductText } from '../../utils/productText.js'
 
 // One product in a list. Picture and text link to its detail page; logged-in customers also get the price
@@ -12,7 +13,7 @@ export default function ProductCard({ product, layout = 'grid' }) {
   const text = useProductText()
   const name = text.name(product)
   const description = text.description(product)
-  const articleNo = t('products.articleNo', { number: product.articleNo })
+  const articleNo = t('products.articleNo', { number: showNumber(product.articleNo) })
   // First photo, or the category's sample picture while the article has no photo yet
   const image = (
     <ProductImage

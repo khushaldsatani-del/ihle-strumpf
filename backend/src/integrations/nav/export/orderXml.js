@@ -3,8 +3,11 @@
 
 const round2 = (value) => Math.round(value * 100) / 100
 
-// Every sample order carries a discount of exactly 1 % of the line total, and totalNet = line total + 1 %.
-// Copied until Ihle confirms what the discount means.
+// Every sample order carries a discount of exactly 1 % of the line total (at list prices), and
+// totalNet = line total + 1 %. Copied exactly, so NAV's import reads our files like the old shop's.
+// The customer sees the 1 % subtracted ("Online-Rabatt", like the old shop's order overview), which doesn't fit
+// totalNet here; asked Ihle which totalNet NAV expects. The delivery note isn't in the file yet either: it goes in
+// once Ihle names the element NAV reads it from.
 export const ORDER_DISCOUNT_RATE = 0.01
 
 export function orderTotals(items, shippingCost = 0) {

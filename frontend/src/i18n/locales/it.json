@@ -139,24 +139,15 @@
     "sendHere": "Consegna a questo indirizzo",
     "sendElsewhere": "Consegna a un altro indirizzo",
     "sameAsBilling": "Uguale all’indirizzo di fatturazione",
-    "newAddress": "Inserisci un nuovo indirizzo",
-    "fields": {
-      "company": "Azienda",
-      "street": "Via e numero civico",
-      "zip": "CAP",
-      "city": "Città",
-      "country": "Paese"
-    },
     "shippingNote": "I costi di spedizione sono indicati in fattura.",
     "placeOrder": "Ordina con obbligo di pagamento",
     "thanksTitle": "Grazie per il tuo ordine",
-    "thanksText_one": "Il tuo ordine con {{count}} articolo per {{total}} (netto) è stato registrato.",
-    "thanksText_other": "Il tuo ordine con {{count}} articoli per {{total}} (netto) è stato registrato.",
+    "thanksText_one": "Il tuo ordine con {{count}} articolo per {{total}} (IVA inclusa) è stato registrato.",
+    "thanksText_other": "Il tuo ordine con {{count}} articoli per {{total}} (IVA inclusa) è stato registrato.",
     "back": "Indietro",
     "savedAddress": "Indirizzo di consegna salvato",
     "glsText": "Spedizione pacchi con GLS.",
     "invoice": "Fattura",
-    "invoiceText": "Ricevi la fattura insieme alla merce.",
     "receipt": "Il tuo numero di riferimento",
     "orderNumber": "Il tuo numero d’ordine: {{number}}. L’ordine è stato trasmesso a Ihle.",
     "sending": "Invio in corso …",
@@ -166,7 +157,6 @@
       "VORKASSE": "Pagamento anticipato"
     },
     "paymentTexts": {
-      "purchaseorder": "Riceverai la fattura insieme alla merce.",
       "debit": "L’importo verrà addebitato sul tuo conto.",
       "VORKASSE": "Riceverai una fattura; la merce viene spedita dopo il ricevimento del pagamento."
     },
@@ -178,7 +168,17 @@
       "offline": "Nessuna connessione al server. Riprova.",
       "serverError": "Al momento non è stato possibile inviare l’ordine. Riprova."
     },
-    "noSavedAddresses": "Per il tuo account cliente non sono salvati altri indirizzi di consegna. Inserisci l’indirizzo qui sotto."
+    "deliveryNote": "Nota per la consegna",
+    "deliveryNoteHint": "Facoltativo, ad es. referente o orari di consegna. Ancora {{left}} di {{max}} caratteri.",
+    "eInvoice": "Riceverai la fattura elettronica al seguente indirizzo e-mail:",
+    "eInvoiceNoEmail": "Riceverai la fattura elettronica via e-mail."
+  },
+  "totals": {
+    "goods": "Valore merce",
+    "discount": "Sconto online",
+    "net": "Totale IVA esclusa",
+    "vat": "IVA di legge ({{rate}} %)",
+    "gross": "Totale IVA inclusa"
   },
   "filters": {
     "title": "Filtra",
@@ -626,8 +626,7 @@
     "noMatchText": "Modifica la ricerca o i filtri.",
     "resetFilter": "Azzera ricerca e filtri",
     "showMore": "Mostra altri",
-    "shownOf": "{{shown}} di {{total}} ordini mostrati",
-    "totalNet": "Totale netto"
+    "shownOf": "{{shown}} di {{total}} ordini mostrati"
   },
   "settings": {
     "title": "Impostazioni",
@@ -672,16 +671,16 @@
   },
   "search": {
     "noResults": "Nessun articolo corrispondente",
-    "hint": "Cerca per nome o numero articolo – il numero completo (ad es. 40 000 001 12) apre direttamente l’articolo in quel colore e taglia."
+    "hint": "Cerca per nome o numero articolo – il numero completo (ad es. 40\u2007000\u2007001\u200712) apre direttamente l’articolo in quel colore e taglia."
   },
   "quickOrder": {
     "title": "Ordine rapido",
-    "intro": "Conosci il numero articolo? Inserisci il numero completo con colore e taglia, ad es. 40 000 001 12.",
+    "intro": "Conosci il numero articolo? Inserisci il numero completo con colore e taglia, ad es. 40\u2007000\u2007001\u200712.",
     "number": "Numero articolo",
     "add": "Aggiungi",
     "added_one": "{{count}} × {{number}} ({{name}}) è nel carrello.",
     "added_other": "{{count}} × {{number}} ({{name}}) sono nel carrello.",
-    "incomplete": "Inserisci il numero completo con colore e taglia, ad es. 40 000 001 12.",
+    "incomplete": "Inserisci il numero completo con colore e taglia, ad es. 40\u2007000\u2007001\u200712.",
     "notFound": "Nel negozio non c’è nessun articolo con il numero «{{number}}»."
   },
   "colors": {

@@ -1,4 +1,4 @@
-import { CheckCircle2, Download } from 'lucide-react'
+import { CheckCircle2, Download, MessageSquareText } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { Link, useParams } from 'react-router-dom'
 import ProductThumb from '../components/ProductThumb.jsx'
@@ -139,13 +139,19 @@ export default function OrderDetail() {
               <dt className="text-muted">{t('orders.discount', { rate: ORDER_DISCOUNT_RATE * 100 })}</dt>
               <dd className="tabular-nums">{formatMoney(totals.discount)}</dd>
             </div>
-            <div className="flex justify-between">
-              <dt className="text-muted">{t('orders.shipping')}</dt>
-              <dd className="tabular-nums">{formatMoney(totals.shipping)}</dd>
-            </div>
-            <div className="flex justify-between border-t border-line pt-2 font-semibold text-heading">
+            <div className="flex justify-between font-medium text-heading">
               <dt>{t('orders.totalNet')}</dt>
               <dd className="tabular-nums">{formatMoney(totals.totalNet)}</dd>
+            </div>
+            {totals.vat.map(({ rate, amount }) => (
+              <div key={rate} className="flex justify-between">
+                <dt className="text-muted">{t('orders.vat', { rate })}</dt>
+                <dd className="tabular-nums">{formatMoney(amount)}</dd>
+              </div>
+            ))}
+            <div className="flex justify-between border-t border-line pt-2 font-semibold text-heading">
+              <dt>{t('orders.gross')}</dt>
+              <dd className="tabular-nums">{formatMoney(totals.gross)}</dd>
             </div>
           </dl>
           <p className="border-t border-line bg-surface px-5 py-3 text-xs text-muted">{t('orders.discountNote')}</p>
@@ -192,6 +198,16 @@ export default function OrderDetail() {
               {/* The addresses saved with the order, i.e. what goes to NAV, even if the customer's data changed since */}
               <AddressCard title={t('orders.billingAddress')} address={order.billing} />
               <AddressCard title={t('orders.shippingAddress')} address={order.shippingAddress || order.billing} />
+            </section>
+          )}
+          {/* The customer's "Anmerkung zur Lieferung", highlighted so it isn't missed when the order is packed */}
+          {order.deliveryNote && (
+            <section className="card border-l-4 border-l-warn p-5">
+              <h2 className="flex items-center gap-2 text-base">
+                <MessageSquareText size={16} aria-hidden="true" className="text-warn" />
+                {t('orders.deliveryNote')}
+              </h2>
+              <p className="mt-2 text-sm leading-relaxed break-words whitespace-pre-line text-heading">{order.deliveryNote}</p>
             </section>
           )}
         </aside>

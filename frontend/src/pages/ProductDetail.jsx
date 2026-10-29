@@ -11,6 +11,7 @@ import { photosOf, useCatalog, variantOf } from '../context/CatalogContext.jsx'
 import { categoryPath, findCategory } from '../data/categories.js'
 import { colorHex, colorLabel, sizeLabel } from '../data/filters.js'
 import { photoUrl } from '../utils/api.js'
+import { showNumber } from '../utils/articleNumber.js'
 import { useProductText } from '../utils/productText.js'
 
 // Light colours get a dark checkmark
@@ -73,7 +74,7 @@ export default function ProductDetail() {
   const shown = Math.min(selected.image ?? 0, gallery.length - 1)
 
   const details = [
-    [t('products.sort.articleNo'), variant.sku],
+    [t('products.sort.articleNo'), showNumber(variant.sku)],
     [t('filters.category'), category && t(category.nameKey)],
     [t('filters.group'), group && t(group.nameKey)],
     [t('filters.material'), product.material],
@@ -145,7 +146,7 @@ export default function ProductDetail() {
         {/* Information */}
         <div className="min-w-0 lg:py-4">
           <p className="text-sm font-medium tracking-wide text-body" aria-live="polite">
-            {t('products.articleNo', { number: variant.sku })}
+            {t('products.articleNo', { number: showNumber(variant.sku) })}
           </p>
           <h1 className="mt-2 text-3xl font-bold tracking-tight text-heading sm:text-4xl lg:text-5xl">{name}</h1>
           {description && <p className="mt-4 max-w-xl text-lg leading-relaxed text-body">{description}</p>}
