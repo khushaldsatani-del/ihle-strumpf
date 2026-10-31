@@ -1,4 +1,4 @@
-import { useId, useRef, useState } from 'react'
+import { useEffect, useId, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { useTranslation } from 'react-i18next'
 import { useSearchParams } from 'react-router-dom'
@@ -9,7 +9,7 @@ import Pagination from '../components/products/Pagination.jsx'
 import ProductCard from '../components/products/ProductCard.jsx'
 import SortDropdown from '../components/products/SortDropdown.jsx'
 import ViewToggle from '../components/products/ViewToggle.jsx'
-import { findCategory } from '../data/categories.js'
+import { findCategory, nameOf } from '../data/categories.js'
 import { useAuth } from '../context/AuthContext.jsx'
 import { useCatalog } from '../context/CatalogContext.jsx'
 import useFilters from '../hooks/useFilters.js'
@@ -40,6 +40,45 @@ function storeOpen(open) {
   }
 }
 
+// Gap kept free below the sidebar, and the least height it gets on a very small window
+const SIDEBAR_BOTTOM_GAP = 16
+const SIDEBAR_MIN_HEIGHT = 240
+
+/**
+ * The sidebar sticks below the navbar, but until it does (top of the page) it starts further down. Its height follows
+ * the space left on screen below its top edge, so its own scroll area never reaches below the window and the last
+ * filters can always be scrolled to, without scrolling the page first. Sets --filter-max-height on the sidebar.
+ */
+function useFitToScreen(ref, active) {
+  useEffect(() => {
+    if (!active) return undefined
+    let frame = 0
+    const fit = () => {
+      frame = 0
+      const node = ref.current
+      if (!node) return
+      const top = Math.max(node.getBoundingClientRect().top, 0)
+      const height = Math.max(window.innerHeight - top - SIDEBAR_BOTTOM_GAP, SIDEBAR_MIN_HEIGHT)
+      node.style.setProperty('--filter-max-height', `${Math.round(height)}px`)
+    }
+    const schedule = () => {
+      if (!frame) frame = requestAnimationFrame(fit)
+    }
+    fit()
+    window.addEventListener('scroll', schedule, { passive: true })
+    window.addEventListener('resize', schedule)
+    // the content above can change height without a scroll (e.g. when the products have loaded)
+    const observer = new ResizeObserver(schedule)
+    observer.observe(document.body)
+    return () => {
+      observer.disconnect()
+      cancelAnimationFrame(frame)
+      window.removeEventListener('scroll', schedule)
+      window.removeEventListener('resize', schedule)
+    }
+  }, [ref, active])
+}
+
 /**
  * Product list: title, filter and sort bar, the filter panel and a grid of products.
  * The filter panel opens below the "Filter" button and makes room for itself:
@@ -58,6 +97,8 @@ export default function Products() {
   const isTablet = useMediaQuery('(min-width: 768px)')
   const sideBySide = isTablet // sidebar next to the grid; below that the panel sits above the grid
   const [sidebarOpen, setSidebarOpen] = useState(readStoredOpen)
+  const sidebarRef = useRef(null)
+  useFitToScreen(sidebarRef, sideBySide && sidebarOpen)
   const [phoneOpen, setPhoneOpen] = useState(false)
   const { isLoggedIn } = useAuth()
   const catalog = useCatalog()
@@ -127,7 +168,7 @@ export default function Products() {
   }
 
   // Title: the chosen product group (when it is the only one), else the category, else "All products"
-  const category = findCategory(filters.category)
+  const category = findCategory(filters.category, catalog.categories)
   const group = filters.group.length === 1 ? category?.groups.find(({ code }) => code === filters.group[0]) : null
 
   // Grid of product cards; the loading placeholders use the same grid, so nothing jumps when products arrive
@@ -150,8 +191,8 @@ export default function Products() {
 
   return (
     <div className="mx-auto max-w-[96rem] px-4 pb-20 pt-10 sm:px-8 lg:px-16 lg:pt-14">
-      <h1 className="text-center text-3xl font-bold tracking-tight text-heading sm:text-4xl">
-        {group ? t(group.nameKey) : category ? t(category.nameKey) : t('categories.all')}
+      <h1 className="text-center text-3xl font-bold tracking-tight text-heading wrap-anywhere sm:text-4xl">
+        {group ? nameOf(t, group) : category ? nameOf(t, category) : t('categories.all')}
       </h1>
 
       {/* Filter button on the left, number of products and sorting on the right */}
@@ -185,6 +226,7 @@ export default function Products() {
           {/* Tablet and desktop: sidebar that grows from the left and pushes the grid */}
           {sideBySide && sidebarOpen && (
             <motion.aside
+              ref={sidebarRef}
               key="filter-sidebar"
               className="filter-sidebar"
               initial={{ width: 0, opacity: 0 }}

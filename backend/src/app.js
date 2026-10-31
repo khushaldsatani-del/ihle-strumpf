@@ -4,6 +4,16 @@ import express from 'express'
 import adminRoutes from './modules/admin/adminRoutes.js'
 import photoRoutes from './modules/photos/photoRoutes.js'
 import shopRoutes from './modules/shop/shopRoutes.js'
+import { isDraining } from './utils/lifecycle.js'
+
+// Whether a JSON body holds the NUL character anywhere (in a value or a key). PostgreSQL can't store it in text,
+// so such a request would end in a database error; it is refused up front as a bad request instead.
+function hasNul(value) {
+  if (typeof value === 'string') return value.includes('\u0000')
+  if (Array.isArray(value)) return value.some(hasNul)
+  if (value && typeof value === 'object') return Object.entries(value).some(([key, item]) => key.includes('\u0000') || hasNul(item))
+  return false
+}
 
 // The Express app, started by server.js (locally and on Render)
 const app = express()
@@ -16,9 +26,16 @@ app.set('trust proxy', 1)
 // JSON answers (e.g. the 3,800 customers for the admin panel) shrink to a fraction; photos are already compressed
 app.use(compression({ filter: (req, res) => !req.path.startsWith('/api/photos') && compression.filter(req, res) }))
 app.use(express.json({ limit: '1mb' }))
+app.use((req, res, next) => (hasNul(req.body) || hasNul(req.query) ? res.status(400).json({ error: 'badRequest' }) : next()))
 app.use(cookieParser())
 
-app.get('/api/health', (req, res) => res.json({ ok: true }))
+// While this process shuts down, keep-alive connections close after their request, and the health check
+// tells the load balancer to send nothing new here
+app.use((req, res, next) => {
+  if (isDraining()) res.set('Connection', 'close')
+  next()
+})
+app.get('/api/health', (req, res) => (isDraining() ? res.status(503).json({ ok: false }) : res.json({ ok: true })))
 app.use('/api/photos', photoRoutes)
 app.use('/api/shop', shopRoutes)
 app.use('/api/admin', adminRoutes)

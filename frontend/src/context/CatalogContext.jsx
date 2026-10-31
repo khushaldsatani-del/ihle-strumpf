@@ -1,17 +1,24 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
-import { categoryByNav, groupByNav } from '../data/categories.js'
+import { CATEGORIES, buildCategories, categoryByNav, groupByNav } from '../data/categories.js'
 import { fibresOf } from '../data/filters.js'
 import { api, photoUrl } from '../utils/api.js'
 
-const CatalogContext = createContext({ status: 'loading', products: [], bySku: new Map(), byId: new Map(), reload: () => {} })
+const CatalogContext = createContext({
+  status: 'loading',
+  products: [],
+  categories: CATEGORIES,
+  bySku: new Map(),
+  byId: new Map(),
+  reload: () => {},
+})
 
 const RETRIES = 4
 
 // Shop form of a product from the backend (/api/shop/products, never with prices).
 // colors: one entry per colour in NAV's order, with NAV's German name (shown via colorLabel, in the active language);
 // sizes: in SKU order (the size code sorts them correctly).
-function toProduct(raw) {
-  const category = categoryByNav(raw.category)
+function toProduct(raw, categories) {
+  const category = categoryByNav(raw.category, categories)
   const colors = []
   const sizes = []
   for (const variant of raw.variants) {
@@ -38,7 +45,8 @@ function toProduct(raw) {
  * status: loading → ready | error. reload() tries again after an error (the visitor's "retry" button).
  */
 export function CatalogProvider({ children }) {
-  const [state, setState] = useState({ status: 'loading', products: [] })
+  // categories: what the menus and filters show (the fixed list until the backend's has arrived)
+  const [state, setState] = useState({ status: 'loading', products: [], categories: CATEGORIES })
   const [attempt, setAttempt] = useState(0)
 
   // If the backend is briefly unreachable (e.g. restarting), try again a few times before giving up,
@@ -48,11 +56,15 @@ export function CatalogProvider({ children }) {
     let timer = 0
     const load = (retry) =>
       api('/shop/products?photos=optional').then(
-        (data) => active && setState({ status: 'ready', products: data.products.map(toProduct) }),
+        (data) => {
+          if (!active) return
+          const categories = buildCategories(data.categories)
+          setState({ status: 'ready', products: data.products.map((raw) => toProduct(raw, categories)), categories })
+        },
         () => {
           if (!active) return
           if (retry < RETRIES) timer = setTimeout(() => load(retry + 1), 1500 * (retry + 1))
-          else setState({ status: 'error', products: [] })
+          else setState({ status: 'error', products: [], categories: CATEGORIES })
         },
       )
     load(0)
@@ -63,7 +75,7 @@ export function CatalogProvider({ children }) {
   }, [attempt])
 
   const reload = useCallback(() => {
-    setState({ status: 'loading', products: [] })
+    setState({ status: 'loading', products: [], categories: CATEGORIES })
     setAttempt((count) => count + 1)
   }, [])
 

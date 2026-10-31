@@ -11,13 +11,27 @@ services:
     # applies new files from database/migrations before the new version starts (only adds, never removes)
     preDeployCommand: npm run db:migrate
     startCommand: npm start
+    # The load balancer only sends requests to instances whose health check answers 200; during a deploy or a
+    # scale-down an instance answers 503, finishes its running requests and then stops (src/server.js)
     healthCheckPath: /api/health
+    # Load balancing over several instances: Render's load balancer spreads requests over all of them by itself.
+    # Needs a paid instance type (not free); each instance costs extra. Pick ONE of the two:
+    # numInstances: 2 # fixed number of instances
+    # scaling: # automatic (Professional workspace): more instances under load, fewer when quiet
+    #   minInstances: 1
+    #   maxInstances: 3
+    #   targetCPUPercent: 70
+    #   targetMemoryPercent: 80
     envVars:
       - key: NODE_ENV
         value: production # secure cookies
       - key: DATABASE_URL
         sync: false # pasted in Render's dashboard: Neon → Connection string (pooled)
       - key: DB_POOL_MAX
-        value: "10" # database connections of this server; keep below the Neon plan's limit
+        # database connections per instance, shared by its processes; instances × this must stay below the
+        # Neon plan's connection limit (Neon's pooled connection string allows many)
+        value: "10"
+      - key: WEB_CONCURRENCY
+        value: "1" # processes per instance (one per CPU core); raise on instance types with more than one core
       - key: SESSION_SECRET
         generateValue: true # long random value created by Render; changing it logs everyone out

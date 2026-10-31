@@ -6,7 +6,7 @@ import { applyImport, previewImport } from '../../integrations/nav/import/applyI
 import { buildOrderXml } from '../../integrations/nav/export/orderXml.js'
 import { loginLimiter, requireAdmin } from '../../middleware/auth.js'
 import { savePhoto } from '../photos/photoService.js'
-import { clearShopCache } from '../shop/shopRoutes.js'
+import { clearShopCache, navDescriptions } from '../shop/shopRoutes.js'
 import { checkPassword } from '../../utils/passwords.js'
 import { ADMIN_COOKIE, cookieOptions, createToken } from '../../utils/session.js'
 import { STANDARD_VAT_RATE } from '../../utils/vat.js'
@@ -25,16 +25,16 @@ router.post('/login', async (req, res) => {
   const username = String(req.body?.username || '').trim().toLowerCase()
   const password = String(req.body?.password || '')
   const key = `admin:${username}:${req.ip}`
-  if (loginLimiter.blocked(key)) return res.status(429).json({ error: 'tooManyAttempts' })
+  if (await loginLimiter.blocked(key)) return res.status(429).json({ error: 'tooManyAttempts' })
 
   const { rows } = await query('SELECT username, name, password_hash FROM admin_users WHERE username = $1', [username])
   // always a full password check, also for unknown names (same response time either way)
   const ok = await checkPassword(password, rows[0]?.password_hash)
   if (!ok) {
-    loginLimiter.fail(key)
+    await loginLimiter.fail(key)
     return res.status(401).json({ error: 'wrongCredentials' })
   }
-  loginLimiter.reset(key)
+  await loginLimiter.reset(key)
   const user = { role: 'admin', username: rows[0].username, name: rows[0].name }
   res.cookie(ADMIN_COOKIE, createToken(user), cookieOptions())
   res.json({ user })
@@ -54,7 +54,7 @@ router.get('/me', (req, res) => {
 // Everything the admin pages show, in one request. Fine for the test phase (hundreds of articles and
 // customers); when the order history grows, orders move to their own paged endpoint.
 router.get('/data', async (req, res) => {
-  const [products, customers, orders, imports, photoStats] = await Promise.all([
+  const [products, customers, orders, imports, photoStats, names] = await Promise.all([
     // photos: the article's NAV pictures that are uploaded, in NAV's order, with a version for cache-busting
     query(
       `SELECT p.*,
@@ -77,9 +77,12 @@ router.get('/data', async (req, res) => {
     ),
     query('SELECT * FROM import_runs ORDER BY created_at DESC LIMIT 50'),
     query(`SELECT count(*)::int AS total, max(uploaded_at) AS last FROM photos`),
+    navDescriptions(),
   ])
 
   res.json({
+    // NAV's descriptions of category and product group codes (nav_ShopItemCategories/-ProductGroup.xml)
+    navNames: { categories: Object.fromEntries(names.category), groups: Object.fromEntries(names.group) },
     products: products.rows.map((row) => ({
       articleNo: row.article_no,
       name: row.name,
@@ -204,6 +207,7 @@ router.get('/orders/:orderNo/xml', async (req, res) => {
       orderNo: row.order_no,
       createdAt: row.created_at,
       receiptNo: row.receipt_no,
+      deliveryNote: row.delivery_note || '',
       billing: row.billing,
       shippingAddress: row.shipping_address,
       paymentCode: row.payment_code,

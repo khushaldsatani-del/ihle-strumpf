@@ -150,6 +150,7 @@
     "search": "Article no., name, SKU …",
     "category": "Category",
     "allCategories": "All categories",
+    "noCategory": "No category",
     "stateLabel": "Status",
     "allStates": "All statuses",
     "state": {
@@ -207,9 +208,9 @@
   },
   "import": {
     "title": "Import",
-    "subtitle": "Upload NAV files to create or update products and customers.",
+    "subtitle": "Upload NAV files to create or update products, customers, categories and product groups.",
     "dropTitle": "Drop an XML file here",
-    "dropText": "nav_ShopItems.xml (products) or nav_ShopCustomers.xml (customers). The file type is detected automatically. You see a preview before anything is saved.",
+    "dropText": "nav_ShopItems.xml (products), nav_ShopCustomers.xml (customers), nav_ShopItemCategories.xml (categories) or nav_ShopProductGroup.xml (product groups). The file type is detected automatically. You see a preview before anything is saved.",
     "choose": "Choose file",
     "done": "{{file}} was imported.",
     "summary": "{{created}} new, {{updated}} updated, {{errors}} errors.",
@@ -223,6 +224,14 @@
         "name": "nav_ShopCustomers.xml",
         "text": "Customers with price group, payment method, billing and delivery addresses."
       },
+      "categories": {
+        "name": "nav_ShopItemCategories.xml",
+        "text": "Item categories with their description. The shop shows only categories that have articles, named by the description (or the code)."
+      },
+      "groups": {
+        "name": "nav_ShopProductGroup.xml",
+        "text": "Product groups with their description, shown as the subcategories of a category in the shop."
+      },
       "orders": {
         "name": "1300003946.xml …",
         "text": "Orders go the other way, to NAV: one file per order (download it from the order)."
@@ -231,7 +240,9 @@
     "previewTitle": "Preview: {{file}}",
     "type": {
       "items": "Products (ShopItems)",
-      "customers": "Customers (ShopCustomers)"
+      "customers": "Customers (ShopCustomers)",
+      "categories": "Item categories (ShopItemCategories)",
+      "groups": "Product groups (ShopProductGroup)"
     },
     "typeLabel": "Type",
     "rows_one": "{{count}} entry in the file",
@@ -248,16 +259,20 @@
       "notXml": "Please choose an XML file.",
       "tooLarge": "The file is too large to upload.",
       "invalidXml": "The file is not valid XML.",
-      "unknownFile": "Unknown file: expected nav_ShopItems.xml or nav_ShopCustomers.xml.",
+      "unknownFile": "Unknown file: expected nav_ShopItems.xml, nav_ShopCustomers.xml, nav_ShopItemCategories.xml or nav_ShopProductGroup.xml.",
       "invalidSku": "SKU is not in the format \"40 000 001 12\" – skipped.",
       "missingPrice": "Price is missing.",
       "missingBilling": "Billing address is missing.",
       "missingNumber": "Customer number is missing.",
+      "missingCode": "Entry without a readable code – skipped.",
       "noFile": "No file received.",
       "serverError": "The file could not be processed right now. Please try again.",
       "offline": "The server cannot be reached."
     },
     "change": "Change",
+    "code": "Code",
+    "description": "Description",
+    "noDescription": "no description – the shop shows the code",
     "moreRows": "… and {{count}} more.",
     "history": "Import history",
     "date": "Date",
@@ -287,7 +302,7 @@
     "DIABETES_P": "Diabetes & Problem Feet",
     "BUSINESS_S": "Business, Sport & Nature",
     "UNTERWAE": "Underwear",
-    "ALLTAG": "ilo® / Everyday"
+    "ALLTAG": "ilo® Socks"
   },
   "groups": {
     "101_US": "Lower-leg stump sock",
@@ -303,7 +318,7 @@
     "202_KOMF": "Comfort",
     "203_STUETZ": "Support stocking",
     "204_HALLUX": "Hallux valgus",
-    "205_CHOPRT": "Chopart / Lisfranc",
+    "205_CHOPRT": "Chopart/Lisfranc",
     "301_KLAS": "Classic",
     "302_KOMF": "Comfort",
     "303_SPORT": "Sport",

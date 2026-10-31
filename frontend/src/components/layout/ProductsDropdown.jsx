@@ -3,7 +3,8 @@ import { AnimatePresence, motion } from 'motion/react'
 import { ArrowRight, ChevronDown } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import { CATEGORIES, categoryPath } from '../../data/categories.js'
+import { useCatalog } from '../../context/CatalogContext.jsx'
+import { categoryPath, nameOf } from '../../data/categories.js'
 import useClickOutside from '../../hooks/useClickOutside.js'
 
 // Spring "pop" + fade for the panel
@@ -26,13 +27,15 @@ export default function ProductsDropdown({ open, onOpenChange, active }) {
   const focusFirst = useRef(false)
   const openedByHover = useRef(false)
   const hoverTimer = useRef(0)
-  const [selected, setSelected] = useState(CATEGORIES[0].code)
-  const category = CATEGORIES.find(({ code }) => code === selected)
+  const { categories } = useCatalog()
+  const [selected, setSelected] = useState(categories[0].code)
+  // the list can change once the catalogue has loaded; then the first category stands in for one that is gone
+  const category = categories.find(({ code }) => code === selected) ?? categories[0]
 
   const close = () => onOpenChange(false)
   // Opening always starts with the first category
   const show = () => {
-    setSelected(CATEGORIES[0].code)
+    setSelected(categories[0].code)
     onOpenChange(true)
   }
 
@@ -160,8 +163,9 @@ export default function ProductsDropdown({ open, onOpenChange, active }) {
               <div className="grid grid-cols-[minmax(0,15rem)_minmax(0,1fr)]">
                 {/* Categories */}
                 <div role="tablist" aria-orientation="vertical" aria-label={t('nav.productCategories')} className="pr-2">
-                  {CATEGORIES.map(({ code, nameKey, color }) => {
-                    const isSelected = code === selected
+                  {categories.map((entry) => {
+                    const { code, color } = entry
+                    const isSelected = code === category.code
                     return (
                       <button
                         key={code}
@@ -178,7 +182,7 @@ export default function ProductsDropdown({ open, onOpenChange, active }) {
                         onKeyDown={onTabKeyDown}
                       >
                         <span aria-hidden="true" className="size-2.5 shrink-0 rounded-full" style={{ backgroundColor: color }} />
-                        <span className="flex-1 whitespace-normal">{t(nameKey)}</span>
+                        <span className="min-w-0 flex-1 whitespace-normal">{nameOf(t, entry)}</span>
                       </button>
                     )
                   })}
@@ -188,12 +192,12 @@ export default function ProductsDropdown({ open, onOpenChange, active }) {
                 <div
                   role="tabpanel"
                   id={`${id}-groups`}
-                  aria-labelledby={`${id}-tab-${selected}`}
+                  aria-labelledby={`${id}-tab-${category.code}`}
                   className="min-h-64 border-l border-(--nav-border) pl-2"
                   onKeyDown={onGroupKeyDown}
                 >
                   <div className="flex min-h-11 items-center justify-between gap-3 pl-3.5 pr-1">
-                    <p className="text-xs font-bold uppercase tracking-[0.12em] text-(--nav-fg-muted)">{t(category.nameKey)}</p>
+                    <p className="min-w-0 text-xs font-bold uppercase tracking-[0.12em] text-(--nav-fg-muted) wrap-anywhere">{nameOf(t, category)}</p>
                     <Link to={categoryPath(category.code)} className="mega-view-all" onClick={close}>
                       {t('nav.viewAll')}
                     </Link>
@@ -201,10 +205,10 @@ export default function ProductsDropdown({ open, onOpenChange, active }) {
 
                   {category.groups.length > 0 ? (
                     <ul>
-                      {category.groups.map(({ code, nameKey }) => (
-                        <li key={code}>
-                          <Link to={categoryPath(category.code, code)} className="menu-item min-h-10 whitespace-normal" onClick={close}>
-                            {t(nameKey)}
+                      {category.groups.map((group) => (
+                        <li key={group.code}>
+                          <Link to={categoryPath(category.code, group.code)} className="menu-item min-h-10 whitespace-normal" onClick={close}>
+                            {nameOf(t, group)}
                           </Link>
                         </li>
                       ))}

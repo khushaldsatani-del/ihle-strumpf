@@ -8,7 +8,7 @@ import OrderForm from '../components/products/OrderForm.jsx'
 import ProductCard from '../components/products/ProductCard.jsx'
 import ProductImage from '../components/products/ProductImage.jsx'
 import { photosOf, useCatalog, variantOf } from '../context/CatalogContext.jsx'
-import { categoryPath, findCategory } from '../data/categories.js'
+import { categoryPath, findCategory, nameOf } from '../data/categories.js'
 import { colorHex, colorLabel, sizeLabel } from '../data/filters.js'
 import { photoUrl } from '../utils/api.js'
 import { showNumber } from '../utils/articleNumber.js'
@@ -30,7 +30,7 @@ export default function ProductDetail() {
   const text = useProductText()
   const { id } = useParams()
   const [searchParams] = useSearchParams()
-  const { status, byId, products, reload } = useCatalog()
+  const { status, byId, products, categories, reload } = useCatalog()
   const product = byId.get(id)
   // Chosen picture, colour and size: remembered per product (reset when another product is opened).
   // A search by full article number opens the page with ?sku=… (colour and size) or ?color=… already chosen.
@@ -59,7 +59,7 @@ export default function ProductDetail() {
     )
   }
 
-  const category = findCategory(product.category)
+  const category = findCategory(product.category, categories)
   const group = category?.groups.find(({ code }) => code === product.group)
   const color = product.colorCodes.includes(selected.color) ? selected.color : product.colorCodes[0]
   // Only the sizes that exist as a SKU in the chosen colour
@@ -75,8 +75,8 @@ export default function ProductDetail() {
 
   const details = [
     [t('products.sort.articleNo'), showNumber(variant.sku)],
-    [t('filters.category'), category && t(category.nameKey)],
-    [t('filters.group'), group && t(group.nameKey)],
+    [t('filters.category'), category && nameOf(t, category)],
+    [t('filters.group'), group && nameOf(t, group)],
     [t('filters.material'), product.material],
     [t('filters.unit'), t(`filters.units.${product.unit}`, { defaultValue: product.unit })],
   ].filter(([, value]) => value)
@@ -100,8 +100,8 @@ export default function ProductDetail() {
           {category && (
             <li className="flex items-center gap-1.5">
               <ChevronRight size={14} aria-hidden="true" />
-              <Link to={categoryPath(category.code)} className="crumb">
-                {t(category.nameKey)}
+              <Link to={categoryPath(category.code)} className="crumb wrap-anywhere">
+                {nameOf(t, category)}
               </Link>
             </li>
           )}

@@ -250,6 +250,8 @@ body {
     font-weight: 500;
     text-align: left;
     white-space: nowrap;
+    /* a long name from NAV (where whitespace-normal lets it wrap) breaks inside a word instead of leaving the panel */
+    overflow-wrap: anywhere;
     color: var(--nav-fg);
     cursor: pointer;
     transition:
@@ -1536,8 +1538,11 @@ body {
     scrollbar-color: rgb(15 23 42 / 0.2) transparent;
   }
 
-  /* Sidebar: a thin line on the right separates the filters from the products */
+  /* Sidebar: a thin line on the right separates the filters from the products.
+     Its height is the space left on screen (--filter-max-height, set by the product list), so it never reaches
+     below the window; the fallback is the height it has once it sticks below the navbar */
   .filter-sidebar .filter-panel {
+    max-height: var(--filter-max-height, calc(100vh - var(--nav-height) - 2rem));
     padding-right: 0.75rem;
     border-right: 1px solid rgb(15 23 42 / 0.12);
   }
@@ -1685,7 +1690,14 @@ body {
     cursor: inherit;
   }
 
+  /* Names come from NAV and can hold very long words: they wrap anywhere instead of pushing the count out */
+  .filter-option > .flex-1 {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
   .filter-count {
+    flex-shrink: 0;
     font-size: 0.8rem;
     font-weight: 400;
     color: #8a8f98;
@@ -1800,7 +1812,9 @@ body {
   /* Removable chip of an active filter */
   .filter-active {
     display: inline-flex;
+    max-width: 100%;
     min-height: 2rem;
+    text-align: left;
     align-items: center;
     gap: 0.35rem;
     padding: 0 0.6rem 0 0.75rem;
@@ -1811,6 +1825,10 @@ body {
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.2s ease;
+  }
+
+  .filter-active svg {
+    flex-shrink: 0;
   }
 
   .filter-active:hover {

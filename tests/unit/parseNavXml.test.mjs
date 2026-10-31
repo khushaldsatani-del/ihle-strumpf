@@ -129,3 +129,65 @@ describe('parseNavXml: customers', () => {
     assert.equal(result.records[0].billing.lastName, '', 'NAV writes "." for an empty second name line')
   })
 })
+
+describe('code lists (item categories, product groups)', () => {
+  const categories = `<?xml version="1.0" encoding="UTF-8"?><ShopItemCategories>
+    <ItemCategory><ItemCategoryCode>
+      </ItemCategoryCode><ItemCategoryDescription>
+      </ItemCategoryDescription></ItemCategory>
+    <ItemCategory><ItemCategoryCode>DIABETES P</ItemCategoryCode><ItemCategoryDescription>Katalog-Artikel Diabetes &amp; Problemfuß</ItemCategoryDescription></ItemCategory>
+    <ItemCategory><ItemCategoryCode>MATERIAL</ItemCategoryCode><ItemCategoryDescription>
+      </ItemCategoryDescription></ItemCategory>
+  </ShopItemCategories>`
+
+  it('reads item categories: code and description, skipping NAV’s empty first entry', () => {
+    const result = parseNavXml(categories)
+    assert.equal(result.type, 'categories')
+    assert.equal(result.rowCount, 3)
+    assert.deepEqual(result.records, [
+      { code: 'DIABETES P', description: 'Katalog-Artikel Diabetes & Problemfuß' },
+      { code: 'MATERIAL', description: '' },
+    ])
+    assert.deepEqual(result.errors, [])
+  })
+
+  it('reads product groups, also a file with a single group', () => {
+    const one = parseNavXml(`<ShopProductGroup><ProductGroup><ProductGroupCode>303 STÜTZ</ProductGroupCode><ProductGroupDescription>
+      </ProductGroupDescription></ProductGroup></ShopProductGroup>`)
+    assert.equal(one.type, 'groups')
+    assert.deepEqual(one.records, [{ code: '303 STÜTZ', description: '' }])
+    const two = parseNavXml(`<ShopProductGroup>
+      <ProductGroup><ProductGroupCode>101 US</ProductGroupCode><ProductGroupDescription>Unterschenkel Stumpfstrumpf</ProductGroupDescription></ProductGroup>
+      <ProductGroup><ProductGroupCode>101 US</ProductGroupCode><ProductGroupDescription>Unterschenkel</ProductGroupDescription></ProductGroup>
+    </ShopProductGroup>`)
+    assert.deepEqual(two.records, [{ code: '101 US', description: 'Unterschenkel' }], 'a code listed twice keeps its last entry')
+  })
+
+  it('still reads <ProductGroup> inside a ShopItem as plain text', () => {
+    const result = parseNavXml(file(item('40 000 001 12')))
+    assert.equal(result.records[0].productGroup, '201-KLAS')
+  })
+})
+
+describe('broken code lists and files', () => {
+  it('lists entries without a readable code as errors, but not NAV’s empty first entry', () => {
+    const result = parseNavXml(`<ShopItemCategories>
+      <ItemCategory><ItemCategoryCode>
+        </ItemCategoryCode><ItemCategoryDescription>
+        </ItemCategoryDescription></ItemCategory>
+      <ItemCategory><ItemCategoryCode><b>X</b></ItemCategoryCode><ItemCategoryDescription>d</ItemCategoryDescription></ItemCategory>
+      <ItemCategory><ItemCategoryDescription>nur Beschreibung</ItemCategoryDescription></ItemCategory>
+      <ItemCategory><ItemCategoryCode>OK</ItemCategoryCode><ItemCategoryDescription>gut</ItemCategoryDescription></ItemCategory>
+    </ShopItemCategories>`)
+    assert.deepEqual(result.records, [{ code: 'OK', description: 'gut' }])
+    assert.deepEqual(result.errors, [
+      { row: 2, value: 'd', message: 'missingCode' },
+      { row: 3, value: 'nur Beschreibung', message: 'missingCode' },
+    ])
+  })
+
+  it('refuses a file with two root elements', () => {
+    assert.equal(parseNavXml('<ShopProductGroup/><ShopItemCategories/>').error, 'invalidXml')
+    assert.equal(parseNavXml(`${file(item('40 000 001 12'))}<Customers/>`).error, 'invalidXml')
+  })
+})

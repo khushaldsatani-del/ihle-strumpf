@@ -41,6 +41,17 @@ describe('shop catalogue', () => {
     assert.equal(sock.translations.en.name, 'Diabetic Sock classic')
     assert.ok(!/price/i.test(JSON.stringify(data)), 'prices must never reach guests')
   })
+
+  it('lists only the categories and product groups that have articles, without NAV-internal ones', async () => {
+    const { data } = await call('/api/shop/products?photos=optional')
+    const used = new Set(data.products.map((product) => `${product.category}|${product.group}`))
+    for (const category of data.categories) {
+      assert.ok(category.name, `${category.code} has a name (description or code)`)
+      assert.ok(data.products.some((product) => product.category === category.code), `${category.code} has articles`)
+      for (const group of category.groups) assert.ok(used.has(`${category.code}|${group.code}`), `${group.code} has articles`)
+    }
+    assert.ok(!data.categories.some((category) => /^(MATERIAL|RHB)/.test(category.code)), 'no NAV-internal categories in the menu')
+  })
 })
 
 describe('customer login and account', () => {
@@ -229,6 +240,19 @@ describe('security basics', () => {
       assert.equal(response.status, 404, name)
     }
     assert.equal((await call('/api/photos/original/40000_001_01.webp')).status, 404)
+  })
+
+  it('refuses the NUL character anywhere in a request as a bad request, not a server error', async () => {
+    assert.equal((await call('/api/shop/login', { method: 'POST', body: { customerNumber: 'a\u0000', password: 'x' } })).status, 400)
+    assert.equal((await call('/api/admin/login', { method: 'POST', body: { username: 'a', password: 'x\u0000' } })).status, 400)
+    const cookie = await customerLogin()
+    const order = await call('/api/shop/orders', {
+      method: 'POST',
+      cookie,
+      body: { items: [{ sku: '40 000 001 12', quantity: 1, commission: 'ZZTEST' }], delivery: { type: 'billing' }, deliveryNote: 'ZZTEST \u0000' },
+    })
+    assert.equal(order.status, 400)
+    assert.equal((await call('/api/health')).status, 200)
   })
 
   it('SQL-like input in the login is just a wrong login', async () => {

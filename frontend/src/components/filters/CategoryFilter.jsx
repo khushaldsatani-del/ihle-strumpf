@@ -1,15 +1,17 @@
 import { useId } from 'react'
 import { useTranslation } from 'react-i18next'
-import { CATEGORIES } from '../../data/categories.js'
+import { useCatalog } from '../../context/CatalogContext.jsx'
+import { nameOf } from '../../data/categories.js'
 
 // Category as a radio list with the coloured dots of the navigation. selected = category code or null.
 export default function CategoryFilter({ legend, selected, onSelect, count, total }) {
   const { t } = useTranslation()
   const name = useId()
+  const { categories } = useCatalog()
 
   const options = [
     { code: null, label: t('filters.allCategories'), count: total },
-    ...CATEGORIES.map(({ code, nameKey, color }) => ({ code, label: t(nameKey), color, count: count(code) })),
+    ...categories.map((category) => ({ code: category.code, label: nameOf(t, category), color: category.color, count: count(category.code) })),
   ]
 
   return (

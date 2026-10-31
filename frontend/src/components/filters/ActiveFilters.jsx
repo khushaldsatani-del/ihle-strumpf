@@ -9,9 +9,9 @@ export default function ActiveFilters({ items }) {
   return (
     <ul aria-label={t('filters.active')} className="flex flex-wrap gap-2 px-1 pb-4">
       {items.map(({ key, label, onRemove }) => (
-        <li key={key}>
+        <li key={key} className="min-w-0">
           <button type="button" className="filter-active" aria-label={t('filters.remove', { name: label })} onClick={onRemove}>
-            {label}
+            <span className="min-w-0 wrap-anywhere">{label}</span>
             <X size={14} strokeWidth={2.25} aria-hidden="true" />
           </button>
         </li>

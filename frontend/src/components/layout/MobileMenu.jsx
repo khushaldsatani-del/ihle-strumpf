@@ -4,7 +4,8 @@ import { ChevronDown } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { Link, NavLink } from 'react-router-dom'
 import { NAV_LINKS } from '../../config/navigation.js'
-import { CATEGORIES, categoryPath } from '../../data/categories.js'
+import { useCatalog } from '../../context/CatalogContext.jsx'
+import { categoryPath, nameOf } from '../../data/categories.js'
 import { LanguageToggle } from './LanguageSwitcher.jsx'
 import SearchBar from './SearchBar.jsx'
 
@@ -66,6 +67,7 @@ function AccordionButton({ open, controls, label, onClick }) {
  */
 export default function MobileMenu({ containerRef, onClose }) {
   const { t } = useTranslation()
+  const { categories } = useCatalog()
   const [showCategories, setShowCategories] = useState(false)
   const [openCategory, setOpenCategory] = useState(null) // code of the category whose groups are shown
 
@@ -131,24 +133,25 @@ export default function MobileMenu({ containerRef, onClose }) {
             <AnimatePresence initial={false}>
               {showCategories && (
                 <motion.ul id="mobile-categories" className="overflow-hidden border-l border-(--nav-border) pl-4" {...accordion}>
-                  {CATEGORIES.map(({ code, nameKey, color, groups }) => {
+                  {categories.map((category) => {
+                    const { code, color, groups } = category
                     const isOpen = openCategory === code
                     return (
                       <li key={code}>
                         <div className="flex items-center gap-2">
                           <Link
                             to={categoryPath(code)}
-                            className="flex min-h-11 flex-1 items-center gap-3 text-base font-semibold"
+                            className="flex min-h-11 min-w-0 flex-1 items-center gap-3 text-base font-semibold wrap-anywhere"
                             onClick={onClose}
                           >
                             <span aria-hidden="true" className="size-2.5 shrink-0 rounded-full" style={{ backgroundColor: color }} />
-                            {t(nameKey)}
+                            {nameOf(t, category)}
                           </Link>
                           {groups.length > 0 && (
                             <AccordionButton
                               open={isOpen}
                               controls={`mobile-groups-${code}`}
-                              label={t(nameKey)}
+                              label={nameOf(t, category)}
                               onClick={() => setOpenCategory(isOpen ? null : code)}
                             />
                           )}
@@ -161,10 +164,10 @@ export default function MobileMenu({ containerRef, onClose }) {
                                 <li key={group.code}>
                                   <Link
                                     to={categoryPath(code, group.code)}
-                                    className="flex min-h-11 items-center text-[0.95rem] text-(--nav-fg-muted)"
+                                    className="flex min-h-11 items-center text-[0.95rem] text-(--nav-fg-muted) wrap-anywhere"
                                     onClick={onClose}
                                   >
-                                    {t(group.nameKey)}
+                                    {nameOf(t, group)}
                                   </Link>
                                 </li>
                               ))}

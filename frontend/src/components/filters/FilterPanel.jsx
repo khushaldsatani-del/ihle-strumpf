@@ -3,7 +3,8 @@ import { createPortal } from 'react-dom'
 import { motion } from 'motion/react'
 import { X } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { CATEGORIES, findCategory } from '../../data/categories.js'
+import { useCatalog } from '../../context/CatalogContext.jsx'
+import { findCategory, nameOf } from '../../data/categories.js'
 import { colorHex, colorLabel, FIBRES, sizeLabel } from '../../data/filters.js'
 import { countOption } from '../../utils/filterProducts.js'
 import ActiveFilters from './ActiveFilters.jsx'
@@ -48,21 +49,25 @@ function optionsOf(products) {
 export default function FilterPanel({ id, api, products, resultCount, onClose, footer = false, closeRef }) {
   const { t } = useTranslation()
   const { filters, activeCount, setCategory, toggle, reset } = api
-  const category = findCategory(filters.category)
+  const { categories } = useCatalog()
+  const category = findCategory(filters.category, categories)
   const options = optionsOf(products)
   const count = (key) => (value) => countOption(products, filters, key, value)
   const unitName = (code) => t(`filters.units.${code}`, { defaultValue: code })
 
   // Chips for every active filter
   const labels = {
-    group: (code) => t(category?.groups.find((group) => group.code === code)?.nameKey ?? code),
+    group: (code) => {
+      const group = category?.groups.find((entry) => entry.code === code)
+      return group ? nameOf(t, group) : code
+    },
     color: (code) => options.colors.find((color) => color.code === code)?.name ?? code,
     size: (code) => sizeLabel(code),
     material: (code) => t(`filters.materials.${code}`),
     unit: unitName,
   }
   const active = [
-    ...(category ? [{ key: 'category', label: t(category.nameKey), onRemove: () => setCategory(null) }] : []),
+    ...(category ? [{ key: 'category', label: nameOf(t, category), onRemove: () => setCategory(null) }] : []),
     ...Object.keys(labels).flatMap((key) =>
       filters[key].map((value) => ({ key: `${key}-${value}`, label: labels[key](value), onRemove: () => toggle(key, value) })),
     ),
@@ -91,7 +96,7 @@ export default function FilterPanel({ id, api, products, resultCount, onClose, f
             selected={filters.category}
             onSelect={setCategory}
             count={count('category')}
-            total={CATEGORIES.reduce((sum, { code }) => sum + count('category')(code), 0)}
+            total={categories.reduce((sum, { code }) => sum + count('category')(code), 0)}
           />
         </FilterSection>
 

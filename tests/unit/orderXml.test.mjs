@@ -44,4 +44,16 @@ describe('buildOrderXml', () => {
     const xml = buildOrderXml(order([{ sku: '40 000 001 12', amount: 1, unitPrice: 1, commission: 'Frau 😀 Müller\u0001\u0008' }]), customer)
     assert.ok(isValidXmlText(xml), 'contains characters or references XML forbids')
   })
+
+  it('writes the delivery note after the receipt number, escaped like customer input', () => {
+    const items = [{ sku: '40 000 001 12', amount: 1, unitPrice: 1, commission: '' }]
+    const xml = buildOrderXml({ ...order(items), deliveryNote: 'Rampe 2 & <Tor> 😀\u0001' }, customer)
+    assert.match(xml, /<receiptNo\/>\n {2}<deliveryNote>Rampe 2 &amp; &lt;Tor&gt; &#x1F600;<\/deliveryNote>\n {2}<customer>/)
+    assert.ok(isValidXmlText(xml), 'contains characters or references XML forbids')
+  })
+
+  it('writes an empty <deliveryNote/> when the customer left no note', () => {
+    const xml = buildOrderXml(order([{ sku: '40 000 001 12', amount: 1, unitPrice: 1, commission: '' }]), customer)
+    assert.match(xml, /<deliveryNote\/>/)
+  })
 })

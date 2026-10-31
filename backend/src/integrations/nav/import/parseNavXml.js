@@ -1,6 +1,7 @@
 import { XMLParser, XMLValidator } from 'fast-xml-parser'
 
-// Reads NAV's two export files: nav_ShopItems.xml (products) and nav_ShopCustomers.xml (customers).
+// Reads NAV's export files: nav_ShopItems.xml (products), nav_ShopCustomers.xml (customers) and the two code lists
+// nav_ShopItemCategories.xml and nav_ShopProductGroup.xml (code + German description of each category and product group).
 // The type is recognised by the root element. The format is fixed by Ihle's NAV export.
 //
 // A product's <Name> has 4–5 lines, e.g.
@@ -19,6 +20,8 @@ const ARRAYS = new Set([
   'ShopItem', 'Picture', 'ItemTextLine', 'SubItem', 'Attribute', 'Translation', 'Customer', 'PaymentCode', 'BillingAddress', 'ShippingAddress',
 ])
 
+const CODE_LIST_ENTRIES = new Set(['ShopItemCategories.ItemCategory', 'ShopProductGroup.ProductGroup'])
+
 const parser = new XMLParser({
   ignoreAttributes: false,
   attributeNamePrefix: '',
@@ -26,7 +29,8 @@ const parser = new XMLParser({
   parseTagValue: false,
   parseAttributeValue: false,
   trimValues: true,
-  isArray: (name) => ARRAYS.has(name),
+  // <ProductGroup> is a text field in a ShopItem but a repeating entry in nav_ShopProductGroup.xml, so the code lists go by path
+  isArray: (name, path) => ARRAYS.has(name) || CODE_LIST_ENTRIES.has(path),
 })
 
 const SIZE_BY_CODE = { 12: '35-38', 13: '39-42', 14: '43-46', 15: '47-50' }
@@ -207,6 +211,26 @@ function parseCustomers(customers) {
   return { records, errors, rowCount: customers.length }
 }
 
+// A code list: one record per code with its description (may be empty; the shop then shows the code).
+// A completely empty entry (NAV's export starts with one) is skipped silently; an entry that has something but no
+// readable code (e.g. only a description, or markup inside the code) is listed as an error. A code listed twice
+// keeps its last entry.
+function parseCodes(entries, codeField, descriptionField) {
+  const codes = new Map()
+  const errors = []
+  entries.forEach((entry, index) => {
+    const code = text(entry?.[codeField])
+    const description = text(entry?.[descriptionField])
+    if (code) return codes.set(code, { code, description })
+    const raw = entry?.[codeField]
+    if (description || (raw !== undefined && typeof raw === 'object')) errors.push({ row: index + 1, value: description, message: 'missingCode' })
+  })
+  return { records: [...codes.values()], errors, rowCount: entries.length }
+}
+
+// Root elements of a parsed file, without the <?xml …?> declaration
+const rootsOf = (doc) => Object.keys(doc || {}).filter((key) => !key.startsWith('?'))
+
 export function parseNavXml(xml) {
   // The parser is lenient and would read a cut-off file (e.g. an interrupted upload) as far as it goes,
   // so the file is checked to be complete, well-formed XML first (about 0.3 s for NAV's full export)
@@ -217,7 +241,17 @@ export function parseNavXml(xml) {
   } catch {
     return { type: null, error: 'invalidXml' }
   }
+  // XML has exactly one root; the validator lets a second one through (e.g. two files pasted together)
+  if (rootsOf(doc).length !== 1) return { type: null, error: 'invalidXml' }
   if (doc?.ShopItems !== undefined) return { type: 'items', ...parseItems(doc.ShopItems?.ShopItem || []) }
   if (doc?.Customers !== undefined) return { type: 'customers', ...parseCustomers(doc.Customers?.Customer || []) }
+  if (doc?.ShopItemCategories !== undefined) {
+    const entries = doc.ShopItemCategories?.ItemCategory || []
+    return { type: 'categories', ...parseCodes(entries, 'ItemCategoryCode', 'ItemCategoryDescription') }
+  }
+  if (doc?.ShopProductGroup !== undefined) {
+    const entries = doc.ShopProductGroup?.ProductGroup || []
+    return { type: 'groups', ...parseCodes(entries, 'ProductGroupCode', 'ProductGroupDescription') }
+  }
   return { type: null, error: 'unknownFile' }
 }

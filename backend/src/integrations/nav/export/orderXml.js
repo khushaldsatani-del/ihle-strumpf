@@ -5,9 +5,8 @@ const round2 = (value) => Math.round(value * 100) / 100
 
 // Every sample order carries a discount of exactly 1 % of the line total (at list prices), and
 // totalNet = line total + 1 %. Copied exactly, so NAV's import reads our files like the old shop's.
-// The customer sees the 1 % subtracted ("Online-Rabatt", like the old shop's order overview), which doesn't fit
-// totalNet here; asked Ihle which totalNet NAV expects. The delivery note isn't in the file yet either: it goes in
-// once Ihle names the element NAV reads it from.
+// The customer sees the 1 % subtracted ("Online-Rabatt", like the old shop's order overview); Ihle confirmed the
+// file stays as it is (totalNet = line total + 1 %) and only the shop shows the reduced amount.
 export const ORDER_DISCOUNT_RATE = 0.01
 
 export function orderTotals(items, shippingCost = 0) {
@@ -85,7 +84,7 @@ function address(name, value) {
   ].join('\n')
 }
 
-// order: { orderNo, createdAt, receiptNo, billing, shippingAddress, paymentCode, shippingCost, items }
+// order: { orderNo, createdAt, receiptNo, deliveryNote, billing, shippingAddress, paymentCode, shippingCost, items }
 // customer: { number, email, salesperson, vatId }
 export function buildOrderXml(order, customer) {
   const totals = orderTotals(order.items, order.shippingCost)
@@ -101,6 +100,8 @@ export function buildOrderXml(order, customer) {
     tag('discount', navNumber(totals.discount), '  '),
     tag('salesperson', customer.salesperson, '  '),
     tag('receiptNo', order.receiptNo, '  '),
+    // The customer's "Anmerkung zur Lieferung"; element name given by Ihle, always written (<deliveryNote/> when empty)
+    tag('deliveryNote', order.deliveryNote, '  '),
     '  <customer>',
     // The old shop's internal customer id; empty until Ihle says NAV needs a value here
     tag('id', '', '    '),

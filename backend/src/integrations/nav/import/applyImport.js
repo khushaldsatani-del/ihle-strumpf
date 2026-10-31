@@ -5,7 +5,7 @@ import { parseNavXml } from './parseNavXml.js'
 // Import of a NAV file: preview (what would change) and apply (save it). Both start from the same file,
 // so the admin's "confirm" sends the file again; nothing is kept between the two requests.
 // Rules: SKUs and pictures in the file are added or updated, never deleted (a partial file loses nothing);
-// an article is blocked only when all of its SKUs are blocked.
+// an article is blocked only when all of its SKUs are blocked. The same holds for the code lists (categories, groups).
 
 const variantKey = (variant) =>
   `${variant.sku}|${variant.price}|${variant.price2}|${variant.blocked}|${variant.size}|${variant.color}|${variant.colorName}`
@@ -62,6 +62,23 @@ const customerKey = (customer) =>
 const storedCustomerKey = (row) =>
   JSON.stringify([row.email, row.price_group, row.payment_code, row.billing, row.shipping_addresses])
 
+// Code lists: the file type → the kind stored in nav_codes
+const CODE_KINDS = { categories: 'category', groups: 'group' }
+
+async function loadCodes(kind) {
+  const { rows } = await query('SELECT code, description FROM nav_codes WHERE kind = $1', [kind])
+  return new Map(rows.map((row) => [row.code, row.description]))
+}
+
+async function saveCodes(client, kind, records) {
+  await client.query(
+    `INSERT INTO nav_codes (kind, code, description, updated_at)
+     SELECT $1, r.code, r.description, now() FROM jsonb_to_recordset($2::jsonb) AS r(code text, description text)
+     ON CONFLICT (kind, code) DO UPDATE SET description = EXCLUDED.description, updated_at = now()`,
+    [kind, JSON.stringify(records)],
+  )
+}
+
 // What the file would change, without saving anything
 export async function previewImport(xml) {
   const parsed = parseNavXml(xml)
@@ -74,6 +91,13 @@ export async function previewImport(xml) {
       const current = existing.get(record.articleNo)
       if (!current) diff.created.push(record)
       else if (productChanged(current, record)) diff.updated.push(record)
+      else diff.unchanged.push(record)
+    }
+  } else if (CODE_KINDS[parsed.type]) {
+    const existing = await loadCodes(CODE_KINDS[parsed.type])
+    for (const record of parsed.records) {
+      if (!existing.has(record.code)) diff.created.push(record)
+      else if (existing.get(record.code) !== record.description) diff.updated.push(record)
       else diff.unchanged.push(record)
     }
   } else {
@@ -202,6 +226,7 @@ export async function applyImport(xml, { fileName, admin }) {
   const run = await transaction(async (client) => {
     if (changed.length) {
       if (preview.type === 'items') await saveProducts(client, changed)
+      else if (CODE_KINDS[preview.type]) await saveCodes(client, CODE_KINDS[preview.type], changed)
       else await saveCustomers(client, changed)
     }
     const { rows } = await client.query(

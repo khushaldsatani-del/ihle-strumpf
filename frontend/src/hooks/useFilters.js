@@ -1,5 +1,6 @@
 import { useMemo } from 'react'
 import { useSearchParams } from 'react-router-dom'
+import { useCatalog } from '../context/CatalogContext.jsx'
 import { findCategory } from '../data/categories.js'
 import { MULTI_FILTERS } from '../data/filters.js'
 
@@ -12,15 +13,16 @@ const EMPTY = { category: null, group: [], color: [], size: [], material: [], un
  */
 export default function useFilters() {
   const [searchParams, setSearchParams] = useSearchParams()
+  const { categories } = useCatalog()
 
   const filters = useMemo(() => {
-    const category = findCategory(searchParams.get('category'))
+    const category = findCategory(searchParams.get('category'), categories)
     const result = { category: category?.code ?? null }
     for (const key of MULTI_FILTERS) result[key] = searchParams.getAll(key)
     // product groups only count when they belong to the chosen category
     result.group = result.group.filter((code) => category?.groups.some((group) => group.code === code))
     return result
-  }, [searchParams])
+  }, [searchParams, categories])
 
   const write = (next) => {
     const params = new URLSearchParams()

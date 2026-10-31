@@ -43,6 +43,15 @@ export default function Products() {
       .sort((a, b) => a.articleNo.localeCompare(b.articleNo))
   }, [products, query, category, state])
 
+  // The categories the articles really have: the known ones in their usual order, then any other NAV code
+  // (e.g. MATERIAL), then articles without a category
+  const categories = useMemo(() => {
+    const used = new Set(products.map((product) => product.category))
+    const known = CATEGORIES.map((entry) => entry.navCode).filter((code) => used.has(code))
+    const others = [...used].filter((code) => code && !known.includes(code)).sort((a, b) => a.localeCompare(b, 'de'))
+    return [...known, ...others, ...(used.has('') ? [''] : [])]
+  }, [products])
+
   const paged = usePaged(filtered, `${query}|${category}|${state}`)
 
   return (
@@ -68,9 +77,9 @@ export default function Products() {
           <div className="flex gap-3 sm:ml-auto">
             <select className="field sm:w-52" value={category} onChange={(event) => setCategory(event.target.value)} aria-label={t('products.category')}>
               <option value="all">{t('products.allCategories')}</option>
-              {CATEGORIES.map((entry) => (
-                <option key={entry.navCode} value={entry.navCode}>
-                  {categoryName(entry.navCode)}
+              {categories.map((code) => (
+                <option key={code || 'none'} value={code}>
+                  {code ? categoryName(code) : t('products.noCategory')}
                 </option>
               ))}
             </select>

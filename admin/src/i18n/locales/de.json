@@ -150,6 +150,7 @@
     "search": "Artikelnr., Name, SKU …",
     "category": "Kategorie",
     "allCategories": "Alle Kategorien",
+    "noCategory": "Ohne Kategorie",
     "stateLabel": "Status",
     "allStates": "Alle Status",
     "state": {
@@ -207,9 +208,9 @@
   },
   "import": {
     "title": "Import",
-    "subtitle": "NAV-Dateien hochladen: Produkte und Kunden anlegen oder aktualisieren.",
+    "subtitle": "NAV-Dateien hochladen: Produkte, Kunden, Kategorien und Produktgruppen anlegen oder aktualisieren.",
     "dropTitle": "XML-Datei hierher ziehen",
-    "dropText": "nav_ShopItems.xml (Produkte) oder nav_ShopCustomers.xml (Kunden). Die Art der Datei wird automatisch erkannt. Vor dem Speichern sehen Sie eine Vorschau.",
+    "dropText": "nav_ShopItems.xml (Produkte), nav_ShopCustomers.xml (Kunden), nav_ShopItemCategories.xml (Kategorien) oder nav_ShopProductGroup.xml (Produktgruppen). Die Art der Datei wird automatisch erkannt. Vor dem Speichern sehen Sie eine Vorschau.",
     "choose": "Datei auswählen",
     "done": "{{file}} wurde importiert.",
     "summary": "{{created}} neu, {{updated}} aktualisiert, {{errors}} Fehler.",
@@ -223,6 +224,14 @@
         "name": "nav_ShopCustomers.xml",
         "text": "Kunden mit Preisgruppe, Zahlungsart, Rechnungs- und Lieferadressen."
       },
+      "categories": {
+        "name": "nav_ShopItemCategories.xml",
+        "text": "Artikelkategorien mit Beschreibung. Der Shop zeigt nur Kategorien mit Artikeln, benannt nach der Beschreibung (oder dem Code)."
+      },
+      "groups": {
+        "name": "nav_ShopProductGroup.xml",
+        "text": "Produktgruppen mit Beschreibung, im Shop als Unterkategorien einer Kategorie."
+      },
       "orders": {
         "name": "1300003946.xml …",
         "text": "Bestellungen gehen umgekehrt an NAV: eine Datei pro Bestellung (Download in der Bestellung)."
@@ -231,7 +240,9 @@
     "previewTitle": "Vorschau: {{file}}",
     "type": {
       "items": "Produkte (ShopItems)",
-      "customers": "Kunden (ShopCustomers)"
+      "customers": "Kunden (ShopCustomers)",
+      "categories": "Artikelkategorien (ShopItemCategories)",
+      "groups": "Produktgruppen (ShopProductGroup)"
     },
     "typeLabel": "Art",
     "rows_one": "{{count}} Eintrag in der Datei",
@@ -248,16 +259,20 @@
       "notXml": "Bitte eine XML-Datei auswählen.",
       "tooLarge": "Die Datei ist zu groß für den Upload.",
       "invalidXml": "Die Datei ist kein gültiges XML.",
-      "unknownFile": "Unbekannte Datei: erwartet wird nav_ShopItems.xml oder nav_ShopCustomers.xml.",
+      "unknownFile": "Unbekannte Datei: erwartet wird nav_ShopItems.xml, nav_ShopCustomers.xml, nav_ShopItemCategories.xml oder nav_ShopProductGroup.xml.",
       "invalidSku": "SKU nicht im Format „40 000 001 12“ – übersprungen.",
       "missingPrice": "Preis fehlt.",
       "missingBilling": "Rechnungsadresse fehlt.",
       "missingNumber": "Kundennummer fehlt.",
+      "missingCode": "Eintrag ohne lesbaren Code – übersprungen.",
       "noFile": "Keine Datei empfangen.",
       "serverError": "Die Datei konnte gerade nicht verarbeitet werden. Bitte erneut versuchen.",
       "offline": "Der Server ist nicht erreichbar."
     },
     "change": "Änderung",
+    "code": "Code",
+    "description": "Beschreibung",
+    "noDescription": "keine Beschreibung – der Shop zeigt den Code",
     "moreRows": "… und {{count}} weitere.",
     "history": "Import-Verlauf",
     "date": "Datum",
@@ -287,23 +302,23 @@
     "DIABETES_P": "Diabetes & Problemfuß",
     "BUSINESS_S": "Business, Sport & Natur",
     "UNTERWAE": "Unterwäsche",
-    "ALLTAG": "ilo® / Alltag"
+    "ALLTAG": "ilo®-Strümpfe"
   },
   "groups": {
-    "101_US": "Unterschenkel-Stumpfstrumpf",
-    "102_US_PIN": "Unterschenkel-Stumpfstrumpf für Pin-Systeme",
-    "103_OS": "Oberschenkel-Stumpfstrumpf",
-    "104_OS_PIN": "Oberschenkel-Stumpfstrumpf für Pin-Systeme",
-    "105_ARM": "Kinder-/Arm-Stumpfstrumpf",
+    "101_US": "Unterschenkel Stumpfstrumpf",
+    "102_US_PIN": "Unterschenkel für Pin-Systeme",
+    "103_OS": "Oberschenkel Stumpfstrumpf",
+    "104_OS_PIN": "Oberschenkel für Pin-Systeme",
+    "105_ARM": "Kinder/Arm Stumpfstrumpf",
     "106_MASS": "Maßanfertigung",
     "107_LAM": "Laminierschlauch",
     "108_GIPS": "Gipsschutz",
-    "109_ORTH": "Orthesen-Textil",
+    "109_ORTH": "Orthesen Textil",
     "201_KLAS": "Klassisch",
     "202_KOMF": "Komfort",
     "203_STUETZ": "Stützstrumpf",
-    "204_HALLUX": "Hallux valgus",
-    "205_CHOPRT": "Chopart / Lisfranc",
+    "204_HALLUX": "Hallux Valgus",
+    "205_CHOPRT": "Chopart Lisfranc",
     "301_KLAS": "Klassisch",
     "302_KOMF": "Komfort",
     "303_SPORT": "Sport",

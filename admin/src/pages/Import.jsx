@@ -11,7 +11,10 @@ import { categoryName } from '../utils/names.js'
 const PREVIEW_ROWS = 50
 const MAX_FILE_SIZE = 50 * 1024 * 1024
 
-const recordKey = (type, record) => (type === 'items' ? record.articleNo : record.number)
+// The two code lists (item categories, product groups) have one entry per code with its description
+const CODE_LISTS = new Set(['categories', 'groups'])
+
+const recordKey = (type, record) => (type === 'items' ? record.articleNo : CODE_LISTS.has(type) ? record.code : record.number)
 
 function ProgressBar({ progress }) {
   const { t } = useTranslation()
@@ -164,7 +167,7 @@ export default function Import() {
         <aside className="card p-5 text-sm">
           <h2 className="text-base">{t('import.howTitle')}</h2>
           <ul className="mt-3 space-y-3">
-            {['items', 'customers', 'orders'].map((key) => (
+            {['items', 'customers', 'categories', 'groups', 'orders'].map((key) => (
               <li key={key} className="flex gap-3">
                 <FileCode2 size={18} className="mt-0.5 shrink-0 text-brand" aria-hidden="true" />
                 <span>
@@ -265,6 +268,12 @@ export default function Import() {
                       <th className="num">{t('priceFields.price2')}</th>
                       <th>{t('import.photos')}</th>
                     </tr>
+                  ) : CODE_LISTS.has(preview.type) ? (
+                    <tr>
+                      <th>{t('import.change')}</th>
+                      <th>{t('import.code')}</th>
+                      <th>{t('import.description')}</th>
+                    </tr>
                   ) : (
                     <tr>
                       <th>{t('import.change')}</th>
@@ -304,6 +313,11 @@ export default function Import() {
                               <Badge tone="warn">{t('products.state.waiting')}</Badge>
                             )}
                           </td>
+                        </>
+                      ) : CODE_LISTS.has(preview.type) ? (
+                        <>
+                          <td className="whitespace-nowrap font-mono text-xs text-heading">{record.code}</td>
+                          <td className="min-w-56">{record.description || <span className="text-muted">{t('import.noDescription')}</span>}</td>
                         </>
                       ) : (
                         <>

@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { api } from '../utils/api.js'
+import { setNavNames } from '../utils/names.js'
 import { DataContext, useAuth } from './contexts.js'
 
 // Everything the admin pages show, loaded from the backend (GET /api/admin/data) after login.
@@ -23,6 +24,7 @@ export default function DataProvider({ children }) {
   const apply = useCallback(
     ({ result, error }) => {
       if (result) {
+        setNavNames(result.navNames)
         setData(result)
         setStatus('ready')
       } else if (error.status === 401) expire()

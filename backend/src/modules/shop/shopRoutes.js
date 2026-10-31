@@ -48,6 +48,39 @@ const toProduct = (row) => ({
   variants: row.variants?.map(({ vat, ...variant }) => ({ ...variant, vatRate: vatRate(vat) })) ?? null,
 })
 
+// NAV-internal categories (materials, raw materials) never get a menu entry; their articles still show under "All products"
+const INTERNAL_CATEGORY = /^(MATERIAL|RHB)/
+
+// Descriptions from NAV's code lists (nav_codes): { category: Map(code → description), group: Map(…) }.
+// Empty on a database where migration 005 hasn't run yet; the shop then names categories and groups by their code.
+export async function navDescriptions() {
+  const names = { category: new Map(), group: new Map() }
+  try {
+    const { rows } = await query(`SELECT kind, code, description FROM nav_codes WHERE description <> ''`)
+    for (const row of rows) names[row.kind]?.set(row.code, row.description)
+  } catch (error) {
+    if (error.code !== '42P01') throw error // 42P01: table doesn't exist yet
+  }
+  return names
+}
+
+// The shop menu as Ihle asked: only categories and product groups that have articles in the shop,
+// named by NAV's description (the code when there is none). Sorted by code; the shop puts its known categories first.
+export function menuCategories(products, names = { category: new Map(), group: new Map() }) {
+  const groupsByCategory = new Map()
+  for (const product of products) {
+    if (!product.category || INTERNAL_CATEGORY.test(product.category)) continue
+    if (!groupsByCategory.has(product.category)) groupsByCategory.set(product.category, new Set())
+    if (product.group) groupsByCategory.get(product.category).add(product.group)
+  }
+  const byCode = (a, b) => a.localeCompare(b, 'de')
+  return [...groupsByCategory.keys()].sort(byCode).map((code) => ({
+    code,
+    name: names.category.get(code) || code,
+    groups: [...groupsByCategory.get(code)].sort(byCode).map((group) => ({ code: group, name: names.group.get(group) || group })),
+  }))
+}
+
 // Catalogue and prices only change with an import or a photo upload, but every visitor asks for them.
 // The answers are kept in memory for half a minute and cleared at once by an import or upload on this server
 // (clearShopCache, called by the admin routes), so a load of visitors costs one database read per 30 s.
@@ -68,12 +101,9 @@ async function cached(key, load) {
 router.get('/products', async (req, res) => {
   const withoutPhotos = req.query.photos === 'optional'
   const body = await cached(withoutPhotos ? 'products:all' : 'products:photos', async () => {
-    const { rows } = await query(VISIBLE_PRODUCTS, [BLOCKED_CATEGORIES])
-    return {
-      products: rows
-        .filter((row) => row.variants && (withoutPhotos || row.photos))
-        .map((row) => toProduct({ ...row, photos: row.photos || [] })),
-    }
+    const [{ rows }, names] = await Promise.all([query(VISIBLE_PRODUCTS, [BLOCKED_CATEGORIES]), navDescriptions()])
+    const products = rows.filter((row) => row.variants && (withoutPhotos || row.photos)).map((row) => toProduct({ ...row, photos: row.photos || [] }))
+    return { products, categories: menuCategories(products, names) }
   })
   // Short public caching (browsers and Vercel's edge): new imports and photos show up within a minute
   res.set('Cache-Control', 'public, max-age=60, s-maxage=60')
@@ -115,17 +145,17 @@ router.post('/login', async (req, res) => {
   const number = String(req.body?.customerNumber || '').trim()
   const password = String(req.body?.password || '')
   const key = `customer:${number}:${req.ip}`
-  if (loginLimiter.blocked(key)) return res.status(429).json({ error: 'tooManyAttempts' })
+  if (await loginLimiter.blocked(key)) return res.status(429).json({ error: 'tooManyAttempts' })
 
   const customer = number && (await loadCustomer(number))
   // Same answer for an unknown number, no shop access yet, or a wrong password
   // always a full password check, also for unknown numbers (same response time either way)
   const ok = await checkPassword(password, customer?.password_hash)
   if (!ok) {
-    loginLimiter.fail(key)
+    await loginLimiter.fail(key)
     return res.status(401).json({ error: 'wrongCredentials' })
   }
-  loginLimiter.reset(key)
+  await loginLimiter.reset(key)
   res.cookie(CUSTOMER_COOKIE, createToken({ role: 'customer', number: customer.number }), cookieOptions())
   res.json({ user: toUser(customer) })
 })
@@ -147,18 +177,18 @@ router.post('/password', requireCustomer, async (req, res) => {
   const currentPassword = String(req.body?.currentPassword || '')
   const newPassword = String(req.body?.newPassword || '')
   const key = `customer:${req.customer.number}:${req.ip}`
-  if (loginLimiter.blocked(key)) return res.status(429).json({ error: 'tooManyAttempts' })
+  if (await loginLimiter.blocked(key)) return res.status(429).json({ error: 'tooManyAttempts' })
   if (newPassword.length < 8 || newPassword.length > 200) return res.status(400).json({ error: 'passwordTooShort' })
 
   const customer = await loadCustomer(req.customer.number)
   if (!customer?.password_hash) return res.status(401).json({ error: 'notLoggedIn' })
   if (!(await bcrypt.compare(currentPassword, customer.password_hash))) {
-    loginLimiter.fail(key)
+    await loginLimiter.fail(key)
     return res.status(400).json({ error: 'wrongPassword' })
   }
   if (await bcrypt.compare(newPassword, customer.password_hash)) return res.status(400).json({ error: 'samePassword' })
 
-  loginLimiter.reset(key)
+  await loginLimiter.reset(key)
   await query('UPDATE customers SET password_hash = $2, updated_at = now() WHERE number = $1', [customer.number, await bcrypt.hash(newPassword, 12)])
   res.json({ ok: true })
 })
