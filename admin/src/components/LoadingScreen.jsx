@@ -46,6 +46,8 @@ export default function LoadingScreen({ percent, step, loaded = 0, total = 0, st
             </p>
           )}
         </div>
+        {/* Test phase: the backend runs on Render's free plan; remove this note once it moves to a paid plan */}
+        <p className="mt-5 text-xs leading-relaxed text-muted">{t('boot.testHosting')}</p>
       </div>
     </main>
   )

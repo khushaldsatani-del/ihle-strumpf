@@ -355,6 +355,7 @@
     "wakeText": "Nach längerer Pause startet der Server neu. Das dauert bis zu einer Minute.",
     "data": "Daten werden geladen …",
     "size": "{{loaded}} von {{total}}",
-    "done": "Fertig"
+    "done": "Fertig",
+    "testHosting": "Hinweis: Der Admin-Bereich läuft in der Testphase vorübergehend auf einem kostenlosen Test-Server. Deshalb kann das Laden – besonders nach einer längeren Pause – etwas länger dauern."
   }
 }

@@ -355,6 +355,7 @@
     "wakeText": "After a quiet spell the server restarts. This takes up to a minute.",
     "data": "Loading data …",
     "size": "{{loaded}} of {{total}}",
-    "done": "Done"
+    "done": "Done",
+    "testHosting": "Note: during the test phase the admin panel runs on a temporary, free test server. That's why loading can take a little longer, especially after a quiet spell."
   }
 }
