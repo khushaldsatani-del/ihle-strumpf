@@ -80,7 +80,7 @@ router.get('/data', async (req, res) => {
     navDescriptions(),
   ])
 
-  res.json({
+  const body = JSON.stringify({
     // NAV's descriptions of category and product group codes (nav_ShopItemCategories/-ProductGroup.xml)
     navNames: { categories: Object.fromEntries(names.category), groups: Object.fromEntries(names.group) },
     products: products.rows.map((row) => ({
@@ -146,6 +146,8 @@ router.get('/data', async (req, res) => {
     })),
     photoStats: photoStats.rows[0],
   })
+  // The uncompressed size, so the admin panel can show real loading progress (gzip drops Content-Length)
+  res.set('X-Body-Length', String(Buffer.byteLength(body))).type('json').send(body)
 })
 
 // The uploaded XML as text; gzip-compressed uploads (starting with 1f 8b) are unpacked, with a size cap

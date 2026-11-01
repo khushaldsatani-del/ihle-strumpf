@@ -348,5 +348,13 @@
       "serverError": "Fehler beim Speichern",
       "offline": "Server nicht erreichbar"
     }
+  },
+  "boot": {
+    "connect": "Verbindung zum Server …",
+    "wake": "Server wird gestartet …",
+    "wakeText": "Nach längerer Pause startet der Server neu. Das dauert bis zu einer Minute.",
+    "data": "Daten werden geladen …",
+    "size": "{{loaded}} von {{total}}",
+    "done": "Fertig"
   }
 }

@@ -2,6 +2,7 @@ import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import AdminLayout from './components/layout/AdminLayout.jsx'
 import AuthProvider from './context/AuthProvider.jsx'
 import DataProvider from './context/DataProvider.jsx'
+import LoadingScreen from './components/LoadingScreen.jsx'
 import { useAuth } from './context/contexts.js'
 import CustomerDetail from './pages/CustomerDetail.jsx'
 import Customers from './pages/Customers.jsx'
@@ -14,11 +15,11 @@ import ProductDetail from './pages/ProductDetail.jsx'
 import Products from './pages/Products.jsx'
 
 // Every admin page needs a login; after logging in, the admin lands on the page they asked for.
-// The data is only loaded once someone is logged in.
+// The data is only loaded once someone is logged in; until then the start screen shows the progress.
 function RequireAuth({ children }) {
-  const { user, checking } = useAuth()
+  const { user, checking, boot } = useAuth()
   const location = useLocation()
-  if (checking) return null
+  if (checking) return <LoadingScreen {...boot} />
   if (!user) return <Navigate to="/login" replace state={{ from: location.pathname }} />
   return <DataProvider>{children}</DataProvider>
 }

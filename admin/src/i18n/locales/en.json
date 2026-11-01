@@ -348,5 +348,13 @@
       "serverError": "error while saving",
       "offline": "server not reachable"
     }
+  },
+  "boot": {
+    "connect": "Connecting to the server …",
+    "wake": "Starting the server …",
+    "wakeText": "After a quiet spell the server restarts. This takes up to a minute.",
+    "data": "Loading data …",
+    "size": "{{loaded}} of {{total}}",
+    "done": "Done"
   }
 }

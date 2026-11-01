@@ -2,11 +2,12 @@ import { Eye, EyeOff, LockKeyhole } from 'lucide-react'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Navigate, useLocation, useNavigate } from 'react-router-dom'
+import LoadingScreen from '../components/LoadingScreen.jsx'
 import { useAuth } from '../context/contexts.js'
 
 export default function Login() {
   const { t } = useTranslation()
-  const { user, checking, login } = useAuth()
+  const { user, checking, boot, login } = useAuth()
   const navigate = useNavigate()
   const location = useLocation()
   const [username, setUsername] = useState('')
@@ -15,7 +16,7 @@ export default function Login() {
   const [error, setError] = useState(null)
   const [busy, setBusy] = useState(false)
 
-  if (checking) return null
+  if (checking) return <LoadingScreen {...boot} />
   if (user) return <Navigate to="/" replace />
 
   const submit = async (event) => {

@@ -225,3 +225,14 @@ html {
     font-weight: 600;
   }
 }
+
+/* The start screen appears only when loading takes a moment, so a fast start doesn't flash */
+.loading-screen {
+  animation: loading-screen-in 0.2s ease-out 0.3s both;
+}
+
+@keyframes loading-screen-in {
+  from {
+    opacity: 0;
+  }
+}

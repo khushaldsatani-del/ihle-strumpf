@@ -1,4 +1,4 @@
-import { Boxes, FileUp, Loader2, LogOut, Menu, ReceiptText, RotateCw, Users, X } from 'lucide-react'
+import { Boxes, FileUp, LogOut, Menu, ReceiptText, RotateCw, Users, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { NavLink, Outlet, useLocation } from 'react-router-dom'
@@ -127,14 +127,6 @@ export default function AdminLayout() {
         </header>
 
         <main id="content" className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-8">
-          {status === 'loading' && (
-            <div className="grid min-h-[50vh] place-items-center text-sm text-muted" role="status">
-              <span className="flex items-center gap-2">
-                <Loader2 size={18} className="animate-spin" aria-hidden="true" />
-                {t('common.loading')}
-              </span>
-            </div>
-          )}
           {status === 'error' && (
             <div className="card mx-auto max-w-md p-6 text-center" role="alert">
               <p className="font-heading font-bold text-heading">{t('common.loadError')}</p>
