@@ -468,7 +468,12 @@
       "titleLine2": "elke ihle®-sok.",
       "text": "Zorgvuldig gekozen garens van katoen, wol en functionele vezels – voor comfort, duurzaamheid en betrouwbare prestaties.",
       "cta": "Assortiment ontdekken",
-      "imageAlt": "Garenklossen in naturelwit, groen en roest naast een gebreide deken"
+      "imageAlt": "Garenklossen in naturelwit, groen en roest naast een gebreide deken",
+      "secondary": "Breisels bekijken",
+      "facts": {
+        "fibres": "Vezelsoorten",
+        "cuffs": "Boordtypes"
+      }
     },
     "intro": {
       "eyebrow": "Onze materialen",
@@ -530,12 +535,17 @@
           "title": "Halfbadstof",
           "text": "Polstering waar het telt: soms is extra demping aan tenen, zool en hiel genoeg. Daarom zijn modellen in halfbadstof ideaal voor het tussenseizoen."
         }
+      },
+      "compare": {
+        "gauge": "Fijnheid",
+        "padding": "Demping",
+        "none": "Geen",
+        "full": "Volledig",
+        "partial": "Tenen, zool, hiel",
+        "perInch": "{{count}} steken/inch",
+        "hint": "Beweeg over een staal om het breisel te vergroten.",
+        "magnify": "Het breisel vergroot bekijken"
       }
-    },
-    "next": {
-      "eyebrow": "Placeholder",
-      "title": "Er volgt nog een sectie",
-      "text": "Dit gedeelte is tijdelijk en wordt vervangen door het volgende deel van de materiaalpagina."
     },
     "cuffs": {
       "eyebrow": "Boorden",
@@ -554,6 +564,40 @@
         "ribShort": {
           "title": "Ribboord met elastiek",
           "text": "Hier is 4 cm elastiek ingebreid. Wie gezonde voeten heeft, waardeert deze extra steun vaak. Goed om te weten: deze boord is niet geschikt voor diabetici."
+        }
+      },
+      "diabetesYes": "Ontwikkeld voor mensen met diabetes",
+      "diabetesNo": "Niet geschikt voor mensen met diabetes"
+    },
+    "closing": {
+      "title": "Het juiste breisel voor elke behoefte.",
+      "text": "Ontdek sokken en medische breisels van ihle® – of vind een vakhandelaar bij u in de buurt."
+    },
+    "fibres": {
+      "title": "Materialen",
+      "question": "Katoen, wol of SENSICO®?",
+      "claim": "Kwaliteit gaat voor!",
+      "text": "Om ervoor te zorgen dat ihle®-producten waarmaken wat ze beloven, moeten ze strenge tests doorstaan. De keuze van het materiaal hangt alleen af van de behoeften van de drager.",
+      "items": {
+        "cotton": {
+          "title": "Katoen",
+          "text": "Stevig, duurzaam en ademend: katoen neemt vocht goed op en kan tegen veel wasbeurten. Goed om te weten: wie last heeft van zweetvoeten, kiest beter voor sokken van SENSICO®."
+        },
+        "wool": {
+          "title": "Scheerwol",
+          "text": "Perfect voor koude voeten: scheerwol beschermt uitstekend tegen kou, regelt de temperatuur en werkt als een luchtkussen (ze kan tot 50 % van haar eigen gewicht aan lucht vasthouden). Onze tip: dit materiaal is ideaal voor mensen met reuma."
+        },
+        "silver": {
+          "title": "Zilver",
+          "text": "Ontstekingsremmend en antibacterieel: zilver is een betrouwbaar materiaal bij de behandeling van wonden en infecties. ihle® benut de eigenschappen van zilvervezels om de genezing te bevorderen en voetgeur (veroorzaakt door bacteriën) te verminderen."
+        },
+        "sensico": {
+          "title": "SENSICO®",
+          "text": "De vezelmix voor uitzonderlijk comfort: 80 % katoen en 20 % lyocell, dat is SENSICO®. Deze combinatie ontneemt bacteriën en onaangename geurtjes hun voedingsbodem. Wie veel transpireert aan de voeten, draagt het best sokken van SENSICO®."
+        },
+        "synthetic": {
+          "title": "Polyamide / Polyester",
+          "text": "Een must voor sport: sokken en kousen met polyamide/polyester drogen snel, zijn zeer slijtvast en houden hun vorm. Dankzij hun structuur voeren de zachte kunstvezels vocht af van het lichaam. ihle®-producten voor elke dag en voor sport zijn er in veel felle kleuren."
         }
       }
     }
@@ -577,7 +621,7 @@
     "privacy": "Privacy",
     "terms": "Algemene voorwaarden",
     "hoursTitle": "Openingstijden fabriekswinkel:",
-    "hours": "Maandag t/m vrijdag: 8:00 tot 15:00 uur",
+    "hours": "Maandag t/m vrijdag: 7:00 tot 15:00 uur",
     "addressArea": "Bedrijventerrein Heinzebank"
   },
   "addresses": {
@@ -716,5 +760,94 @@
     "143": "Lila",
     "144": "Pitaya",
     "145": "Bordeaux"
+  },
+  "landing": {
+    "topbar": {
+      "outlet": "Fabriekswinkel ma–vr 7:00–15:00",
+      "login": "Dealerlogin"
+    },
+    "nav": {
+      "home": "Home",
+      "products": "Producten",
+      "dealers": "Dealer zoeken"
+    },
+    "claim": "Naadloze medische functionele breisels · Made in Germany",
+    "hero": {
+      "label": "Naadloos gebreid · Medische breisels",
+      "text": "Medische breisels van ihle® voor diabetes, prothetiek, orthetiek en korsettherapie, naadloos gebreid in Wolkenstein, Made in Germany.",
+      "findDealer": "Dealer zoeken",
+      "trust": {
+        "seamless": "Naadloos gebreid",
+        "madeIn": "Made in Germany",
+        "stock": "Uit voorraad leverbaar"
+      },
+      "alt": {
+        "pinkCrossed": "Gekruiste benen in roze ihle® sokken",
+        "prosthesis": "Beenprothese met paarse ihle® kous",
+        "wheelchair": "Persoon in een rolstoel met ihle® sokken",
+        "relaxation": "Ontspannen voeten in ihle® sokken"
+      },
+      "title": "Naadloze medische functionele breiproducten.",
+      "showPhoto": "Foto {{number}} van {{total}} tonen",
+      "slides": {
+        "diabetic": "Witte diabetessokken",
+        "stump-red": "Rood-witte stompkous",
+        "leg-sleeve": "Zwarte beenkous tijdens het lopen",
+        "sock-on": "Een kous aantrekken",
+        "thigh": "Stompkous aan het bovenbeen",
+        "brace": "Onderhemd onder een korset",
+        "stump-fit": "Stompkous aanbrengen",
+        "arm": "Armkous onder een orthese"
+      }
+    },
+    "highlights": {
+      "label": "Uit ons assortiment"
+    },
+    "shapes": {
+      "label": "Sokvormen",
+      "title": "Sok en schoen = past perfect.",
+      "alt": {
+        "footlet": "Tekening van een footie",
+        "short": "Tekening van een korte sok",
+        "knee": "Tekening van een kniekous"
+      }
+    },
+    "colors": {
+      "label": "Kleuren",
+      "groups": {
+        "classic": "Klassiek",
+        "colourful": "Kleurrijk"
+      },
+      "tones_one": "{{count}} tint",
+      "tones_other": "{{count}} tinten"
+    },
+    "dealers": {
+      "label": "Dealer zoeken",
+      "text": "Onze medische breisels, sokken en ondergoed zijn uitsluitend verkrijgbaar bij de vakhandel. Neem contact op met uw vakhandelaar of een medische speciaalzaak bij u in de buurt.",
+      "outlet": "Fabriekswinkel Wolkenstein",
+      "outletLine": "Reuterweg 1 · Bedrijventerrein Heinzebank · ma–vr 7:00–15:00",
+      "route": "Route plannen",
+      "locate": "Mijn locatie",
+      "locateError": "Locatie niet beschikbaar"
+    },
+    "footer": {
+      "about": "ihle® is ervan overtuigd dat orthopedische zorg verder gaat dan het hulpmiddel zelf.",
+      "outlet": "Fabriekswinkel ma–vr 7:00–15:00",
+      "emailPlaceholder": "Uw e-mailadres"
+    }
+  },
+  "contact": {
+    "phone": "Telefoon",
+    "fax": "Fax",
+    "email": "E-mail",
+    "hoursTitle": "Openingstijden fabriekswinkel",
+    "hours": "Maandag t/m vrijdag: 7.00 tot 15.00 uur",
+    "notice": "Let op! Op vrijdag zijn we tot nader bericht alleen open tot 13.00 uur!",
+    "staffTitle": "Onze buitendienst",
+    "south": "Beieren / Baden-Württemberg",
+    "west": "Noordrijn-Westfalen / Nedersaksen",
+    "southwest": "Saarland / Rijnland-Palts / Hessen",
+    "east": "Nieuwe deelstaten",
+    "route": "Route plannen"
   }
 }

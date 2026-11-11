@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { PageLoader } from '../../components/common/Loading.jsx'
 import RollText from '../../components/common/RollText.jsx'
-import { Flag } from '../../components/layout/LanguageDrawer.jsx'
+import { Flag } from '../../components/layout/Flag.jsx'
 import { useAuth } from '../../context/AuthContext.jsx'
 import { LANGUAGES, setLanguage } from '../../i18n/index.js'
 import { api } from '../../utils/api.js'
@@ -19,7 +19,7 @@ function Card({ icon: Icon, title, intro, children, className = '' }) {
   return (
     <section aria-labelledby={titleId} className={`rounded-2xl border border-slate-200 bg-white p-5 sm:p-7 ${className}`}>
       <h2 id={titleId} className="flex items-center gap-2.5 text-lg font-bold text-heading sm:text-xl">
-        <span className="grid size-9 shrink-0 place-items-center rounded-full bg-[#faf3ec] text-[#8a5a3c]">
+        <span className="grid size-9 shrink-0 place-items-center rounded-full bg-ihle-mist text-[#16355b]">
           <Icon size={18} strokeWidth={1.75} aria-hidden="true" />
         </span>
         {title}
@@ -47,7 +47,7 @@ function Choice({ label, options, value, onChange, columns = 'grid-cols-2' }) {
               onClick={() => onChange(option.value)}
               className={`flex min-h-11 min-w-0 items-center justify-center gap-2 rounded-xl border px-3 py-2 text-center text-sm font-semibold leading-tight transition-colors ${
                 active
-                  ? 'border-[#3b1f12] bg-[#3b1f12] text-white'
+                  ? 'border-[#16355b] bg-[#16355b] text-white'
                   : 'border-slate-900/15 bg-white text-heading hover:border-slate-900/35 hover:bg-[#faf8f4]'
               }`}
             >
@@ -165,7 +165,7 @@ function PasswordForm() {
       {/* Result message (announced to screen readers) */}
       <div aria-live="polite">
         {failed && (
-          <p id={`${id}-message`} className="mt-5 flex items-start gap-2.5 rounded-xl bg-[#fdf0ee] p-3.5 text-sm font-medium text-[#a3261a]">
+          <p id={`${id}-message`} className="mt-5 flex items-start gap-2.5 rounded-xl bg-[#fdf0ee] p-3.5 text-sm font-medium text-[#b64558]">
             <CircleAlert size={18} strokeWidth={1.75} aria-hidden="true" className="mt-px shrink-0" />
             {t(`settings.password.errors.${status}`, { count: MIN_PASSWORD })}
           </p>
@@ -226,7 +226,7 @@ export default function Settings() {
       </nav>
 
       <div className="mt-6 lg:mt-8">
-        <h1 className="text-3xl font-bold tracking-tight text-heading sm:text-4xl">{t('settings.title')}</h1>
+        <h1 className="type-page-title">{t('settings.title')}</h1>
       </div>
 
       <div className="mt-10 grid items-start gap-5 lg:grid-cols-2 lg:gap-6">

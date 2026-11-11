@@ -468,7 +468,12 @@
       "titleLine2": "de cada calcetín ihle®.",
       "text": "Hilos de algodón, lana y fibras funcionales cuidadosamente seleccionados – para comodidad, durabilidad y un rendimiento fiable.",
       "cta": "Descubrir la gama",
-      "imageAlt": "Conos de hilo en blanco natural, verde y óxido junto a una manta de punto"
+      "imageAlt": "Conos de hilo en blanco natural, verde y óxido junto a una manta de punto",
+      "secondary": "Ver los tejidos",
+      "facts": {
+        "fibres": "Tipos de fibra",
+        "cuffs": "Tipos de puño"
+      }
     },
     "intro": {
       "eyebrow": "Nuestros materiales",
@@ -530,12 +535,17 @@
           "title": "Medio rizo",
           "text": "Acolchado donde importa: a veces basta un acolchado extra en dedos, planta y talón. Por eso los modelos de medio rizo son ideales para las entretiempos."
         }
+      },
+      "compare": {
+        "gauge": "Galga",
+        "padding": "Acolchado",
+        "none": "Ninguno",
+        "full": "Completo",
+        "partial": "Dedos, planta, talón",
+        "perInch": "{{count}} puntos/pulgada",
+        "hint": "Pase el cursor sobre una muestra para ampliar el tejido.",
+        "magnify": "Ver el tejido ampliado"
       }
-    },
-    "next": {
-      "eyebrow": "Marcador de posición",
-      "title": "Seguirá otra sección",
-      "text": "Esta zona es provisional y se sustituirá por la siguiente parte de la página de material."
     },
     "cuffs": {
       "eyebrow": "Puños",
@@ -554,6 +564,40 @@
         "ribShort": {
           "title": "Puño de canalé con elástico",
           "text": "Aquí van tejidos 4 cm de elástico. Quienes tienen los pies sanos suelen preferir esta sujeción extra. Conviene saberlo: este puño no es adecuado para diabéticos."
+        }
+      },
+      "diabetesYes": "Desarrollado para personas con diabetes",
+      "diabetesNo": "No apto para personas con diabetes"
+    },
+    "closing": {
+      "title": "El tejido adecuado para cada necesidad.",
+      "text": "Descubra los calcetines y tejidos médicos de ihle® – o encuentre un distribuidor especializado cerca de usted."
+    },
+    "fibres": {
+      "title": "Materiales",
+      "question": "¿Algodón, lana o SENSICO®?",
+      "claim": "¡La calidad es lo primero!",
+      "text": "Para que los productos ihle® cumplan lo que prometen, deben superar pruebas rigurosas. La elección del material depende únicamente de las necesidades de quien los lleva.",
+      "items": {
+        "cotton": {
+          "title": "Algodón",
+          "text": "Robusto, duradero y transpirable: el algodón absorbe bien la humedad y resiste muchos lavados. Bueno saberlo: quien tenga los pies sudorosos debería elegir calcetines de SENSICO®."
+        },
+        "wool": {
+          "title": "Lana virgen",
+          "text": "Perfecta para los pies fríos: la lana virgen protege muy bien del frío, regula la temperatura y actúa como un colchón de aire (puede retener hasta el 50 % de su propio peso en aire). Nuestro consejo: este material es ideal para personas con reumatismo."
+        },
+        "silver": {
+          "title": "Plata",
+          "text": "Antiinflamatoria y antibacteriana: la plata es un material fiable en el tratamiento de heridas e infecciones. ihle® aprovecha las propiedades de las fibras de plata para favorecer la curación y reducir el olor de pies (causado por bacterias)."
+        },
+        "sensico": {
+          "title": "SENSICO®",
+          "text": "La mezcla de fibras para un confort excepcional: 80 % algodón y 20 % lyocell, eso es SENSICO®. Esta combinación quita a las bacterias y a los malos olores su caldo de cultivo. Quien sude mucho de los pies debería llevar calcetines de SENSICO®."
+        },
+        "synthetic": {
+          "title": "Poliamida / Poliéster",
+          "text": "Imprescindible para el deporte: los calcetines y medias de poliamida/poliéster se secan rápido, son muy resistentes y mantienen su forma. Gracias a su estructura, las suaves fibras sintéticas alejan la humedad del cuerpo. Los productos ihle® para el día a día y el deporte están disponibles en muchos colores vivos."
         }
       }
     }
@@ -577,7 +621,7 @@
     "privacy": "Privacidad",
     "terms": "Condiciones generales",
     "hoursTitle": "Horario de la tienda de fábrica:",
-    "hours": "De lunes a viernes: de 8:00 a 15:00",
+    "hours": "De lunes a viernes: de 7:00 a 15:00",
     "addressArea": "Polígono industrial Heinzebank"
   },
   "addresses": {
@@ -716,5 +760,94 @@
     "143": "Lila",
     "144": "Pitaya",
     "145": "Burdeos"
+  },
+  "landing": {
+    "topbar": {
+      "outlet": "Tienda de fábrica lun–vie 7:00–15:00",
+      "login": "Acceso distribuidores"
+    },
+    "nav": {
+      "home": "Inicio",
+      "products": "Productos",
+      "dealers": "Buscar distribuidor"
+    },
+    "claim": "Tejidos funcionales médicos sin costuras · Made in Germany",
+    "hero": {
+      "label": "Tejido sin costuras · Tejidos médicos",
+      "text": "Tejidos médicos de ihle® para diabetes, prótesis, ortesis y terapia con corsé, tejidos sin costuras en Wolkenstein, Made in Germany.",
+      "findDealer": "Buscar distribuidor",
+      "trust": {
+        "seamless": "Tejido sin costuras",
+        "madeIn": "Made in Germany",
+        "stock": "Disponible en stock"
+      },
+      "alt": {
+        "pinkCrossed": "Piernas cruzadas con calcetines ihle® rosas",
+        "prosthesis": "Prótesis de pierna con media ihle® morada",
+        "wheelchair": "Persona en silla de ruedas con calcetines ihle®",
+        "relaxation": "Pies relajados con calcetines ihle®"
+      },
+      "title": "Tejidos funcionales médicos sin costuras.",
+      "showPhoto": "Mostrar foto {{number}} de {{total}}",
+      "slides": {
+        "diabetic": "Calcetines blancos para diabéticos",
+        "stump-red": "Media de muñón roja y blanca",
+        "leg-sleeve": "Manga de pierna negra al caminar",
+        "sock-on": "Poniéndose una media",
+        "thigh": "Media de muñón en el muslo",
+        "brace": "Camiseta bajo un corsé",
+        "stump-fit": "Colocación de una media de muñón",
+        "arm": "Manga de brazo bajo una ortesis"
+      }
+    },
+    "highlights": {
+      "label": "De nuestra gama"
+    },
+    "shapes": {
+      "label": "Formas de calcetines",
+      "title": "Calcetín y zapato = combinación perfecta.",
+      "alt": {
+        "footlet": "Dibujo de un pinkie",
+        "short": "Dibujo de un calcetín corto",
+        "knee": "Dibujo de un calcetín alto"
+      }
+    },
+    "colors": {
+      "label": "Colores",
+      "groups": {
+        "classic": "Clásicos",
+        "colourful": "De color"
+      },
+      "tones_one": "{{count}} tono",
+      "tones_other": "{{count}} tonos"
+    },
+    "dealers": {
+      "label": "Búsqueda de distribuidores",
+      "text": "Nuestros tejidos médicos, calcetines y ropa interior solo están disponibles en comercios especializados. Diríjase a su distribuidor especializado o a una ortopedia de su zona.",
+      "outlet": "Tienda de fábrica Wolkenstein",
+      "outletLine": "Reuterweg 1 · Polígono Heinzebank · lun–vie 7:00–15:00",
+      "route": "Cómo llegar",
+      "locate": "Mi ubicación",
+      "locateError": "Ubicación no disponible"
+    },
+    "footer": {
+      "about": "ihle® está convencida de que la atención ortopédica va más allá del propio producto de apoyo.",
+      "outlet": "Tienda de fábrica lun–vie 7:00–15:00",
+      "emailPlaceholder": "Su dirección de correo"
+    }
+  },
+  "contact": {
+    "phone": "Teléfono",
+    "fax": "Fax",
+    "email": "Correo electrónico",
+    "hoursTitle": "Horario de la tienda de fábrica",
+    "hours": "De lunes a viernes: de 7:00 a 15:00",
+    "notice": "¡Atención! Hasta nuevo aviso, los viernes solo abrimos hasta las 13:00.",
+    "staffTitle": "Nuestros representantes",
+    "south": "Baviera / Baden-Wurtemberg",
+    "west": "Renania del Norte-Westfalia / Baja Sajonia",
+    "southwest": "Sarre / Renania-Palatinado / Hesse",
+    "east": "Nuevos estados federados",
+    "route": "Cómo llegar"
   }
 }

@@ -26,7 +26,7 @@ export default function ColorFilter({ legend, colors, selected, onToggle, count 
                 aria-label={`${name} (${matches})`}
                 onChange={() => onToggle(code)}
               />
-              <span className="filter-swatch__dot" style={{ backgroundColor: hex, color: isLight(hex) ? '#3b1f12' : '#fff' }}>
+              <span className="filter-swatch__dot" style={{ backgroundColor: hex, color: isLight(hex) ? '#16355b' : '#fff' }}>
                 {checked && <Check size={16} strokeWidth={3} aria-hidden="true" />}
               </span>
               <span aria-hidden="true" className="filter-count">

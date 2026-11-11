@@ -468,7 +468,12 @@
       "titleLine2": "ogni calza ihle®.",
       "text": "Filati di cotone, lana e fibre funzionali accuratamente selezionati – per comfort, durata e prestazioni affidabili.",
       "cta": "Scopri la gamma",
-      "imageAlt": "Rocche di filato bianco naturale, verde e ruggine accanto a una coperta lavorata a maglia"
+      "imageAlt": "Rocche di filato bianco naturale, verde e ruggine accanto a una coperta lavorata a maglia",
+      "secondary": "Vedi le maglie",
+      "facts": {
+        "fibres": "Tipi di fibra",
+        "cuffs": "Tipi di bordo"
+      }
     },
     "intro": {
       "eyebrow": "I nostri materiali",
@@ -530,12 +535,17 @@
           "title": "Mezza spugna",
           "text": "Imbottitura dove serve: a volte basta un’imbottitura extra su dita, pianta e tallone. I modelli a mezza spugna sono quindi ideali per le mezze stagioni."
         }
+      },
+      "compare": {
+        "gauge": "Finezza",
+        "padding": "Imbottitura",
+        "none": "Nessuna",
+        "full": "Completa",
+        "partial": "Dita, pianta, tallone",
+        "perInch": "{{count}} maglie/pollice",
+        "hint": "Passate sopra un campione per ingrandire la maglia.",
+        "magnify": "Vedere la maglia ingrandita"
       }
-    },
-    "next": {
-      "eyebrow": "Segnaposto",
-      "title": "Seguirà un’altra sezione",
-      "text": "Quest’area è provvisoria e verrà sostituita dalla parte successiva della pagina materiale."
     },
     "cuffs": {
       "eyebrow": "Bordi",
@@ -554,6 +564,40 @@
         "ribShort": {
           "title": "Bordo a coste con elastico",
           "text": "Qui sono lavorati 4 cm di elastico. Chi ha piedi sani preferisce spesso questo sostegno in più. Da sapere: questo bordo non è adatto ai diabetici."
+        }
+      },
+      "diabetesYes": "Sviluppato per persone con diabete",
+      "diabetesNo": "Non adatto a persone con diabete"
+    },
+    "closing": {
+      "title": "La maglia giusta per ogni esigenza.",
+      "text": "Scoprite calze e maglieria medicale ihle® – oppure trovate un rivenditore specializzato vicino a voi."
+    },
+    "fibres": {
+      "title": "Materiali",
+      "question": "Cotone, lana o SENSICO®?",
+      "claim": "La qualità prima di tutto!",
+      "text": "Perché i prodotti ihle® mantengano ciò che promettono, devono superare test rigorosi. La scelta del materiale dipende solo dalle esigenze di chi li indossa.",
+      "items": {
+        "cotton": {
+          "title": "Cotone",
+          "text": "Robusto, resistente e traspirante: il cotone assorbe bene l’umidità e sopporta molti lavaggi. Buono a sapersi: chi soffre di piedi sudati dovrebbe scegliere calze in SENSICO®."
+        },
+        "wool": {
+          "title": "Lana vergine",
+          "text": "Perfetta per i piedi freddi: la lana vergine protegge in modo eccellente dal freddo, regola la temperatura e agisce come un cuscino d’aria (può trattenere fino al 50 % del proprio peso in aria). Il nostro consiglio: questo materiale è ideale per chi soffre di reumatismi."
+        },
+        "silver": {
+          "title": "Argento",
+          "text": "Antinfiammatorio e antibatterico: l’argento è un materiale affidabile nel trattamento di ferite e infezioni. ihle® sfrutta le proprietà delle fibre d’argento per favorire la guarigione e ridurre l’odore dei piedi (causato dai batteri)."
+        },
+        "sensico": {
+          "title": "SENSICO®",
+          "text": "La miscela di fibre per un comfort eccezionale: 80 % cotone e 20 % lyocell, questo è SENSICO®. Questa combinazione toglie a batteri e cattivi odori il loro terreno fertile. Chi suda molto ai piedi dovrebbe indossare calze in SENSICO®."
+        },
+        "synthetic": {
+          "title": "Poliammide / Poliestere",
+          "text": "Un must per lo sport: calze e calzettoni in poliammide/poliestere si asciugano in fretta, sono estremamente resistenti e mantengono la forma. Grazie alla loro struttura, le morbide fibre sintetiche allontanano l’umidità dal corpo. I prodotti ihle® per tutti i giorni e per lo sport sono disponibili in tanti colori vivaci."
         }
       }
     }
@@ -577,7 +621,7 @@
     "privacy": "Privacy",
     "terms": "Condizioni generali",
     "hoursTitle": "Orari dello spaccio aziendale:",
-    "hours": "Da lunedì a venerdì: dalle 8:00 alle 15:00",
+    "hours": "Da lunedì a venerdì: dalle 7:00 alle 15:00",
     "addressArea": "Zona industriale Heinzebank"
   },
   "addresses": {
@@ -716,5 +760,94 @@
     "143": "Lilla",
     "144": "Pitaya",
     "145": "Bordeaux"
+  },
+  "landing": {
+    "topbar": {
+      "outlet": "Spaccio aziendale lun–ven 7:00–15:00",
+      "login": "Accesso rivenditori"
+    },
+    "nav": {
+      "home": "Home",
+      "products": "Prodotti",
+      "dealers": "Trova un rivenditore"
+    },
+    "claim": "Maglieria funzionale medicale senza cuciture · Made in Germany",
+    "hero": {
+      "label": "Lavorato senza cuciture · Maglieria medicale",
+      "text": "Maglieria medicale ihle® per diabete, protesica, ortesica e terapia con corsetto, lavorata senza cuciture a Wolkenstein, Made in Germany.",
+      "findDealer": "Trova un rivenditore",
+      "trust": {
+        "seamless": "Senza cuciture",
+        "madeIn": "Made in Germany",
+        "stock": "Disponibile a magazzino"
+      },
+      "alt": {
+        "pinkCrossed": "Gambe incrociate con calze ihle® rosa",
+        "prosthesis": "Protesi di gamba con calza ihle® viola",
+        "wheelchair": "Persona in sedia a rotelle con calze ihle®",
+        "relaxation": "Piedi rilassati con calze ihle®"
+      },
+      "title": "Maglieria funzionale medicale senza cuciture.",
+      "showPhoto": "Mostra foto {{number}} di {{total}}",
+      "slides": {
+        "diabetic": "Calze bianche per diabetici",
+        "stump-red": "Calza per moncone rossa e bianca",
+        "leg-sleeve": "Gambale nero mentre si cammina",
+        "sock-on": "Indossare una calza",
+        "thigh": "Calza per moncone sulla coscia",
+        "brace": "Maglia indossata sotto un corsetto",
+        "stump-fit": "Applicazione di una calza per moncone",
+        "arm": "Manicotto per braccio sotto un'ortesi"
+      }
+    },
+    "highlights": {
+      "label": "Dal nostro assortimento"
+    },
+    "shapes": {
+      "label": "Forme delle calze",
+      "title": "Calza e scarpa = abbinamento perfetto.",
+      "alt": {
+        "footlet": "Disegno di un fantasmino",
+        "short": "Disegno di una calza corta",
+        "knee": "Disegno di un gambaletto"
+      }
+    },
+    "colors": {
+      "label": "Colori",
+      "groups": {
+        "classic": "Classici",
+        "colourful": "Colorati"
+      },
+      "tones_one": "{{count}} tonalità",
+      "tones_other": "{{count}} tonalità"
+    },
+    "dealers": {
+      "label": "Ricerca rivenditori",
+      "text": "La nostra maglieria medicale, le calze e la biancheria sono disponibili esclusivamente presso i rivenditori specializzati. Rivolgetevi al vostro rivenditore specializzato o a un negozio di articoli sanitari nella vostra zona.",
+      "outlet": "Spaccio aziendale Wolkenstein",
+      "outletLine": "Reuterweg 1 · Zona industriale Heinzebank · lun–ven 7:00–15:00",
+      "route": "Calcola percorso",
+      "locate": "La mia posizione",
+      "locateError": "Posizione non disponibile"
+    },
+    "footer": {
+      "about": "ihle® è convinta che l’assistenza ortopedica vada oltre l’ausilio stesso.",
+      "outlet": "Spaccio aziendale lun–ven 7:00–15:00",
+      "emailPlaceholder": "Il tuo indirizzo e-mail"
+    }
+  },
+  "contact": {
+    "phone": "Telefono",
+    "fax": "Fax",
+    "email": "E-mail",
+    "hoursTitle": "Orari dello spaccio aziendale",
+    "hours": "Dal lunedì al venerdì: dalle 7:00 alle 15:00",
+    "notice": "Attenzione! Fino a nuovo avviso il venerdì siamo aperti solo fino alle 13:00!",
+    "staffTitle": "I nostri agenti",
+    "south": "Baviera / Baden-Württemberg",
+    "west": "Renania Settentrionale-Vestfalia / Bassa Sassonia",
+    "southwest": "Saarland / Renania-Palatinato / Assia",
+    "east": "Nuovi Länder",
+    "route": "Calcola percorso"
   }
 }

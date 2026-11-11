@@ -2,7 +2,7 @@
 export default function PlaceholderPage({ title, children }) {
   return (
     <section className="flex min-h-[calc(100vh-var(--nav-height))] flex-col items-center justify-center gap-4 px-6 py-16 text-center">
-      <h1 className="text-4xl font-bold tracking-tight text-heading sm:text-5xl">{title}</h1>
+      <h1 className="type-page-title">{title}</h1>
       {children}
     </section>
   )

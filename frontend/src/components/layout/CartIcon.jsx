@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { useCart } from '../../context/CartContext.jsx'
 
 // Cart link with a badge for the number of items in the cart.
-// Only rendered for logged-in customers and when SHOW_CART is true (see Navbar.jsx).
+// Only rendered for logged-in customers and when SHOW_CART is true (see LandingHeader.jsx).
 export default function CartIcon() {
   const { t } = useTranslation()
   const { count } = useCart()

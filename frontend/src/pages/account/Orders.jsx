@@ -20,7 +20,7 @@ import { useProductText } from '../../utils/productText.js'
 
 // new = received by the shop, exported = collected by Ihle's ERP (NAV) for processing
 const STATUS_STYLE = {
-  new: 'bg-[#fdf3e2] text-[#8a5a1c]',
+  new: 'bg-[#fdf3e2] text-[#9a6400]',
   exported: 'bg-[#e8f3ec] text-[#2f6b45]',
 }
 
@@ -78,7 +78,7 @@ function OrderLine({ item, money, showTotal }) {
         <span className="block whitespace-nowrap text-xs text-body/70 tabular-nums">{showNumber(item.sku)}</span>
         {item.commission && (
           // The Kommission is often a patient name, so it wraps rather than being cut off
-          <span className="mt-1.5 inline-block max-w-full rounded-md bg-[#f5f1ec] px-2 py-0.5 text-xs leading-relaxed text-body">
+          <span className="mt-1.5 inline-block max-w-full rounded-md bg-ihle-mist px-2 py-0.5 text-xs leading-relaxed text-body">
             {t('order.commission')} <span className="break-words font-semibold text-heading">{item.commission}</span>
           </span>
         )}
@@ -95,7 +95,7 @@ function OrderLine({ item, money, showTotal }) {
 }
 
 // Small label above a value, as on the addresses page
-const Label = ({ children }) => <dt className="text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-[#8a5a3c]">{children}</dt>
+const Label = ({ children }) => <dt className="text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-[#16355b]">{children}</dt>
 
 function OrderCard({ order, open, onToggle, onReorder, money, date }) {
   const { t } = useTranslation()
@@ -284,7 +284,7 @@ export default function Orders() {
 
       <div className="mt-6 flex flex-wrap items-end justify-between gap-4 lg:mt-8">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight text-heading sm:text-4xl">{t('nav.myOrders')}</h1>
+          <h1 className="type-page-title">{t('nav.myOrders')}</h1>
         </div>
         {state.status === 'ready' && orders.length > 0 && (
           <p className="text-sm text-body" aria-live="polite">
@@ -308,7 +308,7 @@ export default function Orders() {
                 onChange={change('query')}
                 placeholder={t('accountOrders.searchPlaceholder')}
                 autoComplete="off"
-                className="h-12 w-full rounded-[0.65rem] border border-slate-900/20 bg-white pl-10 pr-3 text-[0.9rem] text-heading transition-[border-color,box-shadow] focus-visible:border-[#3b1f12] focus-visible:shadow-[0_0_0_3px_rgb(59_31_18/0.14)] focus-visible:outline-none"
+                className="h-12 w-full rounded-[0.65rem] border border-slate-900/20 bg-white pl-10 pr-3 text-[0.9rem] text-heading transition-[border-color,box-shadow] focus-visible:border-[#16355b] focus-visible:shadow-[0_0_0_3px_rgb(22_53_91/0.14)] focus-visible:outline-none"
               />
             </span>
           </div>
@@ -351,10 +351,10 @@ export default function Orders() {
 
       {state.status === 'ready' && orders.length === 0 && (
         <section className="mt-10 flex flex-col items-center gap-4 rounded-2xl bg-[#faf8f4] px-6 py-16 text-center">
-          <span className="flex size-16 items-center justify-center rounded-full bg-[#f1e9e2] text-[#3b1f12]">
+          <span className="flex size-16 items-center justify-center rounded-full bg-ihle-mist text-[#16355b]">
             <Package size={28} strokeWidth={1.5} aria-hidden="true" />
           </span>
-          <h2 className="text-2xl font-bold text-heading">{t('accountOrders.emptyTitle')}</h2>
+          <h2 className="type-section-title">{t('accountOrders.emptyTitle')}</h2>
           <p className="max-w-md text-body">{t('accountOrders.emptyText')}</p>
           <Link to="/products" className="auth-btn mt-2">
             <RollText>{t('cart.toProducts')}</RollText>

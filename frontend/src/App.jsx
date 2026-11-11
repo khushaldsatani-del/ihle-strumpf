@@ -1,12 +1,13 @@
 import { MotionConfig } from 'motion/react'
 import SmoothScroll from './components/common/SmoothScroll.jsx'
-import Footer from './components/layout/Footer.jsx'
-import Navbar from './components/layout/Navbar.jsx'
+import LandingFooter from './components/landing/LandingFooter.jsx'
+import LandingHeader from './components/landing/LandingHeader.jsx'
 import { AuthProvider } from './context/AuthContext.jsx'
 import { CartProvider } from './context/CartContext.jsx'
 import { CatalogProvider } from './context/CatalogContext.jsx'
 import AppRoutes from './routes.jsx'
 
+// Every page has the header and footer of the Ihle design (components/landing).
 function App() {
   return (
     // reducedMotion="user": motion animations are switched off for prefers-reduced-motion
@@ -15,11 +16,11 @@ function App() {
         <CatalogProvider>
           <CartProvider>
             <SmoothScroll />
-            <Navbar />
-            <main id="main" tabIndex={-1} className="bg-white pt-(--nav-height) outline-none">
+            <LandingHeader />
+            <main id="main" tabIndex={-1} className="bg-white outline-none">
               <AppRoutes />
             </main>
-            <Footer />
+            <LandingFooter />
           </CartProvider>
         </CatalogProvider>
       </AuthProvider>

@@ -51,7 +51,7 @@ export default function ProductDetail() {
     }
     return (
       <section className="flex min-h-[calc(100vh-var(--nav-height))] flex-col items-center justify-center gap-4 px-6 py-16 text-center">
-        <h1 className="text-4xl font-bold tracking-tight text-heading sm:text-5xl">{t('product.notFound')}</h1>
+        <h1 className="type-page-title">{t('product.notFound')}</h1>
         <Link to="/products" className="font-semibold text-brand underline underline-offset-4">
           {t('product.backToProducts')}
         </Link>
@@ -148,7 +148,7 @@ export default function ProductDetail() {
           <p className="text-sm font-medium tracking-wide text-body" aria-live="polite">
             {t('products.articleNo', { number: showNumber(variant.sku) })}
           </p>
-          <h1 className="mt-2 text-3xl font-bold tracking-tight text-heading sm:text-4xl lg:text-5xl">{name}</h1>
+          <h1 className="type-page-title mt-2">{name}</h1>
           {description && <p className="mt-4 max-w-xl text-lg leading-relaxed text-body">{description}</p>}
 
           {/* Colours */}
@@ -164,7 +164,7 @@ export default function ProductDetail() {
                 return (
                   <label key={code} className="detail-swatch" title={name}>
                     <input type="radio" name="color" className="sr-only" checked={code === color} aria-label={name} onChange={() => choose('color', code)} />
-                    <span style={{ backgroundColor: hex, color: isLight(hex) ? '#3b1f12' : '#fff' }}>
+                    <span style={{ backgroundColor: hex, color: isLight(hex) ? '#16355b' : '#fff' }}>
                       {code === color && <Check size={18} strokeWidth={3} aria-hidden="true" />}
                     </span>
                   </label>
@@ -187,7 +187,7 @@ export default function ProductDetail() {
           </fieldset>
 
           {/* Details */}
-          <h2 className="mt-10 text-lg font-bold text-heading">{t('product.details')}</h2>
+          <h2 className="mt-10 text-lg font-medium text-heading">{t('product.details')}</h2>
           <dl className="detail-list mt-3">
             {details.map(([label, value]) => (
               <div key={label}>
@@ -215,7 +215,7 @@ export default function ProductDetail() {
       {/* More products */}
       {related.length > 0 && (
         <section className="mt-16 border-t border-slate-200 pt-10 lg:mt-24 lg:pt-14">
-          <h2 className="text-2xl font-bold tracking-tight text-heading sm:text-3xl">{t('product.related')}</h2>
+          <h2 className="type-section-title">{t('product.related')}</h2>
           <ul className="mt-8 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 lg:grid-cols-4 lg:gap-x-8">
             {related.map((item) => (
               <ProductCard key={item.id} product={item} />

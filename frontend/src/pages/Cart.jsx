@@ -21,10 +21,10 @@ function Notice({ title, text, to, button, compact = false }) {
     <section
       className={`flex flex-col items-center justify-center gap-4 px-6 py-16 text-center ${compact ? '' : 'min-h-[calc(100vh-var(--nav-height))]'}`}
     >
-      <span className="flex size-16 items-center justify-center rounded-full bg-[#f1e9e2] text-[#3b1f12]">
+      <span className="flex size-16 items-center justify-center rounded-full bg-ihle-mist text-[#16355b]">
         <ShoppingCart size={28} strokeWidth={1.5} aria-hidden="true" />
       </span>
-      <h1 className="text-3xl font-bold tracking-tight text-heading sm:text-4xl">{title}</h1>
+      <h1 className="type-page-title">{title}</h1>
       <p className="max-w-md text-body">{text}</p>
       <Link to={to} className="auth-btn mt-2">
         <RollText>{button}</RollText>
@@ -66,7 +66,7 @@ export default function Cart() {
         <Notice compact title={t('cart.emptyTitle')} text={t('cart.emptyText')} to="/products" button={t('cart.toProducts')} />
       ) : (
         <div className="flex flex-wrap items-end justify-between gap-4">
-          <h1 className="text-3xl font-bold tracking-tight text-heading sm:text-4xl">{t('cart.title')}</h1>
+          <h1 className="type-page-title">{t('cart.title')}</h1>
           <p className="text-sm text-body">{t('cart.count', { count })}</p>
         </div>
       )}
@@ -86,7 +86,7 @@ export default function Cart() {
                 <li key={item.key} className="cart-line">
                   <Link
                     to={`/products/${product.id}`}
-                    className="product-link block size-20 shrink-0 overflow-hidden rounded-2xl bg-[#f5f4f1] sm:size-24"
+                    className="product-link block size-20 shrink-0 overflow-hidden rounded-2xl bg-ihle-mist sm:size-24"
                   >
                     <ProductImage product={product} color={variant.color} className="size-full object-contain p-[10%]" />
                   </Link>
@@ -95,7 +95,7 @@ export default function Cart() {
                     <p className="text-xs font-medium tracking-wide text-body/70">
                       {t('products.articleNo', { number: showNumber(variant.sku) })}
                     </p>
-                    <h2 className="mt-0.5 text-base font-bold text-heading sm:text-lg">
+                    <h2 className="mt-0.5 text-base font-medium text-heading sm:text-lg">
                       <Link to={`/products/${product.id}`} className="product-link">
                         {name}
                       </Link>
@@ -122,7 +122,7 @@ export default function Cart() {
                   </div>
 
                   <div className="flex shrink-0 flex-col items-end justify-between gap-3">
-                    <p className="text-base font-bold text-heading sm:text-lg">{money(price * item.quantity)}</p>
+                    <p className="text-base font-medium text-heading sm:text-lg">{money(price * item.quantity)}</p>
                     <button type="button" className="cart-remove" aria-label={t('cart.remove', { name })} onClick={() => remove(item.key)}>
                       <Trash2 size={18} strokeWidth={1.75} aria-hidden="true" />
                     </button>

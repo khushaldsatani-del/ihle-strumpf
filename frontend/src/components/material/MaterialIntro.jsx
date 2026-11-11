@@ -1,8 +1,6 @@
-import { motion } from 'motion/react'
 import { Infinity as InfinityIcon, Leaf, Shield } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-
-const EASE = [0.22, 1, 0.36, 1]
+import Reveal from '../landing/Reveal.jsx'
 
 // Three wavy vertical lines (warmth / comfort), drawn to match the line icons next to it
 function WavesIcon(props) {
@@ -15,81 +13,50 @@ function WavesIcon(props) {
   )
 }
 
-// The four qualities; texts: material.intro.features.<key>.
-// tint = accent of the card, taken from the landing page: sage green, footer teal, beige, brand navy
+// The four qualities (texts: material.intro.features.<key>), each on one of the coloured Ihle fabric backgrounds
 const FEATURES = [
-  { key: 'fibres', icon: Leaf, tint: 'var(--color-moss)' },
-  { key: 'quality', icon: Shield, tint: 'var(--color-teal)' },
-  { key: 'comfort', icon: WavesIcon, tint: '#c9a27a' },
-  { key: 'durable', icon: InfinityIcon, tint: 'var(--color-brand)' },
+  { key: 'fibres', icon: Leaf, fabric: 'tuerkis' },
+  { key: 'quality', icon: Shield, fabric: 'orthesen' },
+  { key: 'comfort', icon: WavesIcon, fabric: 'korsett' },
+  { key: 'durable', icon: InfinityIcon, fabric: 'gelb' },
 ]
 
-// The fibres named in the row of tags; texts: material.intro.fibres.<key>
-const FIBRES = ['cotton', 'wool', 'polyamide', 'elastane', 'silver']
-
-// Cards rise in one after another when the section scrolls into view
-const cards = { hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }
-const card = { hidden: { opacity: 0, y: 28 }, visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } } }
-
-/**
- * Second section of the material page: "Our materials". No picture, the typography carries it.
- * Top: label and a large headline on the left, the lead text and the fibres as tags on the right.
- * Below: four numbered cards, one per quality, each with an accent colour that the landing page also uses.
- */
+// "Our materials": the title, then four cards on the coloured fabric backgrounds.
 export default function MaterialIntro() {
   const { t } = useTranslation()
 
   return (
-    <section className="material-intro">
-      <div className="mx-auto max-w-[96rem] px-5 py-16 sm:px-8 lg:px-16 lg:py-28">
-        <div className="grid gap-10 lg:grid-cols-12 lg:gap-8">
-          <div className="lg:col-span-7">
-            <p className="flex items-center gap-4 text-xs font-bold uppercase tracking-[0.2em] text-clay">
-              <span aria-hidden="true" className="h-px w-10 bg-clay/60" />
-              {t('material.intro.eyebrow')}
-            </p>
-            <h2 className="material-intro__title mt-7">
-              <span className="block">{t('material.intro.titleLine1')}</span>
-              <span className="block text-moss">{t('material.intro.titleLine2')}</span>
-            </h2>
-          </div>
+    <section className="lp-section bg-white">
+      <div className="lp-container">
+        <Reveal>
+          <h2 className="type-section-title">
+            {t('material.intro.titleLine1')}
+            <br />
+            {t('material.intro.titleLine2')}
+          </h2>
+        </Reveal>
 
-          <div className="lg:col-span-5 lg:col-start-8 lg:pt-12">
-            <p className="text-base leading-relaxed text-body">{t('material.intro.text')}</p>
-
-            <p className="mt-9 text-xs font-bold uppercase tracking-[0.2em] text-clay/80">{t('material.intro.fibresLabel')}</p>
-            <ul className="mt-4 flex flex-wrap gap-2">
-              {FIBRES.map((key) => (
-                <li key={key} className="material-intro__tag">
-                  {t(`material.intro.fibres.${key}`)}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        <motion.ol
-          variants={cards}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.25 }}
-          className="material-intro__cards"
-        >
-          {FEATURES.map(({ key, icon: Icon, tint }, index) => (
-            <motion.li key={key} variants={card} className="material-card" style={{ '--tint': tint }}>
-              <div className="flex items-start justify-between">
-                <span className="material-card__icon">
-                  <Icon aria-hidden="true" className="size-6" strokeWidth={1.6} />
+        <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:mt-12">
+          {FEATURES.map(({ key, icon: Icon, fabric }, index) => (
+            <Reveal as="li" key={key} delay={index * 0.08} className="relative isolate min-h-[14rem] overflow-hidden rounded-[1.5rem] bg-ihle-mist">
+              <img
+                src={`/images/landing/fabric-${fabric}.webp`}
+                alt=""
+                width="1600"
+                height="706"
+                loading="lazy"
+                className="absolute inset-0 -z-10 size-full object-cover object-right"
+              />
+              <div className="flex h-full max-w-[22rem] flex-col p-7 sm:p-8">
+                <span className="grid size-12 place-items-center rounded-full bg-white text-ihle-blue shadow-[0_8px_20px_-12px_rgb(22_53_91/0.45)]">
+                  <Icon width={22} height={22} strokeWidth={1.6} aria-hidden="true" />
                 </span>
-                <span aria-hidden="true" className="material-card__number">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
+                <h3 className="type-subtitle mt-auto pt-8">{t(`material.intro.features.${key}.title`)}</h3>
+                <p className="type-body mt-2">{t(`material.intro.features.${key}.text`)}</p>
               </div>
-              <h3 className="mt-8 text-lg font-bold leading-snug text-heading">{t(`material.intro.features.${key}.title`)}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-body">{t(`material.intro.features.${key}.text`)}</p>
-            </motion.li>
+            </Reveal>
           ))}
-        </motion.ol>
+        </ul>
       </div>
     </section>
   )

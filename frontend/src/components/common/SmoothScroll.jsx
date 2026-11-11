@@ -3,8 +3,10 @@ import Lenis from 'lenis'
 import 'lenis/dist/lenis.css'
 import { useLocation } from 'react-router-dom'
 
-// Areas that scroll by themselves (or use the wheel for something else): Lenis leaves them alone
-const OWN_SCROLL = '.filter-panel__body, #mobile-menu, .language-drawer, .leaflet-container, [role="listbox"], [role="menu"]'
+// Areas that scroll by themselves (or use the wheel for something else): Lenis leaves them alone.
+// The dealer map is NOT on this list: it zooms only with its +/- buttons, so the wheel over it simply scrolls the
+// page. Leaving it to the browser there made native scrolling fight Lenis' glide, and the page stuck for a moment.
+const OWN_SCROLL = '.filter-panel__body, #mobile-menu, [role="listbox"], [role="menu"]'
 
 /**
  * Smooth scrolling for the whole site (Lenis): the mouse wheel glides instead of jumping.

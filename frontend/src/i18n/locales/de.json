@@ -401,20 +401,20 @@
       "banner": {
         "titleLine1": "Strumpf und Schuh –",
         "titleLine2": "eine perfekte Kombination",
-        "text": "Wärme im Winter, Komfort und Hygiene im Sommer: Mit steigenden Temperaturen verändert sich auch unsere Wahl der Strümpfe. ihle® hat sein Produktsortiment entsprechend angepasst und fertigt Strümpfe in drei verschiedenen Ausführungen."
+        "text": "Wärme im Winter, Komfort und Hygiene im Sommer: Mit steigenden Temperaturen ändert sich auch der Griff in die Sockenschublade. Darauf hat ihle® sein Produktportfolio abgestimmt und fertigt Strümpfe in drei verschiedenen Ausführungen."
       },
       "items": {
         "short": {
-          "title": "Kurze Strümpfe",
-          "text": "Ein vielseitiger Strumpf für alle Jahreszeiten: Der Schaft gibt dem Strumpf seine Form und seinen Namen. Bei kurzen Strümpfen reicht er etwa 10 cm über den Knöchel bis ungefähr zur Mitte der Wade. Der Abschluss kann als einfacher, nicht elastischer Rand oder als Rippabschluss ausgeführt sein – mit oder ohne Elastik."
+          "title": "Kurzsocke",
+          "text": "Allrounder für alle Jahreszeiten: Form- und namensgebend für die Socke ist das Beinstück. Bei der Kurzsocke reicht es ca. 10 cm über das Sprunggelenk bis max. zur Wadenmitte. Als Bündchen kann ein Umhängerand ohne Gummi, Ripprand (mit und ohne Gummi) gefertigt werden."
         },
         "footlet": {
-          "title": "Füßlinge",
-          "text": "Die sommerliche Variante des Strumpfs bedeckt hauptsächlich Zehen und Ferse. Der Fußteil endet knapp über oder unterhalb des Knöchels. Daher empfehlen wir für Menschen mit Diabetes die längeren Varianten unserer Strümpfe."
+          "title": "Füßling",
+          "text": "Die Sommerversion des Strumpfes kleidet primär Zehen und Ferse. Der Füßling schließt kurz oberhalb bzw. unterhalb des Knöchels ab. Für Diabetiker empfehlen wir daher die längeren Versionen unserer Strümpfe."
         },
         "knee": {
-          "title": "Kniestrümpfe",
-          "text": "Ein Klassiker für den Winter oder zu hohen Schuhen: Der Strumpf endet unterhalb des Knies. Ein breiter Abschluss sorgt für guten Halt, ohne einzuschnüren. Auch elastische und nicht elastische Abschlüsse sind erhältlich."
+          "title": "Kniestrumpf",
+          "text": "Klassiker für den Winter oder hohes Schuhwerk: Der Strumpf endet unter dem Knie. Ein breites Bündchen gibt Halt und engt nicht ein. Ränder mit und ohne Gummi stehen auch hier zur Auswahl."
         }
       }
     },
@@ -468,7 +468,12 @@
       "titleLine2": "jedem ihle®-Strumpf.",
       "text": "Sorgfältig ausgewählte Garne aus Baumwolle, Wolle und Funktionsfasern – für Tragekomfort, Haltbarkeit und zuverlässige Funktion.",
       "cta": "Sortiment entdecken",
-      "imageAlt": "Garnkonen in Naturweiß, Grün und Rostrot neben einer Strickdecke"
+      "imageAlt": "Garnkonen in Naturweiß, Grün und Rostrot neben einer Strickdecke",
+      "secondary": "Gestricke ansehen",
+      "facts": {
+        "fibres": "Faserarten",
+        "cuffs": "Bündchenformen"
+      }
     },
     "intro": {
       "eyebrow": "Unsere Materialien",
@@ -530,12 +535,17 @@
           "title": "Halbplüsch",
           "text": "Polster dort, wo es zählt: Manchmal genügt zusätzliche Polsterung an Zehen, Sohle und Ferse. Halbplüsch-Modelle sind deshalb ideale Begleiter für die Übergangszeit."
         }
+      },
+      "compare": {
+        "gauge": "Feinheit",
+        "padding": "Polsterung",
+        "none": "Keine",
+        "full": "Rundum",
+        "partial": "Zehen, Sohle, Ferse",
+        "perInch": "{{count}} Maschen/Zoll",
+        "hint": "Fahren Sie über ein Muster, um das Gestrick zu vergrößern.",
+        "magnify": "Gestrick vergrößert ansehen"
       }
-    },
-    "next": {
-      "eyebrow": "Platzhalter",
-      "title": "Weiterer Abschnitt folgt",
-      "text": "Dieser Bereich ist vorläufig und wird durch den nächsten Inhalt der Materialseite ersetzt."
     },
     "cuffs": {
       "eyebrow": "Bündchen",
@@ -554,6 +564,40 @@
         "ribShort": {
           "title": "Ripprand mit Gummi",
           "text": "Hier sind 4 cm Gummi eingestrickt. Kunden mit gesunden Füßen schätzen meist den zusätzlichen Halt. Gut zu wissen: Dieser Rand ist für Diabetiker nicht geeignet."
+        }
+      },
+      "diabetesYes": "Für Diabetiker entwickelt",
+      "diabetesNo": "Nicht für Diabetiker geeignet"
+    },
+    "closing": {
+      "title": "Das passende Gestrick für jeden Bedarf.",
+      "text": "Entdecken Sie Strümpfe und medizinische Gestricke von ihle® – oder finden Sie einen Fachhändler in Ihrer Nähe."
+    },
+    "fibres": {
+      "title": "Materialien",
+      "question": "Baumwolle, Wolle oder SENSICO®?",
+      "claim": "Qualität geht vor!",
+      "text": "Damit ihle® Produkte halten, was sie versprechen, müssen sie strenge Tests bestehen. Die Wahl des Materials richtet sich allein nach den Bedürfnissen des Trägers.",
+      "items": {
+        "cotton": {
+          "title": "Baumwolle",
+          "text": "Robust, langlebig und atmungsaktiv: Baumwolle nimmt Feuchtigkeit gut auf und übersteht viele Wäschen. Gut zu wissen: Wer zu Schweißfüßen neigt, sollte zu Socken aus SENSICO® greifen."
+        },
+        "wool": {
+          "title": "Schurwolle",
+          "text": "Ideal bei kalten Füßen: Schurwolle schützt hervorragend vor Kälte, reguliert die Temperatur und wirkt wie ein Luftpolster (sie kann bis zu 50 % ihres Eigengewichts an Luft aufnehmen). Unser Tipp: Dieses Material ist ideal für Menschen mit Rheuma."
+        },
+        "silver": {
+          "title": "Silber",
+          "text": "Entzündungshemmend und antibakteriell: Silber gilt als bewährtes Material bei der Behandlung von Wunden und Infektionen. ihle® nutzt die Eigenschaften der Silberfasern, um die Heilung zu fördern und Fußgeruch (verursacht durch Bakterien) zu reduzieren."
+        },
+        "sensico": {
+          "title": "SENSICO®",
+          "text": "Die Fasermischung für besonderen Komfort: 80 % Baumwolle und 20 % Lyocell – das ist SENSICO®. Diese Kombination entzieht Bakterien und unangenehmen Gerüchen den Nährboden. Wer stark an den Füßen schwitzt, sollte Socken aus SENSICO® tragen."
+        },
+        "synthetic": {
+          "title": "Polyamid / Polyester",
+          "text": "Ein Muss für den Sport: Socken und Strümpfe mit Polyamid/Polyester trocknen schnell, sind extrem strapazierfähig und formstabil. Dank ihrer Struktur leiten die weichen Kunstfasern Feuchtigkeit vom Körper weg. ihle® Alltags- und Sportprodukte gibt es in vielen kräftigen Farben."
         }
       }
     }
@@ -577,7 +621,7 @@
     "privacy": "Datenschutz",
     "terms": "Geschäftsbedingungen",
     "hoursTitle": "Öffnungszeiten des Werksverkaufs:",
-    "hours": "Montag bis Freitag: 8:00 bis 15:00 Uhr",
+    "hours": "Montag bis Freitag: 7:00 bis 15:00 Uhr",
     "addressArea": "Gewerbegebiet Heinzebank"
   },
   "addresses": {
@@ -716,5 +760,94 @@
     "053": "Jeansblau meliert",
     "058": "Dunkelgrau meliert",
     "059": "Hellgrau meliert"
+  },
+  "landing": {
+    "topbar": {
+      "outlet": "Werksverkauf Mo–Fr 7:00–15:00",
+      "login": "Händler-Login"
+    },
+    "nav": {
+      "home": "Startseite",
+      "products": "Produkte",
+      "dealers": "Händler finden"
+    },
+    "claim": "Nahtlose medizinische Funktionsgestricke · Made in Germany",
+    "hero": {
+      "label": "Nahtlos gestrickt · Medizinische Strickwaren",
+      "text": "Medizinische Gestricke von ihle® für Diabetes, Prothetik, Orthetik und Korsetttherapie, nahtlos gestrickt in Wolkenstein, Made in Germany.",
+      "findDealer": "Fachhändler finden",
+      "trust": {
+        "seamless": "Nahtlos gestrickt",
+        "madeIn": "Made in Germany",
+        "stock": "Ab Lager lieferbar"
+      },
+      "alt": {
+        "pinkCrossed": "Überkreuzte Beine in rosa ihle® Socken",
+        "prosthesis": "Beinprothese mit lilafarbenem ihle® Strumpf",
+        "wheelchair": "Person im Rollstuhl mit ihle® Socken",
+        "relaxation": "Entspannte Füße in ihle® Socken"
+      },
+      "title": "Nahtlose medizinische Funktionsgestricke.",
+      "showPhoto": "Foto {{number}} von {{total}} zeigen",
+      "slides": {
+        "diabetic": "Weiße Diabetikersocken",
+        "stump-red": "Rot-weißer Stumpfstrumpf",
+        "leg-sleeve": "Schwarzer Beinstrumpf beim Gehen",
+        "sock-on": "Ein Strumpf wird angezogen",
+        "thigh": "Stumpfstrumpf am Oberschenkel",
+        "brace": "Unterziehshirt unter einem Korsett",
+        "stump-fit": "Stumpfstrumpf wird angelegt",
+        "arm": "Armstrumpf unter einer Orthese"
+      }
+    },
+    "highlights": {
+      "label": "Aus dem Sortiment"
+    },
+    "shapes": {
+      "label": "Sockenformen",
+      "title": "Strumpf und Schuh = passt.",
+      "alt": {
+        "footlet": "Zeichnung eines Füßlings",
+        "short": "Zeichnung einer Kurzsocke",
+        "knee": "Zeichnung eines Kniestrumpfs"
+      }
+    },
+    "colors": {
+      "label": "Farben",
+      "groups": {
+        "classic": "Klassisch",
+        "colourful": "Farbig"
+      },
+      "tones_one": "{{count}} Ton",
+      "tones_other": "{{count}} Töne"
+    },
+    "dealers": {
+      "label": "Händlersuche",
+      "text": "Unsere medizinischen Gestricke, Strümpfe und Unterwäsche sind ausschließlich im Fachhandel erhältlich. Bitte wenden Sie sich an Ihren Fachhändler oder ein Sanitätshaus vor Ort.",
+      "outlet": "Werksverkauf Wolkenstein",
+      "outletLine": "Reuterweg 1 · Gewerbepark Heinzebank · Mo–Fr 7:00–15:00",
+      "route": "Route planen",
+      "locate": "Mein Standort",
+      "locateError": "Standort nicht verfügbar"
+    },
+    "footer": {
+      "about": "ihle® ist davon überzeugt, dass orthopädische Versorgung über das Hilfsmittel selbst hinausgeht.",
+      "outlet": "Werksverkauf Mo–Fr 7:00–15:00 Uhr",
+      "emailPlaceholder": "Ihre E-Mail-Adresse"
+    }
+  },
+  "contact": {
+    "phone": "Telefon",
+    "fax": "Fax",
+    "email": "E-Mail",
+    "hoursTitle": "Öffnungszeiten Werksverkauf",
+    "hours": "Montag bis Freitag: 7:00 bis 15:00 Uhr",
+    "notice": "Achtung! Freitags haben wir bis auf Weiteres nur bis 13:00 Uhr geöffnet!",
+    "staffTitle": "Unser Außendienst",
+    "south": "Bayern / Baden-Württemberg",
+    "west": "Nordrhein-Westfalen / Niedersachsen",
+    "southwest": "Saarland / Rheinland-Pfalz / Hessen",
+    "east": "Neue Bundesländer",
+    "route": "Route planen"
   }
 }

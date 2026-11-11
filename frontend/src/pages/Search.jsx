@@ -35,7 +35,7 @@ export default function Search() {
 
   return (
     <div className="mx-auto max-w-[96rem] px-4 pb-20 pt-10 sm:px-8 lg:px-16 lg:pt-14">
-      <h1 className="text-3xl font-bold tracking-tight text-heading sm:text-4xl">{t('pages.search')}</h1>
+      <h1 className="type-page-title">{t('pages.search')}</h1>
       {query && (
         <p className="mt-2 text-body" aria-live="polite">
           {t('pages.searchFor', { query })}

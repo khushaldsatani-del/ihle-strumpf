@@ -191,7 +191,7 @@ export default function Products() {
 
   return (
     <div className="mx-auto max-w-[96rem] px-4 pb-20 pt-10 sm:px-8 lg:px-16 lg:pt-14">
-      <h1 className="text-center text-3xl font-bold tracking-tight text-heading wrap-anywhere sm:text-4xl">
+      <h1 className="type-page-title text-center wrap-anywhere">
         {group ? nameOf(t, group) : category ? nameOf(t, category) : t('categories.all')}
       </h1>
 

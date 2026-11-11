@@ -144,7 +144,7 @@ export default function Checkout() {
     return (
       <section className="flex min-h-[calc(100vh-var(--nav-height))] flex-col items-center justify-center gap-4 px-6 py-16 text-center">
         <CircleCheck size={56} strokeWidth={1.25} aria-hidden="true" className="text-[#2f6b45]" />
-        <h1 className="text-3xl font-bold tracking-tight text-heading sm:text-4xl">{t('checkout.thanksTitle')}</h1>
+        <h1 className="type-page-title">{t('checkout.thanksTitle')}</h1>
         <p className="max-w-md text-body">{t('checkout.thanksText', { count: placed.count, total: placed.total })}</p>
         <p className="max-w-md rounded-xl bg-[#faf8f4] px-4 py-3 text-sm text-body">{t('checkout.orderNumber', { number: placed.orderNo })}</p>
         <Link to="/products" className="auth-btn mt-2">
@@ -235,7 +235,7 @@ export default function Checkout() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 pb-20 pt-10 sm:px-8 lg:pt-14">
-      <h1 className="text-3xl font-bold tracking-tight text-heading sm:text-4xl">{t('checkout.title')}</h1>
+      <h1 className="type-page-title">{t('checkout.title')}</h1>
 
       <div className="mt-8 grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-14">
         <ol className="border-t border-slate-200">
@@ -344,7 +344,7 @@ export default function Checkout() {
                 const price = priceData?.prices[item.sku] ?? 0
                 return (
                   <li key={item.key} className="flex items-center gap-4 border-b border-slate-200 py-3">
-                    <span className="size-14 shrink-0 overflow-hidden rounded-xl bg-[#f5f4f1]">
+                    <span className="size-14 shrink-0 overflow-hidden rounded-xl bg-ihle-mist">
                       <ProductImage product={product} color={variant.color} className="size-full object-contain p-[10%]" />
                     </span>
                     <span className="min-w-0 flex-1 text-sm text-body">
@@ -409,7 +409,7 @@ export default function Checkout() {
               </div>
             </div>
             {orderError && (
-              <p className="mt-4 rounded-xl bg-[#fbeceb] px-4 py-3 text-sm text-[#b3382a]" role="alert">
+              <p className="mt-4 rounded-xl bg-[#fbeceb] px-4 py-3 text-sm text-[#b64558]" role="alert">
                 {orderError}
               </p>
             )}

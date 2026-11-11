@@ -15,7 +15,7 @@ function AddressCard({ address, title, icon: Icon, highlight = false }) {
         highlight ? 'border-transparent bg-[#faf8f4]' : 'border-slate-200 bg-white'
       }`}
     >
-      <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-[#8a5a3c]">
+      <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-[#16355b]">
         <Icon size={15} strokeWidth={2} aria-hidden="true" />
         {title}
       </p>
@@ -65,7 +65,7 @@ export default function Addresses() {
 
       <div className="mt-6 flex flex-wrap items-end justify-between gap-4 lg:mt-8">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight text-heading sm:text-4xl">{t('addresses.title')}</h1>
+          <h1 className="type-page-title">{t('addresses.title')}</h1>
         </div>
         <Link to="/products" className="text-sm font-semibold text-body underline underline-offset-4 hover:text-heading">
           {t('login.toProducts')}
@@ -85,7 +85,7 @@ export default function Addresses() {
       {/* Delivery addresses */}
       <section className="mt-12" aria-labelledby="delivery-title">
         <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-slate-200 pb-3">
-          <h2 id="delivery-title" className="text-xl font-bold text-heading sm:text-2xl">
+          <h2 id="delivery-title" className="type-subtitle">
             {t('addresses.deliveries')}
           </h2>
           <p className="text-sm text-body">{t('addresses.deliveryCount', { count: deliveries.length })}</p>

@@ -9,20 +9,20 @@ import { categoryPath } from '../../data/categories.js'
 const EASE = [0.22, 1, 0.36, 1]
 
 // The four ranges in the order of the catalogue. Texts: home.ranges.items.<code>.
-// accent = the category colour, darkened where needed so white text on it stays readable;
-// tint = a light version of it for the product-line tags.
+// accent = the category colour of the Ihle style guide, the same as its fabric background (turquoise, pink-red,
+// salmon, yellow). It only marks the product-line tags; buttons, ticks and lines use Ihle blue and yellow.
 const RANGES = [
-  { code: 'DIABETES', accent: '#1e2f5f', tint: '#eef0f6' },
-  { code: 'UNDERWEAR', accent: '#a83f5b', tint: '#fbeff2' },
-  { code: 'PROTHETIC', accent: '#b4570f', tint: '#fdf2e8' },
-  { code: 'ILO', accent: '#3d7a50', tint: '#edf6ef' },
+  { code: 'DIABETES', accent: '#57a3b1' },
+  { code: 'UNDERWEAR', accent: '#b64558' },
+  { code: 'PROTHETIC', accent: '#f3997b' },
+  { code: 'ILO', accent: '#fbbc3d' },
 ]
 
 // Shows "ihle®" / "ilo®" in bold, like the brand name in the catalogue (always lower case, also in upper-case labels)
 function BrandText({ children }) {
   return children.split(/(ihle®|ilo®)/).map((part, index) =>
     index % 2 ? (
-      <strong key={index} className="font-bold normal-case text-heading">
+      <strong key={index} className="font-bold normal-case text-ihle-blue">
         {part}
       </strong>
     ) : (
@@ -54,8 +54,8 @@ function Details({ code }) {
       <div className={`grid gap-7 md:grid-cols-2 md:gap-10 ${list.length > 0 ? 'xl:grid-cols-3' : ''}`}>
         {blocks.map(({ title, text }) => (
           <div key={title}>
-            <h4 className="text-base font-bold leading-snug text-heading">{title}</h4>
-            <p className="mt-2 text-sm leading-relaxed text-body">
+            <h4 className="font-pf text-[1.0625rem] font-medium leading-snug text-ihle-blue">{title}</h4>
+            <p className="mt-2 text-[0.9375rem] leading-relaxed text-ihle-ink">
               <BrandText>{text}</BrandText>
             </p>
           </div>
@@ -68,7 +68,7 @@ function Details({ code }) {
             </p>
             <ul className="mt-4 space-y-3">
               {list.map((entry) => (
-                <li key={entry} className="flex items-start gap-2.5 text-sm leading-snug text-body">
+                <li key={entry} className="flex items-start gap-2.5 text-[0.9375rem] leading-snug text-ihle-ink">
                   <span className="ranges-check">
                     <Check aria-hidden="true" size={11} strokeWidth={3} />
                   </span>
@@ -107,7 +107,8 @@ function Details({ code }) {
 }
 
 /**
- * Home: information about the four product ranges (text only, no pictures).
+ * Home: information about the four product ranges (text only, no pictures), in the Ihle design of the landing
+ * page (fonts and colours: .lp-ranges in landing.css).
  * A heading, then an editorial list of the four ranges,
  * one large numbered row each. All rows start closed; a row opens to show the details of its range, one at a time.
  */
@@ -117,16 +118,16 @@ export default function Ranges() {
   const id = useId()
 
   return (
-    <section className="bg-white">
-      <div className="mx-auto max-w-[96rem] px-4 pb-14 pt-6 sm:px-8 sm:pb-20 lg:px-16">
-        <h2 className="text-[2rem] font-bold tracking-tight text-heading sm:text-[2.625rem]">{t('home.ranges.title')}</h2>
+    <section className="lp-ranges lp-section bg-white">
+      <div className="lp-container">
+        <h2 className="lp-title">{t('home.ranges.title')}</h2>
 
         {/* The four ranges */}
         <ul className="ranges-list mt-8 lg:mt-10">
-          {RANGES.map(({ code, accent, tint }, index) => {
+          {RANGES.map(({ code, accent }, index) => {
             const expanded = index === open
             return (
-              <li key={code} className="ranges-row" data-open={expanded} style={{ '--accent': accent, '--tint': tint }}>
+              <li key={code} className="ranges-row" data-open={expanded} style={{ '--accent': accent }}>
                 <h3>
                   <button
                     type="button"

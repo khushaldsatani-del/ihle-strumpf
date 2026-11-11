@@ -468,7 +468,12 @@
       "titleLine2": "chaque chaussette ihle®.",
       "text": "Des fils de coton, de laine et de fibres fonctionnelles soigneusement choisis – pour le confort, la durabilité et des performances fiables.",
       "cta": "Découvrir la gamme",
-      "imageAlt": "Bobines de fil blanc naturel, vert et rouille à côté d’une couverture tricotée"
+      "imageAlt": "Bobines de fil blanc naturel, vert et rouille à côté d’une couverture tricotée",
+      "secondary": "Voir les tricots",
+      "facts": {
+        "fibres": "Types de fibres",
+        "cuffs": "Types de bords"
+      }
     },
     "intro": {
       "eyebrow": "Nos matières",
@@ -530,12 +535,17 @@
           "title": "Mi-éponge",
           "text": "Du rembourrage là où il compte : parfois, un rembourrage aux orteils, à la semelle et au talon suffit. Les modèles mi-éponge sont donc parfaits pour les demi-saisons."
         }
+      },
+      "compare": {
+        "gauge": "Jauge",
+        "padding": "Rembourrage",
+        "none": "Aucun",
+        "full": "Intégral",
+        "partial": "Orteils, semelle, talon",
+        "perInch": "{{count}} mailles/pouce",
+        "hint": "Survolez un échantillon pour agrandir le tricot.",
+        "magnify": "Voir le tricot agrandi"
       }
-    },
-    "next": {
-      "eyebrow": "Espace réservé",
-      "title": "Une autre section suivra",
-      "text": "Cette zone est provisoire et sera remplacée par la partie suivante de la page matériau."
     },
     "cuffs": {
       "eyebrow": "Bords",
@@ -554,6 +564,40 @@
         "ribShort": {
           "title": "Bord côtelé avec élastique",
           "text": "Ici, 4 cm d’élastique sont tricotés. Les personnes aux pieds sains préfèrent souvent ce maintien supplémentaire. À savoir : ce bord ne convient pas aux diabétiques."
+        }
+      },
+      "diabetesYes": "Conçu pour les personnes diabétiques",
+      "diabetesNo": "Ne convient pas aux personnes diabétiques"
+    },
+    "closing": {
+      "title": "Le bon tricot pour chaque besoin.",
+      "text": "Découvrez les chaussettes et tricots médicaux ihle® – ou trouvez un revendeur spécialisé près de chez vous."
+    },
+    "fibres": {
+      "title": "Matériaux",
+      "question": "Coton, laine ou SENSICO® ?",
+      "claim": "La qualité avant tout !",
+      "text": "Pour que les produits ihle® tiennent leurs promesses, ils doivent passer des tests rigoureux. Le choix du matériau dépend uniquement des besoins de la personne qui les porte.",
+      "items": {
+        "cotton": {
+          "title": "Coton",
+          "text": "Robuste, durable et respirant : le coton absorbe bien l’humidité et résiste à de nombreux lavages. Bon à savoir : en cas de transpiration des pieds, mieux vaut choisir des chaussettes en SENSICO®."
+        },
+        "wool": {
+          "title": "Laine vierge",
+          "text": "Idéale pour les pieds froids : la laine vierge protège très bien du froid, régule la température et agit comme un coussin d’air (elle peut contenir jusqu’à 50 % de son propre poids en air). Notre conseil : cette matière est idéale pour les personnes souffrant de rhumatismes."
+        },
+        "silver": {
+          "title": "Argent",
+          "text": "Anti-inflammatoire et antibactérien : l’argent est un matériau reconnu dans le traitement des plaies et des infections. ihle® utilise les propriétés des fibres d’argent pour favoriser la cicatrisation et réduire les odeurs de pieds (dues aux bactéries)."
+        },
+        "sensico": {
+          "title": "SENSICO®",
+          "text": "Le mélange de fibres pour un confort exceptionnel : 80 % coton et 20 % lyocell, c’est SENSICO®. Cette combinaison prive les bactéries et les mauvaises odeurs de leur terrain favorable. Les personnes qui transpirent beaucoup des pieds devraient porter des chaussettes en SENSICO®."
+        },
+        "synthetic": {
+          "title": "Polyamide / Polyester",
+          "text": "Indispensable pour le sport : les chaussettes et bas en polyamide/polyester sèchent vite, sont extrêmement résistants et gardent leur forme. Grâce à leur structure, les fibres synthétiques douces évacuent l’humidité du corps. Les produits ihle® pour le quotidien et le sport existent dans de nombreuses couleurs vives."
         }
       }
     }
@@ -577,7 +621,7 @@
     "privacy": "Confidentialité",
     "terms": "Conditions générales",
     "hoursTitle": "Horaires du magasin d’usine :",
-    "hours": "Du lundi au vendredi : de 8 h à 15 h",
+    "hours": "Du lundi au vendredi : de 7 h à 15 h",
     "addressArea": "Zone industrielle Heinzebank"
   },
   "addresses": {
@@ -716,5 +760,94 @@
     "143": "Lilas",
     "144": "Pitaya",
     "145": "Bordeaux"
+  },
+  "landing": {
+    "topbar": {
+      "outlet": "Magasin d’usine lun–ven 7h00–15h00",
+      "login": "Connexion revendeurs"
+    },
+    "nav": {
+      "home": "Accueil",
+      "products": "Produits",
+      "dealers": "Trouver un revendeur"
+    },
+    "claim": "Tricots fonctionnels médicaux sans couture · Made in Germany",
+    "hero": {
+      "label": "Tricoté sans couture · Textiles médicaux",
+      "text": "Tricots médicaux ihle® pour le diabète, la prothétique, l’orthétique et le traitement par corset, tricotés sans couture à Wolkenstein, Made in Germany.",
+      "findDealer": "Trouver un revendeur",
+      "trust": {
+        "seamless": "Tricoté sans couture",
+        "madeIn": "Made in Germany",
+        "stock": "Disponible en stock"
+      },
+      "alt": {
+        "pinkCrossed": "Jambes croisées en chaussettes ihle® roses",
+        "prosthesis": "Prothèse de jambe avec un bas ihle® violet",
+        "wheelchair": "Personne en fauteuil roulant portant des chaussettes ihle®",
+        "relaxation": "Pieds détendus en chaussettes ihle®"
+      },
+      "title": "Tricots fonctionnels médicaux sans couture.",
+      "showPhoto": "Afficher la photo {{number}} sur {{total}}",
+      "slides": {
+        "diabetic": "Chaussettes blanches pour diabétiques",
+        "stump-red": "Manchon de moignon rouge et blanc",
+        "leg-sleeve": "Manchon de jambe noir en marchant",
+        "sock-on": "Enfilage d'un bas",
+        "thigh": "Manchon de moignon sur la cuisse",
+        "brace": "Maillot porté sous un corset",
+        "stump-fit": "Mise en place d'un manchon de moignon",
+        "arm": "Manchon de bras sous une orthèse"
+      }
+    },
+    "highlights": {
+      "label": "Notre gamme"
+    },
+    "shapes": {
+      "label": "Formes de chaussettes",
+      "title": "Chaussette et chaussure = un duo parfait.",
+      "alt": {
+        "footlet": "Dessin d’une socquette",
+        "short": "Dessin d’une chaussette courte",
+        "knee": "Dessin d’un mi-bas"
+      }
+    },
+    "colors": {
+      "label": "Couleurs",
+      "groups": {
+        "classic": "Classiques",
+        "colourful": "Colorées"
+      },
+      "tones_one": "{{count}} teinte",
+      "tones_other": "{{count}} teintes"
+    },
+    "dealers": {
+      "label": "Recherche de revendeurs",
+      "text": "Nos tricots médicaux, chaussettes et sous-vêtements sont disponibles exclusivement chez les revendeurs spécialisés. Veuillez vous adresser à votre revendeur spécialisé ou à un magasin de matériel médical près de chez vous.",
+      "outlet": "Magasin d’usine Wolkenstein",
+      "outletLine": "Reuterweg 1 · Zone industrielle Heinzebank · lun–ven 7h00–15h00",
+      "route": "Itinéraire",
+      "locate": "Ma position",
+      "locateError": "Position indisponible"
+    },
+    "footer": {
+      "about": "ihle® est convaincu que les soins orthopédiques vont au-delà de l’aide technique elle-même.",
+      "outlet": "Magasin d’usine lun–ven 7h00–15h00",
+      "emailPlaceholder": "Votre adresse e-mail"
+    }
+  },
+  "contact": {
+    "phone": "Téléphone",
+    "fax": "Fax",
+    "email": "E-mail",
+    "hoursTitle": "Horaires de la vente d’usine",
+    "hours": "Du lundi au vendredi : de 7 h à 15 h",
+    "notice": "Attention ! Jusqu’à nouvel ordre, nous fermons à 13 h le vendredi !",
+    "staffTitle": "Nos représentants",
+    "south": "Bavière / Bade-Wurtemberg",
+    "west": "Rhénanie-du-Nord-Westphalie / Basse-Saxe",
+    "southwest": "Sarre / Rhénanie-Palatinat / Hesse",
+    "east": "Nouveaux Länder",
+    "route": "Itinéraire"
   }
 }

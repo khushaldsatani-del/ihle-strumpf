@@ -35,8 +35,8 @@ export default function Login() {
   return (
     <div className="mx-auto grid max-w-[96rem] items-stretch gap-8 px-4 pb-20 pt-6 sm:px-8 lg:grid-cols-2 lg:gap-16 lg:px-16 lg:pt-10">
       <div className="mx-auto flex w-full max-w-md flex-col justify-center py-4 lg:py-12">
-        <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#8a5a3c]">{t('login.eyebrow')}</p>
-        <h1 className="mt-3 text-3xl font-bold tracking-tight text-heading sm:text-4xl">{t('login.title')}</h1>
+        <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#16355b]">{t('login.eyebrow')}</p>
+        <h1 className="type-page-title mt-3">{t('login.title')}</h1>
 
         {isLoggedIn ? (
           // Already logged in
@@ -123,7 +123,7 @@ export default function Login() {
               {/* Error message (announced to screen readers) */}
               <div aria-live="polite">
                 {failed && (
-                  <p id={`${id}-error`} className="mt-5 flex items-start gap-2.5 rounded-xl bg-[#fdf0ee] p-3.5 text-sm font-medium text-[#a3261a]">
+                  <p id={`${id}-error`} className="mt-5 flex items-start gap-2.5 rounded-xl bg-[#fdf0ee] p-3.5 text-sm font-medium text-[#b64558]">
                     <CircleAlert size={18} strokeWidth={1.75} aria-hidden="true" className="mt-px shrink-0" />
                     {t('login.error')}
                   </p>
@@ -140,7 +140,7 @@ export default function Login() {
       </div>
 
       {/* Picture next to the form (desktop only) */}
-      <div className="relative hidden min-h-[36rem] overflow-hidden rounded-[2rem] bg-[#f1e9e2] lg:block">
+      <div className="relative hidden min-h-[36rem] overflow-hidden rounded-[2rem] bg-ihle-mist lg:block">
         <img src="/images/colors/banner.webp" alt="" className="absolute inset-0 size-full object-cover object-right" />
       </div>
     </div>

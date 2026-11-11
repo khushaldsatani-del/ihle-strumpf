@@ -17,6 +17,7 @@ const Material = lazy(() => import('./pages/Material.jsx'))
 const NotFound = lazy(() => import('./pages/NotFound.jsx'))
 const ProductDetail = lazy(() => import('./pages/ProductDetail.jsx'))
 const Products = lazy(() => import('./pages/Products.jsx'))
+const Contact = lazy(() => import('./pages/Contact.jsx'))
 const Search = lazy(() => import('./pages/Search.jsx'))
 const Services = lazy(() => import('./pages/Services.jsx'))
 const Settings = lazy(() => import('./pages/account/Settings.jsx'))
@@ -27,7 +28,6 @@ const FOOTER_PAGES = {
   '/catalog': 'footer.catalog',
   '/jobs': 'footer.jobs',
   '/newsletter': 'footer.newsletter',
-  '/contact': 'footer.contact',
   '/imprint': 'footer.imprint',
   '/privacy': 'footer.privacy',
   '/terms': 'footer.terms',
@@ -49,6 +49,7 @@ export default function AppRoutes() {
         <Route path="/material" element={<Material />} />
         <Route path="/services" element={<Services />} />
         <Route path="/about" element={<AboutUs />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/search" element={<Search />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cart" element={<Cart />} />

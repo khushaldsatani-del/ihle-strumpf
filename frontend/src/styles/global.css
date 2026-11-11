@@ -1,41 +1,58 @@
 @import "tailwindcss";
+@import "./landing.css";
 
 @theme {
-  /* Font pairing (self-hosted, loaded in main.jsx): Plus Jakarta Sans for text, Manrope for headings */
-  --font-sans: "Plus Jakarta Sans Variable", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
-  --font-heading: "Manrope Variable", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
+  /* Ihle corporate design (style guide 2026), used by the new landing page (components/landing) */
+  --font-pf: "PF Square Sans Pro", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
     sans-serif;
-  --color-brand: #1e2f5f;
-  --color-brand-dark: #0f1a3a;
-  --color-surface: #faf9f6; /* off-white page background */
-  --color-heading: #121417; /* every heading */
-  --color-body: #3f4753; /* running text */
+  --color-ihle-blue: #16355b;
+  --color-ihle-yellow: #fbbc3d; /* style-guide yellow: size 35-38 and the ilo® category only */
+  --color-ihle-accent: #b64558; /* accent of the site: style-guide red */
+  --color-ihle-accent-soft: #f6e3e7; /* soft pink tint behind labels and tags */
+  --color-ihle-accent-ink: #9e3a4c; /* red for small text on white */
+  --color-ihle-blue-dark: #0f2846;
+  --color-ihle-primary: #b64558; /* main buttons: style-guide red with white text (5.2:1) */
+  --color-ihle-primary-dark: #9e3a4c; /* their hover */
+  --color-ihle-ink: #3a4656; /* running text */
+  --color-ihle-muted: #5c728c; /* labels, secondary text */
+  --color-ihle-mist: #f4f4f6; /* light grey sections and image tiles */
+  --color-ihle-cream: #faf8f4; /* matches the cream area of the sock photos */
 
-  /* Accents of the landing page (cream panels, brown buttons and highlights, sage green) */
-  --color-cream: #f7f3ee;
-  --color-brown: #4a2413;
-  --color-clay: #5a2d0c;
-  --color-moss: #6f8f7b;
-  --color-panel-ink: #f1e2d4; /* text on the brown panel */
-  --color-panel-accent: #f2d3b6; /* accent words on the brown panel: a light, warm sand */
+  /* The whole shop speaks the Ihle corporate design: PF Square Sans Pro for everything, Ihle blue for headings.
+     The older token names stay so every page picks the new values up. */
+  --font-sans: var(--font-pf);
+  --font-heading: var(--font-pf);
+  --color-brand: #16355b;
+  --color-brand-dark: #0f2846;
+  --color-surface: #faf8f4; /* off-white page background */
+  --color-heading: #16355b; /* every heading: Ihle blue */
+  --color-body: #3a4656; /* running text */
 
-  /* Extra palette, currently unused: the material page follows the landing page colours */
-  --color-rust: #96391f;
-  --color-peach: #e5c1a5;
-  --color-cocoa: #53250a;
-  --color-teal: #5f8a99;
-  --color-olive: #666b4f;
-  --color-sage: #a1af8a;
-  --color-mustard: #e8b84e;
-  --color-leaf: #b2c795;
+  /* Former warm accents, now the Ihle palette (style guide: primary and secondary colours) */
+  --color-cream: #f4f4f6; /* light panels */
+  --color-brown: #16355b; /* dark buttons and highlights: Ihle blue */
+  --color-clay: #16355b;
+  --color-moss: #68a57f;
+  --color-panel-ink: #ffffff; /* text on dark-blue panels */
+  --color-panel-accent: #fbbc3d; /* accent words on dark-blue panels: Ihle yellow */
+  --color-rust: #b64558;
+  --color-peach: #f3997b;
+  --color-cocoa: #16355b;
+  --color-teal: #57a3b1;
+  --color-olive: #68a57f;
+  --color-sage: #68a57f;
+  --color-mustard: #fbbc3d;
+  --color-leaf: #68a57f;
 }
 
 html {
   scrollbar-gutter: stable;
+  /* PF Square Sans Pro has no bold italic: never let the browser fake it */
+  font-synthesis: none;
 }
 
-/* Every heading on the site: heading font, bold, heading colour */
+/* Every heading on the site: Ihle font, medium weight, Ihle blue. Page and section titles add their italic style
+   through the type classes in landing.css (type-page-title, type-section-title, …). */
 @layer base {
   h1,
   h2,
@@ -44,7 +61,7 @@ html {
   h5,
   h6 {
     font-family: var(--font-heading);
-    font-weight: 700;
+    font-weight: 500;
     color: var(--color-heading);
   }
 }
@@ -57,79 +74,42 @@ body {
 
 /* ---------- Navbar tokens ---------- */
 :root {
-  --nav-gap: 0.5rem; /* small space between the bar and the edges of the screen */
-  --nav-bar-height: 3.5rem;
-  --nav-height: calc(var(--nav-bar-height) + var(--nav-gap)); /* space every page keeps free at the top */
+  /* Button rule for the whole site (see .btn-* in landing.css):
+     - main action (add to cart, order, log in, apply, "discover"): Ihle red #b64558, white text, pill
+     - secondary action (cancel, reset, log out, second link): Ihle-blue outline, blue text, filled blue on hover
+     - selected state (chosen size, current page, active filter, "added"): Ihle blue fill, white text
+     No other button colours (no category colours, no green). */
+  --btn-primary-bg: #b64558;
+  --btn-primary-fg: #ffffff;
+  --btn-primary-hover: #9e3a4c;
+  --btn-primary-shadow: 0 10px 24px -12px rgb(22 53 91 / 0.45);
+  /* height of the sticky header bar once scrolled (components/landing/LandingHeader.jsx), for things that stick
+     below it (filters, checkout summary) */
+  --nav-height: 4.5rem;
   --nav-bg: #fff;
-  --nav-border: rgb(15 23 42 / 0.08); /* dropdown outline and dividers */
-  --nav-shadow: 0 8px 24px -14px rgb(15 23 42 / 0.25);
-  --nav-panel-shadow: 0 18px 40px -14px rgb(15 23 42 / 0.25);
+  --nav-border: rgb(22 53 91 / 0.08); /* dropdown outline and dividers */
+  --nav-panel-shadow: 0 18px 40px -14px rgb(22 53 91 / 0.25);
   --nav-fg: var(--color-heading);
-  --nav-fg-muted: rgb(20 33 63 / 0.76);
+  --nav-fg-muted: rgb(22 53 91 / 0.76);
   --nav-accent: var(--color-brand);
-  --nav-hover: rgb(15 23 42 / 0.06);
-  --nav-field-bg: rgb(15 23 42 / 0.04);
-  --nav-field-border: rgb(15 23 42 / 0.12);
-  --nav-field-ring: rgb(15 23 42 / 0.45);
-  --nav-pill: rgb(30 47 95 / 0.1);
+  --nav-hover: rgb(22 53 91 / 0.06);
+  --nav-field-bg: rgb(22 53 91 / 0.04);
+  --nav-field-border: rgb(22 53 91 / 0.12);
+  --nav-field-ring: rgb(22 53 91 / 0.45);
+  --nav-pill: rgb(22 53 91 / 0.1);
   --nav-badge-bg: var(--color-brand);
   --nav-badge-fg: #fff;
-  --footer-band: #5f8a99;
-  --footer-accent: #2f5be7;
 }
 
 @media (min-width: 1024px) {
   :root {
-    --nav-gap: 0.625rem;
-    --nav-bar-height: 4rem;
+    /* white bar (5.25rem) plus the blue top bar (2.25rem), which stays visible on desktop */
+    --nav-height: 7.5rem;
   }
 }
 
 @layer components {
-  /* ---------- Navbar ---------- */
-  .navbar {
-    color: var(--nav-fg);
-  }
-
-  .navbar :focus-visible {
-    outline: 2px solid var(--nav-accent);
-    outline-offset: 2px;
-  }
-
-  /* Solid white bar with a little space around it, a thin border and slightly rounded corners,
-     so it reads as separate from the white hero below */
-  .navbar {
-    padding: var(--nav-gap) var(--nav-gap) 0;
-  }
-
-  .navbar__bar {
-    height: var(--nav-bar-height);
-    padding-inline: 1rem;
-    border: 1px solid rgb(15 23 42 / 0.1);
-    border-radius: 1rem;
-    background: var(--nav-bg);
-    box-shadow: 0 2px 10px -6px rgb(15 23 42 / 0.18);
-    transition:
-      height 0.3s ease,
-      box-shadow 0.3s ease;
-  }
-
-  /* Scrolled: a little smaller, with a stronger shadow */
-  .navbar[data-scrolled] .navbar__bar {
-    height: 3.25rem;
-    box-shadow: var(--nav-shadow);
-  }
-
-  @media (min-width: 1024px) {
-    .navbar__bar {
-      padding-inline: 1.5rem;
-    }
-
-    .navbar[data-scrolled] .navbar__bar {
-      height: 3.5rem;
-    }
-  }
-
+  /* ---------- Header menus (mega menu, dropdowns, search, phone menu) ---------- */
   /* Dropdown panel */
   .nav-panel {
     background: var(--nav-bg);
@@ -164,17 +144,6 @@ body {
   .mega-view-all:hover,
   .mega-view-all:focus-visible {
     background: var(--nav-hover);
-  }
-
-  .nav-logo img {
-    height: 1.75rem;
-    width: auto;
-    max-width: none;
-    transition: height 0.3s ease;
-  }
-
-  .navbar[data-scrolled] .nav-logo img {
-    height: 1.5rem;
   }
 
   /* Round icon button, 44px touch target */
@@ -227,14 +196,6 @@ body {
   .nav-link[aria-current='page'],
   .nav-link[aria-expanded='true'] {
     color: var(--nav-accent);
-  }
-
-  /* Sliding pill behind the active link */
-  .nav-pill {
-    position: absolute;
-    inset: 0.25rem 0;
-    border-radius: 9999px;
-    background: var(--nav-pill);
   }
 
   /* Row inside a dropdown */
@@ -378,61 +339,15 @@ body {
     transform: rotate(-45deg);
   }
 
-  /* ---------- Home hero cards (the notched outline is drawn in Hero.jsx) ---------- */
-  /* 3D tilt (see Card in Hero.jsx): the outer box takes the place in the grid and stays still,
-     the inner one tilts. The shadow is a drop-shadow so it follows the notched outline. */
-  .hero-tilt {
-    position: relative;
-    display: flex;
-    min-height: 0;
-  }
-
-  .hero-tilt__inner {
-    display: flex;
-    flex: 1;
-    min-width: 0;
-    filter: drop-shadow(0 0 0 rgb(0 0 0 / 0));
-    transition-duration: 300ms;
-    transition-property: transform, filter;
-    transition-timing-function: ease-out;
-  }
-
-  .hero-tilt__inner.is-tilted {
-    transition-duration: 150ms;
-    filter: drop-shadow(0 22px 36px rgb(0 0 0 / 0.3));
-  }
-
-  /* the column of the tilted card comes to the front, so the enlarged card is not covered */
-  .hero-grid > div:has(.is-tilted) {
-    position: relative;
-    z-index: 2;
-  }
-
-  .hero-card {
-    position: relative;
-    flex: 1;
-    min-width: 0;
-    min-height: 0;
-    overflow: hidden;
-    border-radius: 1rem;
-  }
-
-
-  @media (min-width: 1024px) {
-    .hero-card {
-      border-radius: 1.5rem;
-    }
-  }
-
   /* ---------- Home ranges (category information, see Ranges.jsx) ---------- */
   /* --accent and --tint are set per row in Ranges.jsx */
   .ranges-list {
-    border-top: 1px solid rgb(18 20 23 / 0.12);
+    border-top: 1px solid rgb(22 53 91 / 0.12);
   }
 
   .ranges-row {
     position: relative;
-    border-bottom: 1px solid rgb(18 20 23 / 0.12);
+    border-bottom: 1px solid rgb(22 53 91 / 0.12);
   }
 
   /* a line in the category colour grows along the top of the open row */
@@ -473,7 +388,7 @@ body {
     flex-shrink: 0;
     width: 2rem;
     font-size: 0.8125rem;
-    font-weight: 800;
+    font-weight: 700;
     font-variant-numeric: tabular-nums;
     color: var(--accent);
   }
@@ -509,7 +424,7 @@ body {
     justify-content: center;
     width: 2.75rem;
     height: 2.75rem;
-    border: 1px solid rgb(18 20 23 / 0.15);
+    border: 1px solid rgb(22 53 91 / 0.15);
     border-radius: 9999px;
     color: var(--color-heading);
     transition:
@@ -572,7 +487,7 @@ body {
     border-radius: 9999px;
     background: var(--accent);
     font-size: 0.6875rem;
-    font-weight: 800;
+    font-weight: 700;
     color: #fff;
     font-variant-numeric: tabular-nums;
   }
@@ -669,15 +584,19 @@ body {
     min-height: 2.875rem;
     padding: 0 1.5rem;
     border-radius: 9999px;
-    background: var(--accent);
+    background: var(--btn-primary-bg);
     font-size: 0.9375rem;
-    font-weight: 600;
-    color: #fff;
-    transition: transform 0.2s ease, filter 0.3s ease;
+    font-weight: 500;
+    color: var(--btn-primary-fg);
+    transition:
+      background-color 0.2s ease,
+      box-shadow 0.2s ease,
+      transform 0.2s ease;
   }
 
   .ranges-cta:hover {
-    filter: brightness(1.12);
+    background: var(--btn-primary-hover);
+    box-shadow: var(--btn-primary-shadow);
   }
 
   .ranges-cta:active {
@@ -685,7 +604,7 @@ body {
   }
 
   .ranges-cta:focus-visible {
-    outline: 2px solid var(--accent);
+    outline: 2px solid var(--color-brand);
     outline-offset: 3px;
   }
 
@@ -754,128 +673,6 @@ body {
     }
   }
 
-  /* ---------- Home highlights (carousel, see Highlights.jsx) ---------- */
-  /* Row of cards; --position (set in Highlights.jsx) is the index of the first visible card */
-  .highlight-track {
-    --per-view: 2;
-    --gap: 0.375rem;
-    display: flex;
-    gap: var(--gap);
-    transform: translateX(calc(var(--position) * -1 * (100% + var(--gap)) / var(--per-view)));
-    /* long, soft deceleration; retargets smoothly when clicked again mid-slide */
-    transition: transform 750ms cubic-bezier(0.22, 1, 0.36, 1);
-    will-change: transform;
-  }
-
-  @media (min-width: 1024px) {
-    .highlight-track {
-      --per-view: 4;
-    }
-  }
-
-  /* re-centring the endless row must not be visible */
-  .highlight-track[data-jumping] {
-    transition: none;
-  }
-
-  .highlight-slide {
-    flex: 0 0 calc((100% - (var(--per-view) - 1) * var(--gap)) / var(--per-view));
-    min-width: 0;
-  }
-
-  /* Round previous / next buttons */
-  .highlight-arrow {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.75rem;
-    height: 2.75rem;
-    border: 1px solid rgb(15 23 42 / 0.15);
-    border-radius: 9999px;
-    color: var(--color-brand-dark);
-    cursor: pointer;
-    transition:
-      background-color 0.25s ease,
-      color 0.25s ease,
-      border-color 0.25s ease,
-      transform 0.15s ease;
-  }
-
-  .highlight-arrow:hover {
-    background: var(--color-brand-dark);
-    border-color: var(--color-brand-dark);
-    color: #fff;
-  }
-
-  .highlight-arrow:active {
-    transform: scale(0.94);
-  }
-
-  .highlight-arrow:focus-visible {
-    outline: 2px solid var(--color-brand);
-    outline-offset: 2px;
-  }
-
-  .highlight-card img {
-    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  .highlight-card:focus-visible {
-    outline: 2px solid var(--color-brand);
-    outline-offset: 4px;
-  }
-
-  @media (hover: hover) {
-    .highlight-card:hover img {
-      transform: scale(1.06);
-    }
-
-    .highlight-card:hover h3 {
-      text-decoration: underline;
-      text-underline-offset: 4px;
-    }
-  }
-
-  /* ---------- Home sock shapes ---------- */
-  .shape-panel {
-    box-shadow:
-      0 1px 2px rgb(15 23 42 / 0.05),
-      0 10px 30px -10px rgb(15 23 42 / 0.18);
-  }
-
-  /* ---------- Home colours ---------- */
-  .color-panel {
-    box-shadow: 0 10px 30px -14px rgb(60 40 25 / 0.25);
-  }
-
-  /* Frosted card: the picture behind stays softly visible */
-  .color-card {
-    background: rgb(255 255 255 / 0.2);
-    box-shadow: 0 12px 32px -12px rgb(60 40 25 / 0.3);
-    -webkit-backdrop-filter: blur(12px) saturate(140%);
-    backdrop-filter: blur(12px) saturate(140%);
-  }
-
-  /* no ring; a faint shadow keeps the white swatch visible on the light card */
-  .color-swatch {
-    box-shadow: 0 2px 5px rgb(60 40 25 / 0.22);
-    transition:
-      transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
-      box-shadow 0.35s ease;
-  }
-
-  /* Hover on a colour (circle or name): the circle lifts and grows a little */
-  .color-item {
-    cursor: pointer;
-  }
-
-  @media (hover: hover) {
-    .color-item:hover .color-swatch {
-      transform: translateY(-3px) scale(1.18);
-      box-shadow: 0 10px 18px -4px rgb(60 40 25 / 0.4);
-    }
-  }
-
   /* ---------- 3D roll for button labels (see RollText.jsx) ---------- */
   .roll-text {
     position: relative;
@@ -914,115 +711,6 @@ body {
     }
   }
 
-  /* ---------- Home retailer finder ---------- */
-  /* Pill with icon, input and button */
-  .dealer-search {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    height: 3rem;
-    max-width: 34rem;
-    border: 1px solid rgb(60 40 25 / 0.22);
-    border-radius: 9999px;
-    background: #fff;
-    transition:
-      border-color 0.2s ease,
-      box-shadow 0.2s ease;
-  }
-
-  .dealer-search:focus-within {
-    border-color: #4a2413;
-    box-shadow: 0 0 0 3px rgb(74 36 19 / 0.15);
-  }
-
-  .dealer-search input {
-    min-width: 0;
-    flex: 1;
-    align-self: stretch;
-    background: transparent;
-    font-size: 0.95rem;
-    color: var(--color-heading);
-  }
-
-  .dealer-search input:focus-visible {
-    outline: none;
-  }
-
-  .dealer-search input::placeholder {
-    color: #6b5a50;
-    opacity: 1;
-  }
-
-  .dealer-search input::-webkit-search-cancel-button {
-    display: none;
-  }
-
-  .dealer-search button {
-    display: inline-flex;
-    flex-shrink: 0;
-    align-items: center;
-    gap: 0.5rem;
-    align-self: stretch;
-    margin: -1px;
-    padding: 0 1.25rem;
-    border-radius: 9999px;
-    background: #4a2413;
-    color: #fff;
-    font-size: 0.9rem;
-    font-weight: 600;
-    white-space: nowrap;
-    cursor: pointer;
-    transition:
-      background-color 0.3s ease,
-      transform 0.15s ease;
-  }
-
-  .dealer-search button:hover {
-    background: #633320;
-  }
-
-  .dealer-search button:active {
-    transform: scale(0.97);
-  }
-
-  .dealer-search button:focus-visible {
-    outline: 2px solid #4a2413;
-    outline-offset: 2px;
-  }
-
-  .dealer-search button:disabled {
-    opacity: 0.7;
-    cursor: progress;
-  }
-
-  /* ---------- Footer ---------- */
-  .footer-link {
-    color: var(--color-heading);
-    transition: color 0.2s ease;
-  }
-
-  a.footer-link[class*='text-(--footer-accent)'] {
-    color: var(--footer-accent);
-  }
-
-  .footer-link:hover {
-    color: var(--footer-accent);
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-
-  .footer :focus-visible {
-    outline: 2px solid var(--footer-accent);
-    outline-offset: 3px;
-  }
-
-  /* ---------- Language panel ---------- */
-  .language-drawer :focus-visible,
-  .language-option:has(input:focus-visible) {
-    outline: 2px solid #3d1f10;
-    outline-offset: 2px;
-  }
-
   /* ---------- Product list ---------- */
   /* Outlined pill: the filter button and the filter choices */
   .shop-chip {
@@ -1031,7 +719,7 @@ body {
     gap: 0.5rem;
     min-height: 2.5rem;
     padding: 0 0.9rem;
-    border: 1px solid rgb(15 23 42 / 0.35);
+    border: 1px solid rgb(22 53 91 / 0.35);
     border-radius: 0.75rem;
     font-size: 0.85rem;
     font-weight: 700;
@@ -1046,7 +734,7 @@ body {
 
   .shop-chip:hover {
     border-color: var(--color-heading);
-    background: rgb(15 23 42 / 0.05);
+    background: rgb(22 53 91 / 0.05);
   }
 
   .shop-chip:active {
@@ -1075,7 +763,7 @@ body {
     align-items: center;
     gap: 0.5rem;
     padding: 0 0.75rem 0 0.9rem;
-    border: 1px solid rgb(15 23 42 / 0.18);
+    border: 1px solid rgb(22 53 91 / 0.18);
     border-radius: 0.75rem;
     font-weight: 600;
     color: var(--color-heading);
@@ -1089,7 +777,7 @@ body {
   .sort-btn:hover,
   .sort-btn[aria-expanded='true'] {
     border-color: var(--color-heading);
-    background: rgb(15 23 42 / 0.04);
+    background: rgb(22 53 91 / 0.04);
   }
 
   /* Field version: as tall and wide as the text fields next to it, value left, arrow right */
@@ -1098,7 +786,7 @@ body {
     min-height: 3rem;
     justify-content: space-between;
     border-radius: 0.65rem;
-    border-color: rgb(15 23 42 / 0.2);
+    border-color: rgb(22 53 91 / 0.2);
     background: #fff;
     font-weight: 500;
     font-size: 0.9rem;
@@ -1115,7 +803,7 @@ body {
   }
 
   .sort-btn--field:disabled:hover {
-    border-color: rgb(15 23 42 / 0.2);
+    border-color: rgb(22 53 91 / 0.2);
     background: #fff;
   }
 
@@ -1143,9 +831,9 @@ body {
   }
 
   .sort-list {
-    border: 1px solid rgb(15 23 42 / 0.1);
+    border: 1px solid rgb(22 53 91 / 0.1);
     background: #fff;
-    box-shadow: 0 18px 40px -14px rgb(15 23 42 / 0.25);
+    box-shadow: 0 18px 40px -14px rgb(22 53 91 / 0.25);
   }
 
   .sort-option {
@@ -1163,7 +851,7 @@ body {
 
   .sort-option:hover,
   .sort-option:focus-visible {
-    background: rgb(15 23 42 / 0.06);
+    background: rgb(22 53 91 / 0.06);
   }
 
   .sort-option:focus-visible {
@@ -1188,7 +876,7 @@ body {
     display: inline-flex;
     padding: 0.2rem;
     gap: 0.2rem;
-    border: 1px solid rgb(15 23 42 / 0.18);
+    border: 1px solid rgb(22 53 91 / 0.18);
     border-radius: 0.75rem;
   }
 
@@ -1207,7 +895,7 @@ body {
   }
 
   .view-toggle button:hover {
-    background: rgb(15 23 42 / 0.06);
+    background: rgb(22 53 91 / 0.06);
   }
 
   .view-toggle button[aria-pressed='true'] {
@@ -1251,7 +939,7 @@ body {
     aspect-ratio: 1;
     overflow: hidden;
     border-radius: 1.75rem;
-    background: #f5f4f1;
+    background: #f4f4f6;
   }
 
   /* Magnifying glass over the picture (Magnifier.jsx moves it) */
@@ -1280,10 +968,10 @@ body {
     overflow: hidden;
     border: 3px solid #fff;
     border-radius: 9999px;
-    background: #f5f4f1;
+    background: #f4f4f6;
     box-shadow:
-      0 0 0 1px rgb(15 23 42 / 0.12),
-      0 18px 40px -12px rgb(15 23 42 / 0.45);
+      0 0 0 1px rgb(22 53 91 / 0.12),
+      0 18px 40px -12px rgb(22 53 91 / 0.45);
     opacity: 0;
     transform: scale(0.6);
     transition:
@@ -1315,7 +1003,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 0.75rem;
-    color: #a39c94;
+    color: #9aa6b4;
     font-size: 0.9rem;
     font-weight: 600;
   }
@@ -1329,8 +1017,8 @@ body {
     overflow: hidden;
     border: 1.5px solid transparent;
     border-radius: 1rem;
-    background: #f5f4f1;
-    color: #a39c94;
+    background: #f4f4f6;
+    color: #9aa6b4;
     cursor: pointer;
     transition:
       border-color 0.2s ease,
@@ -1338,7 +1026,7 @@ body {
   }
 
   .product-thumb:hover {
-    border-color: rgb(59 31 18 / 0.35);
+    border-color: rgb(22 53 91 / 0.35);
   }
 
   .product-thumb:active {
@@ -1346,7 +1034,7 @@ body {
   }
 
   .product-thumb[aria-pressed='true'] {
-    border-color: #3b1f12;
+    border-color: #16355b;
   }
 
   .product-thumb:focus-visible {
@@ -1366,7 +1054,7 @@ body {
     align-items: center;
     justify-content: center;
     border-radius: 9999px;
-    box-shadow: inset 0 0 0 1px rgb(15 23 42 / 0.18);
+    box-shadow: inset 0 0 0 1px rgb(22 53 91 / 0.18);
     transition:
       transform 0.2s ease,
       box-shadow 0.2s ease;
@@ -1378,9 +1066,9 @@ body {
 
   .detail-swatch:has(input:checked) > span {
     box-shadow:
-      inset 0 0 0 1px rgb(15 23 42 / 0.18),
+      inset 0 0 0 1px rgb(22 53 91 / 0.18),
       0 0 0 2px #fff,
-      0 0 0 4px #3b1f12;
+      0 0 0 4px #16355b;
   }
 
   .detail-swatch:has(input:focus-visible) > span,
@@ -1390,7 +1078,7 @@ body {
   }
 
   .detail-chip {
-    --filter-accent: #3b1f12;
+    --filter-accent: #16355b;
     min-height: 2.75rem;
     padding: 0 1.1rem;
     color: var(--color-heading);
@@ -1402,12 +1090,12 @@ body {
     grid-template-columns: minmax(8rem, 12rem) 1fr;
     gap: 1rem;
     padding: 0.8rem 0;
-    border-top: 1px solid rgb(15 23 42 / 0.1);
+    border-top: 1px solid rgb(22 53 91 / 0.1);
     font-size: 0.95rem;
   }
 
   .detail-list > div:last-child {
-    border-bottom: 1px solid rgb(15 23 42 / 0.1);
+    border-bottom: 1px solid rgb(22 53 91 / 0.1);
   }
 
   .detail-list dt {
@@ -1428,7 +1116,7 @@ body {
     gap: 1rem 2rem;
     margin-top: 3rem;
     padding-top: 1.5rem;
-    border-top: 1px solid rgb(15 23 42 / 0.1);
+    border-top: 1px solid rgb(22 53 91 / 0.1);
     font-size: 0.875rem;
     color: var(--color-heading);
   }
@@ -1453,8 +1141,8 @@ body {
   }
 
   .page-btn:hover {
-    border-color: rgb(15 23 42 / 0.2);
-    background: rgb(15 23 42 / 0.05);
+    border-color: rgb(22 53 91 / 0.2);
+    background: rgb(22 53 91 / 0.05);
   }
 
   .page-btn:active {
@@ -1486,7 +1174,7 @@ body {
     align-items: center;
     gap: 1.25rem;
     padding: 0.75rem 0;
-    border-bottom: 1px solid rgb(15 23 42 / 0.1);
+    border-bottom: 1px solid rgb(22 53 91 / 0.1);
   }
 
   .product-list > .product-row:first-child {
@@ -1519,7 +1207,7 @@ body {
   }
 
   .filter-panel {
-    --filter-accent: #3b1f12;
+    --filter-accent: #16355b;
     display: flex;
     flex-direction: column;
     /* no box around it: the filters sit directly on the page, in line with the "Filter" button */
@@ -1535,7 +1223,7 @@ body {
     padding: 0 0.5rem 0.5rem 0;
     /* slim, unobtrusive scrollbar for when the filters are taller than the screen */
     scrollbar-width: thin;
-    scrollbar-color: rgb(15 23 42 / 0.2) transparent;
+    scrollbar-color: rgb(22 53 91 / 0.2) transparent;
   }
 
   /* Sidebar: a thin line on the right separates the filters from the products.
@@ -1544,14 +1232,14 @@ body {
   .filter-sidebar .filter-panel {
     max-height: var(--filter-max-height, calc(100vh - var(--nav-height) - 2rem));
     padding-right: 0.75rem;
-    border-right: 1px solid rgb(15 23 42 / 0.12);
+    border-right: 1px solid rgb(22 53 91 / 0.12);
   }
 
   /* Phone: the panel sits above the products at full width and is as tall as its content;
      the separating line is below it instead */
   .filter-stack .filter-panel {
     max-height: none;
-    border-bottom: 1px solid rgb(15 23 42 / 0.12);
+    border-bottom: 1px solid rgb(22 53 91 / 0.12);
   }
 
   .filter-stack .filter-panel__body {
@@ -1571,25 +1259,28 @@ body {
     display: flex;
     gap: 0.75rem;
     padding: 0.875rem 0;
-    border-top: 1px solid rgb(15 23 42 / 0.1);
+    border-top: 1px solid rgb(22 53 91 / 0.1);
   }
 
   .filter-footer-btn {
     flex: 1;
     min-height: 3rem;
     padding: 0 1rem;
-    border: 1px solid rgb(15 23 42 / 0.25);
+    border: 1px solid var(--color-ihle-blue);
     border-radius: 9999px;
-    font-size: 0.9rem;
-    font-weight: 700;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-ihle-blue);
     cursor: pointer;
     transition:
       background-color 0.2s ease,
+      color 0.2s ease,
       transform 0.15s ease;
   }
 
   .filter-footer-btn:hover {
-    background: rgb(15 23 42 / 0.05);
+    background: var(--color-ihle-blue);
+    color: #fff;
   }
 
   .filter-footer-btn:active {
@@ -1603,13 +1294,15 @@ body {
 
   .filter-footer-btn--primary {
     flex: 1.6;
-    border-color: var(--filter-accent);
-    background: var(--filter-accent);
-    color: #fff;
+    border-color: var(--btn-primary-bg);
+    background: var(--btn-primary-bg);
+    color: var(--btn-primary-fg);
   }
 
   .filter-footer-btn--primary:hover {
-    background: #54301c;
+    border-color: var(--btn-primary-hover);
+    background: var(--btn-primary-hover);
+    color: var(--btn-primary-fg);
   }
 
   .filter-panel :focus-visible,
@@ -1642,12 +1335,12 @@ body {
   }
 
   .filter-close:hover {
-    background: rgb(15 23 42 / 0.06);
+    background: rgb(22 53 91 / 0.06);
   }
 
   /* Collapsible section with a monospace title */
   .filter-section {
-    border-top: 1px solid rgb(15 23 42 / 0.1);
+    border-top: 1px solid rgb(22 53 91 / 0.1);
   }
 
   .filter-section__toggle {
@@ -1679,7 +1372,7 @@ body {
   }
 
   .filter-option:hover {
-    background: rgb(15 23 42 / 0.045);
+    background: rgb(22 53 91 / 0.045);
   }
 
   .filter-check {
@@ -1722,7 +1415,7 @@ body {
     align-items: center;
     gap: 0.35rem;
     padding: 0 0.9rem;
-    border: 1px solid rgb(15 23 42 / 0.25);
+    border: 1px solid rgb(22 53 91 / 0.25);
     border-radius: 9999px;
     font-size: 0.875rem;
     font-weight: 600;
@@ -1735,7 +1428,7 @@ body {
 
   .filter-chip:hover {
     border-color: var(--filter-accent);
-    background: rgb(59 31 18 / 0.06);
+    background: rgb(22 53 91 / 0.06);
   }
 
   .filter-chip:has(input:checked) {
@@ -1766,7 +1459,7 @@ body {
     align-items: center;
     justify-content: center;
     border-radius: 9999px;
-    box-shadow: inset 0 0 0 1px rgb(15 23 42 / 0.18);
+    box-shadow: inset 0 0 0 1px rgb(22 53 91 / 0.18);
     transition:
       transform 0.2s ease,
       box-shadow 0.2s ease;
@@ -1778,7 +1471,7 @@ body {
 
   .filter-swatch:has(input:checked) .filter-swatch__dot {
     box-shadow:
-      inset 0 0 0 1px rgb(15 23 42 / 0.18),
+      inset 0 0 0 1px rgb(22 53 91 / 0.18),
       0 0 0 2px #fff,
       0 0 0 4px var(--filter-accent);
   }
@@ -1819,7 +1512,7 @@ body {
     gap: 0.35rem;
     padding: 0 0.6rem 0 0.75rem;
     border-radius: 9999px;
-    background: #f1e9e2;
+    background: #eceff3;
     color: var(--filter-accent);
     font-size: 0.8rem;
     font-weight: 600;
@@ -1832,7 +1525,7 @@ body {
   }
 
   .filter-active:hover {
-    background: #e6d9ce;
+    background: #e1e6ec;
   }
 
   /* Number of active filters on the "Filter" button */
@@ -1844,7 +1537,7 @@ body {
     justify-content: center;
     padding: 0 0.3rem;
     border-radius: 9999px;
-    background: #3b1f12;
+    background: #16355b;
     color: #fff;
     font-size: 0.7rem;
     font-weight: 700;
@@ -1875,7 +1568,7 @@ body {
     min-width: 0;
     height: 2.75rem;
     padding: 0 0.8rem;
-    border: 1px solid rgb(15 23 42 / 0.2);
+    border: 1px solid rgb(22 53 91 / 0.2);
     border-radius: 0.65rem;
     background: #fff;
     font-size: 0.9rem;
@@ -1887,8 +1580,8 @@ body {
 
   .order-input:focus-visible {
     outline: none;
-    border-color: #3b1f12;
-    box-shadow: 0 0 0 3px rgb(59 31 18 / 0.14);
+    border-color: #16355b;
+    box-shadow: 0 0 0 3px rgb(22 53 91 / 0.14);
   }
 
   .order-input--qty {
@@ -1951,7 +1644,7 @@ body {
   .order-field > textarea,
   .qty {
     height: 2.5rem;
-    border: 1px solid rgb(15 23 42 / 0.2);
+    border: 1px solid rgb(22 53 91 / 0.2);
     border-radius: 0.65rem;
     background: #fff;
     font-size: 0.9rem;
@@ -1984,7 +1677,7 @@ body {
   }
 
   .order-field > textarea:hover {
-    border-color: rgb(15 23 42 / 0.35);
+    border-color: rgb(22 53 91 / 0.35);
   }
 
   .order-field > input:focus-visible,
@@ -1992,8 +1685,8 @@ body {
   .order-field > textarea:focus-visible,
   .qty:focus-within {
     outline: none;
-    border-color: #3b1f12;
-    box-shadow: 0 0 0 3px rgb(59 31 18 / 0.14);
+    border-color: #16355b;
+    box-shadow: 0 0 0 3px rgb(22 53 91 / 0.14);
   }
 
   /* Quantity: minus, number, plus */
@@ -2013,7 +1706,7 @@ body {
   }
 
   .qty button:hover:not(:disabled) {
-    background: rgb(15 23 42 / 0.06);
+    background: rgb(22 53 91 / 0.06);
   }
 
   .qty button:disabled {
@@ -2053,26 +1746,30 @@ body {
     gap: 0.5rem;
     padding: 0 1.1rem;
     border-radius: 9999px;
-    background: #3b1f12;
-    color: #fff;
+    background: var(--btn-primary-bg);
+    color: var(--btn-primary-fg);
     font-size: 0.875rem;
-    font-weight: 700;
+    font-weight: 500;
     cursor: pointer;
     transition:
       background-color 0.3s ease,
+      box-shadow 0.3s ease,
       transform 0.15s ease;
   }
 
   .order-btn:hover {
-    background: #54301c;
+    background: var(--btn-primary-hover);
+    box-shadow: var(--btn-primary-shadow);
   }
 
   .order-btn:active {
     transform: scale(0.97);
   }
 
+  /* "added" feedback: Ihle blue (the site's state colour), not a separate green */
   .order-btn[data-added] {
-    background: #2f6b45;
+    background: var(--color-ihle-blue);
+    color: #fff;
   }
 
   .order-btn:focus-visible {
@@ -2172,7 +1869,7 @@ body {
     display: flex;
     gap: 1rem;
     padding: 1.25rem 0;
-    border-bottom: 1px solid rgb(15 23 42 / 0.1);
+    border-bottom: 1px solid rgb(22 53 91 / 0.1);
   }
 
   @media (min-width: 640px) {
@@ -2197,7 +1894,7 @@ body {
 
   .cart-remove:hover {
     background: #fdf0ee;
-    color: #a3261a;
+    color: #b64558;
   }
 
   .cart-remove:focus-visible {
@@ -2205,445 +1902,10 @@ body {
     outline-offset: 2px;
   }
 
-  /* ---------- Material page: hero ---------- */
-  /* Colours as on the landing page: cream panel, near-black headline, brown accents, sage shape */
-  .material-hero {
-    overflow: hidden;
-    background: #fbf9f6; /* a lighter shade of the landing page cream */
-  }
-
-  .material-hero__inner {
-    display: grid;
-    align-items: center;
-    gap: 3rem;
-    max-width: 96rem;
-    margin-inline: auto;
-    padding: 3.5rem 1.5rem 4rem;
-  }
-
-  .material-hero__text {
-    position: relative;
-    max-width: 42rem;
-  }
-
-  /* same type as the landing page hero headline */
-  .material-hero__title {
-    font-size: clamp(1.75rem, 4.8vw, 4rem);
-    font-weight: 700;
-    line-height: 1.08;
-    letter-spacing: -0.025em;
-  }
-
-  .material-hero__btn {
-    display: inline-flex;
-    min-height: 3.25rem;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0 1.75rem;
-    border-radius: 9999px;
-    background: var(--color-brown);
-    color: #fff;
-    font-weight: 700;
-    white-space: nowrap;
-    transition:
-      background-color 0.3s ease,
-      transform 0.15s ease;
-  }
-
-  .material-hero__btn:hover {
-    background: #633320;
-  }
-
-  .material-hero__btn:active {
-    transform: scale(0.97);
-  }
-
-  .material-hero__btn:focus-visible {
-    outline: 2px solid var(--color-brown);
-    outline-offset: 3px;
-  }
-
-  /* Arch picture with its decoration; on phones it sits below the text, a little smaller */
-  .material-hero__picture {
-    position: relative;
-    width: min(82%, 19rem);
-    margin: 1rem auto 0.5rem;
-  }
-
-  /* Soft sage circle behind the lower left of the arch */
-  .material-hero__sun {
-    position: absolute;
-    bottom: -9%;
-    left: -16%;
-    width: 62%;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background: #cddbc6;
-  }
-
-  /* Thin outline of the arch, set off to the upper right */
-  .material-hero__outline {
-    position: absolute;
-    inset: 0;
-    border: 1px solid rgb(74 36 19 / 0.4);
-    border-radius: 9999px 9999px 0 0;
-    translate: 1.25rem -1.25rem;
-  }
-
-  .material-hero__frame {
-    position: relative;
-    aspect-ratio: 5 / 6;
-    overflow: hidden;
-    border-radius: 9999px 9999px 0 0;
-    box-shadow: 0 30px 50px -30px rgb(74 36 19 / 0.45);
-  }
-
-  .material-hero__frame img {
-    width: 100%;
-    height: 100%;
-    /* whole sock visible: from the toes in the round top down to the knees at the bottom edge */
-    object-fit: contain;
-    object-position: 50% 100%;
-    padding-top: 6%;
-    transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  @media (hover: hover) {
-    .material-hero__picture:hover img {
-      transform: scale(1.05);
-    }
-  }
-
-  @media (min-width: 768px) {
-    .material-hero__inner {
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-      gap: 2.5rem;
-      padding: 4rem 2rem 4.5rem;
-    }
-
-    .material-hero__picture {
-      width: min(100%, 22rem);
-      margin: 0 auto;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .material-hero__inner {
-      min-height: min(44rem, calc(100vh - var(--nav-height)));
-      gap: 4rem;
-      padding: 4.5rem 4rem 5rem;
-    }
-
-    .material-hero__picture {
-      width: min(100%, 27rem);
-    }
-  }
-
-  /* ---------- Material page: "Our materials" ---------- */
-  .material-intro {
-    background: #fff;
-  }
-
-  /* section titles: same type as the section titles of the landing page */
-  .material-intro__title {
-    font-size: 1.875rem;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -0.025em;
-    color: var(--color-heading);
-  }
-
-  @media (min-width: 640px) {
-    .material-intro__title {
-      font-size: 2.25rem;
-    }
-  }
-
-  /* large display size, used for the headline of the knit panel */
-  .material-intro__title--large {
-    font-size: clamp(2.25rem, 4.4vw, 4.25rem);
-    line-height: 1.02;
-    letter-spacing: -0.03em;
-  }
-
-  /* Fibre names as outlined tags */
-  .material-intro__tag {
-    padding: 0.5rem 1rem;
-    border: 1px solid rgb(74 36 19 / 0.25);
-    border-radius: 9999px;
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--color-brown);
-  }
-
-  .material-intro__cards {
-    display: grid;
-    gap: 1rem;
-    margin-top: 3.5rem;
-  }
-
-  @media (min-width: 640px) {
-    .material-intro__cards {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .material-intro__cards {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 1.25rem;
-      margin-top: 5.5rem;
-    }
-  }
-
-  /* One quality. --tint (set per card) colours the icon, the number and the line that grows on hover. */
-  .material-card {
-    position: relative;
-    overflow: hidden;
-    padding: 1.75rem;
-    border: 1px solid rgb(74 36 19 / 0.08);
-    border-radius: 1.5rem;
-    background: var(--color-cream);
-    transition:
-      transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-      box-shadow 0.5s ease,
-      border-color 0.3s ease;
-  }
-
-  .material-card::after {
-    content: '';
-    position: absolute;
-    inset: auto 0 0;
-    height: 4px;
-    background: var(--tint);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  .material-card__icon {
-    display: flex;
-    width: 3.25rem;
-    height: 3.25rem;
-    align-items: center;
-    justify-content: center;
-    border-radius: 9999px;
-    background: color-mix(in srgb, var(--tint) 22%, #fff);
-    color: var(--color-heading);
-    transition: background-color 0.4s ease;
-  }
-
-  .material-card__number {
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    font-weight: 700;
-    line-height: 1;
-    letter-spacing: -0.03em;
-    color: color-mix(in srgb, var(--tint) 50%, var(--color-cream));
-  }
-
-  @media (hover: hover) {
-    .material-card:hover {
-      transform: translateY(-6px);
-      border-color: transparent;
-      box-shadow: 0 28px 50px -28px rgb(74 36 19 / 0.35);
-    }
-
-    .material-card:hover::after {
-      transform: scaleX(1);
-    }
-
-    .material-card:hover .material-card__icon {
-      background: color-mix(in srgb, var(--tint) 42%, #fff);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .material-card {
-      padding: 2rem;
-    }
-  }
-
-  /* ---------- Material page: knit types ---------- */
-  /* Rounded panel that stays in view while its content scrolls inside it (see KnitTypes.jsx) */
-  .knit-track {
-    --panel-bg: #633320; /* warm brown: the background of the panel */
-    --panel-top: calc(var(--nav-height) + 0.75rem);
-    --panel-height: calc(100vh - var(--panel-top) - 0.75rem);
-    /* panel height + the part of the content that is hidden inside it */
-    height: calc(var(--panel-height) + var(--hidden, 0px));
-  }
-
-  .knit-panel {
-    position: sticky;
-    top: var(--panel-top);
-    height: var(--panel-height);
-    overflow: hidden;
-    border-radius: 2rem;
-    background: var(--panel-bg);
-    will-change: transform;
-  }
-
-  /* soft fade at the top and bottom edge, where the content slides in and out */
-  .knit-panel::before,
-  .knit-panel::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    left: 0;
-    z-index: 1;
-    height: 2.5rem;
-    pointer-events: none;
-  }
-
-  .knit-panel::before {
-    top: 0;
-    background: linear-gradient(var(--panel-bg), rgb(99 51 32 / 0));
-  }
-
-  .knit-panel::after {
-    bottom: 0;
-    background: linear-gradient(rgb(99 51 32 / 0), var(--panel-bg));
-  }
-
-  @media (min-width: 1024px) {
-    .knit-panel {
-      border-radius: 2.5rem;
-    }
-  }
-
-  /* Gauge scale: a line from 6 to 36 with two marked values */
-  .knit-gauge {
-    max-width: 30rem;
-    padding-top: 2.25rem;
-  }
-
-  .knit-gauge__track {
-    position: relative;
-    height: 6px;
-    border-radius: 9999px;
-    background: linear-gradient(to right, rgb(255 255 255 / 0.22), rgb(255 255 255 / 0.9));
-  }
-
-  .knit-gauge__mark {
-    position: absolute;
-    top: 50%;
-    width: 1rem;
-    height: 1rem;
-    border: 3px solid var(--panel-bg);
-    border-radius: 9999px;
-    background: var(--color-panel-accent);
-    translate: -50% -50%;
-  }
-
-  .knit-gauge__value {
-    position: absolute;
-    bottom: calc(100% + 0.5rem);
-    left: 50%;
-    font-size: 0.875rem;
-    font-weight: 700;
-    color: var(--color-panel-accent);
-    translate: -50% 0;
-  }
-
-  /* One knit type: drawn sample on top, text below */
-  .knit-card {
-    overflow: hidden;
-    border-radius: 1.5rem;
-    background: #faf5ee; /* slightly off-white */
-    transition:
-      transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-      box-shadow 0.5s ease;
-  }
-
-  .knit-card__sample {
-    height: 8.5rem;
-    overflow: hidden;
-  }
-
-  .knit-swatch {
-    display: block;
-    width: 100%;
-    height: 100%;
-    transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  .knit-card__tag {
-    display: inline-block;
-    padding: 0.35rem 0.8rem;
-    border-radius: 9999px;
-    background: #efe3d6;
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--color-brown);
-  }
-
-  @media (hover: hover) {
-    .knit-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 28px 50px -24px rgb(0 0 0 / 0.5);
-    }
-
-    .knit-card:hover .knit-swatch {
-      transform: scale(1.12);
-    }
-  }
-
-  /* ---------- Material page: cuffs (inside the knit panel) ---------- */
-  .cuffs {
-    margin-top: 5rem;
-    padding-top: 5rem;
-    border-top: 1px solid rgb(255 255 255 / 0.16);
-  }
-
-  .cuffs__stage {
-    position: relative;
-    margin-top: 3.5rem;
-  }
-
-  .cuffs__list {
-    display: grid;
-    gap: 3.5rem;
-    text-align: center;
-  }
-
-  /* Line drawing of the cuff, straight on the panel */
-  .cuff-drawing {
-    width: 8.5rem;
-    margin-inline: auto;
-    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  @media (hover: hover) {
-    .cuffs__item:hover .cuff-drawing {
-      transform: translateY(-6px) scale(1.05);
-    }
-  }
-
-  @media (min-width: 768px) {
-    .cuffs__list {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 2rem;
-    }
-
-    /* thin dividers between the three */
-    .cuffs__item + .cuffs__item {
-      border-left: 1px solid rgb(255 255 255 / 0.16);
-    }
-
-    .cuffs__item {
-      padding-inline: 1.5rem;
-    }
-
-    .cuff-drawing {
-      width: 10rem;
-    }
-  }
-
   /* ---------- Checkout ---------- */
   .checkout-step {
     padding: 1.1rem 0;
-    border-bottom: 1px solid rgb(15 23 42 / 0.1);
+    border-bottom: 1px solid rgb(22 53 91 / 0.1);
     color: var(--color-heading);
   }
 
@@ -2655,7 +1917,7 @@ body {
     flex-shrink: 0;
     align-items: center;
     justify-content: center;
-    border: 1.5px solid rgb(15 23 42 / 0.25);
+    border: 1.5px solid rgb(22 53 91 / 0.25);
     border-radius: 9999px;
     font-size: 0.85rem;
     font-weight: 700;
@@ -2666,8 +1928,8 @@ body {
   }
 
   .checkout-step[data-state='active'] .step-num {
-    border-color: #3b1f12;
-    background: #3b1f12;
+    border-color: #16355b;
+    background: #16355b;
     color: #fff;
   }
 
@@ -2689,7 +1951,7 @@ body {
     gap: 0.75rem;
     max-width: 34rem;
     padding: 0.85rem 1rem;
-    border: 1px solid rgb(15 23 42 / 0.15);
+    border: 1px solid rgb(22 53 91 / 0.15);
     border-radius: 0.9rem;
     font-size: 0.95rem;
     color: var(--color-heading);
@@ -2700,11 +1962,11 @@ body {
   }
 
   .choice:hover {
-    border-color: rgb(15 23 42 / 0.4);
+    border-color: rgb(22 53 91 / 0.4);
   }
 
   .choice:has(input:checked) {
-    border-color: #3b1f12;
+    border-color: #16355b;
     background: #faf8f4;
   }
 
@@ -2718,7 +1980,7 @@ body {
     height: 1.1rem;
     flex-shrink: 0;
     margin-top: 0.15rem;
-    accent-color: #3b1f12;
+    accent-color: #16355b;
   }
 
   /* Dropdown in the checkout: taller, with its own arrow */
@@ -2743,14 +2005,14 @@ body {
 
   .checkout-progress {
     padding-left: 1.5rem;
-    border-left: 1px solid rgb(15 23 42 / 0.12);
+    border-left: 1px solid rgb(22 53 91 / 0.12);
     color: var(--color-heading);
   }
 
   @media (max-width: 1023px) {
     .checkout-progress {
       padding: 1.25rem 0 0;
-      border-top: 1px solid rgb(15 23 42 / 0.12);
+      border-top: 1px solid rgb(22 53 91 / 0.12);
       border-left: 0;
     }
   }
@@ -2764,7 +2026,7 @@ body {
   }
 
   .auth-label > span {
-    color: #b3382a;
+    color: #b64558;
   }
 
   /* Input with an icon in front */
@@ -2775,26 +2037,26 @@ body {
     gap: 0.75rem;
     margin-top: 0.5rem;
     padding: 0 0.5rem 0 1rem;
-    border: 1px solid rgb(15 23 42 / 0.2);
+    border: 1px solid rgb(22 53 91 / 0.2);
     border-radius: 0.9rem;
     background: #fff;
-    color: #6b5a50;
+    color: #5c728c;
     transition:
       border-color 0.2s ease,
       box-shadow 0.2s ease;
   }
 
   .auth-field:hover {
-    border-color: rgb(15 23 42 / 0.4);
+    border-color: rgb(22 53 91 / 0.4);
   }
 
   .auth-field:focus-within {
-    border-color: #3b1f12;
-    box-shadow: 0 0 0 3px rgb(59 31 18 / 0.14);
+    border-color: #16355b;
+    box-shadow: 0 0 0 3px rgb(22 53 91 / 0.14);
   }
 
   .auth-field:has(input[aria-invalid='true']) {
-    border-color: #b3382a;
+    border-color: #b64558;
   }
 
   .auth-field input {
@@ -2823,28 +2085,31 @@ body {
   }
 
   .auth-eye:hover {
-    background: rgb(15 23 42 / 0.06);
+    background: rgb(22 53 91 / 0.06);
   }
 
   .auth-btn {
     display: inline-flex;
-    min-height: 3.25rem;
+    min-height: 3.0625rem;
     align-items: center;
     justify-content: center;
     padding: 0 1.75rem;
-    border: 1px solid #3b1f12;
+    border: 1px solid var(--btn-primary-bg);
     border-radius: 9999px;
-    background: #3b1f12;
-    color: #fff;
-    font-weight: 700;
+    background: var(--btn-primary-bg);
+    color: var(--btn-primary-fg);
+    font-weight: 500;
     cursor: pointer;
     transition:
       background-color 0.3s ease,
+      box-shadow 0.3s ease,
       transform 0.15s ease;
   }
 
   .auth-btn:hover {
-    background: #54301c;
+    border-color: var(--btn-primary-hover);
+    background: var(--btn-primary-hover);
+    box-shadow: var(--btn-primary-shadow);
   }
 
   .auth-btn:active {
@@ -2856,14 +2121,18 @@ body {
     cursor: not-allowed;
   }
 
+  /* secondary: Ihle-blue outline, filled blue on hover */
   .auth-btn--ghost {
-    border-color: rgb(15 23 42 / 0.25);
+    border-color: var(--color-ihle-blue);
     background: transparent;
-    color: var(--color-heading);
+    color: var(--color-ihle-blue);
   }
 
   .auth-btn--ghost:hover {
-    background: rgb(15 23 42 / 0.05);
+    border-color: var(--color-ihle-blue);
+    background: var(--color-ihle-blue);
+    box-shadow: none;
+    color: #fff;
   }
 
   .auth-btn:focus-visible,
@@ -2896,44 +2165,177 @@ body {
    Outside the layers on purpose: Leaflet's own stylesheet is unlayered and would otherwise win. */
 .dealer-map.leaflet-container {
   font-family: inherit;
-  background: #f1ede4;
+  background: #f4f4f6;
 }
 
-/* +/- buttons: round, borderless, in the colours of the section */
+/* +/- buttons: one white card with a clear plus and minus, separated by a thin line */
 .dealer-map.leaflet-container .leaflet-control-zoom {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
   margin: 1rem;
+  overflow: hidden;
   border: 0;
-  background: none;
-  box-shadow: none;
+  border-radius: 0.875rem;
+  background: #fff;
+  box-shadow: 0 8px 22px -6px rgb(22 53 91 / 0.35);
 }
 
 .dealer-map.leaflet-container .leaflet-control-zoom a {
-  width: 2.5rem;
-  height: 2.5rem;
+  display: grid;
+  place-items: center;
+  width: 2.875rem;
+  height: 2.875rem;
   border: 0;
-  border-radius: 9999px !important; /* Leaflet sets the corners per button */
+  border-radius: 0 !important; /* Leaflet sets the corners per button */
   background: #fff;
-  color: #4a2413;
-  font-size: 1.25rem;
-  line-height: 2.5rem;
-  box-shadow: 0 4px 12px rgb(60 40 25 / 0.25);
+  color: #16355b;
+  font-size: 1.625rem;
+  font-weight: 400;
+  line-height: 1;
   transition:
     background-color 0.2s ease,
     color 0.2s ease;
 }
 
+.dealer-map.leaflet-container .leaflet-control-zoom a + a {
+  border-top: 1px solid rgb(22 53 91 / 0.12);
+}
+
 .dealer-map.leaflet-container .leaflet-control-zoom a:hover,
 .dealer-map.leaflet-container .leaflet-control-zoom a:focus-visible {
-  background: #4a2413;
+  background: #b64558;
   color: #fff;
 }
 
 .dealer-map.leaflet-container .leaflet-control-zoom a.leaflet-disabled {
-  background: #f1ede4;
-  color: #b8aaa0;
+  background: #fff;
+  color: #c3cad3;
+  cursor: default;
+}
+
+.dealer-map.leaflet-container .leaflet-control-attribution {
+  background: rgb(255 255 255 / 0.75);
+  font-size: 0.65rem;
+  color: #5c728c;
+}
+
+/* Map pins: a drop shape with a white centre; the outlet pin pulses gently */
+.map-pin {
+  position: relative;
+  display: block;
+  width: 36px;
+  height: 44px;
+}
+
+.map-pin__head {
+  position: absolute;
+  left: 4px;
+  top: 2px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50% 50% 50% 0;
+  background: var(--pin, #16355b);
+  transform: rotate(-45deg);
+  box-shadow: 0 6px 14px -4px rgb(22 53 91 / 0.55);
+  border: 2px solid #fff;
+}
+
+.map-pin__head::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 9px;
+  height: 9px;
+  border-radius: 9999px;
+  background: #fff;
+}
+
+.map-pin--outlet {
+  --pin: #b64558;
+}
+
+.map-pin--place {
+  --pin: #16355b;
+}
+
+.map-pin__pulse {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 26px;
+  height: 10px;
+  margin-left: -13px;
+  border-radius: 50%;
+  background: rgb(22 53 91 / 0.25);
+}
+
+.map-pin--outlet .map-pin__pulse {
+  background: rgb(182 69 88 / 0.35);
+  animation: map-pulse 2.2s ease-out infinite;
+}
+
+@keyframes map-pulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+/* Your own position */
+.map-you {
+  display: block;
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  background: #2f7fd1;
+  border: 3px solid #fff;
+  box-shadow:
+    0 0 0 8px rgb(47 127 209 / 0.2),
+    0 2px 6px rgb(0 0 0 / 0.3);
+}
+
+/* Info window of the outlet */
+.map-popup .leaflet-popup-content-wrapper {
+  border-radius: 1rem;
+  box-shadow: 0 20px 40px -16px rgb(22 53 91 / 0.45);
+}
+
+.map-popup .leaflet-popup-content {
+  margin: 1rem 1.15rem;
+  font-family: var(--font-pf);
+  color: #3a4656;
+}
+
+.map-popup__title {
+  margin: 0 0 0.35rem !important;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #16355b;
+}
+
+.map-popup__line {
+  margin: 0 !important;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.map-popup__route {
+  display: inline-block;
+  margin-top: 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #b64558 !important;
+}
+
+.map-tooltip {
+  border: 0;
+  border-radius: 0.6rem;
+  font-family: var(--font-pf);
+  color: #16355b;
+  box-shadow: 0 8px 20px -10px rgb(22 53 91 / 0.45);
 }
 
 /* Reduced motion: switch off CSS transitions/animations (motion's are handled by MotionConfig) */

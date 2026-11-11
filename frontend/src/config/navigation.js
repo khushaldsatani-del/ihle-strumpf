@@ -6,4 +6,5 @@ export const NAV_LINKS = [
   { to: '/material', labelKey: 'nav.material' },
   { to: '/services', labelKey: 'nav.services' },
   { to: '/about', labelKey: 'nav.about' },
+  { to: '/contact', labelKey: 'footer.contact' },
 ]

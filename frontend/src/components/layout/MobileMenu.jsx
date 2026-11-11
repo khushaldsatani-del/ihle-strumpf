@@ -6,7 +6,7 @@ import { Link, NavLink } from 'react-router-dom'
 import { NAV_LINKS } from '../../config/navigation.js'
 import { useCatalog } from '../../context/CatalogContext.jsx'
 import { categoryPath, nameOf } from '../../data/categories.js'
-import { LanguageToggle } from './LanguageSwitcher.jsx'
+import { LanguageToggle } from './LanguageToggle.jsx'
 import SearchBar from './SearchBar.jsx'
 
 // Sheet slides down, then the links come in one after another

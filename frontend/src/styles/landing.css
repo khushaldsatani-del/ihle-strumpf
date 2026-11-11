@@ -1,0 +1,874 @@
+/* New landing page in the Ihle corporate design (style guide 2026): header, sections and footer of the home page.
+   Everything here is scoped to .lp (and .lp-header / .lp-footer), so the other pages keep their look. */
+
+/* PF Square Sans Pro, Ihle's licensed webfont (MyFonts kit from the agency). The kit has no medium italic, so
+   headings use the italic at 400; font-synthesis stays off so the browser never fakes bold or slanted letters. */
+@font-face {
+  font-family: "PF Square Sans Pro";
+  src: url("/fonts/pf-square-sans-pro/regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PF Square Sans Pro";
+  src: url("/fonts/pf-square-sans-pro/italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PF Square Sans Pro";
+  src: url("/fonts/pf-square-sans-pro/medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PF Square Sans Pro";
+  src: url("/fonts/pf-square-sans-pro/bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer components {
+  /* ================= Ihle type and button system (used on every page) =================
+     display       hero headline (one per page at most)
+     page-title    the h1 of every other page
+     section-title the title of a section (h2)
+     subtitle      a sub line / smaller italic title (h3)
+     lead          the introduction under a title
+     body          running text (the default)
+     small         notes, secondary text
+     label         small pink pill above a title (.lp-label)
+     caption       small grey capitals (.lp-caption)
+     Buttons: btn-primary (Ihle red, white text), btn-secondary (Ihle-blue outline), btn-light (on dark blue).
+     Accent: style-guide red (--color-ihle-accent); yellow stays for sizes and the ilo® category. */
+  .type-display,
+  .type-page-title,
+  .type-section-title,
+  .type-subtitle {
+    font-family: var(--font-pf);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--color-ihle-blue);
+  }
+
+  .type-display {
+    font-size: clamp(2.5rem, 1.7rem + 3vw, 3.75rem);
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+  }
+
+  .type-page-title {
+    font-size: clamp(2.25rem, 1.8rem + 1.8vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: -0.4px;
+  }
+
+  .type-section-title {
+    font-size: clamp(1.875rem, 1.55rem + 1.3vw, 2.5rem);
+    line-height: 1.15;
+    letter-spacing: -0.3px;
+  }
+
+  .type-subtitle {
+    font-size: clamp(1.375rem, 1.2rem + 0.7vw, 1.75rem);
+    line-height: 1.2;
+  }
+
+  .type-lead {
+    font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+    line-height: 1.65;
+    color: var(--color-ihle-ink);
+  }
+
+  .type-body {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--color-ihle-ink);
+  }
+
+  .type-small {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--color-ihle-muted);
+  }
+
+  .lp,
+  .lp-header,
+  .lp-footer {
+    font-family: var(--font-pf);
+    font-synthesis: none;
+    color: var(--color-ihle-ink);
+  }
+
+  /* Headings are always italic in the Ihle design */
+  .lp :is(h1, h2, h3),
+  .lp-header :is(h1, h2, h3),
+  .lp-footer :is(h2, h3) {
+    font-family: var(--font-pf);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--color-ihle-blue);
+  }
+
+  .lp :focus-visible,
+  .lp-header :focus-visible,
+  .lp-footer :focus-visible {
+    outline: 2px solid var(--color-ihle-blue);
+    outline-offset: 3px;
+  }
+
+  .lp-footer :focus-visible,
+  .lp-topbar :focus-visible {
+    outline-color: var(--color-ihle-accent);
+  }
+
+  .lp-container {
+    width: 100%;
+    max-width: calc(77.5rem + 2 * var(--lp-gutter));
+    margin-inline: auto;
+    padding-inline: var(--lp-gutter);
+  }
+
+  .lp,
+  .lp-header,
+  .lp-footer {
+    --lp-gutter: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .lp,
+    .lp-header,
+    .lp-footer {
+      --lp-gutter: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .lp,
+    .lp-header,
+    .lp-footer {
+      --lp-gutter: 3rem;
+    }
+  }
+
+  .lp-section {
+    padding-block: 4rem;
+  }
+
+  @media (min-width: 1024px) {
+    .lp-section {
+      padding-block: 7rem;
+    }
+  }
+
+  /* Section title: 40px italic on desktop (same as .type-section-title) */
+  .lp-title {
+    font-size: clamp(2rem, 1.6rem + 1.6vw, 2.5rem);
+    line-height: 1.15;
+    letter-spacing: -0.3px;
+  }
+
+  /* Small label above a title: soft pink with Ihle-blue capitals */
+  .lp-label,
+  .type-label {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.8rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 9999px;
+    background: var(--color-ihle-accent-soft);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--color-ihle-blue);
+  }
+
+  @media (max-width: 639px) {
+    .lp-label,
+    .type-label {
+      font-size: 0.6875rem;
+      letter-spacing: 0.9px;
+    }
+  }
+
+  /* Small grey caption (Schafthöhe, Größen) */
+  .lp-caption,
+  .type-caption {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--color-ihle-muted);
+  }
+
+  /* ---------- Buttons ---------- */
+  .lp-btn,
+  .btn-primary,
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    min-height: 3.0625rem;
+    padding: 0 1.75rem;
+    border-radius: 9999px;
+    font-size: 1rem;
+    font-weight: 500;
+    white-space: nowrap;
+    color: var(--color-ihle-blue);
+    cursor: pointer;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease,
+      box-shadow 0.2s ease,
+      transform 0.15s ease;
+  }
+
+  .lp-btn:active,
+  .btn-primary:active,
+  .btn-secondary:active {
+    transform: scale(0.97);
+  }
+
+  .lp-btn svg,
+  .btn-primary svg,
+  .btn-secondary svg {
+    transition: transform 0.25s ease;
+  }
+
+  .lp-btn:hover svg,
+  .btn-primary:hover svg,
+  .btn-secondary:hover svg {
+    transform: translateX(3px);
+  }
+
+  /* primary: Ihle red with white text */
+  .lp-btn--yellow,
+  .btn-primary {
+    background: var(--btn-primary-bg);
+    color: var(--btn-primary-fg);
+  }
+
+  .lp-btn--yellow:hover,
+  .btn-primary:hover {
+    background: var(--btn-primary-hover);
+    box-shadow: 0 10px 24px -12px rgb(182 69 88 / 0.65);
+  }
+
+  /* on dark-blue areas (footer): white with Ihle-blue text */
+  .btn-light {
+    background: #fff;
+    color: var(--color-ihle-blue);
+  }
+
+  .btn-light:hover {
+    background: var(--color-ihle-accent-soft);
+  }
+
+  .lp-btn--outline,
+  .btn-secondary {
+    box-shadow: inset 0 0 0 1px var(--color-ihle-blue);
+  }
+
+  .lp-btn--outline:hover,
+  .btn-secondary:hover {
+    background: var(--color-ihle-blue);
+    color: #fff;
+  }
+
+  .lp-btn:disabled,
+  .btn-primary:disabled,
+  .btn-secondary:disabled {
+    cursor: progress;
+    opacity: 0.75;
+  }
+
+  /* Round icon button (slider arrows, card arrows) */
+  .lp-round {
+    display: inline-grid;
+    flex-shrink: 0;
+    place-items: center;
+    border-radius: 9999px;
+    color: var(--color-ihle-blue);
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease,
+      box-shadow 0.2s ease,
+      transform 0.15s ease;
+  }
+
+  .lp-round:active {
+    transform: scale(0.94);
+  }
+
+  /* ---------- Top bar + header ---------- */
+  .lp-topbar {
+    background: var(--color-ihle-blue);
+    color: rgb(255 255 255 / 0.88);
+  }
+
+  .lp-topbar a,
+  .lp-topbar button {
+    transition: color 0.2s ease;
+  }
+
+  .lp-topbar a:hover,
+  .lp-topbar button:hover {
+    color: var(--color-ihle-accent);
+  }
+
+  /* Header tokens for the reused menus (mega menu, search, account, mobile sheet) */
+  .lp-header {
+    --nav-fg: var(--color-ihle-blue);
+    --nav-fg-muted: var(--color-ihle-muted);
+    --nav-accent: var(--color-ihle-blue);
+    --nav-pill: var(--color-ihle-accent-soft);
+    --nav-badge-bg: var(--color-ihle-accent);
+    --nav-badge-fg: var(--color-ihle-blue);
+    --nav-hover: rgb(22 53 91 / 0.06);
+    --nav-field-bg: var(--color-ihle-mist);
+    --nav-field-ring: var(--color-ihle-blue);
+  }
+
+  .lp-bar {
+    border-bottom: 1px solid rgb(22 53 91 / 0.1);
+    background: #fff;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .lp-header[data-scrolled] .lp-bar {
+    box-shadow: 0 10px 30px -22px rgb(22 53 91 / 0.45);
+  }
+
+  .lp-bar__inner {
+    display: flex;
+    align-items: center;
+    height: 4.5rem;
+    transition: height 0.35s ease;
+  }
+
+  @media (min-width: 1024px) {
+    .lp-bar__inner {
+      height: 8.4rem;
+    }
+
+    .lp-header[data-scrolled] .lp-bar__inner {
+      height: 5.25rem;
+    }
+  }
+
+  /* Logo: big on the right (desktop), smaller once scrolled */
+  .lp-logo img {
+    width: 6.75rem;
+    height: auto;
+    transition: width 0.35s ease;
+  }
+
+  @media (min-width: 1024px) {
+    .lp-logo img {
+      width: 11.875rem;
+    }
+
+    .lp-header[data-scrolled] .lp-logo img {
+      width: 8rem;
+    }
+  }
+
+  .lp-header .nav-link {
+    height: 2.75rem;
+    padding: 0 0.85rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-ihle-blue);
+  }
+
+  /* Active page: a short yellow line under the link */
+  .lp-header .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0.85rem;
+    right: 0.85rem;
+    bottom: 0.45rem;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--color-ihle-accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .lp-header .nav-link:hover::after,
+  .lp-header .nav-link[aria-current='page']::after {
+    transform: scaleX(1);
+  }
+
+  /* the chevron button of the products menu gets no underline */
+  .lp-header button.nav-link::after {
+    display: none;
+  }
+
+  .lp-header .nav-search:not([data-open]) {
+    background: var(--color-ihle-mist);
+  }
+
+  .lp-header .menu-item {
+    font-family: var(--font-pf);
+  }
+
+  /* Menu button (phones and tablets): a dark-blue circle */
+  .lp-header [aria-controls='mobile-menu'] {
+    background: var(--color-ihle-blue);
+    color: #fff;
+  }
+
+  .lp-header [aria-controls='mobile-menu']:hover {
+    background: #0f2846;
+  }
+
+  /* anchor targets stay clear of the sticky header */
+  .lp [id] {
+    scroll-margin-top: calc(var(--nav-height) + 1.5rem);
+  }
+
+  /* ---------- Hero ---------- */
+  .lp-arch {
+    overflow: hidden;
+    border-radius: 999px 999px 1.5rem 1.5rem;
+    background: rgb(22 53 91 / 0.08);
+    box-shadow: 0 24px 40px -28px rgb(22 53 91 / 0.55);
+  }
+
+  .lp-arch img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .lp-arch:hover img {
+    transform: scale(1.03);
+  }
+
+  .lp-trust-icon {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 9999px;
+    background: rgb(255 255 255 / 0.7);
+    box-shadow: inset 0 0 0 1px rgb(22 53 91 / 0.15);
+    color: var(--color-ihle-blue);
+  }
+
+  /* ---------- Our ranges (components/home/Ranges.jsx): the accordion in the Ihle fonts and colours ---------- */
+  .lp-ranges .ranges-list {
+    margin-top: 2.5rem;
+    border-top-color: rgb(22 53 91 / 0.12);
+  }
+
+  .lp-ranges .ranges-row {
+    border-bottom-color: rgb(22 53 91 / 0.12);
+  }
+
+  .lp-ranges .ranges-row::before {
+    background: var(--color-ihle-accent);
+  }
+
+  /* big italic number in the red accent */
+  .lp-ranges .ranges-head__number {
+    width: 2.6rem;
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--color-ihle-accent);
+  }
+
+  .lp-ranges .ranges-head__name {
+    font-family: var(--font-pf);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0;
+    color: var(--color-ihle-blue);
+  }
+
+  .lp-ranges .ranges-head__tagline {
+    font-style: normal;
+    font-size: 1rem;
+    color: var(--color-ihle-muted);
+  }
+
+  /* the name stays Ihle blue when open or hovered; it only moves a little */
+  .lp-ranges .ranges-row[data-open='true'] .ranges-head__name,
+  .lp-ranges .ranges-head:hover .ranges-head__name {
+    color: var(--color-ihle-blue);
+  }
+
+  .lp-ranges .ranges-head__toggle {
+    border-color: rgb(22 53 91 / 0.18);
+    color: var(--color-ihle-blue);
+  }
+
+  .lp-ranges .ranges-head:hover .ranges-head__toggle {
+    border-color: var(--color-ihle-blue);
+    color: var(--color-ihle-blue);
+  }
+
+  .lp-ranges .ranges-row[data-open='true'] .ranges-head__toggle {
+    border-color: var(--color-ihle-blue);
+    background: var(--color-ihle-blue);
+    color: #fff;
+  }
+
+  .lp-ranges .ranges-label {
+    font-size: 0.8125rem;
+    letter-spacing: 1.6px;
+    color: var(--color-ihle-muted);
+  }
+
+  .lp-ranges .ranges-head:focus-visible,
+  .lp-ranges .ranges-cta:focus-visible {
+    outline-color: var(--color-ihle-blue);
+  }
+
+  /* product lines: Ihle-blue count and line, light outlined tags with a dot in the category colour */
+  .lp-ranges .ranges-facts__count {
+    background: var(--color-ihle-blue);
+  }
+
+  .lp-ranges .ranges-facts__rule {
+    background: linear-gradient(to right, rgb(22 53 91 / 0.3), transparent);
+  }
+
+  .lp-ranges .ranges-chip {
+    border-color: rgb(22 53 91 / 0.15);
+    background: #fff;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-ihle-blue);
+  }
+
+  .lp-ranges .ranges-chip:hover {
+    border-color: var(--color-ihle-blue);
+    color: var(--color-ihle-blue);
+  }
+
+  .lp-ranges .ranges-chip::before {
+    width: 0.5rem;
+    height: 0.5rem;
+    box-shadow: inset 0 0 0 1px rgb(22 53 91 / 0.08);
+  }
+
+  /* checklist ticks: red circle with a white tick, like the rest of the page */
+  .lp-ranges .ranges-check {
+    background: var(--color-ihle-accent);
+    color: #fff;
+  }
+
+  /* the button like every other button on the page: Ihle red with white text */
+  .lp-ranges .ranges-cta {
+    min-height: 3.0625rem;
+    padding: 0 1.75rem;
+    background: var(--btn-primary-bg);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--btn-primary-fg);
+  }
+
+  .lp-ranges .ranges-cta:hover {
+    filter: none;
+    background: var(--btn-primary-hover);
+  }
+
+  @media (min-width: 640px) {
+    .lp-ranges .ranges-head__number {
+      width: 3.5rem;
+      font-size: 2.5rem;
+    }
+
+    .lp-ranges .ranges-head__name {
+      font-size: 1.625rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .lp-ranges .ranges-head__number {
+      width: 5rem;
+      font-size: 2.75rem;
+    }
+
+    .lp-ranges .ranges-head__name {
+      font-size: 1.875rem;
+    }
+  }
+
+  /* ---------- Highlights slider ---------- */
+  .lp-slider {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 78%;
+    gap: 1.5rem;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .lp-slider::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: 640px) {
+    .lp-slider {
+      grid-auto-columns: calc((100% - 1.5rem) / 2);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .lp-slider {
+      grid-auto-columns: calc((100% - 3 * 1.5rem) / 4);
+    }
+  }
+
+  .lp-slider > li {
+    scroll-snap-align: start;
+  }
+
+  .lp-tile {
+    overflow: hidden;
+    border-radius: 1rem;
+    background: var(--color-ihle-mist);
+  }
+
+  .lp-tile img {
+    transition: transform 0.5s ease;
+  }
+
+  .lp-product:hover .lp-tile img {
+    transform: scale(1.04);
+  }
+
+  .lp-product:hover .lp-card-arrow {
+    background: var(--color-ihle-accent-soft);
+    box-shadow: none;
+  }
+
+  .lp-card-arrow {
+    background: #fff;
+    box-shadow: inset 0 0 0 1px rgb(22 53 91 / 0.15);
+  }
+
+  /* ---------- Sock shapes ---------- */
+  .lp-tabs {
+    display: inline-flex;
+    max-width: 100%;
+    gap: 0.25rem;
+    overflow-x: auto;
+    padding: 0.3rem;
+    border-radius: 1.5rem;
+    background: #fff;
+    box-shadow: 0 1px 2px rgb(22 53 91 / 0.06);
+    scrollbar-width: none;
+  }
+
+  .lp-tab {
+    min-height: 2.45rem;
+    padding: 0 1rem;
+    border-radius: 9999px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    white-space: nowrap;
+    color: var(--color-ihle-blue);
+    transition:
+      background-color 0.25s ease,
+      color 0.25s ease;
+  }
+
+  .lp-tab:hover {
+    background: rgb(22 53 91 / 0.06);
+  }
+
+  .lp-tab[aria-selected='true'],
+  .lp-tab[aria-pressed='true'] {
+    background: var(--color-ihle-blue);
+    color: #fff;
+  }
+
+  /* Phones: the three tabs share the width (a long name wraps instead of being cut off) */
+  @media (max-width: 639px) {
+    .lp-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      width: 100%;
+    }
+
+    .lp-tab {
+      padding: 0.4rem 0.35rem;
+      font-size: 0.8125rem;
+      line-height: 1.2;
+      white-space: normal;
+      overflow-wrap: anywhere;
+    }
+  }
+
+  .lp-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 2.05rem;
+    padding: 0 0.9rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-ihle-blue);
+  }
+
+  /* ---------- Colours ---------- */
+  /* a colour as a sock tip: arch shape, fine vertical ribs (knit) and a soft light on top; the colour itself
+     comes from the inline background-color */
+  .lp-swatch {
+    width: 2.75rem;
+    height: 5.5rem;
+    border-radius: 999px 999px 0.875rem 0.875rem;
+    background-image:
+      radial-gradient(120% 60% at 30% 12%, rgb(255 255 255 / 0.35), transparent 60%),
+      repeating-linear-gradient(90deg, rgb(255 255 255 / 0.09) 0 2px, rgb(0 0 0 / 0.07) 2px 4px);
+    box-shadow:
+      0 10px 18px -8px rgb(22 53 91 / 0.35),
+      inset 0 -6px 10px -6px rgb(0 0 0 / 0.25);
+    transition:
+      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.35s ease;
+  }
+
+  /* white and other very light colours get a thin outline so they stand out on the card */
+  .lp-swatch--light {
+    box-shadow:
+      0 10px 18px -8px rgb(22 53 91 / 0.35),
+      inset 0 0 0 1px rgb(22 53 91 / 0.15),
+      inset 0 -6px 10px -6px rgb(0 0 0 / 0.12);
+  }
+
+  .lp-swatch-item:hover .lp-swatch {
+    transform: translateY(-6px) scale(1.05);
+    box-shadow:
+      0 0 0 3px #fff,
+      0 0 0 4.5px rgb(22 53 91 / 0.2),
+      0 18px 24px -10px rgb(22 53 91 / 0.4);
+  }
+
+  /* ---------- Dealer search ---------- */
+  .lp-search {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.3rem;
+    border-radius: 9999px;
+    background: #fff;
+    box-shadow: 0 10px 30px -20px rgb(22 53 91 / 0.45);
+  }
+
+  .lp-search:focus-within {
+    box-shadow:
+      0 0 0 2px var(--color-ihle-blue),
+      0 10px 30px -20px rgb(22 53 91 / 0.45);
+  }
+
+  .lp-search input {
+    min-width: 0;
+    flex: 1;
+    height: 2.75rem;
+    background: transparent;
+    font-size: 0.95rem;
+    color: var(--color-ihle-blue);
+  }
+
+  .lp-search input:focus-visible {
+    outline: none;
+  }
+
+  .lp-search input::placeholder {
+    color: var(--color-ihle-muted);
+    opacity: 1;
+  }
+
+  .lp-search input::-webkit-search-cancel-button {
+    display: none;
+  }
+
+  /* ---------- Footer ---------- */
+  .lp-footer a {
+    transition: color 0.2s ease;
+  }
+
+  .lp-footer a:hover {
+    color: var(--color-ihle-accent);
+  }
+
+  .lp-footer input::placeholder {
+    color: var(--color-ihle-muted);
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lp *,
+    .lp-header *,
+    .lp-footer * {
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Hero: the bar of the current photo fills up over the time the photo is shown */
+@keyframes hero-progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Material page: the knitted swatch photo per yarn (cut out), with a soft shadow under it */
+.fibre-swatch {
+  display: block;
+  width: 11rem;
+  height: auto;
+  filter: drop-shadow(0 10px 12px rgb(22 53 91 / 0.18));
+  transition: transform 0.4s ease;
+}
+
+li:hover > .fibre-swatch {
+  transform: translateY(-3px) scale(1.03);
+}
+
+/* Contact page: phone and e-mail links */
+.contact-link {
+  color: var(--color-ihle-blue);
+  text-decoration: underline;
+  text-decoration-color: rgb(22 53 91 / 0.25);
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.contact-link:hover {
+  text-decoration-color: var(--color-ihle-accent);
+}
+
+/* Desktop header between 1024 and 1279px: one more menu item (Kontakt), so the links sit a little closer */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .lp-header .nav-link {
+    padding: 0 0.6rem;
+    font-size: 0.9375rem;
+  }
+}

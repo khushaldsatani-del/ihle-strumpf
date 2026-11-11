@@ -401,20 +401,20 @@
       "banner": {
         "titleLine1": "Sock and shoe –",
         "titleLine2": "a perfect combination",
-        "text": "Warmth in winter, comfort and hygiene in summer: as temperatures rise, our choice of socks changes too. ihle® has adapted its product range accordingly and makes socks in three different styles."
+        "text": "Warmth in winter, comfort and hygiene in summer: as temperatures rise, our choice of socks changes too. ihle® has tailored its range to this and makes socks in three different styles."
       },
       "items": {
         "short": {
-          "title": "Short socks",
-          "text": "A versatile sock for every season: the leg gives the sock its shape and its name. On short socks it reaches about 10 cm above the ankle, roughly to the middle of the calf. The top can be a simple, non-elastic edge or a ribbed cuff – with or without elastic."
+          "title": "Short sock",
+          "text": "An all-rounder for every season: the leg gives the sock its shape and its name. On the short sock it reaches about 10 cm above the ankle joint, at most to the middle of the calf. The top can be a loop cuff without elastic or a ribbed cuff (with or without elastic)."
         },
         "footlet": {
-          "title": "Footlets",
-          "text": "The summer version of the sock mainly covers the toes and heel. The foot part ends just above or below the ankle. For people with diabetes we therefore recommend the longer versions of our socks."
+          "title": "Footlet",
+          "text": "The summer version of the sock mainly covers the toes and heel. The footlet ends just above or below the ankle. For people with diabetes we therefore recommend the longer versions of our socks."
         },
         "knee": {
-          "title": "Knee-high socks",
-          "text": "A classic for winter or with high shoes: the sock ends below the knee. A wide top gives a secure hold without constricting. Elastic and non-elastic tops are also available."
+          "title": "Knee-high sock",
+          "text": "A classic for winter or high footwear: the sock ends below the knee. A wide cuff gives a secure hold without constricting. Tops with and without elastic are available here too."
         }
       }
     },
@@ -468,7 +468,12 @@
       "titleLine2": "every ihle® sock.",
       "text": "Carefully selected yarns of cotton, wool and functional fibres – for wearing comfort, durability and reliable performance.",
       "cta": "Explore the range",
-      "imageAlt": "Yarn cones in natural white, green and rust next to a knitted blanket"
+      "imageAlt": "Yarn cones in natural white, green and rust next to a knitted blanket",
+      "secondary": "View the knits",
+      "facts": {
+        "fibres": "Fibre types",
+        "cuffs": "Cuff styles"
+      }
     },
     "intro": {
       "eyebrow": "Our materials",
@@ -530,12 +535,17 @@
           "title": "Semi-plush",
           "text": "Padding where it counts: sometimes extra padding at the toes, sole and heel is enough. Semi-plush models are therefore ideal companions for the seasons in between."
         }
+      },
+      "compare": {
+        "gauge": "Gauge",
+        "padding": "Padding",
+        "none": "None",
+        "full": "All over",
+        "partial": "Toes, sole, heel",
+        "perInch": "{{count}} stitches/inch",
+        "hint": "Hover over a swatch to magnify the knit.",
+        "magnify": "View the knit magnified"
       }
-    },
-    "next": {
-      "eyebrow": "Placeholder",
-      "title": "Another section follows",
-      "text": "This area is temporary and will be replaced by the next part of the material page."
     },
     "cuffs": {
       "eyebrow": "Cuffs",
@@ -554,6 +564,40 @@
         "ribShort": {
           "title": "Ribbed cuff with elastic",
           "text": "Here, 4 cm of elastic is knitted in. Customers with healthy feet usually prefer the added support. Good to know: this cuff is not suitable for diabetics."
+        }
+      },
+      "diabetesYes": "Developed for people with diabetes",
+      "diabetesNo": "Not suitable for people with diabetes"
+    },
+    "closing": {
+      "title": "The right knit for every need.",
+      "text": "Discover socks and medical knitwear by ihle® – or find a specialist retailer near you."
+    },
+    "fibres": {
+      "title": "Materials",
+      "question": "Cotton, wool or SENSICO®?",
+      "claim": "Quality comes first!",
+      "text": "To make sure ihle® products deliver on their promises, they must pass rigorous tests. The choice of material depends solely on the wearer's needs.",
+      "items": {
+        "cotton": {
+          "title": "Cotton",
+          "text": "Robust, durable and breathable: cotton absorbs moisture well and withstands many washes. Good to know: if you tend to have sweaty feet, choose socks made from SENSICO®."
+        },
+        "wool": {
+          "title": "Virgin wool",
+          "text": "Perfect for cold feet: virgin wool offers excellent protection against the cold, regulates temperature and acts like an air cushion (it can hold up to 50 % of its own weight in air). Our tip: this material is ideal for people with rheumatism."
+        },
+        "silver": {
+          "title": "Silver",
+          "text": "Anti-inflammatory and antibacterial: silver is valued as a reliable material in the treatment of wounds and infections. ihle® uses the properties of silver fibres to promote healing and reduce foot odour (caused by bacteria)."
+        },
+        "sensico": {
+          "title": "SENSICO®",
+          "text": "The fibre blend for exceptional comfort: 80 % cotton and 20 % lyocell – that's SENSICO®. This combination deprives bacteria and unpleasant odours of their breeding ground. If your feet sweat heavily, wear socks made from SENSICO®."
+        },
+        "synthetic": {
+          "title": "Polyamide / Polyester",
+          "text": "A must-have for sports: socks and stockings with polyamide/polyester dry quickly, are extremely durable and keep their shape. Thanks to their structure, the soft synthetic fibres wick moisture away from the body. ihle® everyday and sports products come in a wide range of vibrant colours."
         }
       }
     }
@@ -577,7 +621,7 @@
     "privacy": "Privacy",
     "terms": "Terms and conditions",
     "hoursTitle": "Factory outlet opening hours:",
-    "hours": "Monday to Friday: 8:00 am to 3:00 pm",
+    "hours": "Monday to Friday: 7:00 am to 3:00 pm",
     "addressArea": "Heinzebank industrial park"
   },
   "addresses": {
@@ -716,5 +760,94 @@
     "053": "Denim blue marl",
     "058": "Dark grey marl",
     "059": "Light grey marl"
+  },
+  "landing": {
+    "topbar": {
+      "outlet": "Factory outlet Mon–Fri 7:00 am–3:00 pm",
+      "login": "Retailer login"
+    },
+    "nav": {
+      "home": "Home",
+      "products": "Products",
+      "dealers": "Find a retailer"
+    },
+    "claim": "Seamless medical functional knitwear · Made in Germany",
+    "hero": {
+      "label": "Seamless knit · Medical knitwear",
+      "text": "Medical knitwear by ihle® for diabetes, prosthetics, orthotics and brace therapy, knitted seamlessly in Wolkenstein, Made in Germany.",
+      "findDealer": "Find a retailer",
+      "trust": {
+        "seamless": "Seamlessly knitted",
+        "madeIn": "Made in Germany",
+        "stock": "Available from stock"
+      },
+      "alt": {
+        "pinkCrossed": "Crossed legs in pink ihle® socks",
+        "prosthesis": "Leg prosthesis with a purple ihle® stocking",
+        "wheelchair": "Person in a wheelchair wearing ihle® socks",
+        "relaxation": "Relaxed feet in ihle® socks"
+      },
+      "title": "Seamless medical functional knitwear.",
+      "showPhoto": "Show photo {{number}} of {{total}}",
+      "slides": {
+        "diabetic": "White diabetic socks",
+        "stump-red": "Red and white stump sock",
+        "leg-sleeve": "Black leg sleeve while walking",
+        "sock-on": "Putting on a stocking",
+        "thigh": "Stump sock on the thigh",
+        "brace": "Undershirt worn under a brace",
+        "stump-fit": "Fitting a stump sock",
+        "arm": "Arm sleeve under an orthosis"
+      }
+    },
+    "highlights": {
+      "label": "From our range"
+    },
+    "shapes": {
+      "label": "Sock shapes",
+      "title": "Sock and shoe = a perfect fit.",
+      "alt": {
+        "footlet": "Drawing of a footlet",
+        "short": "Drawing of a short sock",
+        "knee": "Drawing of a knee-high sock"
+      }
+    },
+    "colors": {
+      "label": "Colours",
+      "groups": {
+        "classic": "Classic",
+        "colourful": "Colourful"
+      },
+      "tones_one": "{{count}} shade",
+      "tones_other": "{{count}} shades"
+    },
+    "dealers": {
+      "label": "Retailer search",
+      "text": "Our medical knitwear, socks and underwear are available exclusively from specialist retailers. Please contact your specialist retailer or a local medical supply store.",
+      "outlet": "Factory outlet Wolkenstein",
+      "outletLine": "Reuterweg 1 · Heinzebank industrial park · Mon–Fri 7:00 am–3:00 pm",
+      "route": "Plan route",
+      "locate": "My location",
+      "locateError": "Location not available"
+    },
+    "footer": {
+      "about": "ihle® is convinced that orthopaedic care goes beyond the aid itself.",
+      "outlet": "Factory outlet Mon–Fri 7:00 am–3:00 pm",
+      "emailPlaceholder": "Your email address"
+    }
+  },
+  "contact": {
+    "phone": "Telephone",
+    "fax": "Fax",
+    "email": "Email",
+    "hoursTitle": "Factory outlet opening hours",
+    "hours": "Monday to Friday: 7:00 a.m. to 3:00 p.m.",
+    "notice": "Attention! On Fridays, until further notice, we are only open until 1 p.m.!",
+    "staffTitle": "Our field staff",
+    "south": "Bavaria / Baden-Württemberg",
+    "west": "North Rhine-Westphalia / Lower Saxony",
+    "southwest": "Saarland / Rhineland-Palatinate / Hesse",
+    "east": "Eastern German states",
+    "route": "Plan route"
   }
 }

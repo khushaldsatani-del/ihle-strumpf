@@ -17,8 +17,9 @@ const panel = {
  * "All products" with a mega menu: categories on the left, the product groups of the chosen category on the right.
  * The label links to /products; the arrow (or hovering with a mouse) opens the menu.
  * Keyboard: Arrow up/down moves through categories or groups, Arrow right/left switches between the two columns.
+ * label replaces "All products" (the landing page header says "Products").
  */
-export default function ProductsDropdown({ open, onOpenChange, active }) {
+export default function ProductsDropdown({ open, onOpenChange, active, label }) {
   const { t } = useTranslation()
   const id = useId()
   const rootRef = useRef(null)
@@ -130,7 +131,7 @@ export default function ProductsDropdown({ open, onOpenChange, active }) {
       }}
     >
       <Link to="/products" className="nav-link pr-0" aria-current={active ? 'page' : undefined}>
-        {t('nav.allProducts')}
+        {label ?? t('nav.allProducts')}
       </Link>
       <button
         ref={triggerRef}

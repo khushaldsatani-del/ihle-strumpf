@@ -50,7 +50,7 @@ export default function QuickOrder() {
   return (
     <section aria-labelledby={`${id}-title`} className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
       <h2 id={`${id}-title`} className="flex items-center gap-2 text-base font-bold text-heading sm:text-lg">
-        <Zap size={18} strokeWidth={1.75} className="text-[#8a5a3c]" aria-hidden="true" />
+        <Zap size={18} strokeWidth={1.75} className="text-[#16355b]" aria-hidden="true" />
         {t('quickOrder.title')}
       </h2>
       <p className="mt-1 text-sm text-body">{t('quickOrder.intro')}</p>
@@ -97,7 +97,7 @@ export default function QuickOrder() {
           <p
             id={`${id}-message`}
             className={`mt-3 flex items-start gap-2 rounded-xl p-3 text-sm font-medium ${
-              message.ok ? 'bg-[#eef6ef] text-[#24613a]' : 'bg-[#fdf0ee] text-[#a3261a]'
+              message.ok ? 'bg-[#eef6ef] text-[#24613a]' : 'bg-[#fdf0ee] text-[#b64558]'
             }`}
           >
             {message.ok ? (

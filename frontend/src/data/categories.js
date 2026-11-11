@@ -14,7 +14,7 @@ export const CATEGORIES = [
     code: 'PROTHETIC',
     navCode: 'PROTHETIC',
     nameKey: 'categories.PROTHETIC',
-    color: '#F28A30',
+    color: '#F3997B', // style guide salmon (Orthesen fabric)
     groups: [
       group('101-US', '101 US'),
       group('102-US-PIN', '102 US PIN'),
@@ -31,7 +31,7 @@ export const CATEGORIES = [
     code: 'DIABETES',
     navCode: 'DIABETES P',
     nameKey: 'categories.DIABETES',
-    color: '#1E2F5F',
+    color: '#57A3B1', // style guide turquoise
     groups: [
       group('201-KLAS', '201 KLAS'),
       group('202-KOMF', '202 KOMF'),
@@ -42,12 +42,12 @@ export const CATEGORIES = [
   },
   // Not in Stammdaten.xlsx, so no product groups; their codes come from the full NAV export
   // (ALLTAG holds the ilo® everyday socks, to be confirmed by Ihle)
-  { code: 'UNDERWEAR', navCode: 'UNTERWAE', nameKey: 'categories.UNDERWEAR', color: '#C0526E', groups: [] },
-  { code: 'ILO', navCode: 'ALLTAG', nameKey: 'categories.ILO', color: '#7DBA8C', groups: [] },
+  { code: 'UNDERWEAR', navCode: 'UNTERWAE', nameKey: 'categories.UNDERWEAR', color: '#B64558', groups: [] },
+  { code: 'ILO', navCode: 'ALLTAG', nameKey: 'categories.ILO', color: '#FBBC3D', groups: [] },
 ]
 
 // Dot colour of a category the shop doesn't know yet
-const NEW_CATEGORY_COLOR = '#8A8F98'
+const NEW_CATEGORY_COLOR = '#9D9D9C'
 
 // URL-safe code for a NAV code the shop doesn't know: "401 KLAS" → "401-KLAS". Every code in a list must be
 // unique, also when NAV has e.g. a category "ILO" (the shop's own code for ALLTAG) or two codes that differ only
