@@ -1,0 +1,853 @@
+{
+  "common": {
+    "loading": "Laddar …",
+    "loadErrorTitle": "Det fungerade inte just nu",
+    "loadErrorText": "Data kunde inte laddas. Försök igen.",
+    "retry": "Försök igen"
+  },
+  "nav": {
+    "main": "Huvudnavigering",
+    "home": "Ihle – startsida",
+    "skip": "Hoppa till innehållet",
+    "allProducts": "Alla produkter",
+    "productCategories": "Produktkategorier",
+    "material": "Material",
+    "services": "Tjänster",
+    "about": "Om oss",
+    "search": "Sök",
+    "searchPlaceholder": "Sök produkt eller artikelnummer",
+    "closeSearch": "Stäng sökningen",
+    "language": "Språk",
+    "account": "Konto",
+    "login": "Logga in",
+    "myOrders": "Mina beställningar",
+    "addresses": "Adresser",
+    "settings": "Inställningar",
+    "logout": "Logga ut",
+    "cart": "Varukorg",
+    "cartCount_one": "Varukorg, {{count}} artikel",
+    "cartCount_other": "Varukorg, {{count}} artiklar",
+    "openMenu": "Öppna menyn",
+    "closeMenu": "Stäng menyn",
+    "languageHint": "Välj önskat språk",
+    "confirm": "Bekräfta",
+    "close": "Stäng",
+    "viewAll": "Visa alla",
+    "viewAllProducts": "Visa alla produkter",
+    "megaEmpty": "Produktgrupper för den här kategorin kommer snart.",
+    "accountOf": "Konto för {{name}}"
+  },
+  "categories": {
+    "all": "Alla produkter",
+    "PROTHETIC": "Protetik & ortopedi",
+    "DIABETES": "Diabetes & problemfötter",
+    "UNDERWEAR": "Underkläder",
+    "ILO": "ilo®-strumpor"
+  },
+  "groups": {
+    "101-US": "Stumpstrumpa för underben",
+    "102-US-PIN": "Stumpstrumpa för underben för pin-system",
+    "103-OS": "Stumpstrumpa för lår",
+    "104-OS-PIN": "Stumpstrumpa för lår för pin-system",
+    "105-ARM": "Barn-/armstumpstrumpa",
+    "106-MASS": "Måttbeställt",
+    "107-LAM": "Lamineringsslang",
+    "108-GIPS": "Gipsskydd",
+    "109-ORTH": "Ortostextilier",
+    "201-KLAS": "Klassisk",
+    "202-KOMF": "Komfort",
+    "203-STUETZ": "Stödstrumpa",
+    "204-HALLUX": "Hallux valgus",
+    "205-CHOPRT": "Chopart/Lisfranc"
+  },
+  "products": {
+    "sortBy": "Sortera efter:",
+    "count_one": "{{count}} produkt",
+    "count_other": "{{count}} produkter",
+    "empty": "Det finns ännu inga produkter för det här urvalet.",
+    "sort": {
+      "name": "Namn",
+      "articleNo": "Artikelnummer",
+      "price": "Pris",
+      "size": "Storlek"
+    },
+    "sortLoginHint": "efter inloggning",
+    "articleNo": "Art.-nr {{number}}",
+    "range": "{{from}}–{{to}} av {{total}}",
+    "show": "Visa:",
+    "pages": {
+      "label": "Sidor",
+      "previous": "Föregående sida",
+      "next": "Nästa sida",
+      "page": "Sida {{page}}"
+    },
+    "view": {
+      "label": "Visning",
+      "grid": "Rutnät",
+      "list": "Lista"
+    },
+    "loading": "Laddar produkter …",
+    "loadError": "Produkterna kunde inte laddas just nu. Försök igen senare."
+  },
+  "product": {
+    "breadcrumb": "Du är här",
+    "details": "Produktinformation",
+    "related": "Fler produkter",
+    "notFound": "Produkten hittades inte",
+    "backToProducts": "Tillbaka till alla produkter",
+    "images": "Produktbilder",
+    "image": "Bild {{number}}",
+    "imageSoon": "Bild kommer snart",
+    "sampleImage": "Exempelbild",
+    "application": "Användning",
+    "circumference": "Omkrets",
+    "remark": "Anmärkning"
+  },
+  "order": {
+    "quantity": "Antal",
+    "less": "Minska antalet",
+    "more": "Öka antalet",
+    "commission": "Kommission",
+    "commissionPlaceholder": "t.ex. namn eller order",
+    "add": "Lägg i varukorgen",
+    "added": "Tillagd",
+    "perUnit": "per {{unit}}, netto exkl. moms",
+    "total": "Summa"
+  },
+  "cart": {
+    "title": "Varukorg",
+    "count_one": "{{count}} artikel",
+    "count_other": "{{count}} artiklar",
+    "emptyTitle": "Din varukorg är tom",
+    "emptyText": "Lägg produkter i varukorgen för att förbereda en beställning.",
+    "toProducts": "Till produkterna",
+    "loginText": "Logga in för att se din varukorg.",
+    "remove": "Ta bort {{name}}",
+    "clear": "Töm varukorgen",
+    "total": "Summa",
+    "totalNote": "Nettopriser, exkl. moms och frakt",
+    "order": "Beställ"
+  },
+  "checkout": {
+    "title": "Kassa",
+    "progress": "Din beställning steg för steg",
+    "continue": "Fortsätt",
+    "change": "Ändra",
+    "backToCart": "Tillbaka till varukorgen",
+    "billing": "Fakturaadress",
+    "delivery": "Leveransadress",
+    "shipping": "Leveranssätt",
+    "payment": "Betalningssätt",
+    "overview": "Beställningsöversikt",
+    "sendHere": "Skicka till den här adressen",
+    "sendElsewhere": "Skicka till en annan adress",
+    "sameAsBilling": "Samma som fakturaadressen",
+    "shippingNote": "Fraktkostnaderna visas på fakturan.",
+    "placeOrder": "Beställ bindande",
+    "thanksTitle": "Tack för din beställning",
+    "thanksText_one": "Din beställning med {{count}} artikel för {{total}} (inkl. moms) har tagits emot.",
+    "thanksText_other": "Din beställning med {{count}} artiklar för {{total}} (inkl. moms) har tagits emot.",
+    "back": "Tillbaka",
+    "savedAddress": "Sparad leveransadress",
+    "glsText": "Paketleverans med GLS.",
+    "invoice": "Faktura",
+    "receipt": "Ditt verifikationsnummer",
+    "orderNumber": "Ditt ordernummer: {{number}}. Beställningen har skickats till Ihle.",
+    "sending": "Skickar …",
+    "paymentMethods": {
+      "purchaseorder": "Faktura",
+      "debit": "Autogiro",
+      "VORKASSE": "Förskottsbetalning"
+    },
+    "paymentTexts": {
+      "debit": "Beloppet dras från ditt konto via autogiro.",
+      "VORKASSE": "Du får en faktura; varorna skickas när betalningen har kommit in."
+    },
+    "errors": {
+      "invalidItems": "Varukorgen innehåller ogiltiga rader.",
+      "unavailableItems": "En artikel i din varukorg finns inte längre. Kontrollera din varukorg.",
+      "invalidAddress": "Kontrollera leveransadressen.",
+      "notLoggedIn": "Din inloggning har gått ut. Logga in igen.",
+      "offline": "Ingen anslutning till servern. Försök igen.",
+      "serverError": "Beställningen kunde inte skickas just nu. Försök igen."
+    },
+    "deliveryNote": "Leveransanmärkning",
+    "deliveryNoteHint": "Valfritt, t.ex. kontaktperson eller leveranstider. {{left}} av {{max}} tecken kvar.",
+    "eInvoice": "Du får e-fakturan till den här e-postadressen:",
+    "eInvoiceNoEmail": "Du får fakturan som e-faktura via e-post."
+  },
+  "totals": {
+    "goods": "Varuvärde",
+    "discount": "Onlinerabatt",
+    "net": "Summa exkl. moms",
+    "vat": "Moms ({{rate}} %)",
+    "gross": "Summa inkl. moms"
+  },
+  "filters": {
+    "title": "Filter",
+    "resetAll": "Återställ alla",
+    "reset": "Återställ",
+    "close": "Stäng filtret",
+    "showResults_one": "Visa {{count}} produkt",
+    "showResults_other": "Visa {{count}} produkter",
+    "active": "Aktiva filter",
+    "remove": "Ta bort {{name}}",
+    "activeCount_one": "aktivt filter",
+    "activeCount_other": "aktiva filter",
+    "category": "Kategori",
+    "allCategories": "Alla kategorier",
+    "group": "Produktgrupp",
+    "color": "Färg",
+    "size": "Storlek",
+    "material": "Material",
+    "unit": "Enhet",
+    "materials": {
+      "cotton": "Bomull",
+      "polyamide": "Polyamid/nylon",
+      "elastane": "Elastan",
+      "wool": "Ull",
+      "silver": "Silvertråd",
+      "polyester": "Polyester",
+      "lyocell": "Lyocell"
+    },
+    "units": {
+      "PAAR": "Par",
+      "STUECK": "Styck",
+      "STÜCK": "Styck",
+      "PACK": "Förpackning",
+      "10PACK": "10-pack",
+      "100PACK": "100-pack",
+      "1000PACK": "1000-pack",
+      "ROLLE": "Rulle",
+      "KILO": "Kilo",
+      "KG": "kg"
+    }
+  },
+  "pages": {
+    "products": "Produkter",
+    "material": "Material",
+    "services": "Tjänster",
+    "about": "Om oss",
+    "search": "Sök",
+    "searchFor": "Resultat för ”{{query}}”",
+    "login": "Logga in",
+    "cart": "Varukorg",
+    "notFound": "Sidan hittades inte",
+    "backHome": "Tillbaka till startsidan"
+  },
+  "login": {
+    "eyebrow": "Fackhandlare",
+    "title": "Registrerade kunder",
+    "intro": "Logga in med ditt kundnummer.",
+    "customerNumber": "Kundnummer",
+    "password": "Lösenord",
+    "showPassword": "Visa lösenord",
+    "hidePassword": "Dölj lösenord",
+    "passwordHint": "Kontakta oss per telefon om du har frågor om lösenordet:",
+    "required": "Obligatoriska fält",
+    "error": "Kundnumret eller lösenordet är fel. Kontrollera dina uppgifter.",
+    "loggedInAs": "Du är inloggad som",
+    "toProducts": "Till produkterna"
+  },
+  "home": {
+    "hero": {
+      "titleLine1": "Varje väg.",
+      "titleLine2": "En perfekt passform.",
+      "badge": "SÖMLÖST STICKAD • MEDICINSKA STICKADE PRODUKTER • ",
+      "cta": "Utforska sortimentet"
+    },
+    "highlights": {
+      "title": "Höjdpunkter",
+      "previous": "Föregående produkter",
+      "next": "Nästa produkter",
+      "items": {
+        "40012_053": {
+          "name": "Klassiska ribbstickade strumpor",
+          "description": "Fin ribbstruktur med slät, handmaskad tå och resår utan gummi."
+        },
+        "40012_058": {
+          "name": "Exklusiva ribbstickade strumpor",
+          "description": "Elegant ribbstickning med bekväm passform och en nästan osynligt maskad avslutning."
+        },
+        "40013_001": {
+          "name": "Premiumstrumpor i ull",
+          "description": "Mjuk ull med ren silhuett och skaft utan gummi."
+        },
+        "40015_013": {
+          "name": "Finstickade lyxstrumpor",
+          "description": "Fin stickning med försilvrad tråd och exklusiv finish."
+        },
+        "40012_004": {
+          "name": "Naturfärgade ribbstrumpor",
+          "description": "Ribbstickat skaft i varm beige med handmaskad tå och resår utan gummi."
+        },
+        "40011_021": {
+          "name": "Mjuka komfortstrumpor",
+          "description": "Slät finstickning i naturvitt med mjuk resår utan gummi."
+        },
+        "40002_059": {
+          "name": "Klassiska silverstrumpor",
+          "description": "Klassisk stickning i gråmelerat med försilvrad tråd och ren avslutning."
+        },
+        "40002_053": {
+          "name": "Silverstrumpor komfort",
+          "description": "Blåmelerad stickning med försilvrad tråd och mjuk, slät känsla."
+        }
+      }
+    },
+    "ranges": {
+      "title": "Våra områden",
+      "tabsLabel": "Produktområden",
+      "linesLabel": "Produktlinjer",
+      "cta": "Visa produkter",
+      "items": {
+        "DIABETES": {
+          "tagline": "Skydd i varje steg",
+          "blocks": [
+            {
+              "title": "Skydd i varje steg.",
+              "text": "Helt enkelt sköna på fötterna: ihle® diabetesstrumpor kompletterar dina ortopediska skor. Det medicinska stickade materialet känns som en andra hud. Det sitter perfekt men ger ändå gott om rörelsefrihet och plats för tårna. Den specialutvecklade resåren och noga utvalda material förhindrar tryckställen, inflammationer och skador."
+            },
+            {
+              "title": "Gångkomfort i färg.",
+              "text": "Vad hjälper en måttsydd sko om strumpan veckar sig? ihle® uppmuntrar patienter och ortopedskomakare att tänka bortom själva skon när det gäller ortopedisk försörjning. Därför har ihle® diabetesstrumpor varken störande söm eller andra åtsittande partier."
+            }
+          ],
+          "lines": [
+            "Klassisk",
+            "Halvfrotté",
+            "Helfrotté",
+            "Kompressionsstrumpor",
+            "Extra vida",
+            "Silver",
+            "Barn"
+          ],
+          "listTitle": "Våra produkter finns",
+          "list": [
+            "i olika material",
+            "i ett stort urval av färger",
+            "i olika passformer (från smal till lymfödem)",
+            "som strumpor efter framfotsamputation (Lisfranc, Chopart, Pirogoff)"
+          ]
+        },
+        "UNDERWEAR": {
+          "tagline": "Bättre kroppskänsla i korsetten",
+          "blocks": [
+            {
+              "title": "Bättre kroppskänsla. Större vilja att bära plagget.",
+              "text": "Skonsamt och skyddande för huden: ihle® korsettröjor har utvecklats som en viktig del av den konservativa skoliosbehandlingen. Det medicinska stickade materialet sitter som gjutet, utan störande veck eller irriterande sömmar. De kompletterar korsettbehandlingen och lindrar besvären för de ofta mycket unga patienterna."
+            },
+            {
+              "title": "Moderiktiga och funktionella underkläder.",
+              "text": "Skolios, korsettbehandling och att växa upp: den kombinationen är ofta svår att hantera. Därför har vi anpassat våra produkter efter tonåringars livsstil. Spaghettiband eller off-shoulder, kort eller lång ärm, båtringning, V-ringning eller rund ringning: ihle® korsettröjor finns i olika modeller eller som måttbeställda plagg. Den högkvalitativa fiberblandningen följer kroppen och rör sig med dig."
+            }
+          ],
+          "lines": [],
+          "listTitle": "ihle® kvalitetslöfte",
+          "list": [
+            "slitstarka material",
+            "särskilt stretchiga",
+            "andningsaktiva fibrer",
+            "tål tvätt i 60 grader",
+            "kan torktumlas"
+          ]
+        },
+        "PROTHETIC": {
+          "tagline": "I rörelse utan tryckställen",
+          "blocks": [
+            {
+              "title": "I rörelse utan tryckställen.",
+              "text": "Efter en amputation eller under rehabiliteringen: med en förskriven protes eller ortos följer ett behandlingsmål. Patienten ska kunna stå igen eller vara så aktiv som möjligt, utan smärta. För dessa högkvalitativa hjälpmedel och stumpförsörjningar tillverkar ihle® skyddande underkläder: medicinska stickade produkter för känsliga delar av kroppen."
+            },
+            {
+              "title": "Måttanpassat. Direkt från lager.",
+              "text": "Oavsett vilket ortopediskt hjälpmedel det gäller övertygar ihle® produkter med passform, funktion och kvalitet. De förbättrar bärkomforten märkbart. Acceptansen för protesen eller ortosen ökar, liksom den önskade behandlingseffekten. Vi ger allt för det: hudvänliga material, högkvalitativa garner och en stor textil kunskap."
+            }
+          ],
+          "lines": [
+            "Underbensstrumpor",
+            "Underbensstumpstrumpor för pin-system",
+            "Lårstrumpor",
+            "Lårstrumpor för pin-system",
+            "Barn-/armstrumpor",
+            "Lamineringsslang / trikåslang",
+            "Ortostextilier"
+          ],
+          "listTitle": "",
+          "list": []
+        },
+        "ILO": {
+          "tagline": "En följeslagare inomhus och utomhus",
+          "blocks": [
+            {
+              "title": "En följeslagare inomhus och utomhus.",
+              "text": "Funktionsstrumpor har slagit igenom både i arbetet och på fritiden. Man uppskattar den perfekta passformen, den sköna känslan och det utmärkta fotklimatet. Utifrån de medicinska stickade produkternas möjligheter har ihle® utvecklat vardagsstrumpor som klarar nästan allt. Möte, fjällvandring eller danskurs: inget som klämmer eller glider, bara ren komfort."
+            },
+            {
+              "title": "Hejdå svettiga fötter.",
+              "text": "Fukt ut, värme in: angora, frotté och ren nyull garanterar komfort från vad till tå. Alla ilo®-produkter skämmer bort dina fötter och ser bra ut i sneakers, finskor, löparskor och vandringskängor. Slitstarka, smarta material och en specialstickad ribbresår klarar även många tvättar. Det lovar vi!"
+            }
+          ],
+          "lines": [
+            "Klassisk",
+            "Komfort",
+            "Sport",
+            "Kuddar & pyjamas"
+          ],
+          "listTitle": "",
+          "list": []
+        }
+      }
+    },
+    "shapes": {
+      "title": "Strumpformer",
+      "banner": {
+        "titleLine1": "Strumpa och sko –",
+        "titleLine2": "en perfekt kombination",
+        "text": "Värme på vintern, komfort och hygien på sommaren: när temperaturen stiger ändras också valet av strumpor. ihle® har anpassat sitt sortiment efter detta och tillverkar strumpor i tre utföranden."
+      },
+      "items": {
+        "short": {
+          "title": "Kort strumpa",
+          "text": "En allroundstrumpa för alla årstider: skaftet ger strumpan dess form och namn. På den korta strumpan når det ca 10 cm ovanför fotleden, högst till mitten av vaden. Avslutningen kan vara en vikt resår utan gummi eller en ribbresår (med eller utan gummi)."
+        },
+        "footlet": {
+          "title": "Ankelsocka",
+          "text": "Strumpans sommarvariant täcker främst tår och häl. Ankelsockan slutar strax ovanför eller under ankeln. För personer med diabetes rekommenderar vi därför de längre varianterna av våra strumpor."
+        },
+        "knee": {
+          "title": "Knästrumpa",
+          "text": "En klassiker för vintern eller höga skor: strumpan slutar under knät. En bred resår ger säkert stöd utan att snöra åt. Även här finns avslutningar med och utan gummi."
+        }
+      }
+    },
+    "colors": {
+      "title": "Färger",
+      "subtitleLine1": "Ett spektrum av",
+      "subtitleLine2": "komfort och karaktär",
+      "text": "Skorna blir allt färggladare. Från diskreta naturtoner till uttrycksfulla färger förenar ihle® textil kunskap med modern färgdesign.",
+      "cta": "Upptäck våra kollektioner",
+      "names": {
+        "black": "Svart",
+        "marine": "Marinblå",
+        "gray": "Grå",
+        "anthracite": "Antracit",
+        "graphite": "Grafit",
+        "brown": "Brun",
+        "white": "Vit",
+        "silver": "Silver",
+        "beige": "Beige",
+        "nature": "Natur",
+        "pearl": "Pärla",
+        "beigeMottled": "Beigemelerad",
+        "denimBlueMelange": "Denimblå melange",
+        "lightGreyMelange": "Ljusgrå melange",
+        "darkGreyMelange": "Mörkgrå melange",
+        "yellow": "Gul",
+        "red": "Röd",
+        "green": "Grön",
+        "pink": "Rosa",
+        "purple": "Lila",
+        "turquoise": "Turkos",
+        "royalBlue": "Kungsblå"
+      }
+    },
+    "dealers": {
+      "titleLine1": "Hitta en",
+      "titleHighlight": "fackhandlare",
+      "titleRest": "nära dig",
+      "text": "Är du privatkund och vill köpa en ihle®-produkt? Våra medicinska stickade produkter, strumpor och underkläder säljs endast via fackhandeln. Kontakta din fackhandlare eller en sjukvårdsbutik nära dig direkt.",
+      "placeholder": "Ange postnummer eller ort",
+      "button": "Hitta återförsäljare",
+      "notFound": "Vi kunde inte hitta den här platsen. Kontrollera det du angav.",
+      "error": "Sökningen är inte tillgänglig just nu. Försök igen senare.",
+      "mapLabel": "Karta"
+    }
+  },
+  "material": {
+    "hero": {
+      "eyebrow": "Material",
+      "titleLine1": "Materialen bakom",
+      "titleLine2": "varje ihle®-strumpa.",
+      "text": "Noga utvalda garner av bomull, ull och funktionsfibrer – för bärkomfort, hållbarhet och pålitlig funktion.",
+      "cta": "Utforska sortimentet",
+      "imageAlt": "Garnkoner i naturvitt, grönt och rost bredvid en stickad filt",
+      "secondary": "Visa stickningarna",
+      "facts": {
+        "fibres": "Fibertyper",
+        "cuffs": "Resårtyper"
+      }
+    },
+    "intro": {
+      "eyebrow": "Våra material",
+      "titleLine1": "Naturliga fibrer.",
+      "titleLine2": "Modern komfort.",
+      "text": "På ihle® kombinerar vi noga utvalda natur- och funktionsfibrer med modern stickteknik. Så skapas strumpor och medicinska stickade produkter med långvarig komfort, perfekt passform och pålitlig kvalitet – för alla årstider och alla behov.",
+      "fibresLabel": "Fibrer vi arbetar med",
+      "fibres": {
+        "cotton": "Bomull",
+        "wool": "Nyull",
+        "polyamide": "Polyamid",
+        "elastane": "Elastan",
+        "silver": "Silverfiber"
+      },
+      "features": {
+        "fibres": {
+          "title": "Noga utvalda fibrer",
+          "text": "Natur- och funktionsfibrer, valda efter användningsområdet."
+        },
+        "quality": {
+          "title": "Pålitlig kvalitet",
+          "text": "Jämn tillverkning som fackhandeln kan lita på."
+        },
+        "comfort": {
+          "title": "Bekvämt i vardagen",
+          "text": "Mjuka, sömlösa stickningar som inte trycker eller skär in."
+        },
+        "durable": {
+          "title": "Slitstarkt och formstabilt",
+          "text": "Gjort för att behålla passform och känsla länge."
+        }
+      }
+    },
+    "knit": {
+      "eyebrow": "Stickningen",
+      "titleLine1": "Det handlar",
+      "titleLine2": "om finheten.",
+      "text": "Avgörande för känsla och utseende är inte bara materialet utan också finheten. Den anger hur många nålar som stickar per tum (2,54 cm). Vanligt är 14 maskor per tum, vilket ger den klassiska maskbilden. ihle® arbetar med 6 till 36 maskor per tum – resultatet är alltid en stickning som passar kraven exakt.",
+      "gaugeLabel": "Finhet hos ihle: 6 till 36 maskor per tum. Klassiskt är 14, extra fint 22.",
+      "gaugeUnit": "maskor per tum",
+      "types": {
+        "smooth": {
+          "tag": "14 maskor per tum",
+          "title": "Klassisk slät",
+          "text": "Den här jämna stickningen i medeltjocklek är en riktig allroundare: för alla årstider, alla tillfällen, för kvinnor och män. ihle® gör vardagsstrumpor av den."
+        },
+        "fine": {
+          "tag": "22 maskor per tum",
+          "title": "Extra fin",
+          "text": "Så kallar ihle® den förfinade varianten av sin klassiska stickning. I Centraleuropa föredras kvaliteten oftast av kvinnor, i Sydeuropa oftare av män."
+        },
+        "plush": {
+          "tag": "Vadderad runt om",
+          "title": "Helfrotté",
+          "text": "Från tå till resår: helt vadderade strumpor ger behaglig värme, effektiv dämpning och god luftcirkulation tack vare frottéstickningen – vid alla slags aktiviteter."
+        },
+        "semi": {
+          "tag": "Vadderad vid tår, sula och häl",
+          "title": "Halvfrotté",
+          "text": "Vaddering där den behövs: ibland räcker extra vaddering vid tår, sula och häl. Halvfrottémodeller är därför perfekta följeslagare under övergångssäsongerna."
+        }
+      },
+      "compare": {
+        "gauge": "Finhet",
+        "padding": "Vaddering",
+        "none": "Ingen",
+        "full": "Runt om",
+        "partial": "Tår, sula, häl",
+        "perInch": "{{count}} maskor/tum",
+        "hint": "Håll muspekaren över ett prov för att förstora stickningen.",
+        "magnify": "Visa stickningen förstorad"
+      }
+    },
+    "cuffs": {
+      "eyebrow": "Resårer",
+      "titleLine1": "Perfekt passform,",
+      "titleLine2": "utan att skära in.",
+      "text": "Töjbar, smidig och vardagsvänlig – så ska en stickad produkt sitta. ihle® har därför utvecklat olika resårer och avslutningar, från smala till extra vida.",
+      "types": {
+        "loop": {
+          "title": "Vikt resår utan gummi",
+          "text": "Med den här specialstickningen tillgodoser ihle® framför allt behoven hos personer med diabetes. Alla som störs av åtsittande gummi har också nytta av den här avslutningen."
+        },
+        "ribLong": {
+          "title": "Ribbresår utan gummi",
+          "text": "Den här resåren är ca 10 cm lång och kan även bäras nedvikt."
+        },
+        "ribShort": {
+          "title": "Ribbresår med gummi",
+          "text": "Här är 4 cm gummi instickat. Kunder med friska fötter uppskattar oftast det extra stödet. Bra att veta: den här resåren passar inte för personer med diabetes."
+        }
+      },
+      "diabetesYes": "Utvecklad för personer med diabetes",
+      "diabetesNo": "Passar inte för personer med diabetes"
+    },
+    "closing": {
+      "title": "Rätt stickning för varje behov.",
+      "text": "Upptäck strumpor och medicinska stickade produkter från ihle® – eller hitta en fackhandlare nära dig."
+    },
+    "fibres": {
+      "title": "Material",
+      "question": "Bomull, ull eller SENSICO®?",
+      "claim": "Kvaliteten går först!",
+      "text": "För att ihle®-produkter ska hålla vad de lovar måste de klara stränga tester. Valet av material styrs enbart av bärarens behov.",
+      "items": {
+        "cotton": {
+          "title": "Bomull",
+          "text": "Robust, slitstark och andningsaktiv: bomull tar upp fukt bra och tål många tvättar. Bra att veta: den som lätt får svettiga fötter bör välja strumpor av SENSICO®."
+        },
+        "wool": {
+          "title": "Nyull",
+          "text": "Perfekt för kalla fötter: nyull skyddar utmärkt mot kyla, reglerar temperaturen och fungerar som en luftkudde (den kan hålla upp till 50 % av sin egen vikt i luft). Vårt tips: materialet är idealiskt för personer med reumatism."
+        },
+        "silver": {
+          "title": "Silver",
+          "text": "Inflammationshämmande och antibakteriellt: silver anses vara ett beprövat material vid behandling av sår och infektioner. ihle® använder silverfibrernas egenskaper för att främja läkning och minska fotlukt (orsakad av bakterier)."
+        },
+        "sensico": {
+          "title": "SENSICO®",
+          "text": "Fiberblandningen för exceptionell komfort: 80 % bomull och 20 % lyocell – det är SENSICO®. Kombinationen tar bort grogrunden för bakterier och dålig lukt. Den som svettas mycket om fötterna bör bära strumpor av SENSICO®."
+        },
+        "synthetic": {
+          "title": "Polyamid / polyester",
+          "text": "Ett måste för sport: strumpor med polyamid/polyester torkar snabbt, är extremt slitstarka och formstabila. Tack vare sin struktur leder de mjuka syntetfibrerna bort fukt från kroppen. ihle® vardags- och sportprodukter finns i många starka färger."
+        }
+      }
+    }
+  },
+  "footer": {
+    "newsletterTitle": "Håll dig informerad om nya produkter, material och innovationer",
+    "newsletterButton": "Anmäl dig nu",
+    "about": "Oavsett om det gäller diabetesskor, korsetter, ortoser eller proteser: ihle® är övertygat om att ortopedisk försörjning går längre än själva hjälpmedlet. Utifrån detta har vi utvecklat stickade material som ger pålitligt skydd. Sådana välsittande textilier ökar inte bara bärkomforten utan förbättrar också livskvaliteten och behandlingsresultaten.",
+    "quickLinks": "Snabblänkar",
+    "resources": "Resurser",
+    "materials": "Material",
+    "news": "Nyheter",
+    "catalog": "Katalog",
+    "jobs": "Lediga jobb",
+    "newsletter": "Nyhetsbrev",
+    "phone": "Tel",
+    "mail": "E-post",
+    "address": "Adress",
+    "contact": "Kontakt",
+    "imprint": "Impressum",
+    "privacy": "Dataskydd",
+    "terms": "Allmänna villkor",
+    "hoursTitle": "Öppettider för fabriksbutiken:",
+    "hours": "Måndag till fredag: 7.00 till 15.00",
+    "addressArea": "Industriområdet Heinzebank"
+  },
+  "addresses": {
+    "title": "Mina adresser",
+    "billing": "Fakturaadress",
+    "deliveries": "Leveransadresser",
+    "delivery": "Leveransadress {{number}}",
+    "deliveryCount_one": "{{count}} leveransadress",
+    "deliveryCount_other": "{{count}} leveransadresser",
+    "noDeliveries": "Inga fler leveransadresser finns sparade för ditt kundkonto. Beställningar levereras till din fakturaadress; i kassan kan du även ange en annan adress för en enskild beställning.",
+    "changeNote": "Dina adresser hämtas från vårt affärssystem. Ring oss för ändringar eller nya leveransadresser:"
+  },
+  "accountOrders": {
+    "order": "Beställning {{number}}",
+    "lines_one": "{{count}} rad",
+    "lines_other": "{{count}} rader",
+    "count_one": "{{count}} beställning",
+    "count_other": "{{count}} beställningar",
+    "status": {
+      "new": "Mottagen",
+      "exported": "Under behandling"
+    },
+    "reorder": "Beställ igen",
+    "nothingAvailable": "Artiklarna i den här beställningen finns för närvarande inte i butiken.",
+    "someSkipped_one": "Övriga rader ligger i varukorgen; {{count}} artikel finns inte för närvarande.",
+    "someSkipped_other": "Övriga rader ligger i varukorgen; {{count}} artiklar finns inte för närvarande.",
+    "toCart": "Till varukorgen",
+    "loading": "Laddar beställningar …",
+    "loadError": "Dina beställningar kunde inte laddas just nu. Försök igen senare.",
+    "emptyTitle": "Inga beställningar ännu",
+    "emptyText": "Så snart du beställer i butiken hittar du dina beställningar här – med alla rader, kommissioner och priser.",
+    "found_one": "{{count}} av {{total}} beställningar",
+    "found_other": "{{count}} av {{total}} beställningar",
+    "search": "Sök",
+    "searchPlaceholder": "Ordernr, artikel, kommission, verifikationsnr …",
+    "statusLabel": "Status",
+    "allStatuses": "Alla",
+    "period": "Period",
+    "periods": {
+      "30": "Senaste 30 dagarna",
+      "90": "Senaste 3 månaderna",
+      "365": "Senaste 12 månaderna",
+      "all": "Hela perioden"
+    },
+    "noMatchTitle": "Ingen matchande beställning",
+    "noMatchText": "Ändra sökningen eller filtren.",
+    "resetFilter": "Återställ sökning och filter",
+    "showMore": "Visa fler",
+    "shownOf": "{{shown}} av {{total}} beställningar visas"
+  },
+  "settings": {
+    "title": "Inställningar",
+    "account": "Kontouppgifter",
+    "company": "Företag",
+    "username": "Användarnamn (kundnummer)",
+    "email": "E-post",
+    "noEmail": "Ingen e-post sparad",
+    "changeNote": "Dina kontouppgifter kommer från vårt ERP-system. Ring oss för ändringar:",
+    "toAddresses": "Visa adresser",
+    "password": {
+      "title": "Byt lösenord",
+      "intro": "Välj ett nytt lösenord för din butiksåtkomst. Du förblir inloggad.",
+      "current": "Nuvarande lösenord",
+      "new": "Nytt lösenord",
+      "confirm": "Upprepa nytt lösenord",
+      "rules": "Minst {{count}} tecken.",
+      "save": "Spara lösenord",
+      "saving": "Sparar …",
+      "saved": "Ditt lösenord har ändrats. Använd det nya lösenordet när du loggar in från och med nu.",
+      "errors": {
+        "wrongPassword": "Det nuvarande lösenordet är fel.",
+        "passwordTooShort": "Det nya lösenordet måste vara minst {{count}} tecken långt.",
+        "mismatch": "De två nya lösenorden stämmer inte överens.",
+        "samePassword": "Det nya lösenordet måste skilja sig från det nuvarande.",
+        "tooManyAttempts": "För många misslyckade försök. Försök igen om några minuter.",
+        "offline": "Ingen anslutning till servern. Försök igen.",
+        "notLoggedIn": "Din session har gått ut. Logga in igen.",
+        "generic": "Lösenordet kunde inte ändras just nu. Försök igen."
+      }
+    },
+    "site": {
+      "title": "Webbplatsinställningar",
+      "intro": "Gäller för den här webbläsaren och träder i kraft direkt.",
+      "view": "Produktvisning",
+      "pageSize": "Produkter per sida"
+    },
+    "logout": {
+      "title": "Logga ut",
+      "text": "Logga ut på den här enheten. Din varukorg töms."
+    }
+  },
+  "search": {
+    "noResults": "Inga matchande artiklar hittades",
+    "hint": "Sök på artikelnamn eller artikelnummer – det fullständiga numret (t.ex. 40 000 001 12) öppnar artikeln direkt i den färgen och storleken."
+  },
+  "quickOrder": {
+    "title": "Snabbeställning",
+    "intro": "Känner du till artikelnumret? Ange hela numret med färg och storlek, t.ex. 40 000 001 12.",
+    "number": "Artikelnummer",
+    "add": "Lägg till",
+    "added_one": "{{count}} × {{number}} ({{name}}) ligger i varukorgen.",
+    "added_other": "{{count}} × {{number}} ({{name}}) ligger i varukorgen.",
+    "incomplete": "Ange hela numret med färg och storlek, t.ex. 40 000 001 12.",
+    "notFound": "Det finns ingen artikel med numret ”{{number}}” i butiken."
+  },
+  "colors": {
+    "102": "Blåbär",
+    "103": "Sten",
+    "139": "Mint",
+    "140": "Körsbär",
+    "142": "Kiwi",
+    "143": "Syren",
+    "144": "Pitaya",
+    "145": "Bordeaux",
+    "001": "Svart",
+    "002": "Marinblå",
+    "003": "Grå",
+    "004": "Beige",
+    "005": "Antracit",
+    "007": "Grafit",
+    "008": "Brun",
+    "011": "Vit",
+    "013": "Silver",
+    "015": "Murkla",
+    "021": "Natur",
+    "025": "Pärla",
+    "027": "Kinin",
+    "038": "Gul",
+    "039": "Turkos",
+    "040": "Röd",
+    "041": "Kungsblå",
+    "042": "Grön",
+    "043": "Lila",
+    "044": "Rosa",
+    "052": "Beigemelerad",
+    "053": "Denimblåmelerad",
+    "058": "Mörkgråmelerad",
+    "059": "Ljusgråmelerad"
+  },
+  "landing": {
+    "topbar": {
+      "outlet": "Fabriksbutik mån–fre 7.00–15.00",
+      "login": "Återförsäljarinloggning"
+    },
+    "nav": {
+      "home": "Start",
+      "products": "Produkter",
+      "dealers": "Hitta återförsäljare"
+    },
+    "claim": "Sömlösa medicinska funktionsstickade produkter · Made in Germany",
+    "hero": {
+      "label": "Sömlöst stickat · Medicinska stickade produkter",
+      "text": "Medicinska stickade produkter från ihle® för diabetes, protetik, ortopedi och korsettbehandling, sömlöst stickade i Wolkenstein, Made in Germany.",
+      "findDealer": "Hitta återförsäljare",
+      "trust": {
+        "seamless": "Sömlöst stickat",
+        "madeIn": "Made in Germany",
+        "stock": "Finns i lager"
+      },
+      "alt": {
+        "pinkCrossed": "Korsade ben i rosa ihle®-strumpor",
+        "prosthesis": "Benprotes med lila ihle®-strumpa",
+        "wheelchair": "Person i rullstol med ihle®-strumpor",
+        "relaxation": "Avslappnade fötter i ihle®-strumpor"
+      },
+      "title": "Sömlösa medicinska funktionsstickade produkter.",
+      "showPhoto": "Visa foto {{number}} av {{total}}",
+      "slides": {
+        "diabetic": "Vita diabetesstrumpor",
+        "stump-red": "Röd och vit stumpstrumpa",
+        "leg-sleeve": "Svart benstrumpa vid gång",
+        "sock-on": "En strumpa dras på",
+        "thigh": "Stumpstrumpa på låret",
+        "brace": "Undertröja under en korsett",
+        "stump-fit": "En stumpstrumpa sätts på",
+        "arm": "Armstrumpa under en ortos"
+      }
+    },
+    "highlights": {
+      "label": "Ur vårt sortiment"
+    },
+    "shapes": {
+      "label": "Strumpformer",
+      "title": "Strumpa och sko = passar.",
+      "alt": {
+        "footlet": "Teckning av en ankelsocka",
+        "short": "Teckning av en kort strumpa",
+        "knee": "Teckning av en knästrumpa"
+      }
+    },
+    "colors": {
+      "label": "Färger",
+      "groups": {
+        "classic": "Klassiska",
+        "colourful": "Färgglada"
+      },
+      "tones_one": "{{count}} nyans",
+      "tones_other": "{{count}} nyanser"
+    },
+    "dealers": {
+      "label": "Återförsäljarsök",
+      "text": "Våra medicinska stickade produkter, strumpor och underkläder säljs endast via fackhandeln. Kontakta din fackhandlare eller en sjukvårdsbutik nära dig.",
+      "outlet": "Fabriksbutik Wolkenstein",
+      "outletLine": "Reuterweg 1 · Industriområdet Heinzebank · mån–fre 7.00–15.00",
+      "route": "Planera rutt",
+      "locate": "Min plats",
+      "locateError": "Platsen är inte tillgänglig"
+    },
+    "footer": {
+      "about": "ihle® är övertygat om att ortopedisk försörjning går längre än själva hjälpmedlet.",
+      "outlet": "Fabriksbutik mån–fre 7.00–15.00",
+      "emailPlaceholder": "Din e-postadress"
+    }
+  },
+  "contact": {
+    "phone": "Telefon",
+    "fax": "Fax",
+    "email": "E-post",
+    "hoursTitle": "Öppettider för fabriksbutiken",
+    "hours": "Måndag till fredag: 7.00 till 15.00",
+    "notice": "Observera! På fredagar har vi tills vidare endast öppet till 13.00!",
+    "staffTitle": "Våra säljare på fältet",
+    "route": "Planera rutt",
+    "international": "Internationell försäljning"
+  }
+}

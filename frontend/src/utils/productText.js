@@ -9,6 +9,14 @@ export const productName = (product, language) => product.translations?.[languag
 // The translated description when NAV has one, otherwise the German one
 export const productDescription = (product, language) => product.translations?.[language]?.description || product.description
 
+// A product detail from NAV (material, application, circumference, remark) in the active language; German when
+// that language has none. Material falls back to the German short text (<ItemShortText>) as before.
+export const productDetail = (product, language, key) =>
+  product.translations?.[language]?.[key] ||
+  product.translations?.de?.[key] ||
+  (key === 'material' ? product.material : '') ||
+  ''
+
 // Name and description of an article in the shop's active language
 export function useProductText() {
   const { i18n } = useTranslation()
@@ -16,6 +24,7 @@ export function useProductText() {
   return {
     name: (product) => productName(product, language),
     description: (product) => productDescription(product, language),
+    detail: (product, key) => productDetail(product, language, key),
   }
 }
 

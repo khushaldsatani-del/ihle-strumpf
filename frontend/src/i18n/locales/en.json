@@ -98,7 +98,10 @@
     "images": "Product pictures",
     "image": "Picture {{number}}",
     "imageSoon": "Picture coming soon",
-    "sampleImage": "Sample image"
+    "sampleImage": "Sample image",
+    "application": "Application",
+    "circumference": "Circumference",
+    "remark": "Note"
   },
   "order": {
     "quantity": "Quantity",
@@ -522,7 +525,7 @@
         },
         "fine": {
           "tag": "22 stitches per inch",
-          "title": "Classic extra fine",
+          "title": "Extra-fine",
           "text": "This is what ihle® calls the refined version of its classic knit. In Central Europe this quality is mostly preferred by women, in Southern Europe more often by men."
         },
         "plush": {
@@ -844,10 +847,7 @@
     "hours": "Monday to Friday: 7:00 a.m. to 3:00 p.m.",
     "notice": "Attention! On Fridays, until further notice, we are only open until 1 p.m.!",
     "staffTitle": "Our field staff",
-    "south": "Bavaria / Baden-Württemberg",
-    "west": "North Rhine-Westphalia / Lower Saxony",
-    "southwest": "Saarland / Rhineland-Palatinate / Hesse",
-    "east": "Eastern German states",
-    "route": "Plan route"
+    "route": "Plan route",
+    "international": "International Sales"
   }
 }

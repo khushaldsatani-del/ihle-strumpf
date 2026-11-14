@@ -6,6 +6,7 @@ const STRIPES = {
   fr: ['columns', '#002654', '#ffffff', '#ce1126'],
   it: ['columns', '#009246', '#ffffff', '#ce2b37'],
   nl: ['rows', '#ae1c28', '#ffffff', '#21468b'],
+  ru: ['rows', '#ffffff', '#0039a6', '#d52b1e'],
 }
 
 // Small flag with rounded corners (className sets its size)
@@ -24,6 +25,25 @@ export function Flag({ code, className = 'h-8 w-[2.9rem] rounded-md' }) {
         <path d="M0,0 L60,40 M60,0 L0,40" stroke="#c8102e" strokeWidth="4.5" clipPath={`url(#${clipId})`} />
         <path d="M30,0 v40 M0,20 h60" stroke="#fff" strokeWidth="12" />
         <path d="M30,0 v40 M0,20 h60" stroke="#c8102e" strokeWidth="7" />
+      </svg>
+    )
+  }
+
+  if (code === 'cs') {
+    return (
+      <svg viewBox="0 0 60 40" preserveAspectRatio="none" {...base}>
+        <path d="M0,0 h60 v20 h-60 z" fill="#ffffff" />
+        <path d="M0,20 h60 v20 h-60 z" fill="#d7141a" />
+        <path d="M0,0 L30,20 L0,40 z" fill="#11457e" />
+      </svg>
+    )
+  }
+
+  if (code === 'sv') {
+    return (
+      <svg viewBox="0 0 60 40" preserveAspectRatio="none" {...base}>
+        <path d="M0,0 h60 v40 h-60 z" fill="#006aa7" />
+        <path d="M18,0 h8 v40 h-8 z M0,16 h60 v8 h-60 z" fill="#fecc00" />
       </svg>
     )
   }

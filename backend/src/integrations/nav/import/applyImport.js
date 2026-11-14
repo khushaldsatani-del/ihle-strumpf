@@ -24,10 +24,12 @@ async function loadProducts(articleNos) {
   return new Map(rows.map((row) => [row.article_no, row]))
 }
 
-// Same translations, whatever the key order: { en: {…}, fr: {…} } compared language by language
+// Same translations, whatever the key order: { de: {…}, en: {…}, fr: {…} } compared language by language and
+// field by field (name, description and the product details material, application, circumference, remark)
+const TRANSLATION_FIELDS = ['name', 'description', 'material', 'application', 'circumference', 'remark']
 const sameTranslations = (a = {}, b = {}) => {
   const keys = new Set([...Object.keys(a), ...Object.keys(b)])
-  return [...keys].every((key) => a[key]?.name === b[key]?.name && (a[key]?.description || '') === (b[key]?.description || ''))
+  return [...keys].every((key) => TRANSLATION_FIELDS.every((field) => (a[key]?.[field] || '') === (b[key]?.[field] || '')))
 }
 
 function productChanged(current, next) {

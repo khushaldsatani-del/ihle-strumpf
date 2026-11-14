@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence } from 'motion/react'
-import { ChevronDown, LogOut, MapPin, Package, Settings, ShoppingCart, User, UserCheck } from 'lucide-react'
+import { ChevronDown, Globe, LogOut, MapPin, Package, Settings, ShoppingCart, User, UserCheck } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { NAV_LINKS } from '../../config/navigation.js'
@@ -26,11 +26,13 @@ const FLAG_ICONS = Object.fromEntries(
   LANGUAGES.map(({ code }) => [code, () => <Flag code={code} className="h-3.5 w-5 rounded-[3px]" />]),
 )
 
-// Language menu in the top bar: flag and code of the active language; the menu lists every language with its
-// flag and name and switches the whole site at once
-function LanguageMenu({ open, onOpenChange }) {
+// Language menu: the menu lists every language with its flag and name and switches the whole site at once.
+// variant 'topbar' (desktop, dark bar): a clearly visible pill with globe icon, flag and language name;
+// variant 'compact' (phone/tablet header): a small outlined pill with flag and language code.
+function LanguageMenu({ open, onOpenChange, variant = 'topbar' }) {
   const { t, i18n } = useTranslation()
   const current = i18n.resolvedLanguage
+  const currentName = LANGUAGES.find(({ code }) => code === current)?.name ?? current
 
   const items = LANGUAGES.map(({ code, name }) => ({
     key: code,
@@ -40,29 +42,50 @@ function LanguageMenu({ open, onOpenChange }) {
     onSelect: () => setLanguage(code),
   }))
 
+  const chevron = (
+    <ChevronDown
+      size={14}
+      strokeWidth={2}
+      aria-hidden="true"
+      className={`transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
+    />
+  )
+
   return (
     <DropdownMenu
       open={open}
       onOpenChange={onOpenChange}
       items={items}
       label={t('nav.language')}
-      renderTrigger={(triggerProps) => (
-        <button
-          type="button"
-          className="flex min-h-9 items-center gap-2 text-[0.8125rem] font-medium uppercase"
-          aria-label={`${t('nav.language')}: ${LANGUAGES.find(({ code }) => code === current)?.name ?? current}`}
-          {...triggerProps}
-        >
-          <Flag code={current} className="h-3.5 w-5 rounded-[3px]" />
-          {current}
-          <ChevronDown
-            size={14}
-            strokeWidth={2}
-            aria-hidden="true"
-            className={`transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
-          />
-        </button>
-      )}
+      header={<p className="lp-caption px-3 pb-1 pt-2">{t('nav.language')}</p>}
+      renderTrigger={(triggerProps) =>
+        variant === 'compact' ? (
+          <button
+            type="button"
+            className={`flex h-10 items-center gap-1.5 rounded-full border px-3 text-[0.8125rem] font-semibold uppercase text-ihle-blue transition-colors ${
+              open ? 'border-ihle-blue bg-ihle-blue/5' : 'border-ihle-blue/25 hover:border-ihle-blue'
+            }`}
+            aria-label={`${t('nav.language')}: ${currentName}`}
+            {...triggerProps}
+          >
+            <Flag code={current} className="h-3.5 w-5 rounded-[3px]" />
+            {current}
+            {chevron}
+          </button>
+        ) : (
+          <button
+            type="button"
+            className={`lp-lang-pill ${open ? 'is-open' : ''}`}
+            aria-label={`${t('nav.language')}: ${currentName}`}
+            {...triggerProps}
+          >
+            <Globe size={15} strokeWidth={1.75} aria-hidden="true" />
+            <Flag code={current} className="h-3.5 w-5 rounded-[3px]" />
+            <span>{currentName}</span>
+            {chevron}
+          </button>
+        )
+      }
     />
   )
 }
@@ -130,7 +153,7 @@ export default function LandingHeader() {
   const location = useLocation()
   const { isLoggedIn } = useAuth()
   const { y, direction } = useScrollPosition()
-  const [openMenu, setOpenMenu] = useState(null) // 'products' | 'search' | 'language' | 'account' | 'user' | 'mobile' | null
+  const [openMenu, setOpenMenu] = useState(null) // 'products' | 'search' | 'searchTablet' | 'language' | 'languageMobile' | 'account' | 'user' | 'mobile' | null
   const headerRef = useRef(null)
   const toggleRef = useRef(null)
   const scrolled = y > SCROLLED_AFTER
@@ -253,9 +276,13 @@ export default function LandingHeader() {
             {/* Phones and tablets: search (tablet), cart, account and the menu button on the right */}
             <div className="ml-auto flex items-center gap-1 lg:hidden">
               <div className="hidden md:block">
-                <SearchBar {...menu('search')} />
+                {/* own open state, like the language button: the desktop search is hidden here but still on the page */}
+                <SearchBar {...menu('searchTablet')} />
               </div>
               {showCart && <CartIcon />}
+              {/* own open state: the top-bar menu is hidden here but still on the page, and two menus sharing one
+                  state close each other as soon as a language is pressed */}
+              <LanguageMenu {...menu('languageMobile')} variant="compact" />
               <UserMenu {...menu('user')} />
               <MenuToggle
                 ref={toggleRef}

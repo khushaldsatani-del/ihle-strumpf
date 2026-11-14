@@ -11,9 +11,12 @@ import { XMLParser, XMLValidator } from 'fast-xml-parser'
 //   Farbe: schwarz                          ← colour name (NAV sends only the code in the attributes)
 //   (PAAR)                                  ← unit
 //
-// Since October 2026 each item may also carry <Translations>: per NAV language code (DEU, ENU, FRA, ESP, …)
-// a <Description> (name, often with the colour: "ABS Sock Frottee, black") and a <Description2> (short text).
-// German stays as read from <Name>: NAV cuts the German Description off at 30 characters.
+// Since October 2026 each item may also carry <Translations>: per NAV language code (DEU, ENU, FRA, ESP, ITA,
+// RUS, CSY, SVE, …) a <Description> (name, often with the colour: "ABS Sock Frottee, black") and a <Description2>
+// (short text). German name and short text stay as read from <Name>: NAV cuts the German Description off at 30
+// characters. Since November 2026 a translation can also hold four product details: <Material>, <Application>
+// (what it is used for), <Circumference> ("Umfang: bis 40 cm") and <Remark>. These are kept for every language,
+// German included (translations.de), and the shop shows German wherever a language has none.
 
 // Elements that can repeat are always arrays, even when a file has only one
 const ARRAYS = new Set([
@@ -77,11 +80,12 @@ function mostCommon(values) {
   return [...counts.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] || ''
 }
 
-// NAV language codes → the shop's language codes. German is not taken from here (see above).
-const NAV_LANGUAGES = { ENU: 'en', ENG: 'en', FRA: 'fr', ESP: 'es', ITA: 'it', NLD: 'nl', SVE: 'sv', RUS: 'ru', DAN: 'da', NOR: 'no', PLK: 'pl', CSY: 'cs' }
+// NAV language codes → the shop's language codes
+const NAV_LANGUAGES = { DEU: 'de', ENU: 'en', ENG: 'en', FRA: 'fr', ESP: 'es', ITA: 'it', NLD: 'nl', SVE: 'sv', RUS: 'ru', DAN: 'da', NOR: 'no', PLK: 'pl', CSY: 'cs' }
+// German ("de") only brings the product details; its name and short text are read from <Name> (see above)
 export const shopLanguage = (navCode) => {
   const code = text(navCode).toUpperCase()
-  if (!code || code === 'DEU') return null
+  if (!code) return null
   return NAV_LANGUAGES[code] || code.toLowerCase()
 }
 
@@ -92,12 +96,38 @@ function commonName(values) {
   return commonDescription(names) || mostCommon(names)
 }
 
-// { en: { name, description }, fr: { … } } for one article; languages without a name are left out
+// The four product details a translation can carry (NAV element → key in translations)
+const DETAILS = { Material: 'material', Application: 'application', Circumference: 'circumference', Remark: 'remark' }
+
+// A detail that is really a translation: not empty, not just a number (NAV sometimes has "45" in a text field) and,
+// for other languages, not simply the German text copied over (then the shop shows German anyway)
+const usableDetail = (value, german) => Boolean(value) && !/^[\d\s.,%]+$/.test(value) && value !== german
+
+// { de: { material, … }, en: { name, description, material, application, circumference, remark }, fr: { … } }
+// for one article. German has only the details (its name and short text come from <Name>). Languages with
+// nothing usable are left out; empty fields are not stored.
 function articleTranslations(byLanguage) {
   const result = {}
-  for (const [language, { names, descriptions }] of byLanguage) {
+  const germanDetails = {}
+  for (const [field, key] of Object.entries(DETAILS)) {
+    const value = mostCommon(byLanguage.get('de')?.details[field] || [])
+    if (usableDetail(value)) germanDetails[key] = value
+  }
+  if (Object.keys(germanDetails).length) result.de = germanDetails
+
+  for (const [language, { names, descriptions, details }] of byLanguage) {
+    if (language === 'de') continue
+    const entry = {}
     const name = commonName(names)
-    if (name) result[language] = { name, description: commonDescription(descriptions) }
+    if (name) {
+      entry.name = name
+      entry.description = commonDescription(descriptions)
+    }
+    for (const [field, key] of Object.entries(DETAILS)) {
+      const value = mostCommon(details[field] || [])
+      if (usableDetail(value, germanDetails[key])) entry[key] = value
+    }
+    if (Object.keys(entry).length) result[language] = entry
   }
   return result
 }
@@ -140,9 +170,16 @@ function parseItems(items) {
     for (const translation of item.Translations?.Translation || []) {
       const language = shopLanguage(translation.languageCode)
       if (!language) continue
-      if (!article.languages.has(language)) article.languages.set(language, { names: [], descriptions: [] })
-      article.languages.get(language).names.push(text(translation.Description))
-      article.languages.get(language).descriptions.push(text(translation.Description2))
+      if (!article.languages.has(language)) article.languages.set(language, { names: [], descriptions: [], details: {} })
+      const entry = article.languages.get(language)
+      if (language !== 'de') {
+        entry.names.push(text(translation.Description))
+        entry.descriptions.push(text(translation.Description2))
+      }
+      for (const field of Object.keys(DETAILS)) {
+        const value = text(translation[field])
+        if (value) (entry.details[field] ||= []).push(value)
+      }
     }
     for (const picture of item.Pictures?.Picture || []) {
       const file = text(picture)

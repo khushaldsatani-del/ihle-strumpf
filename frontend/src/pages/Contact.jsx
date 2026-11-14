@@ -15,12 +15,13 @@ const FAX = '+49 37369 846919'
 const EMAIL = 'info@ihle-strumpf.de'
 const OUTLET = { lat: 50.6759, lon: 13.1168 }
 
-// Field staff per region (region name: contact.<key>)
+// Field staff, in Ihle's order. role: an extra line under the name (text: contact.<role>)
 const STAFF = [
-  { key: 'south', phone: '037369 84690' },
-  { key: 'west', name: 'Irene Dick', phone: '0151 26524730' },
-  { key: 'southwest', phone: '037369 84690' },
-  { key: 'east', name: 'Margret Neumann', phone: '0172 6916989' },
+  { name: 'Irene Dick', phone: '0151 26524730' },
+  { name: 'Margret Neumann', phone: '0172 6916989' },
+  { name: 'Florian Humpisch', phone: '0176 21467625' },
+  { name: 'Falk Krähmer', phone: '0151 50812404' },
+  { name: 'Dana Aubry', role: 'international', phone: '0171 1137750' },
 ]
 
 // "0151 26524730" or "+49 37369 84690" -> "tel:+4915126524730"
@@ -43,7 +44,7 @@ function Row({ icon: Icon, label, children }) {
 }
 
 // Contact page: the claim, then the contact card (address, phone, fax, e-mail), the factory-outlet hours with the
-// current notice, and the map; below, the field staff per region.
+// current notice, and the map; below, the field staff with their mobile numbers.
 export default function Contact() {
   const { t } = useTranslation()
 
@@ -132,16 +133,14 @@ export default function Contact() {
           <Reveal>
             <h2 className="type-section-title">{t('contact.staffTitle')}</h2>
           </Reveal>
-          <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {STAFF.map(({ key, name, phone }, index) => (
-              <Reveal as="li" key={key} delay={index * 0.06} className="flex flex-col rounded-[1.5rem] bg-ihle-mist p-6 sm:p-7">
-                <h3 className="text-lg font-medium not-italic leading-snug text-ihle-blue">{t(`contact.${key}`)}</h3>
-                {name && (
-                  <p className="mt-3 flex items-center gap-2 text-base text-ihle-blue">
-                    <UserRound size={17} strokeWidth={1.75} aria-hidden="true" className="text-ihle-accent" />
-                    {name}
-                  </p>
-                )}
+          <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+            {STAFF.map(({ name, role, phone }, index) => (
+              <Reveal as="li" key={name} delay={index * 0.06} className="flex flex-col rounded-[1.5rem] bg-ihle-mist p-6 sm:p-7">
+                <span className="grid size-11 place-items-center rounded-full bg-white text-ihle-accent">
+                  <UserRound size={20} strokeWidth={1.75} aria-hidden="true" />
+                </span>
+                <h3 className="mt-4 text-lg font-medium not-italic leading-snug text-ihle-blue">{name}</h3>
+                {role && <p className="type-small mt-1">{t(`contact.${role}`)}</p>}
                 <a href={telHref(phone)} className="contact-link mt-auto flex items-center gap-2 pt-4 text-base">
                   <Phone size={17} strokeWidth={1.75} aria-hidden="true" className="text-ihle-accent" />
                   {phone}

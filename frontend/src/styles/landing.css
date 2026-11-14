@@ -219,11 +219,14 @@
     justify-content: center;
     gap: 0.6rem;
     min-height: 3.0625rem;
-    padding: 0 1.75rem;
+    padding: 0.6rem 1.75rem;
     border-radius: 9999px;
+    max-width: 100%;
     font-size: 1rem;
     font-weight: 500;
-    white-space: nowrap;
+    /* one line where it fits; on very narrow screens the label wraps instead of running out of the screen */
+    text-align: center;
+    text-wrap: balance;
     color: var(--color-ihle-blue);
     cursor: pointer;
     transition:
@@ -871,4 +874,274 @@ li:hover > .fibre-swatch {
     padding: 0 0.6rem;
     font-size: 0.9375rem;
   }
+
+  /* the first link's text stays on the page edge (the hero text lines up with it) */
+  .lp-header li:first-child > .nav-link {
+    margin-left: -0.6rem;
+  }
 }
+
+/* Icons (lucide) are drawn with pixel sizes (size={18} -> width="18"). These rules turn every size into rem, so
+   icons grow and shrink with the rest of the site (see the responsive scale in global.css). */
+svg.lucide[width="10"] {
+  width: 0.625rem;
+  height: 0.625rem;
+}
+svg.lucide[width="11"] {
+  width: 0.6875rem;
+  height: 0.6875rem;
+}
+svg.lucide[width="12"] {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+svg.lucide[width="13"] {
+  width: 0.8125rem;
+  height: 0.8125rem;
+}
+svg.lucide[width="14"] {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+svg.lucide[width="15"] {
+  width: 0.9375rem;
+  height: 0.9375rem;
+}
+svg.lucide[width="16"] {
+  width: 1rem;
+  height: 1rem;
+}
+svg.lucide[width="17"] {
+  width: 1.0625rem;
+  height: 1.0625rem;
+}
+svg.lucide[width="18"] {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+svg.lucide[width="19"] {
+  width: 1.1875rem;
+  height: 1.1875rem;
+}
+svg.lucide[width="20"] {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+svg.lucide[width="21"] {
+  width: 1.3125rem;
+  height: 1.3125rem;
+}
+svg.lucide[width="22"] {
+  width: 1.375rem;
+  height: 1.375rem;
+}
+svg.lucide[width="23"] {
+  width: 1.4375rem;
+  height: 1.4375rem;
+}
+svg.lucide[width="24"] {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+svg.lucide[width="25"] {
+  width: 1.5625rem;
+  height: 1.5625rem;
+}
+svg.lucide[width="26"] {
+  width: 1.625rem;
+  height: 1.625rem;
+}
+svg.lucide[width="27"] {
+  width: 1.6875rem;
+  height: 1.6875rem;
+}
+svg.lucide[width="28"] {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+svg.lucide[width="29"] {
+  width: 1.8125rem;
+  height: 1.8125rem;
+}
+svg.lucide[width="30"] {
+  width: 1.875rem;
+  height: 1.875rem;
+}
+svg.lucide[width="31"] {
+  width: 1.9375rem;
+  height: 1.9375rem;
+}
+svg.lucide[width="32"] {
+  width: 2rem;
+  height: 2rem;
+}
+svg.lucide[width="33"] {
+  width: 2.0625rem;
+  height: 2.0625rem;
+}
+svg.lucide[width="34"] {
+  width: 2.125rem;
+  height: 2.125rem;
+}
+svg.lucide[width="35"] {
+  width: 2.1875rem;
+  height: 2.1875rem;
+}
+svg.lucide[width="36"] {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+svg.lucide[width="37"] {
+  width: 2.3125rem;
+  height: 2.3125rem;
+}
+svg.lucide[width="38"] {
+  width: 2.375rem;
+  height: 2.375rem;
+}
+svg.lucide[width="39"] {
+  width: 2.4375rem;
+  height: 2.4375rem;
+}
+svg.lucide[width="40"] {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+svg.lucide[width="41"] {
+  width: 2.5625rem;
+  height: 2.5625rem;
+}
+svg.lucide[width="42"] {
+  width: 2.625rem;
+  height: 2.625rem;
+}
+svg.lucide[width="43"] {
+  width: 2.6875rem;
+  height: 2.6875rem;
+}
+svg.lucide[width="44"] {
+  width: 2.75rem;
+  height: 2.75rem;
+}
+svg.lucide[width="45"] {
+  width: 2.8125rem;
+  height: 2.8125rem;
+}
+svg.lucide[width="46"] {
+  width: 2.875rem;
+  height: 2.875rem;
+}
+svg.lucide[width="47"] {
+  width: 2.9375rem;
+  height: 2.9375rem;
+}
+svg.lucide[width="48"] {
+  width: 3rem;
+  height: 3rem;
+}
+svg.lucide[width="49"] {
+  width: 3.0625rem;
+  height: 3.0625rem;
+}
+svg.lucide[width="50"] {
+  width: 3.125rem;
+  height: 3.125rem;
+}
+svg.lucide[width="51"] {
+  width: 3.1875rem;
+  height: 3.1875rem;
+}
+svg.lucide[width="52"] {
+  width: 3.25rem;
+  height: 3.25rem;
+}
+svg.lucide[width="53"] {
+  width: 3.3125rem;
+  height: 3.3125rem;
+}
+svg.lucide[width="54"] {
+  width: 3.375rem;
+  height: 3.375rem;
+}
+svg.lucide[width="55"] {
+  width: 3.4375rem;
+  height: 3.4375rem;
+}
+svg.lucide[width="56"] {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+svg.lucide[width="57"] {
+  width: 3.5625rem;
+  height: 3.5625rem;
+}
+svg.lucide[width="58"] {
+  width: 3.625rem;
+  height: 3.625rem;
+}
+svg.lucide[width="59"] {
+  width: 3.6875rem;
+  height: 3.6875rem;
+}
+svg.lucide[width="60"] {
+  width: 3.75rem;
+  height: 3.75rem;
+}
+svg.lucide[width="61"] {
+  width: 3.8125rem;
+  height: 3.8125rem;
+}
+svg.lucide[width="62"] {
+  width: 3.875rem;
+  height: 3.875rem;
+}
+svg.lucide[width="63"] {
+  width: 3.9375rem;
+  height: 3.9375rem;
+}
+svg.lucide[width="64"] {
+  width: 4rem;
+  height: 4rem;
+}
+
+/* Language button in the dark top bar: a light pill, so the language choice is easy to spot */
+.lp-topbar .lp-lang-pill {
+  display: inline-flex;
+  height: 1.75rem;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0 0.7rem 0 0.6rem;
+  border: 1px solid rgb(255 255 255 / 0.45);
+  border-radius: 9999px;
+  background: rgb(255 255 255 / 0.12);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #fff;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.lp-topbar .lp-lang-pill:hover,
+.lp-topbar .lp-lang-pill.is-open {
+  border-color: #fff;
+  background: #fff;
+  color: var(--color-ihle-blue);
+}
+
+/* Long words (Russian, Czech, German compounds) in big headings: hyphenated only when a word is wider than the
+   screen, as a last resort split, so a heading can never push the page wider than a phone. The language for the
+   hyphenation comes from <html lang>, which follows the chosen language. */
+h1,
+h2,
+h3,
+.type-display,
+.type-page-title,
+.type-section-title,
+.type-subtitle,
+.lp-label {
+  hyphens: auto;
+  overflow-wrap: anywhere;
+}
+

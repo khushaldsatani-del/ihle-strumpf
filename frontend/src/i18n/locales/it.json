@@ -98,7 +98,10 @@
     "images": "Foto del prodotto",
     "image": "Foto {{number}}",
     "imageSoon": "Foto in arrivo",
-    "sampleImage": "Immagine di esempio"
+    "sampleImage": "Immagine di esempio",
+    "application": "Applicazione",
+    "circumference": "Circonferenza",
+    "remark": "Nota"
   },
   "order": {
     "quantity": "Quantità",
@@ -522,7 +525,7 @@
         },
         "fine": {
           "tag": "22 maglie per pollice",
-          "title": "Classico extra fine",
+          "title": "Extra fine",
           "text": "Così ihle® chiama la versione raffinata della sua maglia classica. In Europa centrale questa qualità è preferita soprattutto dalle donne, nel Sud Europa più spesso dagli uomini."
         },
         "plush": {
@@ -844,10 +847,7 @@
     "hours": "Dal lunedì al venerdì: dalle 7:00 alle 15:00",
     "notice": "Attenzione! Fino a nuovo avviso il venerdì siamo aperti solo fino alle 13:00!",
     "staffTitle": "I nostri agenti",
-    "south": "Baviera / Baden-Württemberg",
-    "west": "Renania Settentrionale-Vestfalia / Bassa Sassonia",
-    "southwest": "Saarland / Renania-Palatinato / Assia",
-    "east": "Nuovi Länder",
-    "route": "Calcola percorso"
+    "route": "Calcola percorso",
+    "international": "Vendite internazionali"
   }
 }

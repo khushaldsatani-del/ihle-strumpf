@@ -1,0 +1,879 @@
+{
+  "common": {
+    "loading": "Načítání …",
+    "loadErrorTitle": "Teď se to nepodařilo",
+    "loadErrorText": "Data se nepodařilo načíst. Zkuste to prosím znovu.",
+    "retry": "Zkusit znovu"
+  },
+  "nav": {
+    "main": "Hlavní navigace",
+    "home": "Ihle – úvodní stránka",
+    "skip": "Přejít k obsahu",
+    "allProducts": "Všechny produkty",
+    "productCategories": "Kategorie produktů",
+    "material": "Materiál",
+    "services": "Služby",
+    "about": "O nás",
+    "search": "Hledat",
+    "searchPlaceholder": "Hledat produkt nebo číslo artiklu",
+    "closeSearch": "Zavřít hledání",
+    "language": "Jazyk",
+    "account": "Účet",
+    "login": "Přihlásit se",
+    "myOrders": "Moje objednávky",
+    "addresses": "Adresy",
+    "settings": "Nastavení",
+    "logout": "Odhlásit se",
+    "cart": "Košík",
+    "cartCount_one": "Košík, {{count}} položka",
+    "cartCount_few": "Košík, {{count}} položky",
+    "cartCount_many": "Košík, {{count}} položky",
+    "cartCount_other": "Košík, {{count}} položek",
+    "openMenu": "Otevřít menu",
+    "closeMenu": "Zavřít menu",
+    "languageHint": "Vyberte preferovaný jazyk",
+    "confirm": "Potvrdit",
+    "close": "Zavřít",
+    "viewAll": "Zobrazit vše",
+    "viewAllProducts": "Zobrazit všechny produkty",
+    "megaEmpty": "Skupiny produktů pro tuto kategorii budou brzy doplněny.",
+    "accountOf": "Účet {{name}}"
+  },
+  "categories": {
+    "all": "Všechny produkty",
+    "PROTHETIC": "Protetika a ortotika",
+    "DIABETES": "Diabetes a problémové nohy",
+    "UNDERWEAR": "Spodní prádlo",
+    "ILO": "Ponožky ilo®"
+  },
+  "groups": {
+    "101-US": "Návlek na pahýl bérce",
+    "102-US-PIN": "Návlek na pahýl bérce pro pinové systémy",
+    "103-OS": "Návlek na pahýl stehna",
+    "104-OS-PIN": "Návlek na pahýl stehna pro pinové systémy",
+    "105-ARM": "Dětský návlek / návlek na pahýl paže",
+    "106-MASS": "Na míru",
+    "107-LAM": "Laminační hadice",
+    "108-GIPS": "Ochrana sádry",
+    "109-ORTH": "Ortotický textil",
+    "201-KLAS": "Klasik",
+    "202-KOMF": "Komfort",
+    "203-STUETZ": "Podpůrná punčocha",
+    "204-HALLUX": "Hallux valgus",
+    "205-CHOPRT": "Chopart/Lisfranc"
+  },
+  "products": {
+    "sortBy": "Řadit podle:",
+    "count_one": "{{count}} produkt",
+    "count_few": "{{count}} produkty",
+    "count_many": "{{count}} produktu",
+    "count_other": "{{count}} produktů",
+    "empty": "Pro tento výběr zatím nejsou žádné produkty.",
+    "sort": {
+      "name": "Název",
+      "articleNo": "Číslo artiklu",
+      "price": "Cena",
+      "size": "Velikost"
+    },
+    "sortLoginHint": "po přihlášení",
+    "articleNo": "Č. art. {{number}}",
+    "range": "{{from}}–{{to}} z {{total}}",
+    "show": "Zobrazit:",
+    "pages": {
+      "label": "Stránky",
+      "previous": "Předchozí stránka",
+      "next": "Další stránka",
+      "page": "Stránka {{page}}"
+    },
+    "view": {
+      "label": "Zobrazení",
+      "grid": "Mřížka",
+      "list": "Seznam"
+    },
+    "loading": "Načítání produktů …",
+    "loadError": "Produkty se teď nepodařilo načíst. Zkuste to prosím později."
+  },
+  "product": {
+    "breadcrumb": "Nacházíte se zde",
+    "details": "Podrobnosti o produktu",
+    "related": "Další produkty",
+    "notFound": "Produkt nebyl nalezen",
+    "backToProducts": "Zpět na všechny produkty",
+    "images": "Obrázky produktu",
+    "image": "Obrázek {{number}}",
+    "imageSoon": "Obrázek bude brzy doplněn",
+    "sampleImage": "Ukázkový obrázek",
+    "application": "Použití",
+    "circumference": "Obvod",
+    "remark": "Poznámka"
+  },
+  "order": {
+    "quantity": "Množství",
+    "less": "Snížit množství",
+    "more": "Zvýšit množství",
+    "commission": "Komise",
+    "commissionPlaceholder": "např. jméno nebo zakázka",
+    "add": "Do košíku",
+    "added": "Přidáno",
+    "perUnit": "za {{unit}}, netto bez DPH",
+    "total": "Celkem"
+  },
+  "cart": {
+    "title": "Košík",
+    "count_one": "{{count}} položka",
+    "count_few": "{{count}} položky",
+    "count_many": "{{count}} položky",
+    "count_other": "{{count}} položek",
+    "emptyTitle": "Váš košík je prázdný",
+    "emptyText": "Přidejte produkty do košíku a připravte si objednávku.",
+    "toProducts": "Přejít na produkty",
+    "loginText": "Pro zobrazení košíku se prosím přihlaste.",
+    "remove": "Odebrat {{name}}",
+    "clear": "Vyprázdnit košík",
+    "total": "Celkem",
+    "totalNote": "Ceny netto, bez DPH a dopravy",
+    "order": "Objednat"
+  },
+  "checkout": {
+    "title": "Pokladna",
+    "progress": "Průběh vaší objednávky",
+    "continue": "Pokračovat",
+    "change": "Změnit",
+    "backToCart": "Zpět do košíku",
+    "billing": "Fakturační adresa",
+    "delivery": "Dodací adresa",
+    "shipping": "Způsob dopravy",
+    "payment": "Způsob platby",
+    "overview": "Přehled objednávky",
+    "sendHere": "Doručit na tuto adresu",
+    "sendElsewhere": "Doručit na jinou adresu",
+    "sameAsBilling": "Stejná jako fakturační adresa",
+    "shippingNote": "Náklady na dopravu jsou uvedeny na faktuře.",
+    "placeOrder": "Závazně objednat",
+    "thanksTitle": "Děkujeme za vaši objednávku",
+    "thanksText_one": "Vaše objednávka s {{count}} položkou za {{total}} (vč. DPH) byla přijata.",
+    "thanksText_few": "Vaše objednávka s {{count}} položkami za {{total}} (vč. DPH) byla přijata.",
+    "thanksText_many": "Vaše objednávka s {{count}} položkami za {{total}} (vč. DPH) byla přijata.",
+    "thanksText_other": "Vaše objednávka s {{count}} položkami za {{total}} (vč. DPH) byla přijata.",
+    "back": "Zpět",
+    "savedAddress": "Uložená dodací adresa",
+    "glsText": "Doručení balíku přes GLS.",
+    "invoice": "Faktura",
+    "receipt": "Vaše číslo dokladu",
+    "orderNumber": "Číslo vaší objednávky: {{number}}. Objednávka byla odeslána firmě Ihle.",
+    "sending": "Odesílání …",
+    "paymentMethods": {
+      "purchaseorder": "Faktura",
+      "debit": "Inkaso",
+      "VORKASSE": "Platba předem"
+    },
+    "paymentTexts": {
+      "debit": "Částka bude stržena z vašeho účtu inkasem.",
+      "VORKASSE": "Obdržíte fakturu; zboží odešleme po připsání platby."
+    },
+    "errors": {
+      "invalidItems": "Košík obsahuje neplatné řádky.",
+      "unavailableItems": "Položka ve vašem košíku již není k dispozici. Zkontrolujte prosím košík.",
+      "invalidAddress": "Zkontrolujte prosím dodací adresu.",
+      "notLoggedIn": "Vaše přihlášení vypršelo. Přihlaste se prosím znovu.",
+      "offline": "Žádné spojení se serverem. Zkuste to prosím znovu.",
+      "serverError": "Objednávku se teď nepodařilo odeslat. Zkuste to prosím znovu."
+    },
+    "deliveryNote": "Poznámka k doručení",
+    "deliveryNoteHint": "Nepovinné, např. kontaktní osoba nebo časy doručení. Zbývá {{left}} z {{max}} znaků.",
+    "eInvoice": "Elektronickou fakturu obdržíte na tuto e-mailovou adresu:",
+    "eInvoiceNoEmail": "Fakturu obdržíte jako elektronickou fakturu e-mailem."
+  },
+  "totals": {
+    "goods": "Hodnota zboží",
+    "discount": "Online sleva",
+    "net": "Celkem bez DPH",
+    "vat": "DPH ({{rate}} %)",
+    "gross": "Celkem vč. DPH"
+  },
+  "filters": {
+    "title": "Filtr",
+    "resetAll": "Zrušit vše",
+    "reset": "Zrušit",
+    "close": "Zavřít filtr",
+    "showResults_one": "Zobrazit {{count}} produkt",
+    "showResults_few": "Zobrazit {{count}} produkty",
+    "showResults_many": "Zobrazit {{count}} produktu",
+    "showResults_other": "Zobrazit {{count}} produktů",
+    "active": "Aktivní filtry",
+    "remove": "Odebrat {{name}}",
+    "activeCount_one": "aktivní filtr",
+    "activeCount_few": "aktivní filtry",
+    "activeCount_many": "aktivního filtru",
+    "activeCount_other": "aktivních filtrů",
+    "category": "Kategorie",
+    "allCategories": "Všechny kategorie",
+    "group": "Skupina produktů",
+    "color": "Barva",
+    "size": "Velikost",
+    "material": "Materiál",
+    "unit": "Jednotka",
+    "materials": {
+      "cotton": "Bavlna",
+      "polyamide": "Polyamid/nylon",
+      "elastane": "Elastan",
+      "wool": "Vlna",
+      "silver": "Stříbrné vlákno",
+      "polyester": "Polyester",
+      "lyocell": "Lyocell"
+    },
+    "units": {
+      "PAAR": "Pár",
+      "STUECK": "Kus",
+      "STÜCK": "Kus",
+      "PACK": "Balení",
+      "10PACK": "Balení po 10",
+      "100PACK": "Balení po 100",
+      "1000PACK": "Balení po 1000",
+      "ROLLE": "Role",
+      "KILO": "Kilo",
+      "KG": "kg"
+    }
+  },
+  "pages": {
+    "products": "Produkty",
+    "material": "Materiál",
+    "services": "Služby",
+    "about": "O nás",
+    "search": "Hledat",
+    "searchFor": "Výsledky pro „{{query}}“",
+    "login": "Přihlásit se",
+    "cart": "Košík",
+    "notFound": "Stránka nebyla nalezena",
+    "backHome": "Zpět na úvodní stránku"
+  },
+  "login": {
+    "eyebrow": "Specializovaní prodejci",
+    "title": "Registrovaní zákazníci",
+    "intro": "Přihlaste se prosím svým zákaznickým číslem.",
+    "customerNumber": "Zákaznické číslo",
+    "password": "Heslo",
+    "showPassword": "Zobrazit heslo",
+    "hidePassword": "Skrýt heslo",
+    "passwordHint": "S dotazy k heslu se na nás prosím obraťte telefonicky:",
+    "required": "Povinná pole",
+    "error": "Zákaznické číslo nebo heslo není správné. Zkontrolujte prosím zadané údaje.",
+    "loggedInAs": "Jste přihlášeni jako",
+    "toProducts": "Přejít na produkty"
+  },
+  "home": {
+    "hero": {
+      "titleLine1": "Každá cesta.",
+      "titleLine2": "Jedno dokonalé padnutí.",
+      "badge": "BEZEŠVÉ PLETENÍ • ZDRAVOTNICKÉ PLETENINY • ",
+      "cta": "Prohlédnout sortiment"
+    },
+    "highlights": {
+      "title": "Highlights",
+      "previous": "Předchozí produkty",
+      "next": "Další produkty",
+      "items": {
+        "40012_053": {
+          "name": "Klasické žebrované ponožky",
+          "description": "Jemná žebrovaná struktura s hladkou, ručně kettlovanou špičkou a lemem bez gumy."
+        },
+        "40012_058": {
+          "name": "Ušlechtilé žebrované ponožky",
+          "description": "Elegantní žebrovaný úplet s pohodlným střihem a téměř neviditelně kettlovaným zakončením."
+        },
+        "40013_001": {
+          "name": "Prémiové vlněné ponožky",
+          "description": "Měkká vlna s čistou siluetou a lemem bez gumy."
+        },
+        "40015_013": {
+          "name": "Luxusní ponožky z jemného úpletu",
+          "description": "Jemný úplet se stříbřenou nití a ušlechtilou úpravou."
+        },
+        "40012_004": {
+          "name": "Přírodní žebrované ponožky",
+          "description": "Žebrovaná noha v teplé béžové s ručně kettlovanou špičkou a lemem bez gumy."
+        },
+        "40011_021": {
+          "name": "Měkké komfortní ponožky",
+          "description": "Hladký jemný úplet v přírodní bílé s jemným lemem bez gumy."
+        },
+        "40002_059": {
+          "name": "Stříbrné klasické ponožky",
+          "description": "Klasický úplet v šedém melíru se stříbřenou nití a čistým zakončením."
+        },
+        "40002_053": {
+          "name": "Stříbrné komfortní ponožky",
+          "description": "Úplet v modrém melíru se stříbřenou nití a měkkým, hladkým omakem."
+        }
+      }
+    },
+    "ranges": {
+      "title": "Naše oblasti",
+      "tabsLabel": "Oblasti produktů",
+      "linesLabel": "Produktové řady",
+      "cta": "Zobrazit produkty",
+      "items": {
+        "DIABETES": {
+          "tagline": "Ochrana na každém kroku",
+          "blocks": [
+            {
+              "title": "Ochrana na každém kroku.",
+              "text": "Prostě příjemné na nohou: diabetické ponožky ihle® doplňují vaši ortopedickou obuv. Zdravotnický úplet působí jako druhá kůže. Dokonale padne, a přesto nabízí dostatek volnosti pohybu a místa pro prsty. Speciálně vyvinutý lem a pečlivě vybrané materiály zabraňují otlakům, zánětům a poraněním."
+            },
+            {
+              "title": "Pohodlí při chůzi v barvách.",
+              "text": "K čemu je obuv na míru, když se ponožka krabatí? ihle® vybízí pacienty i ortopedické obuvníky, aby při ortopedickém ošetření mysleli i za hranice samotné obuvi. Proto diabetické ponožky ihle® nemají ani rušivý šev, ani jiná škrtící místa."
+            }
+          ],
+          "lines": [
+            "Klasik",
+            "Poloplyš",
+            "Plný plyš",
+            "Kompresní punčochy",
+            "Extra široké",
+            "Stříbro",
+            "Dětské"
+          ],
+          "listTitle": "Naše produkty jsou k dispozici",
+          "list": [
+            "v různých materiálech",
+            "v široké nabídce barev",
+            "v různých střizích (od úzkých po lymfedém)",
+            "jako ponožky po amputaci přední části nohy (Lisfranc, Chopart, Pirogoff)"
+          ]
+        },
+        "UNDERWEAR": {
+          "tagline": "Lepší vnímání těla v korzetu",
+          "blocks": [
+            {
+              "title": "Lepší vnímání těla. Vyšší ochota nosit oblečení.",
+              "text": "Šetrné a ochranné pro pokožku: korzetová trička ihle® byla vyvinuta jako nezbytná součást konzervativní léčby skoliózy. Zdravotnický úplet sedí jako ulitý, bez rušivých záhybů a dráždivých švů. Doplňují léčbu korzetem a zmírňují trápení často velmi mladých pacientů."
+            },
+            {
+              "title": "Módní a funkční prádlo.",
+              "text": "Skolióza, léčba korzetem a dospívání: tato kombinace se často zvládá těžko. Proto jsme naše produkty přizpůsobili životnímu stylu dospívajících. Ať úzká ramínka nebo off-shoulder, krátký nebo dlouhý rukáv, lodičkový výstřih, výstřih do V nebo kulatý: korzetová trička ihle® jsou k dispozici v různých provedeních i na míru. Kvalitní směs vláken přiléhá k tělu a pohybuje se s vámi."
+            }
+          ],
+          "lines": [],
+          "listTitle": "Záruka kvality ihle®",
+          "list": [
+            "odolné materiály",
+            "mimořádně pružné",
+            "prodyšná vlákna",
+            "lze prát na 60 stupňů",
+            "vhodné do sušičky"
+          ]
+        },
+        "PROTHETIC": {
+          "tagline": "V pohybu bez otlaků",
+          "blocks": [
+            {
+              "title": "V pohybu bez otlaků.",
+              "text": "Ať po amputaci, nebo během rehabilitace: s předepsanou protézou či ortézou přichází i cíl léčby. Pacient má znovu stát nebo být co nejaktivnější, a to bez bolesti. Pro tyto kvalitní pomůcky a ošetření pahýlů vyrábí ihle® ochranné spodní textilie: zdravotnické úplety pro citlivé části těla."
+            },
+            {
+              "title": "Na míru. Ihned k dispozici ze skladu.",
+              "text": "Ať jde o jakýkoli druh ortopedické pomůcky, produkty ihle® přesvědčí střihem, funkcí a kvalitou. Výrazně zvyšují pohodlí při nošení. Roste přijetí protézy či ortézy i požadovaný léčebný účinek. Děláme pro to maximum: materiály šetrné k pokožce, kvalitní příze a bohaté textilní know-how."
+            }
+          ],
+          "lines": [
+            "Návleky na bérec",
+            "Návleky na pahýl bérce pro pinové systémy",
+            "Návleky na stehno",
+            "Návleky na stehno pro pinové systémy",
+            "Dětské návleky / návleky na paži",
+            "Laminační hadice / trikotová hadice",
+            "Ortotický textil"
+          ],
+          "listTitle": "",
+          "list": []
+        },
+        "ILO": {
+          "tagline": "Společník doma i venku",
+          "blocks": [
+            {
+              "title": "Společník doma i venku.",
+              "text": "Funkční ponožky a punčochy se prosadily v práci i ve volném čase. Lidé oceňují bezvadné padnutí, příjemný pocit a výborné klima pro nohy. Z potenciálu zdravotnických úpletů vyvinula ihle® ponožky pro každý den, které zvládnou téměř vše. Ať porada, horská túra nebo taneční kurz: nic neškrtí ani neklouže, jen čisté pohodlí."
+            },
+            {
+              "title": "Sbohem, zpocené nohy.",
+              "text": "Vlhkost ven, teplo dovnitř: angora, froté a čistá střižní vlna zaručují pohodlí od lýtka po špičku. Všechny produkty ilo® hýčkají vaše nohy a skvěle vypadají v teniskách, společenské obuvi, běžeckých botách i turistické obuvi. Odolné, chytré materiály a speciálně pletený žebrový lem vydrží i mnoho praní. Na to dáváme slovo!"
+            }
+          ],
+          "lines": [
+            "Klasik",
+            "Komfort",
+            "Sport",
+            "Polštáře a pyžama"
+          ],
+          "listTitle": "",
+          "list": []
+        }
+      }
+    },
+    "shapes": {
+      "title": "Tvary ponožek",
+      "banner": {
+        "titleLine1": "Ponožka a bota –",
+        "titleLine2": "dokonalá kombinace",
+        "text": "V zimě teplo, v létě pohodlí a hygiena: se stoupající teplotou se mění i výběr ponožek. ihle® tomu přizpůsobila svůj sortiment a vyrábí ponožky ve třech provedeních."
+      },
+      "items": {
+        "short": {
+          "title": "Krátká ponožka",
+          "text": "Univerzál pro každé roční období: noha dává ponožce tvar i jméno. U krátké ponožky sahá asi 10 cm nad kotník, nejvýše do poloviny lýtka. Lem může být poutkový bez gumy nebo žebrový (s gumou nebo bez ní)."
+        },
+        "footlet": {
+          "title": "Nízká ponožka",
+          "text": "Letní varianta ponožky zakrývá hlavně prsty a patu. Nízká ponožka končí těsně nad nebo pod kotníkem. Lidem s diabetem proto doporučujeme delší varianty našich ponožek."
+        },
+        "knee": {
+          "title": "Podkolenka",
+          "text": "Klasika pro zimu nebo vysokou obuv: punčocha končí pod kolenem. Široký lem drží bezpečně a neškrtí. I zde jsou k dispozici lemy s gumou i bez ní."
+        }
+      }
+    },
+    "colors": {
+      "title": "Barvy",
+      "subtitleLine1": "Spektrum",
+      "subtitleLine2": "pohodlí a charakteru",
+      "text": "Boty jsou stále barevnější. Od jemných přírodních tónů po výrazné barvy spojuje ihle® textilní know-how s moderním barevným designem.",
+      "cta": "Objevte naše kolekce",
+      "names": {
+        "black": "Černá",
+        "marine": "Námořnická modrá",
+        "gray": "Šedá",
+        "anthracite": "Antracit",
+        "graphite": "Grafit",
+        "brown": "Hnědá",
+        "white": "Bílá",
+        "silver": "Stříbrná",
+        "beige": "Béžová",
+        "nature": "Přírodní",
+        "pearl": "Perlová",
+        "beigeMottled": "Béžový melír",
+        "denimBlueMelange": "Denim modrý melír",
+        "lightGreyMelange": "Světle šedý melír",
+        "darkGreyMelange": "Tmavě šedý melír",
+        "yellow": "Žlutá",
+        "red": "Červená",
+        "green": "Zelená",
+        "pink": "Růžová",
+        "purple": "Fialová",
+        "turquoise": "Tyrkysová",
+        "royalBlue": "Královská modrá"
+      }
+    },
+    "dealers": {
+      "titleLine1": "Najděte",
+      "titleHighlight": "specializovaného prodejce",
+      "titleRest": "ve vašem okolí",
+      "text": "Jste soukromý zákazník a chcete si koupit produkt ihle®? Naše zdravotnické úplety, ponožky a prádlo jsou k dostání výhradně u specializovaných prodejců. Obraťte se prosím přímo na svého prodejce nebo na prodejnu zdravotnických potřeb ve vašem okolí.",
+      "placeholder": "Zadejte PSČ nebo obec",
+      "button": "Najít prodejce",
+      "notFound": "Toto místo jsme nenašli. Zkontrolujte prosím zadání.",
+      "error": "Hledání teď není k dispozici. Zkuste to prosím později.",
+      "mapLabel": "Mapa"
+    }
+  },
+  "material": {
+    "hero": {
+      "eyebrow": "Materiál",
+      "titleLine1": "Materiály za",
+      "titleLine2": "každou ponožkou ihle®.",
+      "text": "Pečlivě vybrané příze z bavlny, vlny a funkčních vláken – pro pohodlí při nošení, odolnost a spolehlivou funkci.",
+      "cta": "Prohlédnout sortiment",
+      "imageAlt": "Cívky příze v přírodní bílé, zelené a rezavé vedle pletené deky",
+      "secondary": "Zobrazit úplety",
+      "facts": {
+        "fibres": "Druhy vláken",
+        "cuffs": "Druhy lemů"
+      }
+    },
+    "intro": {
+      "eyebrow": "Naše materiály",
+      "titleLine1": "Přírodní vlákna.",
+      "titleLine2": "Moderní pohodlí.",
+      "text": "Ve firmě ihle® spojujeme pečlivě vybraná přírodní a funkční vlákna s moderní pletařskou technologií. Vznikají tak ponožky a zdravotnické úplety s trvalým pohodlím, dokonalým střihem a spolehlivou kvalitou – pro každé roční období a každou potřebu.",
+      "fibresLabel": "Vlákna, se kterými pracujeme",
+      "fibres": {
+        "cotton": "Bavlna",
+        "wool": "Střižní vlna",
+        "polyamide": "Polyamid",
+        "elastane": "Elastan",
+        "silver": "Stříbrné vlákno"
+      },
+      "features": {
+        "fibres": {
+          "title": "Pečlivě vybraná vlákna",
+          "text": "Přírodní a funkční vlákna, vybraná podle účelu použití."
+        },
+        "quality": {
+          "title": "Spolehlivá kvalita",
+          "text": "Stálé zpracování, na které se specializovaní prodejci mohou spolehnout."
+        },
+        "comfort": {
+          "title": "Pohodlné na každý den",
+          "text": "Měkké, bezešvé úplety, které netlačí a neškrtí."
+        },
+        "durable": {
+          "title": "Odolné a tvarově stálé",
+          "text": "Vyrobené tak, aby si dlouho zachovaly tvar i omak."
+        }
+      }
+    },
+    "knit": {
+      "eyebrow": "Úplet",
+      "titleLine1": "Záleží",
+      "titleLine2": "na jemnosti.",
+      "text": "Pro omak a vzhled není rozhodující jen materiál, ale i jemnost. Udává, kolik jehel plete na jeden palec (2,54 cm). Běžná je jemnost 14 oček na palec, která dává klasický vzhled oček. ihle® pracuje s 6 až 36 očky na palec – vždy tak vznikne úplet, který přesně odpovídá požadavkům.",
+      "gaugeLabel": "Jemnost u ihle: 6 až 36 oček na palec. Klasická je 14, extra jemná 22.",
+      "gaugeUnit": "oček na palec",
+      "types": {
+        "smooth": {
+          "tag": "14 oček na palec",
+          "title": "Klasický hladký",
+          "text": "Tento rovnoměrný úplet střední síly je opravdový univerzál: pro každé roční období, každou příležitost, pro ženy i muže. ihle® z něj vyrábí ponožky a punčochy na každý den."
+        },
+        "fine": {
+          "tag": "22 oček na palec",
+          "title": "Extra jemný",
+          "text": "Tak ihle® nazývá zjemněnou variantu klasického úpletu. Ve střední Evropě tuto kvalitu většinou preferují ženy, v jižní Evropě častěji muži."
+        },
+        "plush": {
+          "tag": "Polstrovaný dokola",
+          "title": "Plný plyš",
+          "text": "Od špičky po lem: celé polstrované punčochy zajišťují díky froté úpletu příjemné teplo, účinné polstrování a dobrou cirkulaci vzduchu – při nejrůznějších aktivitách."
+        },
+        "semi": {
+          "tag": "Polstrovaný na prstech, chodidle a patě",
+          "title": "Poloplyš",
+          "text": "Polstrování tam, kde je potřeba: někdy stačí extra polstrování na prstech, chodidle a patě. Modely z poloplyše jsou proto ideálními společníky pro přechodné období."
+        }
+      },
+      "compare": {
+        "gauge": "Jemnost",
+        "padding": "Polstrování",
+        "none": "Žádné",
+        "full": "Dokola",
+        "partial": "Prsty, chodidlo, pata",
+        "perInch": "{{count}} oček/palec",
+        "hint": "Najeďte myší na vzorek a úplet se zvětší.",
+        "magnify": "Zobrazit úplet zvětšený"
+      }
+    },
+    "cuffs": {
+      "eyebrow": "Lemy",
+      "titleLine1": "Dokonalé padnutí,",
+      "titleLine2": "bez škrcení.",
+      "text": "Pružný, přiléhavý a vhodný na každý den – tak má úplet sedět. ihle® proto vyvinula různé lemy a zakončení, od úzkých po extra široké.",
+      "types": {
+        "loop": {
+          "title": "Poutkový lem bez gumy",
+          "text": "Tímto speciálním úpletem vychází ihle® vstříc především potřebám diabetiků. Z tohoto zakončení mají užitek i všichni, kterým škrtící guma vadí."
+        },
+        "ribLong": {
+          "title": "Žebrový lem bez gumy",
+          "text": "Tento lem je dlouhý asi 10 cm a lze jej nosit i ohrnutý."
+        },
+        "ribShort": {
+          "title": "Žebrový lem s gumou",
+          "text": "Zde jsou vpleteny 4 cm gumy. Zákazníci se zdravýma nohama většinou oceňují dodatečnou oporu. Dobré vědět: tento lem není vhodný pro diabetiky."
+        }
+      },
+      "diabetesYes": "Vyvinuto pro diabetiky",
+      "diabetesNo": "Není vhodné pro diabetiky"
+    },
+    "closing": {
+      "title": "Správný úplet pro každou potřebu.",
+      "text": "Objevte ponožky a zdravotnické úplety ihle® – nebo najděte specializovaného prodejce ve svém okolí."
+    },
+    "fibres": {
+      "title": "Materiály",
+      "question": "Bavlna, vlna nebo SENSICO®?",
+      "claim": "Kvalita na prvním místě!",
+      "text": "Aby produkty ihle® splnily, co slibují, musí projít přísnými testy. Volba materiálu se řídí výhradně potřebami nositele.",
+      "items": {
+        "cotton": {
+          "title": "Bavlna",
+          "text": "Robustní, odolná a prodyšná: bavlna dobře saje vlhkost a vydrží mnoho praní. Dobré vědět: kdo má sklon k pocení nohou, měl by sáhnout po ponožkách ze SENSICO®."
+        },
+        "wool": {
+          "title": "Střižní vlna",
+          "text": "Ideální při studených nohou: střižní vlna výborně chrání před chladem, reguluje teplotu a působí jako vzduchový polštář (dokáže pojmout až 50 % své hmotnosti vzduchu). Náš tip: tento materiál je ideální pro lidi s revmatismem."
+        },
+        "silver": {
+          "title": "Stříbro",
+          "text": "Protizánětlivé a antibakteriální: stříbro je osvědčený materiál při ošetřování ran a infekcí. ihle® využívá vlastnosti stříbrných vláken k podpoře hojení a ke snížení zápachu nohou (způsobeného bakteriemi)."
+        },
+        "sensico": {
+          "title": "SENSICO®",
+          "text": "Směs vláken pro mimořádné pohodlí: 80 % bavlny a 20 % lyocellu – to je SENSICO®. Tato kombinace bere bakteriím a nepříjemným pachům živnou půdu. Kdo se na nohou silně potí, měl by nosit ponožky ze SENSICO®."
+        },
+        "synthetic": {
+          "title": "Polyamid / polyester",
+          "text": "Nutnost pro sport: ponožky a punčochy s polyamidem/polyesterem rychle schnou, jsou extrémně odolné a tvarově stálé. Díky své struktuře odvádějí měkká syntetická vlákna vlhkost od těla. Produkty ihle® pro každý den i sport jsou k dispozici v mnoha výrazných barvách."
+        }
+      }
+    }
+  },
+  "footer": {
+    "newsletterTitle": "Zůstaňte informováni o nových produktech, materiálech a inovacích",
+    "newsletterButton": "Přihlásit se k odběru",
+    "about": "Ať diabetická obuv, korzety, ortézy nebo protézy: ihle® je přesvědčena, že ortopedická péče jde nad rámec samotné pomůcky. Na tomto základě vznikly úplety, které poskytují spolehlivou ochranu. Takto přesně padnoucí textilie zvyšují nejen pohodlí při nošení, ale zlepšují i kvalitu života a výsledky léčby.",
+    "quickLinks": "Rychlé odkazy",
+    "resources": "Zdroje",
+    "materials": "Materiály",
+    "news": "Novinky",
+    "catalog": "Katalog",
+    "jobs": "Volná místa",
+    "newsletter": "Newsletter",
+    "phone": "Tel",
+    "mail": "E-mail",
+    "address": "Adresa",
+    "contact": "Kontakt",
+    "imprint": "Tiráž",
+    "privacy": "Ochrana osobních údajů",
+    "terms": "Obchodní podmínky",
+    "hoursTitle": "Otevírací doba podnikové prodejny:",
+    "hours": "Pondělí až pátek: 7:00 až 15:00",
+    "addressArea": "Průmyslová zóna Heinzebank"
+  },
+  "addresses": {
+    "title": "Moje adresy",
+    "billing": "Fakturační adresa",
+    "deliveries": "Dodací adresy",
+    "delivery": "Dodací adresa {{number}}",
+    "deliveryCount_one": "{{count}} dodací adresa",
+    "deliveryCount_few": "{{count}} dodací adresy",
+    "deliveryCount_many": "{{count}} dodací adresy",
+    "deliveryCount_other": "{{count}} dodacích adres",
+    "noDeliveries": "K vašemu zákaznickému účtu nejsou uloženy žádné další dodací adresy. Objednávky se doručují na vaši fakturační adresu; v pokladně můžete pro jednu objednávku zadat i jinou adresu.",
+    "changeNote": "Vaše adresy přebíráme z našeho systému řízení zboží. Kvůli změnám nebo novým dodacím adresám nám prosím zavolejte:"
+  },
+  "accountOrders": {
+    "order": "Objednávka {{number}}",
+    "lines_one": "{{count}} řádek",
+    "lines_few": "{{count}} řádky",
+    "lines_many": "{{count}} řádku",
+    "lines_other": "{{count}} řádků",
+    "count_one": "{{count}} objednávka",
+    "count_few": "{{count}} objednávky",
+    "count_many": "{{count}} objednávky",
+    "count_other": "{{count}} objednávek",
+    "status": {
+      "new": "Přijato",
+      "exported": "Ve zpracování"
+    },
+    "reorder": "Objednat znovu",
+    "nothingAvailable": "Položky této objednávky momentálně nejsou v e-shopu k dispozici.",
+    "someSkipped_one": "Ostatní řádky jsou v košíku; {{count}} položka momentálně není k dispozici.",
+    "someSkipped_few": "Ostatní řádky jsou v košíku; {{count}} položky momentálně nejsou k dispozici.",
+    "someSkipped_many": "Ostatní řádky jsou v košíku; {{count}} položky momentálně nejsou k dispozici.",
+    "someSkipped_other": "Ostatní řádky jsou v košíku; {{count}} položek momentálně není k dispozici.",
+    "toCart": "Do košíku",
+    "loading": "Načítání objednávek …",
+    "loadError": "Vaše objednávky se teď nepodařilo načíst. Zkuste to prosím později.",
+    "emptyTitle": "Zatím žádné objednávky",
+    "emptyText": "Jakmile objednáte v e-shopu, najdete zde své objednávky – se všemi řádky, komisemi a cenami.",
+    "found_one": "{{count}} z {{total}} objednávek",
+    "found_few": "{{count}} z {{total}} objednávek",
+    "found_many": "{{count}} z {{total}} objednávek",
+    "found_other": "{{count}} z {{total}} objednávek",
+    "search": "Hledat",
+    "searchPlaceholder": "Č. objednávky, artikl, komise, č. dokladu …",
+    "statusLabel": "Stav",
+    "allStatuses": "Vše",
+    "period": "Období",
+    "periods": {
+      "30": "Posledních 30 dní",
+      "90": "Poslední 3 měsíce",
+      "365": "Posledních 12 měsíců",
+      "all": "Celé období"
+    },
+    "noMatchTitle": "Žádná odpovídající objednávka",
+    "noMatchText": "Změňte hledání nebo filtry.",
+    "resetFilter": "Zrušit hledání a filtry",
+    "showMore": "Zobrazit další",
+    "shownOf": "Zobrazeno {{shown}} z {{total}} objednávek"
+  },
+  "settings": {
+    "title": "Nastavení",
+    "account": "Údaje účtu",
+    "company": "Firma",
+    "username": "Uživatelské jméno (zákaznické číslo)",
+    "email": "E-mail",
+    "noEmail": "Není uložen žádný e-mail",
+    "changeNote": "Údaje vašeho účtu pocházejí z našeho systému ERP. Kvůli změnám nám prosím zavolejte:",
+    "toAddresses": "Zobrazit adresy",
+    "password": {
+      "title": "Změnit heslo",
+      "intro": "Zvolte nové heslo pro přístup do e-shopu. Zůstanete přihlášeni.",
+      "current": "Současné heslo",
+      "new": "Nové heslo",
+      "confirm": "Zopakujte nové heslo",
+      "rules": "Alespoň {{count}} znaků.",
+      "save": "Uložit heslo",
+      "saving": "Ukládání …",
+      "saved": "Vaše heslo bylo změněno. Od teď se přihlašujte novým heslem.",
+      "errors": {
+        "wrongPassword": "Současné heslo není správné.",
+        "passwordTooShort": "Nové heslo musí mít alespoň {{count}} znaků.",
+        "mismatch": "Obě nová hesla se neshodují.",
+        "samePassword": "Nové heslo se musí lišit od současného.",
+        "tooManyAttempts": "Příliš mnoho neúspěšných pokusů. Zkuste to prosím za několik minut.",
+        "offline": "Žádné spojení se serverem. Zkuste to prosím znovu.",
+        "notLoggedIn": "Vaše relace vypršela. Přihlaste se prosím znovu.",
+        "generic": "Heslo se teď nepodařilo změnit. Zkuste to prosím znovu."
+      }
+    },
+    "site": {
+      "title": "Nastavení webu",
+      "intro": "Platí pro tento prohlížeč a projeví se okamžitě.",
+      "view": "Zobrazení produktů",
+      "pageSize": "Produktů na stránku"
+    },
+    "logout": {
+      "title": "Odhlásit se",
+      "text": "Odhlásit se na tomto zařízení. Váš košík bude vyprázdněn."
+    }
+  },
+  "search": {
+    "noResults": "Nebyly nalezeny žádné odpovídající artikly",
+    "hint": "Hledejte podle názvu nebo čísla artiklu – celé číslo (např. 40 000 001 12) otevře artikl rovnou v dané barvě a velikosti."
+  },
+  "quickOrder": {
+    "title": "Rychlá objednávka",
+    "intro": "Znáte číslo artiklu? Zadejte celé číslo s barvou a velikostí, např. 40 000 001 12.",
+    "number": "Číslo artiklu",
+    "add": "Přidat",
+    "added_one": "{{count}} × {{number}} ({{name}}) je v košíku.",
+    "added_few": "{{count}} × {{number}} ({{name}}) jsou v košíku.",
+    "added_many": "{{count}} × {{number}} ({{name}}) je v košíku.",
+    "added_other": "{{count}} × {{number}} ({{name}}) je v košíku.",
+    "incomplete": "Zadejte prosím celé číslo s barvou a velikostí, např. 40 000 001 12.",
+    "notFound": "V e-shopu není žádný artikl s číslem „{{number}}“."
+  },
+  "colors": {
+    "102": "Borůvková",
+    "103": "Kamenná",
+    "139": "Mátová",
+    "140": "Třešňová",
+    "142": "Kiwi",
+    "143": "Šeříková",
+    "144": "Pitaya",
+    "145": "Bordó",
+    "001": "Černá",
+    "002": "Námořnická modrá",
+    "003": "Šedá",
+    "004": "Béžová",
+    "005": "Antracit",
+    "007": "Grafit",
+    "008": "Hnědá",
+    "011": "Bílá",
+    "013": "Stříbrná",
+    "015": "Smržová",
+    "021": "Přírodní",
+    "025": "Perlová",
+    "027": "Chininová",
+    "038": "Žlutá",
+    "039": "Tyrkysová",
+    "040": "Červená",
+    "041": "Královská modrá",
+    "042": "Zelená",
+    "043": "Fialová",
+    "044": "Růžová",
+    "052": "Béžový melír",
+    "053": "Denim modrý melír",
+    "058": "Tmavě šedý melír",
+    "059": "Světle šedý melír"
+  },
+  "landing": {
+    "topbar": {
+      "outlet": "Podniková prodejna Po–Pá 7:00–15:00",
+      "login": "Přihlášení pro prodejce"
+    },
+    "nav": {
+      "home": "Domů",
+      "products": "Produkty",
+      "dealers": "Najít prodejce"
+    },
+    "claim": "Bezešvé zdravotnické funkční pleteniny · Made in Germany",
+    "hero": {
+      "label": "Bezešvé pletení · Zdravotnické pleteniny",
+      "text": "Zdravotnické pleteniny ihle® pro diabetes, protetiku, ortotiku a léčbu korzetem, bezešvě pletené ve Wolkensteinu, Made in Germany.",
+      "findDealer": "Najít prodejce",
+      "trust": {
+        "seamless": "Bezešvě pletené",
+        "madeIn": "Made in Germany",
+        "stock": "Skladem"
+      },
+      "alt": {
+        "pinkCrossed": "Zkřížené nohy v růžových ponožkách ihle®",
+        "prosthesis": "Protéza nohy s fialovou punčochou ihle®",
+        "wheelchair": "Osoba na vozíku v ponožkách ihle®",
+        "relaxation": "Uvolněné nohy v ponožkách ihle®"
+      },
+      "title": "Bezešvé zdravotnické funkční pleteniny.",
+      "showPhoto": "Zobrazit fotografii {{number}} z {{total}}",
+      "slides": {
+        "diabetic": "Bílé diabetické ponožky",
+        "stump-red": "Červenobílý návlek na pahýl",
+        "leg-sleeve": "Černý návlek na nohu při chůzi",
+        "sock-on": "Navlékání punčochy",
+        "thigh": "Návlek na pahýl stehna",
+        "brace": "Spodní tričko pod korzetem",
+        "stump-fit": "Nasazování návleku na pahýl",
+        "arm": "Návlek na paži pod ortézou"
+      }
+    },
+    "highlights": {
+      "label": "Z našeho sortimentu"
+    },
+    "shapes": {
+      "label": "Tvary ponožek",
+      "title": "Ponožka a bota = sedí.",
+      "alt": {
+        "footlet": "Kresba nízké ponožky",
+        "short": "Kresba krátké ponožky",
+        "knee": "Kresba podkolenky"
+      }
+    },
+    "colors": {
+      "label": "Barvy",
+      "groups": {
+        "classic": "Klasické",
+        "colourful": "Barevné"
+      },
+      "tones_one": "{{count}} odstín",
+      "tones_few": "{{count}} odstíny",
+      "tones_many": "{{count}} odstínu",
+      "tones_other": "{{count}} odstínů"
+    },
+    "dealers": {
+      "label": "Hledání prodejců",
+      "text": "Naše zdravotnické úplety, ponožky a prádlo jsou k dostání výhradně u specializovaných prodejců. Obraťte se prosím na svého prodejce nebo na prodejnu zdravotnických potřeb ve vašem okolí.",
+      "outlet": "Podniková prodejna Wolkenstein",
+      "outletLine": "Reuterweg 1 · Průmyslová zóna Heinzebank · Po–Pá 7:00–15:00",
+      "route": "Naplánovat trasu",
+      "locate": "Moje poloha",
+      "locateError": "Poloha není k dispozici"
+    },
+    "footer": {
+      "about": "ihle® je přesvědčena, že ortopedická péče jde nad rámec samotné pomůcky.",
+      "outlet": "Podniková prodejna Po–Pá 7:00–15:00",
+      "emailPlaceholder": "Vaše e-mailová adresa"
+    }
+  },
+  "contact": {
+    "phone": "Telefon",
+    "fax": "Fax",
+    "email": "E-mail",
+    "hoursTitle": "Otevírací doba podnikové prodejny",
+    "hours": "Pondělí až pátek: 7:00 až 15:00",
+    "notice": "Pozor! V pátek máme až do odvolání otevřeno jen do 13:00!",
+    "staffTitle": "Naši obchodní zástupci",
+    "route": "Naplánovat trasu",
+    "international": "Mezinárodní prodej"
+  }
+}

@@ -98,7 +98,10 @@
     "images": "Fotos del producto",
     "image": "Foto {{number}}",
     "imageSoon": "Foto próximamente",
-    "sampleImage": "Imagen de ejemplo"
+    "sampleImage": "Imagen de ejemplo",
+    "application": "Aplicación",
+    "circumference": "Circunferencia",
+    "remark": "Nota"
   },
   "order": {
     "quantity": "Cantidad",
@@ -522,7 +525,7 @@
         },
         "fine": {
           "tag": "22 puntos por pulgada",
-          "title": "Clásico extrafino",
+          "title": "Extrafino",
           "text": "Así llama ihle® a la versión refinada de su tejido clásico. En Europa central esta calidad la prefieren sobre todo las mujeres; en el sur de Europa, más a menudo los hombres."
         },
         "plush": {
@@ -844,10 +847,7 @@
     "hours": "De lunes a viernes: de 7:00 a 15:00",
     "notice": "¡Atención! Hasta nuevo aviso, los viernes solo abrimos hasta las 13:00.",
     "staffTitle": "Nuestros representantes",
-    "south": "Baviera / Baden-Wurtemberg",
-    "west": "Renania del Norte-Westfalia / Baja Sajonia",
-    "southwest": "Sarre / Renania-Palatinado / Hesse",
-    "east": "Nuevos estados federados",
-    "route": "Cómo llegar"
+    "route": "Cómo llegar",
+    "international": "Ventas internacionales"
   }
 }

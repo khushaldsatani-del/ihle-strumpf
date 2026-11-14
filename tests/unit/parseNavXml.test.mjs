@@ -33,11 +33,15 @@ describe('parseSku', () => {
 })
 
 describe('shopLanguage', () => {
-  it('maps NAV language codes to the shop codes and skips German', () => {
+  it('maps NAV language codes to the shop codes', () => {
     assert.equal(shopLanguage('ENU'), 'en')
     assert.equal(shopLanguage('FRA'), 'fr')
     assert.equal(shopLanguage('ESP'), 'es')
-    assert.equal(shopLanguage('DEU'), null)
+    assert.equal(shopLanguage('CSY'), 'cs')
+    assert.equal(shopLanguage('RUS'), 'ru')
+    assert.equal(shopLanguage('SVE'), 'sv')
+    // German brings only the product details (name and short text come from <Name>)
+    assert.equal(shopLanguage('DEU'), 'de')
     assert.equal(shopLanguage('XYZ'), 'xyz')
     assert.equal(shopLanguage(''), null)
   })
@@ -189,5 +193,59 @@ describe('broken code lists and files', () => {
   it('refuses a file with two root elements', () => {
     assert.equal(parseNavXml('<ShopProductGroup/><ShopItemCategories/>').error, 'invalidXml')
     assert.equal(parseNavXml(`${file(item('40 000 001 12'))}<Customers/>`).error, 'invalidXml')
+  })
+})
+
+// The November 2026 export: each translation can also hold Material, Application, Circumference and Remark
+const detailItem = (sku, translations) =>
+  item(sku).replace(
+    '<Blocked>',
+    `<Translations>${translations
+      .map(
+        ([code, fields]) =>
+          `<Translation languageCode="${code}">${Object.entries(fields)
+            .map(([tag, value]) => `<${tag}>${value}</${tag}>`)
+            .join('')}</Translation>`,
+      )
+      .join('')}</Translations><Blocked>`,
+  )
+
+describe('product details per language (Material, Application, Circumference, Remark)', () => {
+  const parsed = parseNavXml(
+    file(
+      detailItem('40 000 001 12', [
+        ['DEU', { Description: 'Diabetiker Socke', Material: '80 % Baumwolle', Application: 'bei diabetischem Fuß', Circumference: 'Umfang: bis 40 cm', Remark: 'geringe Volumenzunahme' }],
+        ['ENU', { Description: 'Diabetic Sock', Description2: 'loop cuff', Material: '80 % Cotton', Application: 'for diabetic feet', Circumference: 'circumference: up to 40 cm', Remark: 'little volume' }],
+        // Italian Remark is still the German text, Czech Remark is only a number: both left out (German is shown)
+        ['ITA', { Description: 'Calza diabetica', Material: '80 % Cotone', Remark: 'geringe Volumenzunahme' }],
+        ['CSY', { Description: 'Diabetická ponožka', Remark: '45' }],
+      ]),
+    ),
+  )
+  const translations = parsed.records[0].translations
+
+  it('keeps the German details under "de", without a German name', () => {
+    assert.deepEqual(translations.de, {
+      material: '80 % Baumwolle',
+      application: 'bei diabetischem Fuß',
+      circumference: 'Umfang: bis 40 cm',
+      remark: 'geringe Volumenzunahme',
+    })
+  })
+
+  it('stores name, short text and details of the other languages', () => {
+    assert.deepEqual(translations.en, {
+      name: 'Diabetic Sock',
+      description: 'loop cuff',
+      material: '80 % Cotton',
+      application: 'for diabetic feet',
+      circumference: 'circumference: up to 40 cm',
+      remark: 'little volume',
+    })
+  })
+
+  it('leaves out details that are only copied German text or a bare number', () => {
+    assert.deepEqual(translations.it, { name: 'Calza diabetica', description: '', material: '80 % Cotone' })
+    assert.deepEqual(translations.cs, { name: 'Diabetická ponožka', description: '' })
   })
 })

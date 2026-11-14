@@ -77,7 +77,11 @@ export default function ProductDetail() {
     [t('products.sort.articleNo'), showNumber(variant.sku)],
     [t('filters.category'), category && nameOf(t, category)],
     [t('filters.group'), group && nameOf(t, group)],
-    [t('filters.material'), product.material],
+    [t('filters.material'), text.detail(product, 'material')],
+    [t('product.application'), text.detail(product, 'application')],
+    // NAV writes "Umfang: bis 40 cm"; the label is already in the left column
+    [t('product.circumference'), text.detail(product, 'circumference').replace(/^[^:]{1,20}:\s*/, '')],
+    [t('product.remark'), text.detail(product, 'remark')],
     [t('filters.unit'), t(`filters.units.${product.unit}`, { defaultValue: product.unit })],
   ].filter(([, value]) => value)
 

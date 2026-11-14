@@ -7,7 +7,7 @@ import Reveal from '../landing/Reveal.jsx'
 // diabetes = what the text says about people with diabetes: true (made for them), false (not suitable), none
 const TYPES = [
   { key: 'loop', sketch: 'cuff-loop-sketch', diabetes: true },
-  { key: 'ribLong', sketch: 'cuff-rib-long-sketch' },
+  { key: 'ribLong', sketch: 'cuff-rib-tall-sketch' },
   { key: 'ribShort', sketch: 'cuff-rib-short-sketch', diabetes: false },
 ]
 

@@ -98,7 +98,10 @@
     "images": "Productfoto's",
     "image": "Foto {{number}}",
     "imageSoon": "Foto volgt",
-    "sampleImage": "Voorbeeldafbeelding"
+    "sampleImage": "Voorbeeldafbeelding",
+    "application": "Toepassing",
+    "circumference": "Omtrek",
+    "remark": "Opmerking"
   },
   "order": {
     "quantity": "Aantal",
@@ -522,7 +525,7 @@
         },
         "fine": {
           "tag": "22 steken per inch",
-          "title": "Klassiek extra fijn",
+          "title": "Extra fijn",
           "text": "Zo noemt ihle® de verfijnde versie van zijn klassieke breisel. In Midden-Europa kiezen vooral vrouwen voor deze kwaliteit, in Zuid-Europa vaker mannen."
         },
         "plush": {
@@ -844,10 +847,7 @@
     "hours": "Maandag t/m vrijdag: 7.00 tot 15.00 uur",
     "notice": "Let op! Op vrijdag zijn we tot nader bericht alleen open tot 13.00 uur!",
     "staffTitle": "Onze buitendienst",
-    "south": "Beieren / Baden-Württemberg",
-    "west": "Noordrijn-Westfalen / Nedersaksen",
-    "southwest": "Saarland / Rijnland-Palts / Hessen",
-    "east": "Nieuwe deelstaten",
-    "route": "Route plannen"
+    "route": "Route plannen",
+    "international": "Internationale verkoop"
   }
 }

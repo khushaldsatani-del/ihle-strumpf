@@ -98,7 +98,10 @@
     "images": "Produktbilder",
     "image": "Bild {{number}}",
     "imageSoon": "Bild folgt",
-    "sampleImage": "Beispielbild"
+    "sampleImage": "Beispielbild",
+    "application": "Anwendung",
+    "circumference": "Umfang",
+    "remark": "Hinweis"
   },
   "order": {
     "quantity": "Menge",
@@ -522,7 +525,7 @@
         },
         "fine": {
           "tag": "22 Maschen pro Zoll",
-          "title": "Klassisch extra fein",
+          "title": "Extra-fein",
           "text": "So nennt ihle® die verfeinerte Variante des klassischen Gestricks. In Mitteleuropa wird diese Qualität meist von Damen bevorzugt, in Südeuropa häufiger von Herren."
         },
         "plush": {
@@ -844,10 +847,7 @@
     "hours": "Montag bis Freitag: 7:00 bis 15:00 Uhr",
     "notice": "Achtung! Freitags haben wir bis auf Weiteres nur bis 13:00 Uhr geöffnet!",
     "staffTitle": "Unser Außendienst",
-    "south": "Bayern / Baden-Württemberg",
-    "west": "Nordrhein-Westfalen / Niedersachsen",
-    "southwest": "Saarland / Rheinland-Pfalz / Hessen",
-    "east": "Neue Bundesländer",
-    "route": "Route planen"
+    "route": "Route planen",
+    "international": "Internationaler Vertrieb"
   }
 }

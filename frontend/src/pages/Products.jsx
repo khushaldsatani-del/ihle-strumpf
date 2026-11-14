@@ -14,6 +14,7 @@ import { useAuth } from '../context/AuthContext.jsx'
 import { useCatalog } from '../context/CatalogContext.jsx'
 import useFilters from '../hooks/useFilters.js'
 import useMediaQuery from '../hooks/useMediaQuery.js'
+import useRootFontSize from '../hooks/useRootFontSize.js'
 import usePrices, { lowestPrice } from '../hooks/usePrices.js'
 import { filterProducts } from '../utils/filterProducts.js'
 import { productName } from '../utils/productText.js'
@@ -95,6 +96,7 @@ export default function Products() {
   const { filters, activeCount } = api
   const isDesktop = useMediaQuery('(min-width: 1024px)')
   const isTablet = useMediaQuery('(min-width: 768px)')
+  const rem = useRootFontSize()
   const sideBySide = isTablet // sidebar next to the grid; below that the panel sits above the grid
   const [sidebarOpen, setSidebarOpen] = useState(readStoredOpen)
   const sidebarRef = useRef(null)
@@ -176,8 +178,10 @@ export default function Products() {
     sideBySide && sidebarOpen ? 'lg:grid-cols-3' : 'md:grid-cols-3 lg:grid-cols-4'
   }`
 
-  const sidebarWidth = isDesktop ? 300 : 248
-  const sidebarGap = isDesktop ? 32 : 20
+  // Sidebar width in rem (18.75rem = 300px on a normal screen), turned into px for the open/close animation, so the
+  // filter column grows with the text on big screens instead of squeezing it letter by letter
+  const sidebarWidth = (isDesktop ? 18.75 : 15.5) * rem
+  const sidebarGap = (isDesktop ? 2 : 1.25) * rem
   const panel = (
     <FilterPanel
       id={panelId}
@@ -272,13 +276,13 @@ export default function Products() {
             // List view: one product per row, picture on the left
             <ul className="product-list">
               {pageItems.map((product) => (
-                <ProductCard key={product.id} product={product} layout="list" />
+                <ProductCard key={product.id} product={product} layout="list" colors={filters.color} />
               ))}
             </ul>
           ) : products.length > 0 ? (
             <ul className={gridClass}>
               {pageItems.map((product) => (
-                <ProductCard key={product.id} product={product} />
+                <ProductCard key={product.id} product={product} colors={filters.color} />
               ))}
             </ul>
           ) : (

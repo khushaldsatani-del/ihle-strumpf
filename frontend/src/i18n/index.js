@@ -4,6 +4,7 @@ import { initReactI18next } from 'react-i18next'
 import de from './locales/de.json'
 
 // Languages offered in the language switcher. Each one needs a file in ./locales and an entry in LOADERS.
+// A text missing in a language file is shown in German.
 export const LANGUAGES = [
   { code: 'de', name: 'Deutsch' },
   { code: 'en', name: 'English' },
@@ -11,6 +12,9 @@ export const LANGUAGES = [
   { code: 'it', name: 'Italiano' },
   { code: 'es', name: 'Español' },
   { code: 'nl', name: 'Nederlands' },
+  { code: 'cs', name: 'Čeština' },
+  { code: 'ru', name: 'Русский' },
+  { code: 'sv', name: 'Svenska' },
 ]
 
 // German is part of the main download; every other language is its own small file, fetched when chosen
@@ -20,6 +24,11 @@ const LOADERS = {
   it: () => import('./locales/it.json'),
   es: () => import('./locales/es.json'),
   nl: () => import('./locales/nl.json'),
+  // Czech, Russian and Swedish: product texts come from NAV; the files hold only the most visible page texts,
+  // everything else is shown in German (fallbackLng)
+  cs: () => import('./locales/cs.json'),
+  ru: () => import('./locales/ru.json'),
+  sv: () => import('./locales/sv.json'),
 }
 
 const STORAGE_KEY = 'ihle_language'

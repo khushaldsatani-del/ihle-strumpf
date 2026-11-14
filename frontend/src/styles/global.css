@@ -47,6 +47,26 @@
 
 html {
   scrollbar-gutter: stable;
+}
+
+/* Responsive scale of the whole site. Every size is in rem, so changing the root size scales the layout as one
+   piece: from 360 to 1440px the design is laid out by the breakpoints as usual; on bigger screens (1920, 2560,
+   4K) everything grows with the window, so the page keeps the proportions of a 1440px screen instead of leaving
+   wide empty margins; on very small phones (under 360px) everything shrinks a little, so nothing runs out of the
+   screen. Media queries still use the browser's default 16px, so the breakpoints don't move. */
+@media (min-width: 1440px) {
+  html {
+    font-size: calc(100vw / 90);
+  }
+}
+
+@media (max-width: 359px) {
+  html {
+    font-size: calc(100vw / 22.5);
+  }
+}
+
+html {
   /* PF Square Sans Pro has no bold italic: never let the browser fake it */
   font-synthesis: none;
 }

@@ -76,9 +76,9 @@ export default function FilterPanel({ id, api, products, resultCount, onClose, f
   return (
     <div id={id} className="filter-panel">
       <div className="flex min-h-12 items-center gap-3 pl-1">
-        <h2 className="flex-1 text-lg font-medium text-heading">{t('filters.title')}</h2>
+        <h2 className="min-w-0 flex-1 text-lg font-medium text-heading [overflow-wrap:normal]">{t('filters.title')}</h2>
         {activeCount > 0 && (
-          <button type="button" className="filter-link" onClick={reset}>
+          <button type="button" className="filter-link shrink-0 whitespace-nowrap" onClick={reset}>
             {t('filters.resetAll')}
           </button>
         )}

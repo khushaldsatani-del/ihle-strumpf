@@ -98,7 +98,10 @@
     "images": "Photos du produit",
     "image": "Photo {{number}}",
     "imageSoon": "Photo bientôt disponible",
-    "sampleImage": "Image d’exemple"
+    "sampleImage": "Image d’exemple",
+    "application": "Utilisation",
+    "circumference": "Circonférence",
+    "remark": "Remarque"
   },
   "order": {
     "quantity": "Quantité",
@@ -522,7 +525,7 @@
         },
         "fine": {
           "tag": "22 mailles par pouce",
-          "title": "Classique extra-fin",
+          "title": "Extra-fin",
           "text": "C’est ainsi que ihle® appelle la version raffinée de son tricot classique. En Europe centrale, cette qualité est surtout appréciée des femmes, en Europe du Sud plus souvent des hommes."
         },
         "plush": {
@@ -844,10 +847,7 @@
     "hours": "Du lundi au vendredi : de 7 h à 15 h",
     "notice": "Attention ! Jusqu’à nouvel ordre, nous fermons à 13 h le vendredi !",
     "staffTitle": "Nos représentants",
-    "south": "Bavière / Bade-Wurtemberg",
-    "west": "Rhénanie-du-Nord-Westphalie / Basse-Saxe",
-    "southwest": "Sarre / Rhénanie-Palatinat / Hesse",
-    "east": "Nouveaux Länder",
-    "route": "Itinéraire"
+    "route": "Itinéraire",
+    "international": "Ventes internationales"
   }
 }
